@@ -3,11 +3,11 @@ import { GwsGlobal } from "../GlobalContext";
 
 // Use this one if metadata exists (it's an older API path)
 export const useApiGetData = (
-  resource,
-  category,
-  include = "all",
-  update_interval = -1,
-  full_api_path = null
+  resource, // flight_data, gfs, gdl, fsa, command
+  category, // subcategory of the resource
+  include = "all", // values, metadata, all
+  update_interval = -1, // optional update interval in ms, -1 means no update
+  full_api_path = null // optional full API path to override the default one
 ) => {
   const { ggsAddress, isGgsConnected } = useContext(GwsGlobal);
   const [data, setData] = useState(null);

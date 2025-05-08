@@ -26,59 +26,64 @@ const responseMetadata = {
   },
   phase_prediction: {},
   location: {
-    valid: {
-      name: "Location Validity",
+    flight_location_status: {
+      name: "Location Status",
       description: "Whether the current location data is valid.",
     },
-    latitude: {
-      name: "Latitude",
-      units: "degrees",
-      description: "The latitude of the aircraft.",
-      round: 6,
+    flight_location_age_seconds: {
+      name: "Age of Flight Location",
+      units: "seconds",
+      description: "The age of the flight location data in seconds.",
     },
-    longitude: {
-      name: "Longitude",
-      units: "degrees",
-      description: "The longitude of the aircraft.",
-      round: 6,
-    },
-    altitude: {
-      name: "Altitude",
-      units: "meters",
-      description: "The altitude of the aircraft.",
-      round: 1,
-    },
-    heading: {
-      name: "Heading",
-      units: "degrees",
-      description: "The heading of the aircraft.",
-      round: 1,
-    },
-    horizontal_speed: {
-      name: "H Speed",
-      units: "m/s",
-      description: "The GPS indicated horizontal speed of the flight computer.",
-      round: 1,
-    },
-    vertical_speed: {
-      name: "V Speed",
-      units: "m/s",
-      description: "The GPS indicated vertical speed of the flight computer.",
-      round: 1,
-    },
-    gps_time: {
-      name: "GPS Time",
-      units: "hh:mm:ss",
-      description: "The time since the last update of the location data.",
-    },
-    last_update_source: {
-      name: "Last Update Source",
-      description: "The source of the last update of the location data.",
-    },
-    have_gps: {
-      name: "Have GPS",
-      description: "Whether GFS has a GPS module.",
-    },
+    // latitude: {
+    // name: "Latitude",
+    // units: "degrees",
+    // description: "The latitude of the aircraft.",
+    // round: 6,
+    // },
+    // longitude: {
+    // name: "Longitude",
+    // units: "degrees",
+    // description: "The longitude of the aircraft.",
+    // round: 6,
+    // },
+    // altitude: {
+    //   name: "Altitude",
+    //   units: "meters",
+    //   description: "The altitude of the flight computer.",
+    //   round: 1,
+    // },
+    // heading: {
+    //   name: "Heading",
+    //   units: "degrees",
+    //   description: "The heading of the flight computer.",
+    //   round: 1,
+    // },
+    // horizontal_speed: {
+    //   name: "H Speed",
+    //   units: "m/s",
+    //   description: "The GPS indicated horizontal speed of the flight computer.",
+    //   round: 1,
+    // },
+    // vertical_speed: {
+    //   name: "V Speed",
+    //   units: "m/s",
+    //   description: "The GPS indicated vertical speed of the flight computer.",
+    //   round: 1,
+    // },
+    // gps_time: {
+    // name: "GPS Time",
+    // units: "hh:mm:ss",
+    // description: "The time since the last update of the location data.",
+    // },
+    // last_update_source: {
+    //   name: "Last Update Source",
+    //   description: "The source of the last update of the location data.",
+    // },
+    // have_gps: {
+    // name: "Have GPS",
+    // description: "Whether GFS has a GPS module.",
+    // },
   },
   error_frame: {},
   extensions: {},
@@ -142,7 +147,11 @@ module.exports = class FlightDataHandler {
         return;
       }
 
-      const validCategories = ["start_mission_clock", "stop_mission_clock"];
+      const validCategories = [
+        "start_mission_clock",
+        "stop_mission_clock",
+        "set_launch_position",
+      ];
       let category = req.query.category;
       if (!validCategories.includes(category)) {
         genericResponse(res, 400, "category not found.");
@@ -159,6 +168,17 @@ module.exports = class FlightDataHandler {
         let resp_status =
           this.global_state.flight_data.mission_clock.stopClock();
         res.json({ status: resp_status });
+      } else if (category === "set_launch_position") {
+        let resp_status =
+          this.global_state.flight_data.location_data.setLaunchPosition(
+            req.body
+          );
+
+        if (resp_status === "success") {
+          res.json({ status: resp_status });
+        } else {
+          genericResponse(res, 400, resp_status);
+        }
       } else {
         // res.json(this.#getResponseBody(category));
       }

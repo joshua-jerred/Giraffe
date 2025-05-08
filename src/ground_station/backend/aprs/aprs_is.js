@@ -129,7 +129,9 @@ module.exports = class AprsIs {
 
     this.tcp_client.on("close", () => {
       log.debug("Connection to APRS-IS server closed");
-      this.connection_status = "unknown";
+      if (this.connection_status !== "error") {
+        this.connection_status = "unknown";
+      }
       this.tcp_client = null;
     });
   }

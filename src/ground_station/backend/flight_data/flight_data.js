@@ -35,24 +35,25 @@ module.exports = class FlightData {
       last_updated: new Date(),
     };
 
-    this.location = {
-      launch_position: {
-        valid: false,
-        latitude: 0,
-        longitude: 0,
-        altitude: 0,
-      },
-      have_gps: "n/d",
-      valid: "n/d",
-      latitude: 0,
-      longitude: 0,
-      altitude: 0,
-      heading: 0,
-      horizontal_speed: 0,
-      vertical_speed: 0,
-      gps_time: "n/d",
-      last_updated: "n/d",
-    };
+    /// @todo remove this, a location_data object exists now
+    // this.location = {
+    //   launch_position: {
+    //     valid: false,
+    //     latitude: 0,
+    //     longitude: 0,
+    //     altitude: 0,
+    //   },
+    //   have_gps: "n/d",
+    //   valid: "n/d",
+    //   latitude: 0,
+    //   longitude: 0,
+    //   altitude: 0,
+    //   heading: 0,
+    //   horizontal_speed: 0,
+    //   vertical_speed: 0,
+    //   gps_time: "n/d",
+    //   last_updated: "n/d",
+    // };
 
     this.extension_data = {
       last_updated: null,
@@ -66,6 +67,9 @@ module.exports = class FlightData {
         { name: "n/d", control_status: "n/d", internal_status: "n/d" },
       ],
     };
+
+    // cache the last GFS UTC timestamp string so we don't double report location packets.
+    this.gfs_tcp_last_valid_gps_frame_time = "n/d";
 
     setInterval(this.#cycle.bind(this), FLIGHT_DATA_UPDATE_INTERVAL);
   }
@@ -140,7 +144,9 @@ module.exports = class FlightData {
         MAX_CLOCK_SKEW_TCP_SECONDS
       );
       this.#updatePhasePredictions(data.phase_predictions);
-      this.location.launch_position = data.launch_position;
+
+      // this needs to be removed. gfs should get it's launch position from the ground station
+      // this.location.launch_position = data.launch_position;
       this.#updateInSimulatorMode(data.simulator_mode);
       this.#newTcpContact();
     } catch (e) {
@@ -151,15 +157,16 @@ module.exports = class FlightData {
   // ################ LOCATION DATA ################
 
   updateLocationDataFromGfsTcp(data) {
+    // this should possibly be deprecated, is there value in getting location via tcp outside of setup?
+
     // console.log("data\n\n", data);
-    console.log("todo, you need to get rid of this");
+    // console.log("todo, you need to get rid of this", data);
     try {
-      // if (data.have_gps_source) {
-      // this.location.have_gps = true;
-      // } else {
-      // this.location.have_gps = false;
-      // return;
-      // }
+      if (data.have_gps_source === false) {
+        return;
+      }
+      let loc = data.last_valid_gps_frame;
+      // console.log(loc);
 
       // let last_frame = data.last_gps_frame;
       // this.location.valid = last_frame.is_valid;
@@ -174,7 +181,7 @@ module.exports = class FlightData {
       // this.location.last_updated = new Date();
 
       this.#newTcpContact();
-      this.mission_clock.updateGfsGpsUtcTime(last_frame.gps_utc_time);
+      // this.mission_clock.updateGfsGpsUtcTime(last_frame.gps_utc_time);
     } catch (e) {
       console.log("Error updating location data from GFS TCP: ", e);
     }

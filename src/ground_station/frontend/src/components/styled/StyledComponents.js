@@ -311,14 +311,20 @@ export function InputWithLabel({
   type = "text",
   placeholder = "",
   style = {},
+  inputStyle = {},
 }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", ...style }}>
       <StyInput
         type={type}
         value={value}
-        onChange={onChange}
+        onChange={(e) => {
+          if (onChange) {
+            onChange(e);
+          }
+        }}
         placeholder={placeholder}
+        style={inputStyle}
       />
       <label
         style={{
