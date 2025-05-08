@@ -28,7 +28,7 @@ public:
 
 private:
   void processImpl() override {
-    printf("SD Card processing...\n");
+    // printf("SD Card processing...\n");
   }
 };
 

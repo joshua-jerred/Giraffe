@@ -303,3 +303,33 @@ export function SwitchWithLabel({
     </SwitchWithLabelContainer>
   );
 }
+
+export function InputWithLabel({
+  label,
+  value,
+  onChange,
+  type = "text",
+  placeholder = "",
+  style = {},
+}) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", ...style }}>
+      <StyInput
+        type={type}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+      />
+      <label
+        style={{
+          fontSize: "0.8em",
+          fontFamily: "inherit",
+          // fontWeight: "bold",
+          marginBottom: "0em",
+        }}
+      >
+        {label}
+      </label>
+    </div>
+  );
+}

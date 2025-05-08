@@ -155,6 +155,92 @@ struct NavPvt {
 
   std::string toString() const;
 
+  std::string toNmeaGPGGA() const {
+    std::string gpgll = "$GPGGA,";
+    // HHMMSS.SSS
+
+    if (gps_utc_hour < 10) {
+      gpgll += "0";
+    }
+    gpgll += std::to_string(static_cast<int>(gps_utc_hour));
+    if (gps_utc_minute < 10) {
+      gpgll += "0";
+    }
+    gpgll += std::to_string(static_cast<int>(gps_utc_minute));
+    if (gps_utc_second < 10) {
+      gpgll += "0";
+    }
+    gpgll += std::to_string(static_cast<int>(gps_utc_second));
+    gpgll += ",";
+
+    // DDMM.MMMMMM
+    gpgll += std::to_string(static_cast<int>(gps_latitude_1e7 / 1000000));
+    gpgll +=
+        std::to_string(static_cast<int>(gps_latitude_1e7 % 1000000 / 10000));
+    gpgll += ".";
+    gpgll += std::to_string(static_cast<int>(gps_latitude_1e7 % 10000 / 10));
+    gpgll +=
+        std::to_string(static_cast<int>(gps_latitude_1e7 % 10)); // Latitude
+    gpgll += (gps_latitude_1e7 >= 0) ? ",N," : ",S,";
+    // DDDMM.MMMMMM
+    uint32_t negative_multiplier = gps_longitude_1e7 < 0 ? -1 : 1;
+    gpgll += std::to_string(static_cast<int>(gps_longitude_1e7 / 1000000) *
+                            negative_multiplier);
+    gpgll +=
+        std::to_string(static_cast<int>(gps_longitude_1e7 % 1000000 / 10000) *
+                       negative_multiplier);
+    gpgll += ".";
+    gpgll += std::to_string(static_cast<int>(gps_longitude_1e7 % 10000 / 10) *
+                            negative_multiplier);
+    gpgll += std::to_string(static_cast<int>(gps_longitude_1e7 % 10) *
+                            negative_multiplier); // Longitude
+    gpgll += (gps_longitude_1e7 >= 0) ? ",E," : ",W,";
+
+    // GPS fix quality
+    gpgll += std::to_string(fix_type >= 2 ? 1 : 0); // 0 = no fix, 1 = GPS
+    gpgll += ",";
+
+    // Number of satellites in view
+    gpgll += std::to_string(gps_num_satellites_in_solution);
+    gpgll += ",";
+
+    // Horizontal dilution of precision
+    gpgll += std::to_string(gps_horz_accuracy_mm / 1000);
+    gpgll += ",";
+    // Altitude above mean sea level
+    gpgll += std::to_string(gps_altitude_msl_mm / 1000);
+    gpgll += ",M,";
+    // Height of geoid above WGS84 ellipsoid
+    gpgll += std::to_string(gps_altitude_msl_mm / 1000);
+    gpgll += ",M,";
+
+    // Time since last DGPS update and DGPS reference station ID (not used)
+    gpgll += ",";
+
+    // Checksum
+    int checksum = 0;
+    for (size_t i = 1; i < gpgll.size(); i++) {
+      checksum ^= gpgll[i];
+    }
+
+    gpgll += "*";
+    int val = checksum / 16;
+    if (val < 10) {
+      gpgll += std::to_string(val);
+    } else {
+      gpgll += 'A' + (val - 10);
+    }
+    val = checksum % 16;
+    if (val < 10) {
+      gpgll += std::to_string(val);
+    } else {
+      gpgll += 'A' + (val - 10);
+    }
+    gpgll += "\r\n";
+
+    return gpgll;
+  }
+
   double getLatitude() const {
     return (double)gps_latitude_1e7 / 1e7f;
   }

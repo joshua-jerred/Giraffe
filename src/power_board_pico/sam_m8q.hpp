@@ -28,7 +28,13 @@ static constexpr uint8_t I2C_ADDRESS = 0x42;
 
 #define I2C_PORT i2c1
 
-enum class ACK { ACK, NACK, NONE, WRITE_ERROR, READ_ERROR };
+enum class ACK {
+  ACK,
+  NACK,
+  NONE,
+  WRITE_ERROR,
+  READ_ERROR
+};
 
 class SamM8Q : public PeriodicProcessor {
 public:
@@ -61,6 +67,8 @@ public:
       printf("Requesting navigation data\n");
       requestNavData();
       displayNavPvt();
+    } else if (command == "stream") {
+      stream_enabled_ = !stream_enabled_;
     } else {
       printf("Unknown gps command: %s\n", command.c_str());
     }
@@ -83,6 +91,11 @@ private:
         nav_update_timer_.reset();
         gps_watchdog_timer_.reset();
       }
+    }
+
+    if (stream_enabled_ && stream_timer_.isExpired()) {
+      printf(nav_data_.toNmeaGPGGA().c_str());
+      stream_timer_.reset();
     }
 
     if (gps_watchdog_timer_.isExpired()) {
@@ -409,6 +422,11 @@ private:
   SoftwareTimer nav_update_timer_{800}; // @todo config
 
   SoftwareTimer gps_watchdog_timer_{3000}; // @todo config
+
+  SoftwareTimer stream_timer_{1000}; // @todo config
+
+  /// @todo disable by default in the future
+  bool stream_enabled_ = true;
 };
 
 } // namespace power_board

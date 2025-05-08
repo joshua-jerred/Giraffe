@@ -132,7 +132,7 @@ function parseWeatherData(data) {
         log.warning("Unknown weather data type:", m[1]);
     }
   }
-  console.log("--");
+  // console.log("--");
 
   return {
     ...weather_data,

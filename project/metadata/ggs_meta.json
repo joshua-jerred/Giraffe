@@ -17,21 +17,35 @@
       }
     },
     "ggs_settings": {
-      "ground_station_position_latitude": {
+      "launch_position_set": {
+        "type": "bool",
+        "name": "Launch Position Set",
+        "description": "Whether or not the launch position is set. This is used to determine if the ground station is in a valid state.",
+        "default": false
+      },
+      "launch_position_latitude": {
         "type": "float",
         "name": "Ground Station Latitude",
-        "description": "The latitude of the ground station in decimal degrees.",
+        "description": "The latitude of the launch site in decimal degrees.",
         "min": -90,
         "max": 90,
         "default": 40
       },
-      "ground_station_position_longitude": {
+      "launch_position_longitude": {
         "type": "float",
         "name": "Ground Station Longitude",
-        "description": "The longitude of the ground station in decimal degrees.",
+        "description": "The longitude of the launch site in decimal degrees.",
         "min": -180,
         "max": 180,
         "default": -100
+      },
+      "launch_position_altitude": {
+        "type": "float",
+        "name": "Ground Station Altitude",
+        "description": "The altitude of the launch site in meters.",
+        "min": 0,
+        "max": 10000,
+        "default": 100
       },
       "logging_level": {
         "name": "Logging Level",

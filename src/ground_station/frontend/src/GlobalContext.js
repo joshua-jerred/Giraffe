@@ -75,7 +75,7 @@ export const GwsGlobalContextProvider = ({ children }) => {
   const [isUplinkConnected, setIsUplinkConnected] = React.useState(false);
 
   const [flightData, setFlightData] = React.useState({});
-  const [flightSystemAgentData, setFlightSystemAgentData] = React.useState({});
+  const [inActiveFlight, setInActiveFlight] = React.useState(false);
 
   // ------ GGS Connection ------
   React.useEffect(() => {
@@ -189,6 +189,15 @@ export const GwsGlobalContextProvider = ({ children }) => {
           // console.log("Flight data", json_data);
           setFlightData(json_data.values);
 
+          if (json_data.values.hasOwnProperty("flight_phase")) {
+            const phase = json_data.values.flight_phase.toLowerCase();
+            if (phase === "ascent" || phase === "descent") {
+              setInActiveFlight(true);
+            } else {
+              setInActiveFlight(false);
+            }
+          }
+
           if (
             json_data.values.hasOwnProperty("simulator_mode") &&
             json_data.values.simulator_mode
@@ -249,6 +258,7 @@ export const GwsGlobalContextProvider = ({ children }) => {
         setUnSafeMode,
         showVerboseClock,
         setShowVerboseClock,
+        inActiveFlight,
       }}
     >
       {children}

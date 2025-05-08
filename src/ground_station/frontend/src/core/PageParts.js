@@ -174,7 +174,7 @@ export const CardRow = styled.div`
 `;
 
 const NAV_COLLAPSED_BREAKPOINTS = { 500: 1, 900: 2, 1390: 3 };
-const NAV_EXPANDED_BREAKPOINTS = { 650: 1, 1050: 2, 1640: 3 };
+const NAV_EXPANDED_BREAKPOINTS = { 650: 1, 1000: 2, 1640: 3 };
 
 export function CardMasonryLayout({ children }) {
   const { navExpanded } = useContext(GwsGlobal);

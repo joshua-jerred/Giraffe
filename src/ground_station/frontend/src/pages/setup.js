@@ -23,7 +23,7 @@ import {
   ApiRequestDropdown,
 } from "../components/api_request_button";
 import { DataBlock } from "../components/DataBlock";
-import { UseGenericGetApi } from "../api_interface/ggs_api";
+import { useGenericGetApi } from "../api_interface/ggs_api";
 import Tooltip from "../components/Tooltip";
 
 import { unixTimeToLocal } from "../core/clock_strings";
@@ -164,7 +164,7 @@ function LogItem({ level, timestamp, message, database_id }) {
 
 function GgsLog() {
   const UPDATE_INTERVAL_MS = 5000;
-  const { data, isLoading, error } = UseGenericGetApi(
+  const { data, isLoading, error } = useGenericGetApi(
     "/api/ggs/log",
     UPDATE_INTERVAL_MS
   );

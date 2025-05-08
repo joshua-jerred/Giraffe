@@ -33,7 +33,7 @@ public:
 #if PICO_STDIO_USE_USB == 1
     stdio_usb_init();
 #endif
-    uart_init(uart0, 115200);
+    uart_init(uart0, 9600);
     gpio_set_function(0, GPIO_FUNC_UART);
     gpio_set_function(1, GPIO_FUNC_UART);
 
