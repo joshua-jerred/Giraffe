@@ -47,6 +47,12 @@
         "max": 10000,
         "default": 100
       },
+      "launch_position_set_time": {
+        "type": "string",
+        "name": "Launch Position Set Time",
+        "description": "The time that the launch position was set.",
+        "default": "unknown"
+      },
       "logging_level": {
         "name": "Logging Level",
         "description": "The logging level for the ground station. Error = less logs, Debug = more logs.",

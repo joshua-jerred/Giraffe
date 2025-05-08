@@ -95,7 +95,6 @@ export default function MapMenuBar({
         active={selectingLaunchPosition}
         disabled={isRunning}
       />
-      <MapMenuButtonStyle>3</MapMenuButtonStyle>
     </MapMenuBarStyle>
   );
 }

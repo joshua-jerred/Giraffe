@@ -142,7 +142,11 @@ module.exports = class FlightDataHandler {
         return;
       }
 
-      const validCategories = ["start_mission_clock", "stop_mission_clock"];
+      const validCategories = [
+        "start_mission_clock",
+        "stop_mission_clock",
+        "set_launch_position",
+      ];
       let category = req.query.category;
       if (!validCategories.includes(category)) {
         genericResponse(res, 400, "category not found.");
@@ -159,6 +163,17 @@ module.exports = class FlightDataHandler {
         let resp_status =
           this.global_state.flight_data.mission_clock.stopClock();
         res.json({ status: resp_status });
+      } else if (category === "set_launch_position") {
+        let resp_status =
+          this.global_state.flight_data.location_data.setLaunchPosition(
+            req.body
+          );
+
+        if (resp_status === "success") {
+          res.json({ status: resp_status });
+        } else {
+          genericResponse(res, 400, resp_status);
+        }
       } else {
         // res.json(this.#getResponseBody(category));
       }

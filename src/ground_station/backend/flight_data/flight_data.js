@@ -35,6 +35,7 @@ module.exports = class FlightData {
       last_updated: new Date(),
     };
 
+    /// @todo remove this, a location_data object exists now
     this.location = {
       launch_position: {
         valid: false,

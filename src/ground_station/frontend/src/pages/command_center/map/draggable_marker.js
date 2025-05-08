@@ -8,6 +8,7 @@ export default function DraggableMarker({
   draggable,
   popupText,
   textWhenDraggable,
+  extraTooltip = null,
 }) {
   const markerRef = useRef(null);
   const eventHandlers = useMemo(
@@ -17,8 +18,8 @@ export default function DraggableMarker({
         if (marker != null) {
           setPosition({
             ...position,
-            lat: marker.getLatLng().lat,
-            lng: marker.getLatLng().lng,
+            latitude: marker.getLatLng().lat,
+            longitude: marker.getLatLng().lng,
           });
         }
       },
@@ -28,16 +29,32 @@ export default function DraggableMarker({
 
   return (
     <Marker
+      // icon={null}
       draggable={draggable}
       eventHandlers={eventHandlers}
-      position={position}
+      position={{
+        lat: position.latitude,
+        lng: position.longitude,
+      }}
+      size={[50, 200]}
       ref={markerRef}
+      interactive
+      riseOnHover
     >
+      <div
+        style={{
+          background: "red",
+          textAlign: "center",
+        }}
+      ></div>
       {draggable ? (
         <>
           <Tooltip permanent>{textWhenDraggable}</Tooltip>
           <Circle
-            center={position}
+            center={{
+              lat: position.latitude,
+              lng: position.longitude,
+            }}
             radius={100}
             pathOptions={{
               color: "black",
@@ -48,9 +65,14 @@ export default function DraggableMarker({
             }}
           />
         </>
-      ) : null}
+      ) : (
+        extraTooltip && <Tooltip permanent>{extraTooltip}</Tooltip>
+      )}
       <Circle
-        center={position}
+        center={{
+          lat: position.latitude,
+          lng: position.longitude,
+        }}
         radius={10}
         pathOptions={{
           color: "black",
@@ -61,9 +83,7 @@ export default function DraggableMarker({
           strokeWidth: 2,
         }}
       />
-      <Popup minWidth={90}>
-        <span>{popupText}</span>
-      </Popup>
+      <Popup minWidth={90}>{popupText}</Popup>
     </Marker>
   );
 }
