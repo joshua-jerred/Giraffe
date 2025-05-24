@@ -205,7 +205,8 @@ const std::unordered_map<DiagnosticId, std::string> K_DIAGNOSTIC_ID_STRING_MAP {
   {DiagnosticId::TELEMETRY_radioConfiguration,"TELEMETRY_radioConfiguration"},
   {DiagnosticId::TELEMETRY_dataLinkError,"TELEMETRY_dataLinkError"},
   {DiagnosticId::TELEMETRY_dataLinkSendError,"TELEMETRY_dataLinkSendError"},
-  {DiagnosticId::TELEMETRY_aprsTelemetryInitialization,"TELEMETRY_aprsTelemetryInitialization"}
+  {DiagnosticId::TELEMETRY_aprsTelemetryInitialization,"TELEMETRY_aprsTelemetryInitialization"},
+  {DiagnosticId::TELEMETRY_aprsOnAirTelemetryDefinitionQueue,"TELEMETRY_aprsOnAirTelemetryDefinitionQueue"}
 };
 
 

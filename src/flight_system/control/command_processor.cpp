@@ -212,13 +212,16 @@ bool parseExtensionCommand(const std::string &command_id_str,
 bool parseTelemetryModuleCommand(const std::string &command_id_str,
                                  const std::string &arg,
                                  cmd::Command &command) {
+  /// @todo this garbage can be automated code generation wise
+
   static const std::unordered_map<std::string, cmd::CommandId>
       K_COMMAND_ID_MAP = {
           {"nae", cmd::CommandId::TELEMETRY_MODULE_sendNumActiveErrors},
           {"rsi", cmd::CommandId::TELEMETRY_MODULE_sendRssi},
           {"snr", cmd::CommandId::TELEMETRY_MODULE_sendSnr},
           {"apl", cmd::CommandId::TELEMETRY_MODULE_sendAprsLocation},
-          {"stv", cmd::CommandId::TELEMETRY_MODULE_sendSstvImage}};
+          {"stv", cmd::CommandId::TELEMETRY_MODULE_sendSstvImage},
+          {"oat", cmd::CommandId::TELEMETRY_MODULE_sendOnAirDefinitionOfTelem}};
   if (!K_COMMAND_ID_MAP.contains(command_id_str)) {
     return false;
   }
@@ -230,6 +233,7 @@ bool parseTelemetryModuleCommand(const std::string &command_id_str,
   case cmd::CommandId::TELEMETRY_MODULE_sendSnr:
   case cmd::CommandId::TELEMETRY_MODULE_sendAprsLocation:
   case cmd::CommandId::TELEMETRY_MODULE_sendSstvImage:
+  case cmd::CommandId::TELEMETRY_MODULE_sendOnAirDefinitionOfTelem:
     if (arg.length() != 0) {
       return false;
     }
