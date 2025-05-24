@@ -316,7 +316,7 @@ function CommandCenterPage() {
             <DataBlock
               resource="flight_data"
               category="location"
-              filter_keys={["launch_position"]}
+              filter_keys={["launch_position", "flight_position"]}
             />
           </Card>
           <Card title="Commands">

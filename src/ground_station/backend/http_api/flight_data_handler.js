@@ -40,6 +40,12 @@ const responseMetadata = {
       units: "km",
       description: "The distance from the launch position in km.",
     },
+    flight_path_distance_km: {
+      name: "Flight Path Distance",
+      units: "km",
+      description:
+        "The cumulative distance of the flight path in km since launch.",
+    },
     // latitude: {
     // name: "Latitude",
     // units: "degrees",

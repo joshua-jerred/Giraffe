@@ -49,6 +49,7 @@ module.exports = class LocationData {
     this.flight_position = JSON.parse(JSON.stringify(LocationStructure));
 
     this.distance_from_launch_position_km = "n/d";
+    this.flight_path_distance_km = "n/d";
 
     // This one stands alone from the rest of the data, request wise.
     this.flight_path_data = [];
@@ -158,7 +159,7 @@ module.exports = class LocationData {
         valid: true,
         archived: false,
       },
-      limit: 100,
+      limit: 200,
     })
       .then((location_data) => {
         this.flight_path_data = location_data.map((data) => ({
@@ -170,7 +171,27 @@ module.exports = class LocationData {
           horizontal_speed: data.horizontal_speed,
           vertical_speed: data.vertical_speed,
           additional_data: data.additional_data,
+          valid: data.valid,
         }));
+
+        let path_distance = 0;
+        for (const position of this.flight_path_data) {
+          if (position.valid === true) {
+            if (this.flight_path_data.indexOf(position) > 0) {
+              const prev_position =
+                this.flight_path_data[
+                  this.flight_path_data.indexOf(position) - 1
+                ];
+              path_distance += distanceBetweenCoordinates(
+                prev_position.latitude,
+                prev_position.longitude,
+                position.latitude,
+                position.longitude
+              );
+            }
+          }
+        }
+        this.flight_path_distance_km = path_distance.toFixed(2);
       })
       .catch((error) => {
         console.error("Error loading flight path data:", error);
@@ -182,6 +203,7 @@ module.exports = class LocationData {
       flight_location_status: this.flight_location_status,
       flight_location_age_seconds: this.flight_location_age_seconds,
       distance_from_launch_position_km: this.distance_from_launch_position_km,
+      flight_path_distance_km: this.flight_path_distance_km,
       flight_position: this.flight_position,
       ground_station_position: this.ground_station_position,
       launch_position: this.launch_position,
