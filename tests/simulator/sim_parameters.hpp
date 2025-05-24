@@ -24,15 +24,22 @@ namespace gfs_sim {
 // -- -- -- -- -- -- -- --
 // -- -- Main Params -- --
 // all values in meters or meters per second
-inline constexpr double BURST_ALTITUDE = 3000.0; // 30000.0;
+inline constexpr double BURST_ALTITUDE = 10'000.0; // 30000.0;
 inline constexpr double ASCENT_RATE = 5.0;
-inline constexpr double DESCENT_RATE = 5.0;
+inline constexpr double DESCENT_RATE = 50.0;
 // -- -- -- -- -- -- -- --
 
 static_assert(ASCENT_RATE > 0.01, "Ascent rate must be greater than 0.01");
 static_assert(DESCENT_RATE > 0.01, "Descent rate must be greater than 0.01");
 
-enum class SimState { PRE_LAUNCH, ASCENT, POP, DESCENT, LANDING, LANDED };
+enum class SimState {
+  PRE_LAUNCH,
+  ASCENT,
+  POP,
+  DESCENT,
+  LANDING,
+  LANDED
+};
 struct SimData {
   std::atomic<double> temperature_c{0.0};
   std::atomic<double> pressure_mbar{0.0};

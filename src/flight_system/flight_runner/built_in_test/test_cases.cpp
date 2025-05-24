@@ -11,13 +11,15 @@
 /// @date       2024-12-03
 /// @copyright  2024 (license to be defined)
 
+#include "BoosterSeat/sleep.hpp"
+
 #include "test_cases.hpp"
 
 namespace bit {
 namespace test_case {
 
 TestResult runTestFCS_0001(data::SharedData &shared_data) {
-  TestResult result{.test_id = TestId::FCS_ErrorTest,
+  TestResult result{.test_id = TestId::FCS_NoErrorsTest,
                     .group_id = TestGroupId::FCS,
                     .status = TestStatus::UNKNOWN,
                     .failure_reason = ""};
@@ -31,6 +33,18 @@ TestResult runTestFCS_0001(data::SharedData &shared_data) {
   } else {
     result.status = TestStatus::PASSED;
   }
+
+  return result;
+}
+
+TestResult runTestFCS_0004(data::SharedData &shared_data) {
+  TestResult result{.test_id = TestId::FCS_FlightPhasePredictorTest,
+                    .group_id = TestGroupId::FCS,
+                    .status = TestStatus::SKIPPED,
+                    .failure_reason = ""};
+  (void)shared_data;
+  /// @todo Make sure the data module is processing data correctly/at a
+  /// reasonable rate
 
   return result;
 }

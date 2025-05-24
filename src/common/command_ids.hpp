@@ -52,6 +52,7 @@ enum class CommandId : uint16_t {
   TELEMETRY_MODULE_sendSnr=0x3002, // Send SNR
   TELEMETRY_MODULE_sendAprsLocation=0x3003, // Send APRS Location
   TELEMETRY_MODULE_sendSstvImage=0x3004, // Send SSTV Image
+  TELEMETRY_MODULE_sendOnAirDefinitionOfTelem=0x3005, // Send On Air Definition of APRS Telem
   EXTENSION_MODULE_addPreConfiguredExtension=0x4000, // Add Pre-Configured Extension
   EXTENSION_MODULE_disableExtension=0x4001, // Disable Extension
   EXTENSION_MODULE_enableExtension=0x4002, // Enabled Extensions

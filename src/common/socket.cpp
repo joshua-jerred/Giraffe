@@ -35,6 +35,8 @@ sock::TcpSocketServer::~TcpSocketServer() {
 }
 
 bool sock::TcpSocketServer::init(int port_number) {
+  close();
+
   if (!create()) {
     // std::cout << "Failed to create" << std::endl;
     return false;

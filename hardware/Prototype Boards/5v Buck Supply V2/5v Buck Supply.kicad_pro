@@ -463,7 +463,9 @@
   },
   "libraries": {
     "pinned_footprint_libs": [],
-    "pinned_symbol_libs": []
+    "pinned_symbol_libs": [
+      "project_symbols"
+    ]
   },
   "meta": {
     "filename": "5v Buck Supply.kicad_pro",

@@ -84,8 +84,11 @@ public:
 
     TestResult result;
     switch (test_id_) {
-    case TestId::FCS_ErrorTest:
+    case TestId::FCS_NoErrorsTest:
       result = test_case::runTestFCS_0001(shared_data_);
+      break;
+    case TestId::FCS_DataModuleProcessingTest:
+      result = test_case::runTestFCS_0004(shared_data_);
       break;
     case TestId::GPS_InstalledTest:
       result = test_case::runTestGPS_0400(shared_data_);
@@ -407,7 +410,7 @@ private:
   /// @brief Test cases for the FCS group.
    TestGroup fcs_test_group_{
     TestGroupId::FCS, shared_data_,
-    {{TestGroupId::FCS, TestId::FCS_ErrorTest, shared_data_},
+    {{TestGroupId::FCS, TestId::FCS_NoErrorsTest, shared_data_},
     {TestGroupId::FCS, TestId::FCS_FlightPhasePredictorTest, shared_data_},
     {TestGroupId::FCS, TestId::FCS_LaunchPositionTest, shared_data_},
     {TestGroupId::FCS, TestId::FCS_DataModuleProcessingTest, shared_data_},
