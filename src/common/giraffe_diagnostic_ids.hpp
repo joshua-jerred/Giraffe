@@ -210,7 +210,8 @@ enum class DiagnosticId : uint16_t {
   TELEMETRY_radioConfiguration=0xB003, // Radio Configuration Error
   TELEMETRY_dataLinkError=0xB004, // Data Link Error
   TELEMETRY_dataLinkSendError=0xB005, // Data Link Send Error
-  TELEMETRY_aprsTelemetryInitialization=0xB006  // APRS Telemetry Initialization Error
+  TELEMETRY_aprsTelemetryInitialization=0xB006, // APRS Telemetry Initialization Error
+  TELEMETRY_aprsOnAirTelemetryDefinitionQueue=0xB007  // APRS On Air Telemetry Definition Queue Error
 };
 // NOLINTEND(readability-identifier-naming)
 

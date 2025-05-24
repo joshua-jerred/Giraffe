@@ -47,6 +47,7 @@ const std::unordered_map<std::string, CommandId> K_STRING_TO_COMMAND_MAP {
   {"TELEMETRY_MODULE_sendSnr",CommandId::TELEMETRY_MODULE_sendSnr},
   {"TELEMETRY_MODULE_sendAprsLocation",CommandId::TELEMETRY_MODULE_sendAprsLocation},
   {"TELEMETRY_MODULE_sendSstvImage",CommandId::TELEMETRY_MODULE_sendSstvImage},
+  {"TELEMETRY_MODULE_sendOnAirDefinitionOfTelem",CommandId::TELEMETRY_MODULE_sendOnAirDefinitionOfTelem},
   {"EXTENSION_MODULE_addPreConfiguredExtension",CommandId::EXTENSION_MODULE_addPreConfiguredExtension},
   {"EXTENSION_MODULE_disableExtension",CommandId::EXTENSION_MODULE_disableExtension},
   {"EXTENSION_MODULE_enableExtension",CommandId::EXTENSION_MODULE_enableExtension},

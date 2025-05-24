@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 import { useState, useRef, useContext, useEffect } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -227,6 +227,84 @@ export const CardSectionTitle = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export function CollapsibleCardSection({
+  title,
+  children,
+  start_expanded = true,
+  onClick,
+  style,
+  className,
+  tooltip = null,
+}) {
+  const theme = useTheme();
+  const [isExpanded, setIsExpanded] = useState(start_expanded);
+
+  const handleClick = () => {
+    setIsExpanded(!isExpanded);
+    if (onClick) {
+      onClick();
+    }
+  };
+
+  return (
+    <div
+      className={className}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100%",
+        borderBottom: isExpanded ? `1px solid ${theme.primary_soft}` : "none",
+        borderTop: isExpanded ? `1px solid ${theme.primary_soft}` : "none",
+        padding: isExpanded ? "0.5em 0" : "0",
+        animation: "0.5s",
+        ...style,
+      }}
+    >
+      <Tooltip
+        text={tooltip}
+        // no delay when collapsed
+        specified_delay={isExpanded ? 200 : 0}
+        style={{
+          width: isExpanded ? "100%" : "fit-content",
+        }}
+      >
+        <CardSectionTitle
+          onClick={handleClick}
+          style={{
+            cursor: "pointer",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            borderBottom: isExpanded
+              ? "none"
+              : `1px solid ${theme.primary_soft}`,
+            borderTop: isExpanded ? "none" : `1px solid ${theme.primary_soft}`,
+            margin: "0.25em 0",
+            // flexDirection: "column",
+            // justifyContent: "center",
+            // alignItems: "center",
+          }}
+        >
+          {title}
+          <i className={`fa fa-chevron-${isExpanded ? "down" : "up"}`}></i>
+        </CardSectionTitle>
+      </Tooltip>
+
+      {isExpanded && (
+        <div
+          style={{
+            width: "100%",
+          }}
+        >
+          {children}
+        </div>
+      )}
+    </div>
+  );
+}
 
 // key: *value* w/ tooltip
 const KeyDataPairWithTooltip = styled.ul`

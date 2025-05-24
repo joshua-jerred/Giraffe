@@ -7,6 +7,7 @@ import {
   CardMasonryLayout,
   CardBreak,
   CardSectionTitle,
+  CollapsibleCardSection,
 } from "../../core/PageParts";
 import {
   StyButton,
@@ -272,14 +273,42 @@ function CommandCenterPage() {
         <CardMasonryLayout>
           <Card title="Flight Status">
             <MissionClockDisplay />
-            <CardBreak />
-            <CoreControl />
-            <CardBreak />
-            <BitTestPanel />
-            <CardBreak />
+            {/* <CardBreak /> */}
+            {/* <CardBreak /> */}
+
+            <CollapsibleCardSection
+              title={"Launch Control"}
+              tooltip={
+                "Primary mission control commands. Enter prelaunch mode, launch mode, exit recovery mode, etc."
+              }
+              start_expanded={false}
+            >
+              <CoreControl />
+            </CollapsibleCardSection>
+
+            <CollapsibleCardSection
+              title={"BIT Test"}
+              tooltip={
+                "Run the Built In Test (BIT) on the GFS. This currently requires a GFS TCP connection."
+              }
+              start_expanded={false}
+            >
+              <BitTestPanel />
+            </CollapsibleCardSection>
+
+            <CollapsibleCardSection
+              title={"Flight Phase Prediction"}
+              tooltip={
+                "This data is sourced directly from the flight computer. These are the prediction scores for the current phase of flight."
+              }
+              start_expanded={false}
+            >
+              <DataBlock resource="flight_data" category="phase_prediction" />
+            </CollapsibleCardSection>
+
+            {/* <CardBreak /> */}
             <DataBlock resource="flight_data" category="general" />
             <CardBreak />
-            <DataBlock resource="flight_data" category="phase_prediction" />
           </Card>
           <Card title="Tracking">
             <MissionMap />
