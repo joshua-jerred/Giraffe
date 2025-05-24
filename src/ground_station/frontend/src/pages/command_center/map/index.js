@@ -226,7 +226,49 @@ function PositionDataPopup({ title, positionData }) {
         "v/s: " + positionData.vertical_speed + " m/s"}
       <br />
       {positionData.timestamp}
+      <br />
+      {positionData.hasOwnProperty("additional_data") &&
+        positionData.additional_data}
+      <br />
+      {positionData.hasOwnProperty("source") &&
+        "Source: " + positionData.source}
     </div>
+  );
+}
+
+function FlightPath() {
+  const { data, isLoading, error, setNeedUpdate } = useApiGetData(
+    "flight_data",
+    "flight_path",
+    "all",
+    1000
+  );
+
+  const [flightPath, setFlightPath] = useState([[0, 0]]);
+
+  // Load the location data
+  useEffect(() => {
+    if (isLoading) {
+      return;
+    } else if (error) {
+      console.error("Error loading flight path data:", error);
+    } else if (data) {
+      // console.log("Flight path data loaded:", data);
+      let flight_path = [].concat(data).map((data) => {
+        return [data.latitude, data.longitude];
+      });
+      setFlightPath(flight_path);
+    }
+  }, [data, isLoading, error]);
+
+  return (
+    <Polyline
+      positions={flightPath}
+      color="black"
+      weight={3}
+      opacity={0.8}
+      // smoothFactor={1}
+    ></Polyline>
   );
 }
 
@@ -257,6 +299,7 @@ export default function MissionMap() {
   const [launchPosition, setlaunchPosition] = useState(NULL_POS);
   // const [groundStationPosition, setGroundStationPosition] = useState(NULL_POS);
   const [flightPosition, setFlightPosition] = useState(NULL_POS);
+  const [distanceFromLaunch, setDistanceFromLaunch] = useState("n/d");
 
   const { data, isLoading, error, setNeedUpdate } = useApiGetData(
     "flight_data",
@@ -293,6 +336,9 @@ export default function MissionMap() {
         let flight_position = data.values.flight_position;
         if (flight_position) {
           setFlightPosition(flight_position);
+        }
+        if (data.values.hasOwnProperty("distance_from_launch_position_km")) {
+          setDistanceFromLaunch(data.values.distance_from_launch_position_km);
         }
         // let ground_station_position = data.values.ground_station_position;
       } catch (e) {
@@ -396,7 +442,7 @@ export default function MissionMap() {
           icon={
             new Icon({
               iconUrl: "/leaflet/flight_position.svg",
-              iconSize: [40, 40],
+              iconSize: [30, 30],
             })
           }
         >
@@ -421,10 +467,12 @@ export default function MissionMap() {
             smoothFactor={1}
           >
             <Tooltip>
-              <span>Distance From Launch</span>
+              <p>Distance From Launch {distanceFromLaunch} km</p>
             </Tooltip>
           </Polyline>
         )}
+
+        {showFlightPath && <FlightPath showFlightPath={showFlightPath} />}
 
         <TileLayer
           // attribution="Google Maps"

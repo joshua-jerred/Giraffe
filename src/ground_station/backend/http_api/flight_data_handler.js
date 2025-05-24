@@ -35,6 +35,11 @@ const responseMetadata = {
       units: "seconds",
       description: "The age of the flight location data in seconds.",
     },
+    distance_from_launch_position_km: {
+      name: "Distance from Launch Position",
+      units: "km",
+      description: "The distance from the launch position in km.",
+    },
     // latitude: {
     // name: "Latitude",
     // units: "degrees",
@@ -119,6 +124,7 @@ module.exports = class FlightDataHandler {
 
     const validCategories = [
       "location",
+      "flight_path",
       "general",
       "mission_clock",
       "phase_prediction",
@@ -135,6 +141,8 @@ module.exports = class FlightDataHandler {
 
     if (category === "mission_clock") {
       res.json(this.global_state.flight_data.mission_clock.getJsonData());
+    } else if (category === "flight_path") {
+      res.json(this.global_state.flight_data.location_data.getFlightPathData());
     } else {
       res.json(this.#getResponseBody(category));
     }

@@ -1,3 +1,4 @@
+const { where } = require("sequelize");
 const Database = require("../db");
 const Timer = require("../helpers/timer");
 
@@ -15,6 +16,23 @@ const LocationStructure = {
 
 const LOCATION_AGE_TO_MARK_AS_STALE_SECONDS = 60 * 5; // 5 minutes
 
+// Distance between two coordinates in meters
+function distanceBetweenCoordinates(lat1, lon1, lat2, lon2) {
+  const DEG2RAD = Math.PI / 180;
+  const distance_lat = (lat2 - lat1) * DEG2RAD;
+  const distance_lon = (lon2 - lon1) * DEG2RAD;
+  const a =
+    Math.sin(distance_lat / 2) * Math.sin(distance_lat / 2) +
+    Math.cos(lat1 * DEG2RAD) *
+      Math.cos(lat2 * DEG2RAD) *
+      Math.sin(distance_lon / 2) *
+      Math.sin(distance_lon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const R = 6371; // Radius of the Earth in meters
+  const distance = R * c; // Distance in meters
+  return distance;
+}
+
 module.exports = class LocationData {
   constructor(global_state) {
     this.global_state = global_state;
@@ -30,9 +48,15 @@ module.exports = class LocationData {
     this.flight_location_age_seconds = "n/d";
     this.flight_position = JSON.parse(JSON.stringify(LocationStructure));
 
+    this.distance_from_launch_position_km = "n/d";
+
+    // This one stands alone from the rest of the data, request wise.
+    this.flight_path_data = [];
+
     this.setting_update_timer = new Timer(2500);
     this.#loadLaunchPosition();
     this.#loadLatestFlightLocationData();
+    this.#loadFlightPathData();
   }
 
   cycle() {
@@ -45,6 +69,21 @@ module.exports = class LocationData {
 
     // Using the validity flag to indicate if the launch position is set
     this.#loadLaunchPosition();
+
+    if (
+      this.launch_position.valid === true &&
+      this.flight_position.valid === true
+    ) {
+      const dist = distanceBetweenCoordinates(
+        this.launch_position.latitude,
+        this.launch_position.longitude,
+        this.flight_position.latitude,
+        this.flight_position.longitude
+      );
+      this.distance_from_launch_position_km = dist.toFixed(2);
+    }
+
+    this.#loadFlightPathData();
   }
 
   #loadLatestFlightLocationData() {
@@ -111,10 +150,38 @@ module.exports = class LocationData {
     );
   }
 
+  #loadFlightPathData() {
+    // inefficient, but who cares
+    return Database.models.LocationData.findAll({
+      order: [["timestamp", "DESC"]],
+      where: {
+        valid: true,
+        archived: false,
+      },
+      limit: 100,
+    })
+      .then((location_data) => {
+        this.flight_path_data = location_data.map((data) => ({
+          timestamp: data.timestamp,
+          latitude: data.latitude,
+          longitude: data.longitude,
+          altitude: data.altitude,
+          heading: data.heading,
+          horizontal_speed: data.horizontal_speed,
+          vertical_speed: data.vertical_speed,
+          additional_data: data.additional_data,
+        }));
+      })
+      .catch((error) => {
+        console.error("Error loading flight path data:", error);
+      });
+  }
+
   getData() {
     let return_data = {
       flight_location_status: this.flight_location_status,
       flight_location_age_seconds: this.flight_location_age_seconds,
+      distance_from_launch_position_km: this.distance_from_launch_position_km,
       flight_position: this.flight_position,
       ground_station_position: this.ground_station_position,
       launch_position: this.launch_position,
@@ -149,7 +216,7 @@ module.exports = class LocationData {
   }
 
   addNewLocationReport(source, location) {
-    console.log("Adding new location report:", source, location);
+    // console.log("Adding new location report:", source, location);
 
     Database.models.LocationData.create({
       valid: location.valid || true,
@@ -234,5 +301,18 @@ module.exports = class LocationData {
     this.#loadLaunchPosition();
 
     return "success";
+  }
+
+  getFlightPathData() {
+    return this.flight_path_data.map((data) => ({
+      // timestamp: data.timestamp,
+      latitude: data.latitude,
+      longitude: data.longitude,
+      // altitude: data.altitude,
+      // heading: data.heading,
+      // horizontal_speed: data.horizontal_speed,
+      // vertical_speed: data.vertical_speed,
+      // additional_data: data.additional_data,
+    }));
   }
 };
