@@ -46,6 +46,11 @@ const LocationDataModel = sequelize.define(
     additional_data: {
       type: DataTypes.STRING,
     },
+    archived: {
+      // used for marking old data as archived (hide from current flight map)
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
   },
   {
     updatedAt: false,
