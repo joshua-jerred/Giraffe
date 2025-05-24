@@ -259,14 +259,26 @@ module.exports = class GdlConnection {
           );
         } else if (obj.type === "LOCATION") {
           let loc = obj.data;
-          this.global_state.database.addReceivedLocation(
-            loc.latitude,
-            loc.longitude,
-            loc.altitude,
-            loc.speed,
-            loc.heading,
-            loc.time_code
+          // console.log("GDL Location: ", loc);
+          this.global_state.flight_data.location_data.addNewLocationReport(
+            "gdl",
+            {
+              latitude: loc.latitude,
+              longitude: loc.longitude,
+              altitude: loc.altitude,
+              horizontal_speed: loc.speed,
+              heading: loc.heading,
+              additional_data: `time ${loc.time_code}`,
+            }
           );
+          // this.global_state.database.addReceivedLocation(
+          //   loc.latitude,
+          //   loc.longitude,
+          //   loc.altitude,
+          //   loc.speed,
+          //   loc.heading,
+          //   loc.time_code
+          // );
         } else {
           console.log("Unknown packet type: " + obj.type);
         }

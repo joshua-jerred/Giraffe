@@ -372,40 +372,40 @@ module.exports = class GroundStationDatabase {
     });
   }
 
-  addReceivedLocation(
-    latitude,
-    longitude,
-    altitude,
-    speed,
-    heading,
-    time_code
-  ) {
-    this.db.run(
-      `INSERT INTO gdl_received_loc_messages (
-            latitude,
-            longitude,
-            altitude,
-            speed,
-            heading,
-            time_code
-        ) VALUES (
-            $latitude,
-            $longitude,
-            $altitude,
-            $speed,
-            $heading,
-            $time_code
-        );`,
-      {
-        $latitude: latitude,
-        $longitude: longitude,
-        $altitude: altitude,
-        $speed: speed,
-        $heading: heading,
-        $time_code: time_code,
-      }
-    );
-  }
+  // addReceivedLocation(
+  //   latitude,
+  //   longitude,
+  //   altitude,
+  //   speed,
+  //   heading,
+  //   time_code
+  // ) {
+  //   this.db.run(
+  //     `INSERT INTO gdl_received_loc_messages (
+  //           latitude,
+  //           longitude,
+  //           altitude,
+  //           speed,
+  //           heading,
+  //           time_code
+  //       ) VALUES (
+  //           $latitude,
+  //           $longitude,
+  //           $altitude,
+  //           $speed,
+  //           $heading,
+  //           $time_code
+  //       );`,
+  //     {
+  //       $latitude: latitude,
+  //       $longitude: longitude,
+  //       $altitude: altitude,
+  //       $speed: speed,
+  //       $heading: heading,
+  //       $time_code: time_code,
+  //     }
+  //   );
+  // }
 
   #insertAprsFiData(data) {
     if (

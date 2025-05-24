@@ -13,9 +13,11 @@ import {
   TileLayer,
   useMap,
   Circle,
+  Polyline,
   Marker,
   Popup,
   useMapEvent,
+  Tooltip,
 } from "react-leaflet";
 
 import {
@@ -230,10 +232,12 @@ export default function MissionMap() {
         // let metadata = data.metadata;
         let launch_position = data.values.launch_position;
         if (!selectingLaunchPosition) {
-          console.log("Setting flight position to:", launch_position);
           setlaunchPosition(launch_position);
         }
-        // let flight_position = data.values.flight_position;
+        let flight_position = data.values.flight_position;
+        if (flight_position) {
+          setFlightPosition(flight_position);
+        }
         // let ground_station_position = data.values.ground_station_position;
       } catch (e) {
         console.error("Error parsing flight data:", e);
@@ -305,12 +309,30 @@ export default function MissionMap() {
               : null
           }
         />
-        {/* <Marker position={groundStationPosition}> */}
-        {/* <Popup> */}
-        {/* <p>Ground Station Location</p> */}
-        {/* </Popup> */}
-        {/* </Marker> */}
+        <Marker
+          position={{
+            lat: flightPosition.latitude,
+            lng: flightPosition.longitude,
+          }}
+        >
+          <Popup>Flight Position</Popup>
+        </Marker>
         {/* <Circle center={position} radius={2500} /> */}
+
+        <Polyline
+          positions={[
+            [launchPosition.latitude, launchPosition.longitude],
+            [flightPosition.latitude, flightPosition.longitude],
+          ]}
+          color="blue"
+          weight={5}
+          opacity={0.5}
+          smoothFactor={1}
+        >
+          <Tooltip>
+            <span>Distance From Launch</span>
+          </Tooltip>
+        </Polyline>
         <TileLayer
           // attribution="Google Maps"
           // url="https://www.google.cn/maps/vt?lyrs=m@189&gl=cn&x={x}&y={y}&z={z}"

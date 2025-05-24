@@ -145,7 +145,12 @@ function Item({ id, item_data, item_nested = false }) {
   );
 }
 
-export function DataBlock({ resource, category, update_interval = 3000 }) {
+export function DataBlock({
+  resource,
+  category,
+  update_interval = 3000,
+  filter_keys = [], // filter out keys that are in this list
+}) {
   const { data, isDataLoading, error } = useApiGetData(
     resource,
     category,
@@ -187,6 +192,10 @@ export function DataBlock({ resource, category, update_interval = 3000 }) {
         continue;
       }
 
+      if (filter_keys.includes(data_item)) {
+        continue;
+      }
+
       new_items[data_item] = meta;
 
       // add the value if it exists
@@ -204,6 +213,10 @@ export function DataBlock({ resource, category, update_interval = 3000 }) {
 
     // iterate over the values and add any that don't have metadata
     for (const [data_item, value] of Object.entries(data.values)) {
+      if (filter_keys.includes(data_item)) {
+        continue;
+      }
+
       if (new_items[data_item] === undefined) {
         new_items[data_item] = {
           name: data_item,

@@ -13,6 +13,8 @@ const LocationStructure = {
   additional_data: "n/d",
 };
 
+const LOCATION_AGE_TO_MARK_AS_STALE_SECONDS = 60 * 5; // 5 minutes
+
 module.exports = class LocationData {
   constructor(global_state) {
     this.global_state = global_state;
@@ -23,6 +25,9 @@ module.exports = class LocationData {
     this.ground_station_position = JSON.parse(
       JSON.stringify(LocationStructure)
     );
+
+    this.flight_location_status = "unknown";
+    this.flight_location_age_seconds = "n/d";
     this.flight_position = JSON.parse(JSON.stringify(LocationStructure));
 
     this.setting_update_timer = new Timer(2500);
@@ -58,7 +63,19 @@ module.exports = class LocationData {
             horizontal_speed: location_data.horizontal_speed,
             vertical_speed: location_data.vertical_speed,
             additional_data: location_data.additional_data,
+            source: location_data.source,
           };
+        }
+
+        // calculate the age of the last location data
+        const now = new Date();
+        const last_updated = new Date(location_data.timestamp);
+        const age_in_seconds = (now.getTime() - last_updated.getTime()) / 1000;
+        this.flight_location_age_seconds = age_in_seconds.toFixed(0);
+        if (age_in_seconds > LOCATION_AGE_TO_MARK_AS_STALE_SECONDS) {
+          this.flight_location_status = "stale";
+        } else {
+          this.flight_location_status = "valid";
         }
       })
       .catch((error) => {
@@ -96,9 +113,11 @@ module.exports = class LocationData {
 
   getData() {
     let return_data = {
+      flight_location_status: this.flight_location_status,
+      flight_location_age_seconds: this.flight_location_age_seconds,
+      flight_position: this.flight_position,
       ground_station_position: this.ground_station_position,
       launch_position: this.launch_position,
-      flight_position: this.flight_position,
       last_updated: this.last_updated,
     };
     for (const key in return_data.ground_station_position) {

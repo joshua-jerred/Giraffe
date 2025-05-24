@@ -284,7 +284,11 @@ function CommandCenterPage() {
           <Card title="Tracking">
             <MissionMap />
             <CardBreak />
-            <DataBlock resource="flight_data" category="location" />
+            <DataBlock
+              resource="flight_data"
+              category="location"
+              filter_keys={["launch_position"]}
+            />
           </Card>
           <Card title="Commands">
             <CommandList />
