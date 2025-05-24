@@ -1154,7 +1154,7 @@
 	)
 	(text_box "The power-supply for the entire flight computer.\n- Bottom layer of the flight computer stack\n- Not a lot going on here, so space can be wasted to make good power\n- 2SnP 18650 Buck Topology, 2 cell of 4 cells\n- BATT_V (5.8-9V) is regulated to 5V with a buck converter.\n	- 5V @ 2.5A continuous, 3.0A peak\n- 5V is regulated to 3.3V through LDOs\n- Bare minimum MCU for power monitoring, raspberry Pi watchdoging, and WSPR."
 		(exclude_from_sim no)
-		(at 41.91 -21.59 0)
+		(at 69.85 -26.67 0)
 		(size 80.01 33.02)
 		(margins 1.3335 1.3335 1.3335 1.3335)
 		(stroke

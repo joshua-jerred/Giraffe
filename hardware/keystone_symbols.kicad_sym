@@ -396,7 +396,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "keystone_footprint_library:KEYSTONE_BOARD"
 			(at 0 0 0)
 			(effects
 				(font
@@ -425,8 +425,8 @@
 		)
 		(symbol "Backplane Connector_0_1"
 			(rectangle
-				(start -3.81 6.35)
-				(end 3.81 -6.35)
+				(start -5.08 8.89)
+				(end 5.08 -6.35)
 				(stroke
 					(width 0)
 					(type default)
@@ -438,25 +438,7 @@
 		)
 		(symbol "Backplane Connector_1_1"
 			(pin passive line
-				(at -6.35 1.27 0)
-				(length 2.54)
-				(name "5V"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at -6.35 -1.27 0)
+				(at -3.81 -8.89 90)
 				(length 2.54)
 				(name "GND"
 					(effects
@@ -474,45 +456,9 @@
 				)
 			)
 			(pin passive line
-				(at 6.35 3.81 180)
+				(at -1.27 11.43 270)
 				(length 2.54)
-				(name "IO1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "6"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at 6.35 1.27 180)
-				(length 2.54)
-				(name "IO2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "5"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at 6.35 -1.27 180)
-				(length 2.54)
-				(name "IO3"
+				(name "5V"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -528,9 +474,27 @@
 				)
 			)
 			(pin passive line
-				(at 6.35 -3.81 180)
+				(at 0 -8.89 90)
 				(length 2.54)
-				(name "IO4"
+				(name "GND"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 1.27 11.43 270)
+				(length 2.54)
+				(name "5V"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -538,6 +502,96 @@
 					)
 				)
 				(number "3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 3.81 -8.89 90)
+				(length 2.54)
+				(name "mnt"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "mnt"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 7.62 5.08 180)
+				(length 2.54)
+				(name "I2C_SCL"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "6"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 7.62 2.54 180)
+				(length 2.54)
+				(name "I2C_SDA"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "5"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 7.62 0 180)
+				(length 2.54)
+				(name "UART_CH1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "7"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 7.62 -2.54 180)
+				(length 2.54)
+				(name "UART_CH2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "7"
 					(effects
 						(font
 							(size 1.27 1.27)

@@ -3385,7 +3385,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "expansion header for Raspberry Pi 2 & 3"
+		(property "Description" "Current Sense Amplifier"
 			(at 0 0 0)
 			(effects
 				(font
