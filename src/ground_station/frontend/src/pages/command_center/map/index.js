@@ -20,6 +20,8 @@ import {
   Tooltip,
 } from "react-leaflet";
 
+import { Icon } from "leaflet";
+
 import {
   InputWithLabel,
   StySaveButton,
@@ -29,6 +31,7 @@ import {
 import { useApiGetData } from "../../../api_interface/ggs_api.js";
 
 import { ApiRequestButton } from "../../../components/api_request_button.js";
+import { use } from "react";
 
 // const MapConfig = {
 //   center: [40, -100],
@@ -48,13 +51,14 @@ const NULL_POS = {
   altitude: 0.0,
 };
 
-const Recenter = ({ latitude, longitude, keepCentered }) => {
+const Recenter = ({ latitude, longitude, keepCentered, setCachedZoom }) => {
   const map = useMap();
   useEffect(() => {
     if (!keepCentered) {
       return;
     }
     map.setView([latitude, longitude]);
+    setCachedZoom(map.getZoom());
   });
   return null;
 };
@@ -66,6 +70,8 @@ function SelectPosition({
 }) {
   const map = useMapEvent("click", (e) => {
     const { lat, lng } = e.latlng;
+
+    console.log("zoom level:", map.getZoom());
 
     if (selectingLaunchPosition) {
       // console.log("Setting launch position to:", lat, lng);
@@ -190,15 +196,63 @@ function SelectLaunchPositionForm({
   );
 }
 
+function PositionDataPopup({ title, positionData }) {
+  return (
+    <div>
+      <h4>{title}</h4>
+      {/* <br /> */}
+      Valid: {JSON.stringify(positionData.valid)}
+      <br />
+      Lat:{" "}
+      {typeof positionData.latitude === "number"
+        ? positionData.latitude.toFixed(7)
+        : positionData.latitude}
+      <br />
+      Lng:
+      {typeof positionData.longitude === "number"
+        ? positionData.longitude.toFixed(7)
+        : positionData.longitude}
+      <br />
+      Alt: {positionData.altitude} m
+      <br />
+      {positionData.hasOwnProperty("heading") && "Hdg: " + positionData.heading}
+      <br />
+      {positionData.hasOwnProperty("horizontal_speed") &&
+        positionData.horizontal_speed !== "n/d" &&
+        "h/s: " + positionData.horizontal_speed + " m/s"}
+      <br />
+      {positionData.hasOwnProperty("vertical_speed") &&
+        positionData.vertical_speed !== "n/d" &&
+        "v/s: " + positionData.vertical_speed + " m/s"}
+      <br />
+      {positionData.timestamp}
+    </div>
+  );
+}
+
 export default function MissionMap() {
-  const { ggsAddress } = useContext(GwsGlobal);
+  // const { ggsAddress } = useContext(GwsGlobal);
   const { isRunning } = useMissionClockData();
   const [statusText, setStatusText] = useState("Loading...");
+
+  const [savedZoom, setSavedZoom] = useStorageState(
+    "command-center-map-zoom-level",
+    8
+  );
 
   const [keepCentered, setKeepCentered] = useStorageState(
     "command-center-map-keep-centered",
     true
   );
+  const [showDistanceFromLaunch, setShowDistanceFromLaunch] = useStorageState(
+    "command-center-map-show-distance-from-launch",
+    true
+  );
+  const [showFlightPath, setShowFlightPath] = useStorageState(
+    "command-center-map-show-flight-path",
+    true
+  );
+
   const [selectingLaunchPosition, setSelectingLaunchPosition] = useState(false);
   const [launchPosition, setlaunchPosition] = useState(NULL_POS);
   // const [groundStationPosition, setGroundStationPosition] = useState(NULL_POS);
@@ -211,6 +265,7 @@ export default function MissionMap() {
     1000
   );
 
+  // Effect for selecting launch position
   useEffect(() => {
     if (selectingLaunchPosition) {
       setStatusText("Select the Launch Position");
@@ -219,6 +274,7 @@ export default function MissionMap() {
     }
   }, [selectingLaunchPosition]);
 
+  // Load the location data
   useEffect(() => {
     if (isLoading) {
       // setStatusText("Loading...");
@@ -253,6 +309,10 @@ export default function MissionMap() {
         keepCentered={keepCentered}
         setSelectingLaunchPosition={setSelectingLaunchPosition}
         selectingLaunchPosition={selectingLaunchPosition}
+        setShowDistanceFromLaunch={setShowDistanceFromLaunch}
+        showDistanceFromLaunch={showDistanceFromLaunch}
+        setShowFlightPath={setShowFlightPath}
+        showFlightPath={showFlightPath}
         isRunning={isRunning}
       />
       <MapContainer
@@ -261,12 +321,13 @@ export default function MissionMap() {
           width: "100%",
         }}
         center={{ lat: flightPosition.latitude, lng: flightPosition.longitude }}
-        zoom={4}
+        zoom={keepCentered ? savedZoom : 3}
       >
         <Recenter
           latitude={flightPosition.latitude}
           longitude={flightPosition.longitude}
           keepCentered={keepCentered}
+          setCachedZoom={setSavedZoom}
         />
         <SelectPosition
           selectingLaunchPosition={selectingLaunchPosition}
@@ -274,65 +335,97 @@ export default function MissionMap() {
           launchPosition={launchPosition}
         />
 
-        {/* {flightPosition.latitude !== 0 && flightPosition.lng !== 0 ? (
-          <Circle center={flightPosition} radius={1000} />
-        ) : null} */}
-        <DraggableMarker
-          position={launchPosition}
-          setPosition={setlaunchPosition}
-          draggable={selectingLaunchPosition}
-          popupText={
-            <>
-              Launch Position
-              <br />
-              Valid: {JSON.stringify(launchPosition.valid)}
-              <br />
-              Lat:{" "}
-              {typeof launchPosition.latitude === "number"
-                ? launchPosition.latitude.toFixed(7)
-                : launchPosition.latitude}
-              <br />
-              Lng:
-              {typeof launchPosition.longitude === "number"
-                ? launchPosition.longitude.toFixed(7)
-                : launchPosition.longitude}
-              <br />
-              Alt: {launchPosition.altitude} m
-              <br />
-              {launchPosition.timestamp}
-            </>
-          }
-          textWhenDraggable={"Click or drag to set launch position"}
-          extraTooltip={
-            !launchPosition.valid && !selectingLaunchPosition
-              ? "Invalid/Unset Launch Position"
-              : null
-          }
-        />
+        {/* ---------------
+            Launch Position
+            --------------- */}
+        {selectingLaunchPosition ? (
+          <DraggableMarker
+            position={launchPosition}
+            setPosition={setlaunchPosition}
+            draggable={selectingLaunchPosition}
+            popupText={
+              <PositionDataPopup
+                title="Launch Position"
+                positionData={launchPosition}
+              />
+            }
+            textWhenDraggable={"Click or drag to set launch position"}
+            extraTooltip={
+              !launchPosition.valid && !selectingLaunchPosition
+                ? "Invalid/Unset Launch Position"
+                : null
+            }
+            icon={
+              new Icon({
+                iconUrl: "/leaflet/launch_position.svg",
+                iconSize: [50, 50],
+                iconAnchor: [12.5, 12.5],
+              })
+            }
+          />
+        ) : (
+          <Marker
+            position={{
+              lat: launchPosition.latitude,
+              lng: launchPosition.longitude,
+            }}
+            icon={
+              new Icon({
+                iconUrl: "/leaflet/launch_position.svg",
+                iconSize: [40, 40],
+              })
+            }
+          >
+            <Popup>
+              <PositionDataPopup
+                title="Launch Position"
+                positionData={launchPosition}
+              />
+            </Popup>
+          </Marker>
+        )}
+
+        {/* ---------------
+            Flight Position
+            --------------- */}
         <Marker
           position={{
             lat: flightPosition.latitude,
             lng: flightPosition.longitude,
           }}
+          icon={
+            new Icon({
+              iconUrl: "/leaflet/flight_position.svg",
+              iconSize: [40, 40],
+            })
+          }
         >
-          <Popup>Flight Position</Popup>
+          <Popup>
+            <PositionDataPopup
+              title="Flight Position"
+              positionData={flightPosition}
+            />
+          </Popup>
         </Marker>
         {/* <Circle center={position} radius={2500} /> */}
 
-        <Polyline
-          positions={[
-            [launchPosition.latitude, launchPosition.longitude],
-            [flightPosition.latitude, flightPosition.longitude],
-          ]}
-          color="blue"
-          weight={5}
-          opacity={0.5}
-          smoothFactor={1}
-        >
-          <Tooltip>
-            <span>Distance From Launch</span>
-          </Tooltip>
-        </Polyline>
+        {showDistanceFromLaunch && (
+          <Polyline
+            positions={[
+              [launchPosition.latitude, launchPosition.longitude],
+              [flightPosition.latitude, flightPosition.longitude],
+            ]}
+            color="blue"
+            weight={5}
+            opacity={0.5}
+            smoothFactor={1}
+          >
+            <Tooltip>
+              <span>Distance From Launch</span>
+            </Tooltip>
+          </Polyline>
+        )}
+
         <TileLayer
           // attribution="Google Maps"
           // url="https://www.google.cn/maps/vt?lyrs=m@189&gl=cn&x={x}&y={y}&z={z}"

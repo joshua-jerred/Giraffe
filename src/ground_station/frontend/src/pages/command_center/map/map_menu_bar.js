@@ -73,6 +73,10 @@ export default function MapMenuBar({
   keepCentered,
   setSelectingLaunchPosition,
   selectingLaunchPosition,
+  setShowDistanceFromLaunch,
+  showDistanceFromLaunch,
+  setShowFlightPath,
+  showFlightPath,
   isRunning,
 }) {
   return (
@@ -85,6 +89,24 @@ export default function MapMenuBar({
         tooltip_text={"Keep Centered on Flight"}
         active={keepCentered}
         disabled={false}
+      />
+      <MapMenuButton
+        label_letter="D"
+        onClick={() => {
+          setShowDistanceFromLaunch(!showDistanceFromLaunch);
+        }}
+        tooltip_text={"Show Distance from Launch Position"}
+        active={showDistanceFromLaunch}
+        disabled={isRunning}
+      />
+      <MapMenuButton
+        label_letter="F"
+        onClick={() => {
+          setShowFlightPath(!showFlightPath);
+        }}
+        tooltip_text={"Show Flight Path"}
+        active={showFlightPath}
+        disabled={isRunning}
       />
       <MapMenuButton
         label_letter="L"

@@ -1,7 +1,10 @@
 import { useState, useEffect, useContext } from "react";
 
 import { GwsGlobal } from "../../GlobalContext";
-import { StyButton } from "../../components/styled/StyledComponents";
+import {
+  StyButton,
+  StyWarningButton,
+} from "../../components/styled/StyledComponents";
 import { CardSectionTitle, CardContentCentered } from "../../core/PageParts";
 
 function ActionItem({ visible, enabled, name, action }) {
@@ -44,6 +47,7 @@ function CoreControl() {
   const [gfsTimeSynced, setGfsTimeSynced] = useState(false);
   const [bitTestStatus, setBitTestStatus] = useState("n/d");
   const [missionClockRunning, setMissionClockRunning] = useState(false);
+  const [overrideBitTest, setOverrideBitTest] = useState(false);
 
   const [allowSetLaunchMode, setAllowSetLaunchMode] = useState(false);
   const [allowSetPreLaunchMode, setAllowSetPreLaunchMode] = useState(false);
@@ -77,6 +81,9 @@ function CoreControl() {
           if (unsafeMode) {
             setAllowSetLaunchMode(true);
             setUserMessage("WAITING FOR BIT PASS - UNSAFE MODE OVERRIDE");
+          } else if (overrideBitTest) {
+            setAllowSetLaunchMode(true);
+            // setUserMessage("WAITING FOR BIT PASS - OVERRIDE");
           }
           return;
         }
@@ -106,11 +113,13 @@ function CoreControl() {
     gfsTimeSynced,
     bitTestStatus,
     missionClockRunning,
+    unsafeMode,
+    overrideBitTest,
   ]);
 
   return (
     <>
-      <CardSectionTitle>Core Control</CardSectionTitle>
+      {/* <CardSectionTitle>Core Control</CardSectionTitle> */}
       <CardContentCentered>
         {(flightPhase === "Ascent" || flightPhase === "Descent") && (
           <p>no control options</p>
@@ -125,6 +134,20 @@ function CoreControl() {
         >
           {userMessage}
         </p>
+
+        {userMessage === "Waiting for BIT Pass" && (
+          <StyWarningButton
+            onClick={() => {
+              setOverrideBitTest(!overrideBitTest);
+            }}
+            style={{
+              margin: "0.25em",
+            }}
+          >
+            {overrideBitTest ? "BIT OVERRIDE" : "Override BIT Test"}
+          </StyWarningButton>
+        )}
+
         <ActionItem
           visible={flightPhase === "Pre-Launch"}
           enabled={allowSetLaunchMode}
