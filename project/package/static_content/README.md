@@ -1,5 +1,7 @@
 # Giraffe Package Installation
 
+To install the binary and start the flight system service, run the following:
+
 ```bash
-bash ./install.sh
+bash ./install-flight-system.sh
 ```

@@ -83,6 +83,9 @@ add_custom_target(giraffe_package
   COMMAND ${CMAKE_COMMAND} -E copy
     "${CMAKE_SOURCE_DIR}/project/package/static_content/README.md"
     "${GIRAFFE_PACKAGE_DIR}/README.md"
+  COMMAND ${CMAKE_COMMAND} -E copy
+    "${CMAKE_SOURCE_DIR}/project/package/static_content/gfs.service"
+    "${GIRAFFE_PACKAGE_DIR}/flight_system/gfs.service"
 
   # Tar it all up
   COMMAND tar -czf

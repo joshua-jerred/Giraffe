@@ -1,0 +1,10 @@
+[Unit]
+Description=Giraffe Flight System
+
+[Service]
+ExecStart=/opt/giraffe/gfs
+WorkingDirectory=/var/lib/giraffe
+Restart=
+
+[Install]
+WantedBy=multi-user.target
