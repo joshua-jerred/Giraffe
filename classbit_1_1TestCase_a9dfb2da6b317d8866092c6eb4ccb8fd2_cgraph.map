@@ -1,13 +1,15 @@
 <map id="bit::TestCase::update" name="bit::TestCase::update">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,153,164,178"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,181,164,206"/>
 <area shape="rect" id="Node000002" href="$classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1" title=" " alt="" coords="243,66,411,91"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,150,154,126,211,101,242,92,244,97,213,107,156,131,109,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,178,146,140,177,119,211,102,235,93,237,98,213,106,180,124,149,145,102,183"/>
 <area shape="rect" id="Node000006" href="$classbit_1_1TestCase.html#a192a3c73c5b5d7a73691b444703a02b8" title=" " alt="" coords="241,116,413,156"/>
-<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="164,153,227,145,227,151,165,158"/>
+<area shape="poly" id="edge8_Node000001_Node000006" title=" " alt="" coords="138,178,228,157,229,162,140,183"/>
 <area shape="rect" id="Node000007" href="$namespacebit_1_1test__case.html#a26fa88abc804b5e8c2e4cc9311d13e21" title="Checks if the error frame has any active errors." alt="" coords="213,181,441,206"/>
-<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="165,172,204,176,203,182,164,177"/>
-<area shape="rect" id="Node000011" href="$namespacebit_1_1test__case.html#a68866a4e2faa00fa702843c7a6f99b7a" title="Checks if GPS hardware is configured and running." alt="" coords="212,230,441,255"/>
-<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="113,176,159,196,213,216,242,224,241,229,211,221,157,201,111,181"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="164,191,199,191,199,196,164,196"/>
+<area shape="rect" id="Node000011" href="$namespacebit_1_1test__case.html#a8c4c0d6065c84b49d2334e5409651d14" title="Checks if the data module is processing data correctly/at a reasonable rate." alt="" coords="213,230,441,255"/>
+<area shape="poly" id="edge14_Node000001_Node000011" title=" " alt="" coords="148,203,251,225,250,230,147,209"/>
+<area shape="rect" id="Node000012" href="$namespacebit_1_1test__case.html#a68866a4e2faa00fa702843c7a6f99b7a" title="Checks if GPS hardware is configured and running." alt="" coords="212,279,441,305"/>
+<area shape="poly" id="edge15_Node000001_Node000012" title=" " alt="" coords="105,204,152,235,213,266,236,273,234,278,211,270,150,240,102,208"/>
 <area shape="rect" id="Node000003" href="$classdata_1_1Stream.html#a1ff9a93190dbecdc2ffa27deaaa4266a" title=" " alt="" coords="747,5,933,45"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="359,63,419,43,489,27,552,19,615,16,733,16,733,21,615,21,552,25,490,32,420,48,361,68"/>
 <area shape="rect" id="Node000004" href="$classdata_1_1LogStream.html#a02c18d6e5c9697b4943ba9fb630ca0c9" title=" " alt="" coords="513,66,675,91"/>

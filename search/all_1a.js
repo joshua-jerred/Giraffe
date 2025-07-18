@@ -9,11 +9,11 @@ var searchData=
   ['odr_5f400_6',['ODR_400',['../classextension_1_1Bmi088.html#aca1375c519792ccef87440223a93bca6ad31d9d57461b9490db08436afcc5f56e',1,'extension::Bmi088']]],
   ['odr_5f50_7',['ODR_50',['../classextension_1_1Bmi088.html#aca1375c519792ccef87440223a93bca6a28b0d43569184e4fbec4b585583a1daa',1,'extension::Bmi088']]],
   ['odr_5f800_8',['ODR_800',['../classextension_1_1Bmi088.html#aca1375c519792ccef87440223a93bca6a946eed67cc8f0b47dc34f799c797e7c1',1,'extension::Bmi088']]],
-  ['of_20contents_20omit_20from_20toc_9',['Table of Contents &lt;!-- omit from toc --&gt;',['../index.html#autotoc_md138',1,'']]],
-  ['off_10',['off',['../classgiraffe_1_1StatusLedChannel.html#a7ba33eb1660b1ec5b7531942d554935f',1,'giraffe::StatusLedChannel::off()'],['../classgiraffe_1_1StatusLedState.html#ac466bf4967bba3606a8c3718df6f342da88559a0cfd8250c9d65970cc145c92d4',1,'giraffe::StatusLedState::OFF']]],
-  ['omit_20from_20toc_11',['omit from toc',['../index.html#autotoc_md131',1,'A Unified Flight Command and Control System &lt;!-- omit from toc --&gt;'],['../index.html#autotoc_md130',1,'Giraffe &lt;!-- omit from toc --&gt;'],['../index.html#autotoc_md138',1,'Table of Contents &lt;!-- omit from toc --&gt;']]],
-  ['omit_20in_20toc_12',['omit in toc',['../index.html#autotoc_md147',1,'Known Issues &lt;!-- omit in toc --&gt;'],['../index.html#autotoc_md149',1,'Known Issues &lt;!-- omit in toc --&gt;'],['../index.html#autotoc_md150',1,'Shoe Testing PCBs &lt;!-- omit in toc --&gt;']]],
-  ['on_13',['on',['../classgiraffe_1_1StatusLedState.html#ac466bf4967bba3606a8c3718df6f342da90651ebea9a35ec4e018c8157492e17c',1,'giraffe::StatusLedState::ON'],['../classgiraffe_1_1StatusLedChannel.html#a36680e1b8c956d6e1774fcd428e8eded',1,'giraffe::StatusLedChannel::on()']]],
+  ['of_20contents_20omit_20from_20toc_9',['Table of Contents &lt;!-- omit from toc --&gt;',['../index.html#autotoc_md160',1,'']]],
+  ['off_10',['off',['../classgiraffe_1_1StatusLedState.html#ac466bf4967bba3606a8c3718df6f342da88559a0cfd8250c9d65970cc145c92d4',1,'giraffe::StatusLedState::OFF'],['../classgiraffe_1_1StatusLedChannel.html#a7ba33eb1660b1ec5b7531942d554935f',1,'giraffe::StatusLedChannel::off()']]],
+  ['omit_20from_20toc_11',['omit from toc',['../index.html#autotoc_md153',1,'A Unified Flight Command and Control System &lt;!-- omit from toc --&gt;'],['../index.html#autotoc_md152',1,'Giraffe &lt;!-- omit from toc --&gt;'],['../index.html#autotoc_md160',1,'Table of Contents &lt;!-- omit from toc --&gt;']]],
+  ['omit_20in_20toc_12',['omit in toc',['../index.html#autotoc_md169',1,'Known Issues &lt;!-- omit in toc --&gt;'],['../index.html#autotoc_md171',1,'Known Issues &lt;!-- omit in toc --&gt;'],['../index.html#autotoc_md172',1,'Shoe Testing PCBs &lt;!-- omit in toc --&gt;']]],
+  ['on_13',['on',['../classgiraffe_1_1StatusLedChannel.html#a36680e1b8c956d6e1774fcd428e8eded',1,'giraffe::StatusLedChannel::on()'],['../classgiraffe_1_1StatusLedState.html#ac466bf4967bba3606a8c3718df6f342da90651ebea9a35ec4e018c8157492e17c',1,'giraffe::StatusLedState::ON']]],
   ['one_5fwire_5finterface_2ecpp_14',['one_wire_interface.cpp',['../one__wire__interface_8cpp.html',1,'']]],
   ['one_5fwire_5finterface_2ehpp_15',['one_wire_interface.hpp',['../one__wire__interface_8hpp.html',1,'']]],
   ['onesecondtick_16',['oneSecondTick',['../group__ServerModule.html#aeac949dc031f18fc5e9ec433c56b906c',1,'RequestRouter']]],
@@ -27,9 +27,9 @@ var searchData=
   ['org_5f_24',['org_',['../classdata__middleware_1_1InfluxDb.html#a291c4bd699d81dc040a31e415ae9487c',1,'data_middleware::InfluxDb']]],
   ['other_25',['OTHER',['../structgiraffe_1_1FCInfo.html#ac684457713d039ae9fccf943f9c8cf82a03570470bad94692ce93e32700d2e1cb',1,'giraffe::FCInfo']]],
   ['other_5fphases_5fprobability_5fthreshold_26',['OTHER_PHASES_PROBABILITY_THRESHOLD',['../classFlightPhasePredictorTest.html#a5b03e40c5f34f8238a95ab711e573715',1,'FlightPhasePredictorTest']]],
-  ['out_27',['Transition Out',['../md_docs_2flight__phases.html#autotoc_md55',1,'']]],
+  ['out_27',['Transition Out',['../md_docs_2flight__phases.html#autotoc_md75',1,'']]],
   ['out_5fbroadcast_5fqueue_5f_28',['out_broadcast_queue_',['../classgiraffe_1_1gdl_1_1DataLink.html#a6e344128ad352abe63ac9bf201d2c3a6',1,'giraffe::gdl::DataLink']]],
   ['out_5fexchange_5fqueue_5f_29',['out_exchange_queue_',['../classgiraffe_1_1gdl_1_1DataLink.html#a39ed9911bb05bf7914fd3bdb06bfc17c',1,'giraffe::gdl::DataLink']]],
   ['output_30',['OUTPUT',['../classgiraffe_1_1Gpio.html#a7fc4b418ee03c60203b38898a1c4a0b2a50a87f0d71f7221582dad4bf507a0f34',1,'giraffe::Gpio']]],
-  ['output_20and_20consumption_31',['Power Output and Consumption',['../md_docs_2hardware_2power__supply.html#autotoc_md78',1,'']]]
+  ['output_20and_20consumption_31',['Power Output and Consumption',['../md_docs_2hardware_2power__supply.html#autotoc_md106',1,'']]]
 ];

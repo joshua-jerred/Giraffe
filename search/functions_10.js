@@ -35,7 +35,7 @@ var searchData=
   ['requestlaunch_32',['requestLaunch',['../classFlightPhaseManager.html#aaeda08c0192943de07649ee8e85fd064',1,'FlightPhaseManager']]],
   ['requestrouter_33',['RequestRouter',['../group__ServerModule.html#aae48f854f57c66d4590f271edfca5cb8',1,'RequestRouter']]],
   ['reservepin_34',['reservePin',['../classgiraffe_1_1Gpio.html#a07c3bfd057cfecada59810151124355d',1,'giraffe::Gpio']]],
-  ['reset_35',['reset',['../classbit_1_1BuiltInTest.html#a9bb6b9b9d355a2988e21a79c1d154f77',1,'bit::BuiltInTest::reset()'],['../classI2cInterface.html#a7596bd91955f76c2ef20972f5abddbf8',1,'I2cInterface::reset()'],['../classdata_1_1Stream.html#aaa0e5928bd6da55201c31dedcd408e19',1,'data::Stream::reset()'],['../classbit_1_1TestGroup.html#a31704c506e1806f1b5981e828ee911d9',1,'bit::TestGroup::reset()'],['../classbit_1_1TestCase.html#ab4c26037e14383a18d24f210af7b1c91',1,'bit::TestCase::reset()'],['../classextension_1_1Extension.html#a639edd8b0e44e06bb5e2111412becb68',1,'extension::Extension::reset()']]],
+  ['reset_35',['reset',['../classextension_1_1Extension.html#a639edd8b0e44e06bb5e2111412becb68',1,'extension::Extension::reset()'],['../classdata_1_1Stream.html#aaa0e5928bd6da55201c31dedcd408e19',1,'data::Stream::reset()'],['../classI2cInterface.html#a7596bd91955f76c2ef20972f5abddbf8',1,'I2cInterface::reset()'],['../classbit_1_1BuiltInTest.html#a9bb6b9b9d355a2988e21a79c1d154f77',1,'bit::BuiltInTest::reset()'],['../classbit_1_1TestGroup.html#a31704c506e1806f1b5981e828ee911d9',1,'bit::TestGroup::reset()'],['../classbit_1_1TestCase.html#ab4c26037e14383a18d24f210af7b1c91',1,'bit::TestCase::reset()']]],
   ['resetsensor_36',['resetsensor',['../classextension_1_1Bme280.html#a9a33e4891747cc85de7d87bea585319c',1,'extension::Bme280::resetSensor()'],['../classextension_1_1SamM8q.html#a9019a2999e92860ada84effd12555827',1,'extension::SamM8q::resetSensor()']]],
   ['resettime_37',['resetTime',['../structdata_1_1BaseStreamPacket.html#a140b2f54f93715d9229e1847bc1219b2',1,'data::BaseStreamPacket']]],
   ['restartstate_38',['restartState',['../classmodules_1_1ExtensionModule.html#a175bbc33651ec0c0e8f229d28968c5e8',1,'modules::ExtensionModule']]],
@@ -49,6 +49,7 @@ var searchData=
   ['runner_46',['runner',['../classextension_1_1Extension.html#a2aa3ac844b4d83d427e0f633f803a027',1,'extension::Extension::runner()'],['../classmodules_1_1Module.html#a3d879001e471093d48fcbd2f8c406f51',1,'modules::Module::runner()']]],
   ['runstate_47',['runState',['../classmodules_1_1ExtensionModule.html#a9f07f42333ead841747ce7905537abae',1,'modules::ExtensionModule']]],
   ['runtestfcs_5f0001_48',['runTestFCS_0001',['../namespacebit_1_1test__case.html#a26fa88abc804b5e8c2e4cc9311d13e21',1,'bit::test_case']]],
-  ['runtestgps_5f0400_49',['runTestGPS_0400',['../namespacebit_1_1test__case.html#a68866a4e2faa00fa702843c7a6f99b7a',1,'bit::test_case']]],
-  ['rxpacket_50',['rxPacket',['../classgiraffe_1_1gdl_1_1NetworkLayer.html#a98054e5ca722079bfed5b3fa2165c875',1,'giraffe::gdl::NetworkLayer']]]
+  ['runtestfcs_5f0004_49',['runTestFCS_0004',['../namespacebit_1_1test__case.html#a8c4c0d6065c84b49d2334e5409651d14',1,'bit::test_case']]],
+  ['runtestgps_5f0400_50',['runTestGPS_0400',['../namespacebit_1_1test__case.html#a68866a4e2faa00fa702843c7a6f99b7a',1,'bit::test_case']]],
+  ['rxpacket_51',['rxPacket',['../classgiraffe_1_1gdl_1_1NetworkLayer.html#a98054e5ca722079bfed5b3fa2165c875',1,'giraffe::gdl::NetworkLayer']]]
 ];

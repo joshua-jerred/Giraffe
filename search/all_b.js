@@ -1,8 +1,10 @@
 var searchData=
 [
   ['_5f_5fassert_5ffunc_0',['__assert_func',['../giraffe__assert_8hpp.html#aac54c41eba9e07dbcdf25984bdf0ebc6',1,'__assert_func(const char *file_name, int line_number, const char *expression):&#160;giraffe_debug_assert.cpp'],['../giraffe__debug__assert_8cpp.html#a19de2b5984910465b7f8d2d71a92e746',1,'__assert_func(const char *__file, int __line, const char *__expr):&#160;giraffe_debug_assert.cpp']]],
-  ['_5fdisabled_1',['_disabled',['../group__FlightRunnerConsoleHelpers.html#ga5ea7ae6d1439428d78d32bf6f33c1fb1',1,'flight_runner.cpp']]],
-  ['_5fdone_2',['_done',['../group__FlightRunnerConsoleHelpers.html#ga44de42a43d4c3e0a08bdbb5359f3c8e3',1,'flight_runner.cpp']]],
-  ['_5fstart_3',['_start',['../group__FlightRunnerConsoleHelpers.html#gabd563e5799b8f16813e8972f031a6a35',1,'flight_runner.cpp']]],
-  ['_5fstop_4',['_stop',['../group__FlightRunnerConsoleHelpers.html#gab1c1a29893fba64c66b2f8f3f1da6ae8',1,'flight_runner.cpp']]]
+  ['_5fcount_1',['_COUNT',['../namespacegiraffe.html#a0dc556da827074ae3dc5a59a24cfe5eeaf3351ee60ccc810690817d90739bf103',1,'giraffe']]],
+  ['_5fdisabled_2',['_disabled',['../group__FlightRunnerConsoleHelpers.html#ga5ea7ae6d1439428d78d32bf6f33c1fb1',1,'flight_runner.cpp']]],
+  ['_5fdone_3',['_done',['../group__FlightRunnerConsoleHelpers.html#ga44de42a43d4c3e0a08bdbb5359f3c8e3',1,'flight_runner.cpp']]],
+  ['_5fnum_5fstages_5f_4',['_NUM_STAGES_',['../structgiraffe_1_1SoftwareVersion.html#af1726656415b7e936d36363e803a6f64a5cb1acb00551f102d1f45101b2096160',1,'giraffe::SoftwareVersion']]],
+  ['_5fstart_5',['_start',['../group__FlightRunnerConsoleHelpers.html#gabd563e5799b8f16813e8972f031a6a35',1,'flight_runner.cpp']]],
+  ['_5fstop_6',['_stop',['../group__FlightRunnerConsoleHelpers.html#gab1c1a29893fba64c66b2f8f3f1da6ae8',1,'flight_runner.cpp']]]
 ];

@@ -92,7 +92,7 @@ var searchData=
   ['knavclassid_89',['kNavClassId',['../namespaceubx.html#af6ed75c23a51f207014f4f642ac1b74a',1,'ubx']]],
   ['knavpvt_90',['kNavPvt',['../namespaceubx.html#aebd0fba183197d54bcbcec6e8a7f92f6',1,'ubx']]],
   ['knodeid_91',['kNodeId',['../data__log_8cpp.html#ab2b98bc8208d9a80a32be15487a1897a',1,'data_log.cpp']]],
-  ['known_20issues_20omit_20in_20toc_92',['known issues omit in toc',['../index.html#autotoc_md149',1,'Known Issues &lt;!-- omit in toc --&gt;'],['../index.html#autotoc_md147',1,'Known Issues &lt;!-- omit in toc --&gt;']]],
+  ['known_20issues_20omit_20in_20toc_92',['known issues omit in toc',['../index.html#autotoc_md171',1,'Known Issues &lt;!-- omit in toc --&gt;'],['../index.html#autotoc_md169',1,'Known Issues &lt;!-- omit in toc --&gt;']]],
   ['knumstartupsdefault_93',['kNumStartupsDefault',['../namespacegiraffe.html#accb157d3d9971f0f4f97a434a9aa21e8',1,'giraffe']]],
   ['konewirelocation_94',['kOneWireLocation',['../one__wire__interface_8cpp.html#ada478ddbcca1e620ae97b4182ef6cd11',1,'one_wire_interface.cpp']]],
   ['kpadding_5f_95',['kPadding_',['../classncurs_1_1Environment.html#a7c9d41ef6d40f5fe5f96dc3ea24d9e00',1,'ncurs::Environment']]],

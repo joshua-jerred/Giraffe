@@ -2,5 +2,6 @@ var searchData=
 [
   ['z_5facceleration_0',['z_acceleration',['../group__acceleration.html#ga69d37167698d0267840b12086a155d0c',1,'data::ImuFrame']]],
   ['z_5fangular_5fvelocity_1',['z_angular_velocity',['../group__rotation.html#ga44f72b89a3b8300f2e66f820958afb83',1,'data::ImuFrame']]],
-  ['zero_5fif_5finvalid_2',['ZERO_IF_INVALID',['../structPredictionParameters_1_1Parameter.html#a158620837f8983deaed39be06a34b09ca05848ed73c5ae0de927b7264864fad23',1,'PredictionParameters::Parameter']]]
+  ['zero_2',['zero',['../structgiraffe_1_1SoftwareVersion.html#a10988900069e9ee3aa19d1c7e5ca11c3',1,'giraffe::SoftwareVersion']]],
+  ['zero_5fif_5finvalid_3',['ZERO_IF_INVALID',['../structPredictionParameters_1_1Parameter.html#a158620837f8983deaed39be06a34b09ca05848ed73c5ae0de927b7264864fad23',1,'PredictionParameters::Parameter']]]
 ];

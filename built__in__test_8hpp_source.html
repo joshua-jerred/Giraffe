@@ -206,494 +206,497 @@ $(document).ready(function(){initNavTree('built__in__test_8hpp_source.html','');
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_struct" href="namespacebit.html#structbit_1_1TestResult">TestResult</a> result;</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordflow">switch</span> (<a class="code hl_variable" href="classbit_1_1TestCase.html#a63d750ad8545165d8ab4b03fc7187638">test_id_</a>) {</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordflow">case</span> TestId::FCS_ErrorTest:</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordflow">case</span> TestId::FCS_NoErrorsTest:</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>      result = <a class="code hl_function" href="namespacebit_1_1test__case.html#a26fa88abc804b5e8c2e4cc9311d13e21">test_case::runTestFCS_0001</a>(<a class="code hl_variable" href="classbit_1_1TestCase.html#a8ec74d78370bb1d24cd4ee98b4381d0b">shared_data_</a>);</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">case</span> TestId::GPS_InstalledTest:</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>      result = <a class="code hl_function" href="namespacebit_1_1test__case.html#a68866a4e2faa00fa702843c7a6f99b7a">test_case::runTestGPS_0400</a>(<a class="code hl_variable" href="classbit_1_1TestCase.html#a8ec74d78370bb1d24cd4ee98b4381d0b">shared_data_</a>);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">case</span> TestId::FCS_DataModuleProcessingTest:</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>      result = <a class="code hl_function" href="namespacebit_1_1test__case.html#a8c4c0d6065c84b49d2334e5409651d14">test_case::runTestFCS_0004</a>(<a class="code hl_variable" href="classbit_1_1TestCase.html#a8ec74d78370bb1d24cd4ee98b4381d0b">shared_data_</a>);</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordflow">default</span>:</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>      result = {.<a class="code hl_variable" href="namespacebit.html#ad435a76681c12009d2ec2008856bae11">test_id</a> = <a class="code hl_variable" href="classbit_1_1TestCase.html#a63d750ad8545165d8ab4b03fc7187638">test_id_</a>,</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                .group_id = <a class="code hl_variable" href="classbit_1_1TestCase.html#aaf62dbc0f54f9591f04e882ba950d352">group_id_</a>,</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                .status = TestStatus::UNKNOWN,</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                .failure_reason = <span class="stringliteral">&quot;Test case not found for Test ID.&quot;</span>};</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    }</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <a class="code hl_variable" href="classbit_1_1TestCase.html#acff8d2e424b0c2bb7b810b1b62dd7514">status_</a> = result.<a class="code hl_variable" href="namespacebit.html#a8af30dd359ad254eac33aaee15e39fae">status</a>;</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classbit_1_1TestCase.html#acff8d2e424b0c2bb7b810b1b62dd7514">status_</a> == TestStatus::FAILED) {</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>      <a class="code hl_variable" href="classbit_1_1TestCase.html#a8ec74d78370bb1d24cd4ee98b4381d0b">shared_data_</a>.<a class="code hl_variable" href="structdata_1_1SharedData.html#ae2e3372c67775b05b48b5cb171bcc3f8">streams</a>.<a class="code hl_variable" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">log</a>.<a class="code hl_function" href="classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1">error</a>(<a class="code hl_enumvalue" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763">node::Identification::FLIGHT_RUNNER</a>,</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                                     DiagnosticId::FLIGHT_RUNNER_bitTestFailed,</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                                     <span class="stringliteral">&quot;Built in test failed. Test ID: &quot;</span> +</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                                         <a class="code hl_function" href="classbit_1_1TestCase.html#a192a3c73c5b5d7a73691b444703a02b8">getTestIdString</a>());</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    }</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordflow">case</span> TestId::GPS_InstalledTest:</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>      result = <a class="code hl_function" href="namespacebit_1_1test__case.html#a68866a4e2faa00fa702843c7a6f99b7a">test_case::runTestGPS_0400</a>(<a class="code hl_variable" href="classbit_1_1TestCase.html#a8ec74d78370bb1d24cd4ee98b4381d0b">shared_data_</a>);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>      result = {.<a class="code hl_variable" href="namespacebit.html#ad435a76681c12009d2ec2008856bae11">test_id</a> = <a class="code hl_variable" href="classbit_1_1TestCase.html#a63d750ad8545165d8ab4b03fc7187638">test_id_</a>,</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                .group_id = <a class="code hl_variable" href="classbit_1_1TestCase.html#aaf62dbc0f54f9591f04e882ba950d352">group_id_</a>,</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                .status = TestStatus::UNKNOWN,</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                .failure_reason = <span class="stringliteral">&quot;Test case not found for Test ID.&quot;</span>};</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    }</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <a class="code hl_variable" href="classbit_1_1TestCase.html#acff8d2e424b0c2bb7b810b1b62dd7514">status_</a> = result.<a class="code hl_variable" href="namespacebit.html#a8af30dd359ad254eac33aaee15e39fae">status</a>;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classbit_1_1TestCase.html#acff8d2e424b0c2bb7b810b1b62dd7514">status_</a> == TestStatus::FAILED) {</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>      <a class="code hl_variable" href="classbit_1_1TestCase.html#a8ec74d78370bb1d24cd4ee98b4381d0b">shared_data_</a>.<a class="code hl_variable" href="structdata_1_1SharedData.html#ae2e3372c67775b05b48b5cb171bcc3f8">streams</a>.<a class="code hl_variable" href="namespacedata.html#a4766bad914aa6422667738b7452a1916">log</a>.<a class="code hl_function" href="classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1">error</a>(<a class="code hl_enumvalue" href="namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763">node::Identification::FLIGHT_RUNNER</a>,</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                                     DiagnosticId::FLIGHT_RUNNER_bitTestFailed,</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>                                     <span class="stringliteral">&quot;Built in test failed. Test ID: &quot;</span> +</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>                                         <a class="code hl_function" href="classbit_1_1TestCase.html#a192a3c73c5b5d7a73691b444703a02b8">getTestIdString</a>());</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    }</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>  }</div>
 </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="foldopen" id="foldopen00110" data-start="{" data-end="}">
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classbit_1_1TestCase.html#ab4c26037e14383a18d24f210af7b1c91">  110</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1TestCase.html#ab4c26037e14383a18d24f210af7b1c91">reset</a>() {</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <a class="code hl_variable" href="classbit_1_1TestCase.html#acff8d2e424b0c2bb7b810b1b62dd7514">status_</a> = TestStatus::NOTRUN;</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  }</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="foldopen" id="foldopen00113" data-start="{" data-end="}">
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="classbit_1_1TestCase.html#ab4c26037e14383a18d24f210af7b1c91">  113</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1TestCase.html#ab4c26037e14383a18d24f210af7b1c91">reset</a>() {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <a class="code hl_variable" href="classbit_1_1TestCase.html#acff8d2e424b0c2bb7b810b1b62dd7514">status_</a> = TestStatus::NOTRUN;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>  }</div>
 </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="classbit_1_1TestCase.html#aaf62dbc0f54f9591f04e882ba950d352">  115</a></span>  TestGroupId <a class="code hl_variable" href="classbit_1_1TestCase.html#aaf62dbc0f54f9591f04e882ba950d352">group_id_</a>;</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="classbit_1_1TestCase.html#a63d750ad8545165d8ab4b03fc7187638">  116</a></span>  TestId <a class="code hl_variable" href="classbit_1_1TestCase.html#a63d750ad8545165d8ab4b03fc7187638">test_id_</a>;</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="classbit_1_1TestCase.html#acff8d2e424b0c2bb7b810b1b62dd7514">  117</a></span>  TestStatus <a class="code hl_variable" href="classbit_1_1TestCase.html#acff8d2e424b0c2bb7b810b1b62dd7514">status_</a> = TestStatus::NOTRUN;</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="classbit_1_1TestCase.html#a8ec74d78370bb1d24cd4ee98b4381d0b">  119</a></span>  <a class="code hl_struct" href="structdata_1_1SharedData.html">data::SharedData</a> &amp;<a class="code hl_variable" href="classbit_1_1TestCase.html#a8ec74d78370bb1d24cd4ee98b4381d0b">shared_data_</a>;</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>};</div>
-</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="classbit_1_1TestCase.html#aaf62dbc0f54f9591f04e882ba950d352">  118</a></span>  TestGroupId <a class="code hl_variable" href="classbit_1_1TestCase.html#aaf62dbc0f54f9591f04e882ba950d352">group_id_</a>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="classbit_1_1TestCase.html#a63d750ad8545165d8ab4b03fc7187638">  119</a></span>  TestId <a class="code hl_variable" href="classbit_1_1TestCase.html#a63d750ad8545165d8ab4b03fc7187638">test_id_</a>;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="classbit_1_1TestCase.html#acff8d2e424b0c2bb7b810b1b62dd7514">  120</a></span>  TestStatus <a class="code hl_variable" href="classbit_1_1TestCase.html#acff8d2e424b0c2bb7b810b1b62dd7514">status_</a> = TestStatus::NOTRUN;</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="foldopen" id="foldopen00122" data-start="{" data-end="};">
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html">  122</a></span><span class="keyword">class </span><a class="code hl_class" href="classbit_1_1TestGroup.html">TestGroup</a> {</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00124" data-start="{" data-end="}">
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#aafcf814ecf48d85d5887a25df56b373f">  124</a></span>  <a class="code hl_function" href="classbit_1_1TestGroup.html#aafcf814ecf48d85d5887a25df56b373f">TestGroup</a>(bit::TestGroupId group_id, <a class="code hl_struct" href="structdata_1_1SharedData.html">data::SharedData</a> &amp;shared_data,</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            std::vector&lt;TestCase&gt; test_cases)</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>      : <a class="code hl_variable" href="classbit_1_1TestGroup.html#a5489504c1cb64d10c66e1cac4b2211d0">group_id_</a>{group_id}, <a class="code hl_variable" href="classbit_1_1TestGroup.html#a7ca8bd6951ba4350d87e996cb5c8c599">shared_data_</a>{shared_data},</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <a class="code hl_variable" href="classbit_1_1TestGroup.html#a22647b9d51c6fec6ac44aeb3d8099117">logger_</a>{shared_data, <a class="code hl_namespace" href="namespacenode.html">node</a>::Identification::FLIGHT_RUNNER, <span class="stringliteral">&quot;BIT&quot;</span>},</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <a class="code hl_variable" href="classbit_1_1TestGroup.html#a1711ae59f0c55659cfb66ef7baa74527">test_cases_</a>{test_cases} {</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>  }</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="classbit_1_1TestCase.html#a8ec74d78370bb1d24cd4ee98b4381d0b">  122</a></span>  <a class="code hl_struct" href="structdata_1_1SharedData.html">data::SharedData</a> &amp;<a class="code hl_variable" href="classbit_1_1TestCase.html#a8ec74d78370bb1d24cd4ee98b4381d0b">shared_data_</a>;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>};</div>
 </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a88105120c8bf7390f51dfe5f3ae24936">  131</a></span>  <a class="code hl_function" href="classbit_1_1TestGroup.html#a88105120c8bf7390f51dfe5f3ae24936">~TestGroup</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
-<div class="foldopen" id="foldopen00133" data-start="{" data-end="}">
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a758e1e5dde0f057bbeb0ded0f3d6b916">  133</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1TestGroup.html#a758e1e5dde0f057bbeb0ded0f3d6b916">start</a>() {</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classbit_1_1TestGroup.html#ab9548b91b39be66fda85ebe42ee4739b">running_</a>) {</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>      <a class="code hl_variable" href="classbit_1_1TestGroup.html#a22647b9d51c6fec6ac44aeb3d8099117">logger_</a>.<a class="code hl_function" href="classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc">error</a>(DiagnosticId::FLIGHT_RUNNER_bitTestStartFailure,</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                    <span class="stringliteral">&quot;Built in test is already running.&quot;</span>);</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>      <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    }</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <a class="code hl_function" href="classbit_1_1TestGroup.html#af498cc0e33524bfa7b83ea7a4501a3ee">setGroupStatus</a>(TestStatus::WAITING);</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <a class="code hl_variable" href="classbit_1_1TestGroup.html#ab9548b91b39be66fda85ebe42ee4739b">running_</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <a class="code hl_variable" href="classbit_1_1TestGroup.html#a8962bb6d8b04c8052f165ba3b63fd596">thread_</a> = std::thread(&amp;<a class="code hl_function" href="classbit_1_1TestGroup.html#ac197766975306b14edd500762488f9e0">TestGroup::groupRunner</a>, <span class="keyword">this</span>);</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>  }</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="foldopen" id="foldopen00125" data-start="{" data-end="};">
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html">  125</a></span><span class="keyword">class </span><a class="code hl_class" href="classbit_1_1TestGroup.html">TestGroup</a> {</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00127" data-start="{" data-end="}">
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#aafcf814ecf48d85d5887a25df56b373f">  127</a></span>  <a class="code hl_function" href="classbit_1_1TestGroup.html#aafcf814ecf48d85d5887a25df56b373f">TestGroup</a>(bit::TestGroupId group_id, <a class="code hl_struct" href="structdata_1_1SharedData.html">data::SharedData</a> &amp;shared_data,</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            std::vector&lt;TestCase&gt; test_cases)</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>      : <a class="code hl_variable" href="classbit_1_1TestGroup.html#a5489504c1cb64d10c66e1cac4b2211d0">group_id_</a>{group_id}, <a class="code hl_variable" href="classbit_1_1TestGroup.html#a7ca8bd6951ba4350d87e996cb5c8c599">shared_data_</a>{shared_data},</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <a class="code hl_variable" href="classbit_1_1TestGroup.html#a22647b9d51c6fec6ac44aeb3d8099117">logger_</a>{shared_data, <a class="code hl_namespace" href="namespacenode.html">node</a>::Identification::FLIGHT_RUNNER, <span class="stringliteral">&quot;BIT&quot;</span>},</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <a class="code hl_variable" href="classbit_1_1TestGroup.html#a1711ae59f0c55659cfb66ef7baa74527">test_cases_</a>{test_cases} {</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>  }</div>
 </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
-<div class="foldopen" id="foldopen00146" data-start="{" data-end="}">
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#ab0cdcea1f77d0e45ce07cefccf6874bb">  146</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1TestGroup.html#ab0cdcea1f77d0e45ce07cefccf6874bb">stop</a>() {</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <a class="code hl_variable" href="classbit_1_1TestGroup.html#ab9548b91b39be66fda85ebe42ee4739b">running_</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classbit_1_1TestGroup.html#a8962bb6d8b04c8052f165ba3b63fd596">thread_</a>.joinable()) {</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>      <a class="code hl_variable" href="classbit_1_1TestGroup.html#a8962bb6d8b04c8052f165ba3b63fd596">thread_</a>.join();</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    }</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <a class="code hl_function" href="classbit_1_1TestGroup.html#af498cc0e33524bfa7b83ea7a4501a3ee">setGroupStatus</a>(TestStatus::STOPPED);</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>  }</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a88105120c8bf7390f51dfe5f3ae24936">  134</a></span>  <a class="code hl_function" href="classbit_1_1TestGroup.html#a88105120c8bf7390f51dfe5f3ae24936">~TestGroup</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="foldopen" id="foldopen00136" data-start="{" data-end="}">
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a758e1e5dde0f057bbeb0ded0f3d6b916">  136</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1TestGroup.html#a758e1e5dde0f057bbeb0ded0f3d6b916">start</a>() {</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classbit_1_1TestGroup.html#ab9548b91b39be66fda85ebe42ee4739b">running_</a>) {</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>      <a class="code hl_variable" href="classbit_1_1TestGroup.html#a22647b9d51c6fec6ac44aeb3d8099117">logger_</a>.<a class="code hl_function" href="classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc">error</a>(DiagnosticId::FLIGHT_RUNNER_bitTestStartFailure,</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>                    <span class="stringliteral">&quot;Built in test is already running.&quot;</span>);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>      <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    }</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <a class="code hl_function" href="classbit_1_1TestGroup.html#af498cc0e33524bfa7b83ea7a4501a3ee">setGroupStatus</a>(TestStatus::WAITING);</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <a class="code hl_variable" href="classbit_1_1TestGroup.html#ab9548b91b39be66fda85ebe42ee4739b">running_</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <a class="code hl_variable" href="classbit_1_1TestGroup.html#a8962bb6d8b04c8052f165ba3b63fd596">thread_</a> = std::thread(&amp;<a class="code hl_function" href="classbit_1_1TestGroup.html#ac197766975306b14edd500762488f9e0">TestGroup::groupRunner</a>, <span class="keyword">this</span>);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>  }</div>
 </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
-<div class="foldopen" id="foldopen00154" data-start="{" data-end="}">
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a31704c506e1806f1b5981e828ee911d9">  154</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1TestGroup.html#a31704c506e1806f1b5981e828ee911d9">reset</a>() {</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <a class="code hl_function" href="classbit_1_1TestGroup.html#ab0cdcea1f77d0e45ce07cefccf6874bb">stop</a>();</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <a class="code hl_function" href="classbit_1_1TestGroup.html#af498cc0e33524bfa7b83ea7a4501a3ee">setGroupStatus</a>(TestStatus::NOTRUN);</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_case : <a class="code hl_variable" href="classbit_1_1TestGroup.html#a1711ae59f0c55659cfb66ef7baa74527">test_cases_</a>) {</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>      test_case.reset();</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    }</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>  }</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="foldopen" id="foldopen00149" data-start="{" data-end="}">
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#ab0cdcea1f77d0e45ce07cefccf6874bb">  149</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1TestGroup.html#ab0cdcea1f77d0e45ce07cefccf6874bb">stop</a>() {</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <a class="code hl_variable" href="classbit_1_1TestGroup.html#ab9548b91b39be66fda85ebe42ee4739b">running_</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classbit_1_1TestGroup.html#a8962bb6d8b04c8052f165ba3b63fd596">thread_</a>.joinable()) {</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>      <a class="code hl_variable" href="classbit_1_1TestGroup.html#a8962bb6d8b04c8052f165ba3b63fd596">thread_</a>.join();</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    }</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <a class="code hl_function" href="classbit_1_1TestGroup.html#af498cc0e33524bfa7b83ea7a4501a3ee">setGroupStatus</a>(TestStatus::STOPPED);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>  }</div>
 </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
-<div class="foldopen" id="foldopen00163" data-start="{" data-end="}">
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a64a3cdcf96680062172aa71979dd3660">  163</a></span>  TestStatus <a class="code hl_function" href="classbit_1_1TestGroup.html#a64a3cdcf96680062172aa71979dd3660">getGroupStatus</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="classbit_1_1TestGroup.html#a6b5da1faf947ef417ad70f8042f3838f">group_status_</a>;</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>  }</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="foldopen" id="foldopen00157" data-start="{" data-end="}">
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a31704c506e1806f1b5981e828ee911d9">  157</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1TestGroup.html#a31704c506e1806f1b5981e828ee911d9">reset</a>() {</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <a class="code hl_function" href="classbit_1_1TestGroup.html#ab0cdcea1f77d0e45ce07cefccf6874bb">stop</a>();</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <a class="code hl_function" href="classbit_1_1TestGroup.html#af498cc0e33524bfa7b83ea7a4501a3ee">setGroupStatus</a>(TestStatus::NOTRUN);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_case : <a class="code hl_variable" href="classbit_1_1TestGroup.html#a1711ae59f0c55659cfb66ef7baa74527">test_cases_</a>) {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>      test_case.reset();</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    }</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>  }</div>
 </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
-<div class="foldopen" id="foldopen00167" data-start="{" data-end="}">
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a2455a44b5b9ed5663a9ac776e54316e2">  167</a></span>  <a class="code hl_typedef" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a> <a class="code hl_function" href="classbit_1_1TestGroup.html#a2455a44b5b9ed5663a9ac776e54316e2">getGroupResults</a>() {</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    std::lock_guard&lt;std::mutex&gt; lock(<a class="code hl_variable" href="classbit_1_1TestGroup.html#a49d2eef44fd99740f57209794e0b1439">test_results_mutex_</a>);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="foldopen" id="foldopen00166" data-start="{" data-end="}">
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a64a3cdcf96680062172aa71979dd3660">  166</a></span>  TestStatus <a class="code hl_function" href="classbit_1_1TestGroup.html#a64a3cdcf96680062172aa71979dd3660">getGroupStatus</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="classbit_1_1TestGroup.html#a6b5da1faf947ef417ad70f8042f3838f">group_status_</a>;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>  }</div>
+</div>
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <a class="code hl_typedef" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a> results = Json::object();</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_case : <a class="code hl_variable" href="classbit_1_1TestGroup.html#a1711ae59f0c55659cfb66ef7baa74527">test_cases_</a>) {</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>      results[test_case.getTestIdString()] =</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>          testStatusToString(test_case.getStatus());</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    }</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    results[<span class="stringliteral">&quot;group_status&quot;</span>] = testStatusToString(<a class="code hl_variable" href="classbit_1_1TestGroup.html#a6b5da1faf947ef417ad70f8042f3838f">group_status_</a>);</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="keywordflow">return</span> results;</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>  }</div>
+<div class="foldopen" id="foldopen00170" data-start="{" data-end="}">
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a2455a44b5b9ed5663a9ac776e54316e2">  170</a></span>  <a class="code hl_typedef" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a> <a class="code hl_function" href="classbit_1_1TestGroup.html#a2455a44b5b9ed5663a9ac776e54316e2">getGroupResults</a>() {</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    std::lock_guard&lt;std::mutex&gt; lock(<a class="code hl_variable" href="classbit_1_1TestGroup.html#a49d2eef44fd99740f57209794e0b1439">test_results_mutex_</a>);</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <a class="code hl_typedef" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a> results = Json::object();</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_case : <a class="code hl_variable" href="classbit_1_1TestGroup.html#a1711ae59f0c55659cfb66ef7baa74527">test_cases_</a>) {</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>      results[test_case.getTestIdString()] =</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>          testStatusToString(test_case.getStatus());</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    }</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    results[<span class="stringliteral">&quot;group_status&quot;</span>] = testStatusToString(<a class="code hl_variable" href="classbit_1_1TestGroup.html#a6b5da1faf947ef417ad70f8042f3838f">group_status_</a>);</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keywordflow">return</span> results;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>  }</div>
 </div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="keyword">private</span>:</div>
-<div class="foldopen" id="foldopen00181" data-start="{" data-end="}">
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#ac197766975306b14edd500762488f9e0">  181</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1TestGroup.html#ac197766975306b14edd500762488f9e0">groupRunner</a>() {</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <a class="code hl_function" href="classbit_1_1TestGroup.html#af498cc0e33524bfa7b83ea7a4501a3ee">setGroupStatus</a>(TestStatus::RUNNING);</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_case : <a class="code hl_variable" href="classbit_1_1TestGroup.html#a1711ae59f0c55659cfb66ef7baa74527">test_cases_</a>) {</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>      test_case.startTest();</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    }</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="keywordflow">while</span> (<a class="code hl_variable" href="classbit_1_1TestGroup.html#ab9548b91b39be66fda85ebe42ee4739b">running_</a>) {</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>      bst::sleep(50);</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="keyword">private</span>:</div>
+<div class="foldopen" id="foldopen00184" data-start="{" data-end="}">
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#ac197766975306b14edd500762488f9e0">  184</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1TestGroup.html#ac197766975306b14edd500762488f9e0">groupRunner</a>() {</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <a class="code hl_function" href="classbit_1_1TestGroup.html#af498cc0e33524bfa7b83ea7a4501a3ee">setGroupStatus</a>(TestStatus::RUNNING);</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_case : <a class="code hl_variable" href="classbit_1_1TestGroup.html#a1711ae59f0c55659cfb66ef7baa74527">test_cases_</a>) {</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>      test_case.startTest();</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    }</div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>      <span class="keyword">const</span> <span class="keywordtype">size_t</span> MAX_TEST_TIME_MS = 1000;</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>      bst::Timer timer{MAX_TEST_TIME_MS};</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>      timer.reset();</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>      <span class="comment">// Find the first incomplete test and run it.</span></div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>      <span class="keywordtype">bool</span> incomplete_test_found = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_case : <a class="code hl_variable" href="classbit_1_1TestGroup.html#a1711ae59f0c55659cfb66ef7baa74527">test_cases_</a>) {</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        <span class="keywordflow">while</span> (!timer.isDone() &amp;&amp;</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>               (test_case.getStatus() == TestStatus::WAITING ||</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>                test_case.getStatus() == TestStatus::RUNNING)) {</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>          test_case.update();</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>          incomplete_test_found = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        }</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>      }</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>      <span class="comment">// All tests are complete, break the loop.</span></div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>      <span class="keywordflow">if</span> (!incomplete_test_found) {</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        <a class="code hl_variable" href="classbit_1_1TestGroup.html#ab9548b91b39be66fda85ebe42ee4739b">running_</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>      }</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    }</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    <span class="comment">// Run the cleanup for each test.</span></div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_case : <a class="code hl_variable" href="classbit_1_1TestGroup.html#a1711ae59f0c55659cfb66ef7baa74527">test_cases_</a>) {</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>      test_case.stopTest();</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    }</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    <span class="comment">// Check if all tests passed.</span></div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    <span class="keywordtype">bool</span> all_tests_passed = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_case : <a class="code hl_variable" href="classbit_1_1TestGroup.html#a1711ae59f0c55659cfb66ef7baa74527">test_cases_</a>) {</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>      <span class="keywordflow">if</span> (test_case.getStatus() != TestStatus::PASSED) {</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        all_tests_passed = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>      }</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    }</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <a class="code hl_function" href="classbit_1_1TestGroup.html#af498cc0e33524bfa7b83ea7a4501a3ee">setGroupStatus</a>(all_tests_passed ? TestStatus::PASSED : TestStatus::FAILED);</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>  }</div>
-</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="keywordflow">while</span> (<a class="code hl_variable" href="classbit_1_1TestGroup.html#ab9548b91b39be66fda85ebe42ee4739b">running_</a>) {</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>      bst::sleep(50);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>      <span class="keyword">const</span> <span class="keywordtype">size_t</span> MAX_TEST_TIME_MS = 1000;</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>      bst::Timer timer{MAX_TEST_TIME_MS};</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>      timer.reset();</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>      <span class="comment">// Find the first incomplete test and run it.</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>      <span class="keywordtype">bool</span> incomplete_test_found = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_case : <a class="code hl_variable" href="classbit_1_1TestGroup.html#a1711ae59f0c55659cfb66ef7baa74527">test_cases_</a>) {</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        <span class="keywordflow">while</span> (!timer.isDone() &amp;&amp;</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>               (test_case.getStatus() == TestStatus::WAITING ||</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>                test_case.getStatus() == TestStatus::RUNNING)) {</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>          test_case.update();</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>          incomplete_test_found = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        }</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>      }</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>      <span class="comment">// All tests are complete, break the loop.</span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>      <span class="keywordflow">if</span> (!incomplete_test_found) {</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        <a class="code hl_variable" href="classbit_1_1TestGroup.html#ab9548b91b39be66fda85ebe42ee4739b">running_</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>      }</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    }</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    <span class="comment">// Run the cleanup for each test.</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_case : <a class="code hl_variable" href="classbit_1_1TestGroup.html#a1711ae59f0c55659cfb66ef7baa74527">test_cases_</a>) {</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>      test_case.stopTest();</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    }</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="comment">// Check if all tests passed.</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keywordtype">bool</span> all_tests_passed = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_case : <a class="code hl_variable" href="classbit_1_1TestGroup.html#a1711ae59f0c55659cfb66ef7baa74527">test_cases_</a>) {</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>      <span class="keywordflow">if</span> (test_case.getStatus() != TestStatus::PASSED) {</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        all_tests_passed = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>      }</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    }</div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
-<div class="foldopen" id="foldopen00231" data-start="{" data-end="}">
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#af498cc0e33524bfa7b83ea7a4501a3ee">  231</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1TestGroup.html#af498cc0e33524bfa7b83ea7a4501a3ee">setGroupStatus</a>(TestStatus status) {</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    <a class="code hl_variable" href="classbit_1_1TestGroup.html#a6b5da1faf947ef417ad70f8042f3838f">group_status_</a> = status;</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>  }</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <a class="code hl_function" href="classbit_1_1TestGroup.html#af498cc0e33524bfa7b83ea7a4501a3ee">setGroupStatus</a>(all_tests_passed ? TestStatus::PASSED : TestStatus::FAILED);</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>  }</div>
 </div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a5489504c1cb64d10c66e1cac4b2211d0">  235</a></span>  bit::TestGroupId <a class="code hl_variable" href="classbit_1_1TestGroup.html#a5489504c1cb64d10c66e1cac4b2211d0">group_id_</a>;</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a7ca8bd6951ba4350d87e996cb5c8c599">  236</a></span>  <a class="code hl_struct" href="structdata_1_1SharedData.html">data::SharedData</a> &amp;<a class="code hl_variable" href="classbit_1_1TestGroup.html#a7ca8bd6951ba4350d87e996cb5c8c599">shared_data_</a>;</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a22647b9d51c6fec6ac44aeb3d8099117">  237</a></span>  <a class="code hl_class" href="classgiraffe_1_1Logger.html">giraffe::Logger</a> <a class="code hl_variable" href="classbit_1_1TestGroup.html#a22647b9d51c6fec6ac44aeb3d8099117">logger_</a>;</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a1711ae59f0c55659cfb66ef7baa74527">  238</a></span>  std::vector&lt;TestCase&gt; <a class="code hl_variable" href="classbit_1_1TestGroup.html#a1711ae59f0c55659cfb66ef7baa74527">test_cases_</a>;</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a8962bb6d8b04c8052f165ba3b63fd596">  240</a></span>  std::thread <a class="code hl_variable" href="classbit_1_1TestGroup.html#a8962bb6d8b04c8052f165ba3b63fd596">thread_</a>{};</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#ab9548b91b39be66fda85ebe42ee4739b">  241</a></span>  std::atomic&lt;bool&gt; <a class="code hl_variable" href="classbit_1_1TestGroup.html#ab9548b91b39be66fda85ebe42ee4739b">running_</a>{<span class="keyword">false</span>};</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
+<div class="foldopen" id="foldopen00234" data-start="{" data-end="}">
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#af498cc0e33524bfa7b83ea7a4501a3ee">  234</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1TestGroup.html#af498cc0e33524bfa7b83ea7a4501a3ee">setGroupStatus</a>(TestStatus status) {</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <a class="code hl_variable" href="classbit_1_1TestGroup.html#a6b5da1faf947ef417ad70f8042f3838f">group_status_</a> = status;</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>  }</div>
+</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a5489504c1cb64d10c66e1cac4b2211d0">  238</a></span>  bit::TestGroupId <a class="code hl_variable" href="classbit_1_1TestGroup.html#a5489504c1cb64d10c66e1cac4b2211d0">group_id_</a>;</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a7ca8bd6951ba4350d87e996cb5c8c599">  239</a></span>  <a class="code hl_struct" href="structdata_1_1SharedData.html">data::SharedData</a> &amp;<a class="code hl_variable" href="classbit_1_1TestGroup.html#a7ca8bd6951ba4350d87e996cb5c8c599">shared_data_</a>;</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a22647b9d51c6fec6ac44aeb3d8099117">  240</a></span>  <a class="code hl_class" href="classgiraffe_1_1Logger.html">giraffe::Logger</a> <a class="code hl_variable" href="classbit_1_1TestGroup.html#a22647b9d51c6fec6ac44aeb3d8099117">logger_</a>;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a1711ae59f0c55659cfb66ef7baa74527">  241</a></span>  std::vector&lt;TestCase&gt; <a class="code hl_variable" href="classbit_1_1TestGroup.html#a1711ae59f0c55659cfb66ef7baa74527">test_cases_</a>;</div>
 <div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a6b5da1faf947ef417ad70f8042f3838f">  243</a></span>  std::atomic&lt;TestStatus&gt; <a class="code hl_variable" href="classbit_1_1TestGroup.html#a6b5da1faf947ef417ad70f8042f3838f">group_status_</a>{TestStatus::NOTRUN};</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a49d2eef44fd99740f57209794e0b1439">  244</a></span>  std::mutex <a class="code hl_variable" href="classbit_1_1TestGroup.html#a49d2eef44fd99740f57209794e0b1439">test_results_mutex_</a>{};</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>};</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a8962bb6d8b04c8052f165ba3b63fd596">  243</a></span>  std::thread <a class="code hl_variable" href="classbit_1_1TestGroup.html#a8962bb6d8b04c8052f165ba3b63fd596">thread_</a>{};</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#ab9548b91b39be66fda85ebe42ee4739b">  244</a></span>  std::atomic&lt;bool&gt; <a class="code hl_variable" href="classbit_1_1TestGroup.html#ab9548b91b39be66fda85ebe42ee4739b">running_</a>{<span class="keyword">false</span>};</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a6b5da1faf947ef417ad70f8042f3838f">  246</a></span>  std::atomic&lt;TestStatus&gt; <a class="code hl_variable" href="classbit_1_1TestGroup.html#a6b5da1faf947ef417ad70f8042f3838f">group_status_</a>{TestStatus::NOTRUN};</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno"><a class="line" href="classbit_1_1TestGroup.html#a49d2eef44fd99740f57209794e0b1439">  247</a></span>  std::mutex <a class="code hl_variable" href="classbit_1_1TestGroup.html#a49d2eef44fd99740f57209794e0b1439">test_results_mutex_</a>{};</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>};</div>
 </div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
-<div class="foldopen" id="foldopen00247" data-start="{" data-end="};">
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html">  247</a></span><span class="keyword">class </span><a class="code hl_class" href="classbit_1_1BuiltInTest.html">BuiltInTest</a> : <span class="keyword">public</span> <a class="code hl_class" href="classbit_1_1IBuiltInTest.html">IBuiltInTest</a> {</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00249" data-start="{" data-end="}">
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#ab21bd2264224d4851f22b03b556d90f8">  249</a></span>  <a class="code hl_function" href="classbit_1_1BuiltInTest.html#ab21bd2264224d4851f22b03b556d90f8">BuiltInTest</a>(<a class="code hl_struct" href="structdata_1_1SharedData.html">data::SharedData</a> &amp;shared_data)</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>      : <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>{shared_data}, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ad2e5d6e6ded33b543c86875983681f0d">logger_</a>{shared_data,</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>                                           <a class="code hl_namespace" href="namespacenode.html">node</a>::Identification::FLIGHT_RUNNER,</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>                                           <span class="stringliteral">&quot;BIT&quot;</span>} {</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    <a class="code hl_function" href="classbit_1_1BuiltInTest.html#a5b74cbccfb47539b32796b03598403e3">updateBitTestData</a>();</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>  }</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="foldopen" id="foldopen00250" data-start="{" data-end="};">
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html">  250</a></span><span class="keyword">class </span><a class="code hl_class" href="classbit_1_1BuiltInTest.html">BuiltInTest</a> : <span class="keyword">public</span> <a class="code hl_class" href="classbit_1_1IBuiltInTest.html">IBuiltInTest</a> {</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00252" data-start="{" data-end="}">
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#ab21bd2264224d4851f22b03b556d90f8">  252</a></span>  <a class="code hl_function" href="classbit_1_1BuiltInTest.html#ab21bd2264224d4851f22b03b556d90f8">BuiltInTest</a>(<a class="code hl_struct" href="structdata_1_1SharedData.html">data::SharedData</a> &amp;shared_data)</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>      : <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>{shared_data}, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ad2e5d6e6ded33b543c86875983681f0d">logger_</a>{shared_data,</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>                                           <a class="code hl_namespace" href="namespacenode.html">node</a>::Identification::FLIGHT_RUNNER,</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>                                           <span class="stringliteral">&quot;BIT&quot;</span>} {</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    <a class="code hl_function" href="classbit_1_1BuiltInTest.html#a5b74cbccfb47539b32796b03598403e3">updateBitTestData</a>();</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>  }</div>
 </div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
-<div class="foldopen" id="foldopen00256" data-start="{" data-end="}">
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a8968d91ecb46cbd52a294df83756a053">  256</a></span>  <a class="code hl_function" href="classbit_1_1BuiltInTest.html#a8968d91ecb46cbd52a294df83756a053">~BuiltInTest</a>() {</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">running_</a>) {</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>      <a class="code hl_function" href="classbit_1_1BuiltInTest.html#aa2c036f9a685264aa639c9ac8b059739">stop</a>();</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    }</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#af4cded38482216cac69365467dac6eeb">thread_</a>.joinable()) {</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>      <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#af4cded38482216cac69365467dac6eeb">thread_</a>.join();</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    }</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_group : <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#aa86c8c9204de69ff9281b12ad4bd0148">test_groups_map_</a>) {</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>      test_group.second.stop();</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    }</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>  }</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
+<div class="foldopen" id="foldopen00259" data-start="{" data-end="}">
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a8968d91ecb46cbd52a294df83756a053">  259</a></span>  <a class="code hl_function" href="classbit_1_1BuiltInTest.html#a8968d91ecb46cbd52a294df83756a053">~BuiltInTest</a>() {</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">running_</a>) {</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>      <a class="code hl_function" href="classbit_1_1BuiltInTest.html#aa2c036f9a685264aa639c9ac8b059739">stop</a>();</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>    }</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#af4cded38482216cac69365467dac6eeb">thread_</a>.joinable()) {</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>      <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#af4cded38482216cac69365467dac6eeb">thread_</a>.join();</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    }</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_group : <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#aa86c8c9204de69ff9281b12ad4bd0148">test_groups_map_</a>) {</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>      test_group.second.stop();</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    }</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>  }</div>
 </div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
-<div class="foldopen" id="foldopen00270" data-start="{" data-end="}">
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#ae58833032b255dc341c86e89fa595f3f">  270</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1BuiltInTest.html#ae58833032b255dc341c86e89fa595f3f">start</a>() {</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">running_</a>) {</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>      <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ad2e5d6e6ded33b543c86875983681f0d">logger_</a>.<a class="code hl_function" href="classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc">error</a>(DiagnosticId::FLIGHT_RUNNER_bitTestStartFailure,</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>                    <span class="stringliteral">&quot;Built in test is already running.&quot;</span>);</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>      <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    }</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#af4cded38482216cac69365467dac6eeb">thread_</a>.joinable()) {</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>      <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ad2e5d6e6ded33b543c86875983681f0d">logger_</a>.<a class="code hl_function" href="classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc">error</a>(DiagnosticId::FLIGHT_RUNNER_bitTestStartFailure,</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>                    <span class="stringliteral">&quot;Thread is joinable.&quot;</span>);</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>      <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    }</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">running_</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#af4cded38482216cac69365467dac6eeb">thread_</a> = std::thread(&amp;<a class="code hl_function" href="classbit_1_1BuiltInTest.html#a700c0d8395116af33dd6e11165bf71f3">BuiltInTest::bitTestRunner</a>, <span class="keyword">this</span>);</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>  }</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
+<div class="foldopen" id="foldopen00273" data-start="{" data-end="}">
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#ae58833032b255dc341c86e89fa595f3f">  273</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1BuiltInTest.html#ae58833032b255dc341c86e89fa595f3f">start</a>() {</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">running_</a>) {</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>      <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ad2e5d6e6ded33b543c86875983681f0d">logger_</a>.<a class="code hl_function" href="classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc">error</a>(DiagnosticId::FLIGHT_RUNNER_bitTestStartFailure,</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>                    <span class="stringliteral">&quot;Built in test is already running.&quot;</span>);</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>      <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    }</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#af4cded38482216cac69365467dac6eeb">thread_</a>.joinable()) {</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>      <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ad2e5d6e6ded33b543c86875983681f0d">logger_</a>.<a class="code hl_function" href="classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc">error</a>(DiagnosticId::FLIGHT_RUNNER_bitTestStartFailure,</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>                    <span class="stringliteral">&quot;Thread is joinable.&quot;</span>);</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>      <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    }</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">running_</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#af4cded38482216cac69365467dac6eeb">thread_</a> = std::thread(&amp;<a class="code hl_function" href="classbit_1_1BuiltInTest.html#a700c0d8395116af33dd6e11165bf71f3">BuiltInTest::bitTestRunner</a>, <span class="keyword">this</span>);</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>  }</div>
 </div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
-<div class="foldopen" id="foldopen00287" data-start="{" data-end="}">
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#aa2c036f9a685264aa639c9ac8b059739">  287</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1BuiltInTest.html#aa2c036f9a685264aa639c9ac8b059739">stop</a>() {</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">running_</a>) {</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>      <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ad2e5d6e6ded33b543c86875983681f0d">logger_</a>.<a class="code hl_function" href="classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc">error</a>(DiagnosticId::FLIGHT_RUNNER_bitTestStopResetFailure,</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>                    <span class="stringliteral">&quot;Built in test is not running.&quot;</span>);</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>      <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    }</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span> </div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">running_</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#af4cded38482216cac69365467dac6eeb">thread_</a>.join();</div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>  }</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
+<div class="foldopen" id="foldopen00290" data-start="{" data-end="}">
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#aa2c036f9a685264aa639c9ac8b059739">  290</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1BuiltInTest.html#aa2c036f9a685264aa639c9ac8b059739">stop</a>() {</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">running_</a>) {</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>      <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ad2e5d6e6ded33b543c86875983681f0d">logger_</a>.<a class="code hl_function" href="classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc">error</a>(DiagnosticId::FLIGHT_RUNNER_bitTestStopResetFailure,</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>                    <span class="stringliteral">&quot;Built in test is not running.&quot;</span>);</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>      <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    }</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span> </div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">running_</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#af4cded38482216cac69365467dac6eeb">thread_</a>.join();</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>  }</div>
 </div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
-<div class="foldopen" id="foldopen00300" data-start="{" data-end="}">
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a9bb6b9b9d355a2988e21a79c1d154f77">  300</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1BuiltInTest.html#a9bb6b9b9d355a2988e21a79c1d154f77">reset</a>() {</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">running_</a>) {</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>      <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ad2e5d6e6ded33b543c86875983681f0d">logger_</a>.<a class="code hl_function" href="classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc">error</a>(DiagnosticId::FLIGHT_RUNNER_bitTestResetFailure,</div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>                    <span class="stringliteral">&quot;BIT running, cannot reset. Stop first.&quot;</span>);</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>      <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    }</div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span> </div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#af4cded38482216cac69365467dac6eeb">thread_</a>.joinable()) {</div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>      <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#af4cded38482216cac69365467dac6eeb">thread_</a>.join();</div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    }</div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ab72a64921ff3b398b96ade9f731fc286">general_bit_status_</a> = TestStatus::NOTRUN;</div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_group : <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#aa86c8c9204de69ff9281b12ad4bd0148">test_groups_map_</a>) {</div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>      test_group.second.reset();</div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    }</div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>    <a class="code hl_function" href="classbit_1_1BuiltInTest.html#a5b74cbccfb47539b32796b03598403e3">updateBitTestData</a>();</div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>  }</div>
-</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span> </div>
+<div class="foldopen" id="foldopen00303" data-start="{" data-end="}">
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a9bb6b9b9d355a2988e21a79c1d154f77">  303</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1BuiltInTest.html#a9bb6b9b9d355a2988e21a79c1d154f77">reset</a>() {</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">running_</a>) {</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>      <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ad2e5d6e6ded33b543c86875983681f0d">logger_</a>.<a class="code hl_function" href="classgiraffe_1_1Logger.html#a2947dae610f76345978c81132ea84edc">error</a>(DiagnosticId::FLIGHT_RUNNER_bitTestResetFailure,</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>                    <span class="stringliteral">&quot;BIT running, cannot reset. Stop first.&quot;</span>);</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>      <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    }</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span> </div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#af4cded38482216cac69365467dac6eeb">thread_</a>.joinable()) {</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>      <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#af4cded38482216cac69365467dac6eeb">thread_</a>.join();</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    }</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ab72a64921ff3b398b96ade9f731fc286">general_bit_status_</a> = TestStatus::NOTRUN;</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_group : <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#aa86c8c9204de69ff9281b12ad4bd0148">test_groups_map_</a>) {</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>      test_group.second.reset();</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>    }</div>
 <div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span> </div>
-<div class="foldopen" id="foldopen00319" data-start="{" data-end="}">
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a27f9265d2bcc56fea60b507d30a777dd">  319</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1BuiltInTest.html#a27f9265d2bcc56fea60b507d30a777dd">getBitTestData</a>(<a class="code hl_typedef" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a> &amp;out_data)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    <a class="code hl_function" href="classbit_1_1BuiltInTest.html#a5b74cbccfb47539b32796b03598403e3">updateBitTestData</a>();</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>    <a class="code hl_function" href="classbit_1_1BuiltInTest.html#a5b74cbccfb47539b32796b03598403e3">updateBitTestData</a>();</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>  }</div>
+</div>
 <div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> </div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    std::lock_guard&lt;std::mutex&gt; lock(<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a8e0d5490d5dd3364d248ffe66055762e">test_data_mutex_</a>);</div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>    out_data = <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a9a208459b6118effc584061d743add77">test_data_buffer_</a>;</div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>  }</div>
+<div class="foldopen" id="foldopen00322" data-start="{" data-end="}">
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a27f9265d2bcc56fea60b507d30a777dd">  322</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1BuiltInTest.html#a27f9265d2bcc56fea60b507d30a777dd">getBitTestData</a>(<a class="code hl_typedef" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a> &amp;out_data)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>    <a class="code hl_function" href="classbit_1_1BuiltInTest.html#a5b74cbccfb47539b32796b03598403e3">updateBitTestData</a>();</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span> </div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>    std::lock_guard&lt;std::mutex&gt; lock(<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a8e0d5490d5dd3364d248ffe66055762e">test_data_mutex_</a>);</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>    out_data = <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a9a208459b6118effc584061d743add77">test_data_buffer_</a>;</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>  }</div>
 </div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span> </div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span><span class="keyword">private</span>:</div>
-<div class="foldopen" id="foldopen00327" data-start="{" data-end="}">
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a5b74cbccfb47539b32796b03598403e3">  327</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1BuiltInTest.html#a5b74cbccfb47539b32796b03598403e3">updateBitTestData</a>() {</div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    <a class="code hl_typedef" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a> bit_info = {</div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>        {<span class="stringliteral">&quot;gfs_ready_to_perform_bit_test&quot;</span>,</div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>         <span class="keyword">static_cast&lt;</span><span class="keywordtype">bool</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>.<a class="code hl_variable" href="structdata_1_1SharedData.html#a36655a755501a8b36b7a632826e5a3fe">flight_data</a>.<a class="code hl_function" href="classdata_1_1FlightData.html#a66c0ae403e8e6959292ee73dbd2ea34d">getFlightPhase</a>() ==</div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>                           <a class="code hl_enumvalue" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07aa9c1a88bb2291339811ab30ebf54acc5">FlightPhase::PRE_LAUNCH</a>)},</div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>        {<span class="stringliteral">&quot;bit_test_running&quot;</span>, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">running_</a>.load()},</div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>        {<span class="stringliteral">&quot;bit_test_start_time&quot;</span>, {}},</div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>        {<span class="stringliteral">&quot;bit_test_end_time&quot;</span>, {}},</div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>        {<span class="stringliteral">&quot;bit_test_results&quot;</span>, testStatusToString(<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ab72a64921ff3b398b96ade9f731fc286">general_bit_status_</a>)},</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>    };</div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span> </div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>    <a class="code hl_typedef" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a> bit_results = Json::object();</div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_group : <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#aa86c8c9204de69ff9281b12ad4bd0148">test_groups_map_</a>) {</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>      bit_results[testGroupIdToString(test_group.first)] =</div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>          test_group.second.getGroupResults();</div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    }</div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span> </div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>    <a class="code hl_typedef" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a> results =</div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>        Json::object({{<span class="stringliteral">&quot;bit_info&quot;</span>, bit_info}, {<span class="stringliteral">&quot;bit_results&quot;</span>, bit_results}});</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span> </div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span><span class="keyword">private</span>:</div>
+<div class="foldopen" id="foldopen00330" data-start="{" data-end="}">
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a5b74cbccfb47539b32796b03598403e3">  330</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1BuiltInTest.html#a5b74cbccfb47539b32796b03598403e3">updateBitTestData</a>() {</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>    <a class="code hl_typedef" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a> bit_info = {</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>        {<span class="stringliteral">&quot;gfs_ready_to_perform_bit_test&quot;</span>,</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>         <span class="keyword">static_cast&lt;</span><span class="keywordtype">bool</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>.<a class="code hl_variable" href="structdata_1_1SharedData.html#a36655a755501a8b36b7a632826e5a3fe">flight_data</a>.<a class="code hl_function" href="classdata_1_1FlightData.html#a66c0ae403e8e6959292ee73dbd2ea34d">getFlightPhase</a>() ==</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>                           <a class="code hl_enumvalue" href="flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07aa9c1a88bb2291339811ab30ebf54acc5">FlightPhase::PRE_LAUNCH</a>)},</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>        {<span class="stringliteral">&quot;bit_test_running&quot;</span>, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">running_</a>.load()},</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        {<span class="stringliteral">&quot;bit_test_start_time&quot;</span>, {}},</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        {<span class="stringliteral">&quot;bit_test_end_time&quot;</span>, {}},</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>        {<span class="stringliteral">&quot;bit_test_results&quot;</span>, testStatusToString(<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ab72a64921ff3b398b96ade9f731fc286">general_bit_status_</a>)},</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>    };</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span> </div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    <a class="code hl_typedef" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a> bit_results = Json::object();</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_group : <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#aa86c8c9204de69ff9281b12ad4bd0148">test_groups_map_</a>) {</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>      bit_results[testGroupIdToString(test_group.first)] =</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>          test_group.second.getGroupResults();</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>    }</div>
 <div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span> </div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>    <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>.<a class="code hl_variable" href="structdata_1_1SharedData.html#a36655a755501a8b36b7a632826e5a3fe">flight_data</a>.<a class="code hl_function" href="classdata_1_1FlightData.html#a312127c867c9f4538b4d3cb24303a6e7">setBitTestData</a>(results);</div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span> </div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>    std::lock_guard&lt;std::mutex&gt; lock(<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a8e0d5490d5dd3364d248ffe66055762e">test_data_mutex_</a>);</div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a9a208459b6118effc584061d743add77">test_data_buffer_</a> = results;</div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>  }</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>    <a class="code hl_typedef" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a> results =</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>        Json::object({{<span class="stringliteral">&quot;bit_info&quot;</span>, bit_info}, {<span class="stringliteral">&quot;bit_results&quot;</span>, bit_results}});</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>.<a class="code hl_variable" href="structdata_1_1SharedData.html#a36655a755501a8b36b7a632826e5a3fe">flight_data</a>.<a class="code hl_function" href="classdata_1_1FlightData.html#a312127c867c9f4538b4d3cb24303a6e7">setBitTestData</a>(results);</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span> </div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>    std::lock_guard&lt;std::mutex&gt; lock(<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a8e0d5490d5dd3364d248ffe66055762e">test_data_mutex_</a>);</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a9a208459b6118effc584061d743add77">test_data_buffer_</a> = results;</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>  }</div>
 </div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span> </div>
-<div class="foldopen" id="foldopen00353" data-start="{" data-end="}">
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a700c0d8395116af33dd6e11165bf71f3">  353</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1BuiltInTest.html#a700c0d8395116af33dd6e11165bf71f3">bitTestRunner</a>() {</div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>    <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ab72a64921ff3b398b96ade9f731fc286">general_bit_status_</a> = TestStatus::RUNNING;</div>
 <div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span> </div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    <span class="comment">// Startup all of the test groups.</span></div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_group : <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#aa86c8c9204de69ff9281b12ad4bd0148">test_groups_map_</a>) {</div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>      test_group.second.start();</div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>    }</div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span> </div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>    <span class="keywordflow">while</span> (<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">running_</a>) {</div>
-<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>      <a class="code hl_function" href="classbit_1_1BuiltInTest.html#a5b74cbccfb47539b32796b03598403e3">updateBitTestData</a>();</div>
+<div class="foldopen" id="foldopen00356" data-start="{" data-end="}">
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a700c0d8395116af33dd6e11165bf71f3">  356</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classbit_1_1BuiltInTest.html#a700c0d8395116af33dd6e11165bf71f3">bitTestRunner</a>() {</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>    <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ab72a64921ff3b398b96ade9f731fc286">general_bit_status_</a> = TestStatus::RUNNING;</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span> </div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>    <span class="comment">// Startup all of the test groups.</span></div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_group : <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#aa86c8c9204de69ff9281b12ad4bd0148">test_groups_map_</a>) {</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>      test_group.second.start();</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>    }</div>
 <div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span> </div>
-<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>      <span class="keywordtype">bool</span> all_tests_complete = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_group : <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#aa86c8c9204de69ff9281b12ad4bd0148">test_groups_map_</a>) {</div>
-<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>        <span class="keywordflow">if</span> (test_group.second.getGroupStatus() == TestStatus::WAITING ||</div>
-<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>            test_group.second.getGroupStatus() == TestStatus::RUNNING) {</div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>          all_tests_complete = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>        }</div>
-<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>      }</div>
-<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span> </div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>      <span class="keywordflow">if</span> (all_tests_complete) {</div>
-<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>        <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">running_</a> = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>      }</div>
-<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span> </div>
-<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>      bst::sleep(500);</div>
-<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>    }</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>    <span class="keywordflow">while</span> (<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">running_</a>) {</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>      <a class="code hl_function" href="classbit_1_1BuiltInTest.html#a5b74cbccfb47539b32796b03598403e3">updateBitTestData</a>();</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span> </div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>      <span class="keywordtype">bool</span> all_tests_complete = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_group : <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#aa86c8c9204de69ff9281b12ad4bd0148">test_groups_map_</a>) {</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>        <span class="keywordflow">if</span> (test_group.second.getGroupStatus() == TestStatus::WAITING ||</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>            test_group.second.getGroupStatus() == TestStatus::RUNNING) {</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>          all_tests_complete = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>        }</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>      }</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span> </div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>      <span class="keywordflow">if</span> (all_tests_complete) {</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>        <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">running_</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>      }</div>
 <div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span> </div>
-<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>    <span class="keywordtype">bool</span> all_tests_passed = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_group : <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#aa86c8c9204de69ff9281b12ad4bd0148">test_groups_map_</a>) {</div>
-<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>      <span class="keywordflow">if</span> (test_group.second.getGroupStatus() != TestStatus::PASSED) {</div>
-<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>        all_tests_passed = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>      }</div>
-<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>    }</div>
-<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span> </div>
-<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>    <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ab72a64921ff3b398b96ade9f731fc286">general_bit_status_</a> =</div>
-<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>        all_tests_passed ? TestStatus::PASSED : TestStatus::FAILED;</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>      bst::sleep(500);</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>    }</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span> </div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>    <span class="keywordtype">bool</span> all_tests_passed = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;test_group : <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#aa86c8c9204de69ff9281b12ad4bd0148">test_groups_map_</a>) {</div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>      <span class="keywordflow">if</span> (test_group.second.getGroupStatus() != TestStatus::PASSED) {</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>        all_tests_passed = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>      }</div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>    }</div>
 <div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span> </div>
-<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>    <a class="code hl_function" href="classbit_1_1BuiltInTest.html#a5b74cbccfb47539b32796b03598403e3">updateBitTestData</a>();</div>
-<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>  }</div>
-</div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>    <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ab72a64921ff3b398b96ade9f731fc286">general_bit_status_</a> =</div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>        all_tests_passed ? TestStatus::PASSED : TestStatus::FAILED;</div>
 <div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span> </div>
-<div class="line"><a id="l00394" name="l00394"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a8e0d5490d5dd3364d248ffe66055762e">  394</a></span>  std::mutex <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a8e0d5490d5dd3364d248ffe66055762e">test_data_mutex_</a>{};</div>
-<div class="line"><a id="l00395" name="l00395"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a9a208459b6118effc584061d743add77">  395</a></span>  <a class="code hl_typedef" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a9a208459b6118effc584061d743add77">test_data_buffer_</a>{};</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>    <a class="code hl_function" href="classbit_1_1BuiltInTest.html#a5b74cbccfb47539b32796b03598403e3">updateBitTestData</a>();</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>  }</div>
+</div>
 <div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span> </div>
-<div class="line"><a id="l00397" name="l00397"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">  397</a></span>  <a class="code hl_struct" href="structdata_1_1SharedData.html">data::SharedData</a> &amp;<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>;</div>
-<div class="line"><a id="l00398" name="l00398"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#ad2e5d6e6ded33b543c86875983681f0d">  398</a></span>  <a class="code hl_class" href="classgiraffe_1_1Logger.html">giraffe::Logger</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ad2e5d6e6ded33b543c86875983681f0d">logger_</a>;</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a8e0d5490d5dd3364d248ffe66055762e">  397</a></span>  std::mutex <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a8e0d5490d5dd3364d248ffe66055762e">test_data_mutex_</a>{};</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a9a208459b6118effc584061d743add77">  398</a></span>  <a class="code hl_typedef" href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a9a208459b6118effc584061d743add77">test_data_buffer_</a>{};</div>
 <div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span> </div>
-<div class="line"><a id="l00400" name="l00400"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#ab72a64921ff3b398b96ade9f731fc286">  400</a></span>  bit::TestStatus <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ab72a64921ff3b398b96ade9f731fc286">general_bit_status_</a>{bit::TestStatus::NOTRUN};</div>
-<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span> </div>
-<div class="line"><a id="l00402" name="l00402"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#af4cded38482216cac69365467dac6eeb">  402</a></span>  std::thread <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#af4cded38482216cac69365467dac6eeb">thread_</a>{};</div>
-<div class="line"><a id="l00403" name="l00403"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">  403</a></span>  std::atomic&lt;bool&gt; <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">running_</a>{<span class="keyword">false</span>};</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">  400</a></span>  <a class="code hl_struct" href="structdata_1_1SharedData.html">data::SharedData</a> &amp;<a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>;</div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#ad2e5d6e6ded33b543c86875983681f0d">  401</a></span>  <a class="code hl_class" href="classgiraffe_1_1Logger.html">giraffe::Logger</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ad2e5d6e6ded33b543c86875983681f0d">logger_</a>;</div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span> </div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#ab72a64921ff3b398b96ade9f731fc286">  403</a></span>  bit::TestStatus <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ab72a64921ff3b398b96ade9f731fc286">general_bit_status_</a>{bit::TestStatus::NOTRUN};</div>
 <div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span> </div>
-<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span>  <span class="comment">//&lt;{{bit_test_groups}}@</span></div>
-<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span> </div>
-<div class="foldopen" id="foldopen00408" data-start="{" data-end="};">
-<div class="line"><a id="l00408" name="l00408"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a25e8f11bd91aa561de9cea34d09e7596">  408</a></span>   <a class="code hl_class" href="classbit_1_1TestGroup.html">TestGroup</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a25e8f11bd91aa561de9cea34d09e7596">fcs_test_group_</a>{</div>
-<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span>    TestGroupId::FCS, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>,</div>
-<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>    {{TestGroupId::FCS, TestId::FCS_ErrorTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
-<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span>    {TestGroupId::FCS, TestId::FCS_FlightPhasePredictorTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
-<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>    {TestGroupId::FCS, TestId::FCS_LaunchPositionTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
-<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>    {TestGroupId::FCS, TestId::FCS_DataModuleProcessingTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
-<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>    },</div>
-<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>  };</div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#af4cded38482216cac69365467dac6eeb">  405</a></span>  std::thread <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#af4cded38482216cac69365467dac6eeb">thread_</a>{};</div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">  406</a></span>  std::atomic&lt;bool&gt; <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">running_</a>{<span class="keyword">false</span>};</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span> </div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span>  <span class="comment">//&lt;{{bit_test_groups}}@</span></div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span> </div>
+<div class="foldopen" id="foldopen00411" data-start="{" data-end="};">
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a25e8f11bd91aa561de9cea34d09e7596">  411</a></span>   <a class="code hl_class" href="classbit_1_1TestGroup.html">TestGroup</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a25e8f11bd91aa561de9cea34d09e7596">fcs_test_group_</a>{</div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span>    TestGroupId::FCS, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>,</div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span>    {{TestGroupId::FCS, TestId::FCS_NoErrorsTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span>    {TestGroupId::FCS, TestId::FCS_FlightPhasePredictorTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span>    {TestGroupId::FCS, TestId::FCS_LaunchPositionTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>    {TestGroupId::FCS, TestId::FCS_DataModuleProcessingTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>    },</div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span>  };</div>
 </div>
-<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span> </div>
-<div class="foldopen" id="foldopen00418" data-start="{" data-end="};">
-<div class="line"><a id="l00418" name="l00418"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a93367bed2a134e9583af2fcc4ba6676f">  418</a></span>   <a class="code hl_class" href="classbit_1_1TestGroup.html">TestGroup</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a93367bed2a134e9583af2fcc4ba6676f">sys_test_group_</a>{</div>
-<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span>    TestGroupId::SYS, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>,</div>
-<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span>    {{TestGroupId::SYS, TestId::SYS_ErrorTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
-<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>    },</div>
-<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>  };</div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span> </div>
+<div class="foldopen" id="foldopen00421" data-start="{" data-end="};">
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a93367bed2a134e9583af2fcc4ba6676f">  421</a></span>   <a class="code hl_class" href="classbit_1_1TestGroup.html">TestGroup</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a93367bed2a134e9583af2fcc4ba6676f">sys_test_group_</a>{</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span>    TestGroupId::SYS, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>,</div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>    {{TestGroupId::SYS, TestId::SYS_ErrorTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>    },</div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>  };</div>
 </div>
-<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span> </div>
-<div class="foldopen" id="foldopen00425" data-start="{" data-end="};">
-<div class="line"><a id="l00425" name="l00425"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a6ab64088e3496035e5e71c720d56b4a6">  425</a></span>   <a class="code hl_class" href="classbit_1_1TestGroup.html">TestGroup</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a6ab64088e3496035e5e71c720d56b4a6">dlnk_test_group_</a>{</div>
-<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>    TestGroupId::DLNK, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>,</div>
-<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>    {{TestGroupId::DLNK, TestId::DLNK_ConfigLocationDataTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
-<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>    },</div>
-<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>  };</div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span> </div>
+<div class="foldopen" id="foldopen00428" data-start="{" data-end="};">
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a6ab64088e3496035e5e71c720d56b4a6">  428</a></span>   <a class="code hl_class" href="classbit_1_1TestGroup.html">TestGroup</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a6ab64088e3496035e5e71c720d56b4a6">dlnk_test_group_</a>{</div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>    TestGroupId::DLNK, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>,</div>
+<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>    {{TestGroupId::DLNK, TestId::DLNK_ConfigLocationDataTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>    },</div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>  };</div>
 </div>
-<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span> </div>
-<div class="foldopen" id="foldopen00432" data-start="{" data-end="};">
-<div class="line"><a id="l00432" name="l00432"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a7e6a7ff01b01c5fabc010d4625a99443">  432</a></span>   <a class="code hl_class" href="classbit_1_1TestGroup.html">TestGroup</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a7e6a7ff01b01c5fabc010d4625a99443">gps_test_group_</a>{</div>
-<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>    TestGroupId::GPS, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>,</div>
-<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>    {{TestGroupId::GPS, TestId::GPS_InstalledTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
-<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span>    },</div>
-<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>  };</div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span> </div>
+<div class="foldopen" id="foldopen00435" data-start="{" data-end="};">
+<div class="line"><a id="l00435" name="l00435"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a7e6a7ff01b01c5fabc010d4625a99443">  435</a></span>   <a class="code hl_class" href="classbit_1_1TestGroup.html">TestGroup</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a7e6a7ff01b01c5fabc010d4625a99443">gps_test_group_</a>{</div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span>    TestGroupId::GPS, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>,</div>
+<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span>    {{TestGroupId::GPS, TestId::GPS_InstalledTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
+<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span>    },</div>
+<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span>  };</div>
 </div>
-<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span> </div>
-<div class="foldopen" id="foldopen00439" data-start="{" data-end="};">
-<div class="line"><a id="l00439" name="l00439"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#ae31aaf62e154baec7b6a5fc4592f5cbc">  439</a></span>   <a class="code hl_class" href="classbit_1_1TestGroup.html">TestGroup</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ae31aaf62e154baec7b6a5fc4592f5cbc">batt_test_group_</a>{</div>
-<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span>    TestGroupId::BATT, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>,</div>
-<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span>    {{TestGroupId::BATT, TestId::BATT_AdcTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
-<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>    },</div>
-<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>  };</div>
+<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span> </div>
+<div class="foldopen" id="foldopen00442" data-start="{" data-end="};">
+<div class="line"><a id="l00442" name="l00442"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#ae31aaf62e154baec7b6a5fc4592f5cbc">  442</a></span>   <a class="code hl_class" href="classbit_1_1TestGroup.html">TestGroup</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ae31aaf62e154baec7b6a5fc4592f5cbc">batt_test_group_</a>{</div>
+<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>    TestGroupId::BATT, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>,</div>
+<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>    {{TestGroupId::BATT, TestId::BATT_AdcTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
+<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span>    },</div>
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>  };</div>
 </div>
-<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span> </div>
-<div class="foldopen" id="foldopen00446" data-start="{" data-end="};">
-<div class="line"><a id="l00446" name="l00446"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a3ea5600f1d96d5a407f150cc49483665">  446</a></span>   <a class="code hl_class" href="classbit_1_1TestGroup.html">TestGroup</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a3ea5600f1d96d5a407f150cc49483665">extn_test_group_</a>{</div>
-<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>    TestGroupId::EXTN, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>,</div>
-<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>    {{TestGroupId::EXTN, TestId::EXTN_ExtensionsRunningTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
-<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span>    },</div>
-<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>  };</div>
+<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span> </div>
+<div class="foldopen" id="foldopen00449" data-start="{" data-end="};">
+<div class="line"><a id="l00449" name="l00449"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a3ea5600f1d96d5a407f150cc49483665">  449</a></span>   <a class="code hl_class" href="classbit_1_1TestGroup.html">TestGroup</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a3ea5600f1d96d5a407f150cc49483665">extn_test_group_</a>{</div>
+<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>    TestGroupId::EXTN, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>,</div>
+<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>    {{TestGroupId::EXTN, TestId::EXTN_ExtensionsRunningTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
+<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>    },</div>
+<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span>  };</div>
 </div>
-<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span> </div>
-<div class="foldopen" id="foldopen00453" data-start="{" data-end="};">
-<div class="line"><a id="l00453" name="l00453"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#afc893d3379a337d1606913f294a1c1c0">  453</a></span>   <a class="code hl_class" href="classbit_1_1TestGroup.html">TestGroup</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afc893d3379a337d1606913f294a1c1c0">env_test_group_</a>{</div>
-<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>    TestGroupId::ENV, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>,</div>
-<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span>    {{TestGroupId::ENV, TestId::ENV_TemperatureTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
-<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span>    },</div>
-<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>  };</div>
+<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span> </div>
+<div class="foldopen" id="foldopen00456" data-start="{" data-end="};">
+<div class="line"><a id="l00456" name="l00456"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#afc893d3379a337d1606913f294a1c1c0">  456</a></span>   <a class="code hl_class" href="classbit_1_1TestGroup.html">TestGroup</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afc893d3379a337d1606913f294a1c1c0">env_test_group_</a>{</div>
+<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>    TestGroupId::ENV, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>,</div>
+<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span>    {{TestGroupId::ENV, TestId::ENV_TemperatureTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
+<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span>    },</div>
+<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span>  };</div>
 </div>
-<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span> </div>
-<div class="foldopen" id="foldopen00460" data-start="{" data-end="};">
-<div class="line"><a id="l00460" name="l00460"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#ac23009605cb340b6abd07bbab68ea2b4">  460</a></span>   <a class="code hl_class" href="classbit_1_1TestGroup.html">TestGroup</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ac23009605cb340b6abd07bbab68ea2b4">cam_test_group_</a>{</div>
-<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span>    TestGroupId::CAM, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>,</div>
-<div class="line"><a id="l00462" name="l00462"></a><span class="lineno">  462</span>    {{TestGroupId::CAM, TestId::CAM_InstalledTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
-<div class="line"><a id="l00463" name="l00463"></a><span class="lineno">  463</span>    },</div>
-<div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span>  };</div>
+<div class="line"><a id="l00461" name="l00461"></a><span class="lineno">  461</span> </div>
+<div class="foldopen" id="foldopen00463" data-start="{" data-end="};">
+<div class="line"><a id="l00463" name="l00463"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#ac23009605cb340b6abd07bbab68ea2b4">  463</a></span>   <a class="code hl_class" href="classbit_1_1TestGroup.html">TestGroup</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ac23009605cb340b6abd07bbab68ea2b4">cam_test_group_</a>{</div>
+<div class="line"><a id="l00464" name="l00464"></a><span class="lineno">  464</span>    TestGroupId::CAM, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>,</div>
+<div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span>    {{TestGroupId::CAM, TestId::CAM_InstalledTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
+<div class="line"><a id="l00466" name="l00466"></a><span class="lineno">  466</span>    },</div>
+<div class="line"><a id="l00467" name="l00467"></a><span class="lineno">  467</span>  };</div>
 </div>
-<div class="line"><a id="l00465" name="l00465"></a><span class="lineno">  465</span> </div>
-<div class="foldopen" id="foldopen00467" data-start="{" data-end="};">
-<div class="line"><a id="l00467" name="l00467"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a877930f9756c4872d6ad193630e7b45e">  467</a></span>   <a class="code hl_class" href="classbit_1_1TestGroup.html">TestGroup</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a877930f9756c4872d6ad193630e7b45e">imu_test_group_</a>{</div>
-<div class="line"><a id="l00468" name="l00468"></a><span class="lineno">  468</span>    TestGroupId::IMU, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>,</div>
-<div class="line"><a id="l00469" name="l00469"></a><span class="lineno">  469</span>    {{TestGroupId::IMU, TestId::IMU_InstalledTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
-<div class="line"><a id="l00470" name="l00470"></a><span class="lineno">  470</span>    },</div>
-<div class="line"><a id="l00471" name="l00471"></a><span class="lineno">  471</span>  };</div>
+<div class="line"><a id="l00468" name="l00468"></a><span class="lineno">  468</span> </div>
+<div class="foldopen" id="foldopen00470" data-start="{" data-end="};">
+<div class="line"><a id="l00470" name="l00470"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a877930f9756c4872d6ad193630e7b45e">  470</a></span>   <a class="code hl_class" href="classbit_1_1TestGroup.html">TestGroup</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a877930f9756c4872d6ad193630e7b45e">imu_test_group_</a>{</div>
+<div class="line"><a id="l00471" name="l00471"></a><span class="lineno">  471</span>    TestGroupId::IMU, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>,</div>
+<div class="line"><a id="l00472" name="l00472"></a><span class="lineno">  472</span>    {{TestGroupId::IMU, TestId::IMU_InstalledTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
+<div class="line"><a id="l00473" name="l00473"></a><span class="lineno">  473</span>    },</div>
+<div class="line"><a id="l00474" name="l00474"></a><span class="lineno">  474</span>  };</div>
 </div>
-<div class="line"><a id="l00472" name="l00472"></a><span class="lineno">  472</span> </div>
-<div class="foldopen" id="foldopen00474" data-start="{" data-end="};">
-<div class="line"><a id="l00474" name="l00474"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a5b6c86da3b452aa36e8cd74797d5f420">  474</a></span>   <a class="code hl_class" href="classbit_1_1TestGroup.html">TestGroup</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5b6c86da3b452aa36e8cd74797d5f420">adc_test_group_</a>{</div>
-<div class="line"><a id="l00475" name="l00475"></a><span class="lineno">  475</span>    TestGroupId::ADC, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>,</div>
-<div class="line"><a id="l00476" name="l00476"></a><span class="lineno">  476</span>    {{TestGroupId::ADC, TestId::ADC_InstalledTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
-<div class="line"><a id="l00477" name="l00477"></a><span class="lineno">  477</span>    },</div>
-<div class="line"><a id="l00478" name="l00478"></a><span class="lineno">  478</span>  };</div>
+<div class="line"><a id="l00475" name="l00475"></a><span class="lineno">  475</span> </div>
+<div class="foldopen" id="foldopen00477" data-start="{" data-end="};">
+<div class="line"><a id="l00477" name="l00477"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#a5b6c86da3b452aa36e8cd74797d5f420">  477</a></span>   <a class="code hl_class" href="classbit_1_1TestGroup.html">TestGroup</a> <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5b6c86da3b452aa36e8cd74797d5f420">adc_test_group_</a>{</div>
+<div class="line"><a id="l00478" name="l00478"></a><span class="lineno">  478</span>    TestGroupId::ADC, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>,</div>
+<div class="line"><a id="l00479" name="l00479"></a><span class="lineno">  479</span>    {{TestGroupId::ADC, TestId::ADC_InstalledTest, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">shared_data_</a>},</div>
+<div class="line"><a id="l00480" name="l00480"></a><span class="lineno">  480</span>    },</div>
+<div class="line"><a id="l00481" name="l00481"></a><span class="lineno">  481</span>  };</div>
 </div>
-<div class="line"><a id="l00479" name="l00479"></a><span class="lineno">  479</span> </div>
-<div class="foldopen" id="foldopen00481" data-start="{" data-end="};">
-<div class="line"><a id="l00481" name="l00481"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#aa86c8c9204de69ff9281b12ad4bd0148">  481</a></span>  std::map&lt;TestGroupId, TestGroup &amp;&gt; <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#aa86c8c9204de69ff9281b12ad4bd0148">test_groups_map_</a>{</div>
-<div class="line"><a id="l00482" name="l00482"></a><span class="lineno">  482</span>    {TestGroupId::FCS, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a25e8f11bd91aa561de9cea34d09e7596">fcs_test_group_</a>},</div>
-<div class="line"><a id="l00483" name="l00483"></a><span class="lineno">  483</span>    {TestGroupId::SYS, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a93367bed2a134e9583af2fcc4ba6676f">sys_test_group_</a>},</div>
-<div class="line"><a id="l00484" name="l00484"></a><span class="lineno">  484</span>    {TestGroupId::DLNK, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a6ab64088e3496035e5e71c720d56b4a6">dlnk_test_group_</a>},</div>
-<div class="line"><a id="l00485" name="l00485"></a><span class="lineno">  485</span>    {TestGroupId::GPS, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a7e6a7ff01b01c5fabc010d4625a99443">gps_test_group_</a>},</div>
-<div class="line"><a id="l00486" name="l00486"></a><span class="lineno">  486</span>    {TestGroupId::BATT, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ae31aaf62e154baec7b6a5fc4592f5cbc">batt_test_group_</a>},</div>
-<div class="line"><a id="l00487" name="l00487"></a><span class="lineno">  487</span>    {TestGroupId::EXTN, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a3ea5600f1d96d5a407f150cc49483665">extn_test_group_</a>},</div>
-<div class="line"><a id="l00488" name="l00488"></a><span class="lineno">  488</span>    {TestGroupId::ENV, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afc893d3379a337d1606913f294a1c1c0">env_test_group_</a>},</div>
-<div class="line"><a id="l00489" name="l00489"></a><span class="lineno">  489</span>    {TestGroupId::CAM, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ac23009605cb340b6abd07bbab68ea2b4">cam_test_group_</a>},</div>
-<div class="line"><a id="l00490" name="l00490"></a><span class="lineno">  490</span>    {TestGroupId::IMU, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a877930f9756c4872d6ad193630e7b45e">imu_test_group_</a>},</div>
-<div class="line"><a id="l00491" name="l00491"></a><span class="lineno">  491</span>    {TestGroupId::ADC, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5b6c86da3b452aa36e8cd74797d5f420">adc_test_group_</a>},</div>
-<div class="line"><a id="l00492" name="l00492"></a><span class="lineno">  492</span>  };</div>
-</div>
-<div class="line"><a id="l00493" name="l00493"></a><span class="lineno">  493</span> </div>
-<div class="line"><a id="l00495" name="l00495"></a><span class="lineno">  495</span>};</div>
+<div class="line"><a id="l00482" name="l00482"></a><span class="lineno">  482</span> </div>
+<div class="foldopen" id="foldopen00484" data-start="{" data-end="};">
+<div class="line"><a id="l00484" name="l00484"></a><span class="lineno"><a class="line" href="classbit_1_1BuiltInTest.html#aa86c8c9204de69ff9281b12ad4bd0148">  484</a></span>  std::map&lt;TestGroupId, TestGroup &amp;&gt; <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#aa86c8c9204de69ff9281b12ad4bd0148">test_groups_map_</a>{</div>
+<div class="line"><a id="l00485" name="l00485"></a><span class="lineno">  485</span>    {TestGroupId::FCS, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a25e8f11bd91aa561de9cea34d09e7596">fcs_test_group_</a>},</div>
+<div class="line"><a id="l00486" name="l00486"></a><span class="lineno">  486</span>    {TestGroupId::SYS, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a93367bed2a134e9583af2fcc4ba6676f">sys_test_group_</a>},</div>
+<div class="line"><a id="l00487" name="l00487"></a><span class="lineno">  487</span>    {TestGroupId::DLNK, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a6ab64088e3496035e5e71c720d56b4a6">dlnk_test_group_</a>},</div>
+<div class="line"><a id="l00488" name="l00488"></a><span class="lineno">  488</span>    {TestGroupId::GPS, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a7e6a7ff01b01c5fabc010d4625a99443">gps_test_group_</a>},</div>
+<div class="line"><a id="l00489" name="l00489"></a><span class="lineno">  489</span>    {TestGroupId::BATT, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ae31aaf62e154baec7b6a5fc4592f5cbc">batt_test_group_</a>},</div>
+<div class="line"><a id="l00490" name="l00490"></a><span class="lineno">  490</span>    {TestGroupId::EXTN, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a3ea5600f1d96d5a407f150cc49483665">extn_test_group_</a>},</div>
+<div class="line"><a id="l00491" name="l00491"></a><span class="lineno">  491</span>    {TestGroupId::ENV, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#afc893d3379a337d1606913f294a1c1c0">env_test_group_</a>},</div>
+<div class="line"><a id="l00492" name="l00492"></a><span class="lineno">  492</span>    {TestGroupId::CAM, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#ac23009605cb340b6abd07bbab68ea2b4">cam_test_group_</a>},</div>
+<div class="line"><a id="l00493" name="l00493"></a><span class="lineno">  493</span>    {TestGroupId::IMU, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a877930f9756c4872d6ad193630e7b45e">imu_test_group_</a>},</div>
+<div class="line"><a id="l00494" name="l00494"></a><span class="lineno">  494</span>    {TestGroupId::ADC, <a class="code hl_variable" href="classbit_1_1BuiltInTest.html#a5b6c86da3b452aa36e8cd74797d5f420">adc_test_group_</a>},</div>
+<div class="line"><a id="l00495" name="l00495"></a><span class="lineno">  495</span>  };</div>
 </div>
 <div class="line"><a id="l00496" name="l00496"></a><span class="lineno">  496</span> </div>
-<div class="line"><a id="l00497" name="l00497"></a><span class="lineno">  497</span>} <span class="comment">// namespace bit</span></div>
+<div class="line"><a id="l00498" name="l00498"></a><span class="lineno">  498</span>};</div>
+</div>
+<div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span> </div>
+<div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span>} <span class="comment">// namespace bit</span></div>
 </div>
 <div class="ttc" id="abit__types_8hpp_html"><div class="ttname"><a href="bit__types_8hpp.html">bit_types.hpp</a></div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html"><div class="ttname"><a href="classbit_1_1BuiltInTest.html">bit::BuiltInTest</a></div><div class="ttdef"><b>Definition</b> built_in_test.hpp:247</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a25e8f11bd91aa561de9cea34d09e7596"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a25e8f11bd91aa561de9cea34d09e7596">bit::BuiltInTest::fcs_test_group_</a></div><div class="ttdeci">TestGroup fcs_test_group_</div><div class="ttdoc">Test cases for the FCS group.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:408</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a27f9265d2bcc56fea60b507d30a777dd"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a27f9265d2bcc56fea60b507d30a777dd">bit::BuiltInTest::getBitTestData</a></div><div class="ttdeci">void getBitTestData(Json &amp;out_data) override</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:319</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a3ea5600f1d96d5a407f150cc49483665"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a3ea5600f1d96d5a407f150cc49483665">bit::BuiltInTest::extn_test_group_</a></div><div class="ttdeci">TestGroup extn_test_group_</div><div class="ttdoc">Test cases for the EXTN group.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:446</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a5916180c9cb7028341b9cf0c04ead730"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">bit::BuiltInTest::running_</a></div><div class="ttdeci">std::atomic&lt; bool &gt; running_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:403</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a5b6c86da3b452aa36e8cd74797d5f420"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a5b6c86da3b452aa36e8cd74797d5f420">bit::BuiltInTest::adc_test_group_</a></div><div class="ttdeci">TestGroup adc_test_group_</div><div class="ttdoc">Test cases for the ADC group.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:474</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a5b74cbccfb47539b32796b03598403e3"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a5b74cbccfb47539b32796b03598403e3">bit::BuiltInTest::updateBitTestData</a></div><div class="ttdeci">void updateBitTestData()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:327</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a6ab64088e3496035e5e71c720d56b4a6"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a6ab64088e3496035e5e71c720d56b4a6">bit::BuiltInTest::dlnk_test_group_</a></div><div class="ttdeci">TestGroup dlnk_test_group_</div><div class="ttdoc">Test cases for the DLNK group.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:425</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a700c0d8395116af33dd6e11165bf71f3"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a700c0d8395116af33dd6e11165bf71f3">bit::BuiltInTest::bitTestRunner</a></div><div class="ttdeci">void bitTestRunner()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:353</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a7e6a7ff01b01c5fabc010d4625a99443"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a7e6a7ff01b01c5fabc010d4625a99443">bit::BuiltInTest::gps_test_group_</a></div><div class="ttdeci">TestGroup gps_test_group_</div><div class="ttdoc">Test cases for the GPS group.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:432</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a877930f9756c4872d6ad193630e7b45e"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a877930f9756c4872d6ad193630e7b45e">bit::BuiltInTest::imu_test_group_</a></div><div class="ttdeci">TestGroup imu_test_group_</div><div class="ttdoc">Test cases for the IMU group.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:467</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a8968d91ecb46cbd52a294df83756a053"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a8968d91ecb46cbd52a294df83756a053">bit::BuiltInTest::~BuiltInTest</a></div><div class="ttdeci">~BuiltInTest()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:256</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a8e0d5490d5dd3364d248ffe66055762e"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a8e0d5490d5dd3364d248ffe66055762e">bit::BuiltInTest::test_data_mutex_</a></div><div class="ttdeci">std::mutex test_data_mutex_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:394</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a93367bed2a134e9583af2fcc4ba6676f"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a93367bed2a134e9583af2fcc4ba6676f">bit::BuiltInTest::sys_test_group_</a></div><div class="ttdeci">TestGroup sys_test_group_</div><div class="ttdoc">Test cases for the SYS group.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:418</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a9a208459b6118effc584061d743add77"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a9a208459b6118effc584061d743add77">bit::BuiltInTest::test_data_buffer_</a></div><div class="ttdeci">Json test_data_buffer_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:395</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a9bb6b9b9d355a2988e21a79c1d154f77"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a9bb6b9b9d355a2988e21a79c1d154f77">bit::BuiltInTest::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Reset the BIT system to it's initial state.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:300</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_aa2c036f9a685264aa639c9ac8b059739"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#aa2c036f9a685264aa639c9ac8b059739">bit::BuiltInTest::stop</a></div><div class="ttdeci">void stop()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:287</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_aa86c8c9204de69ff9281b12ad4bd0148"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#aa86c8c9204de69ff9281b12ad4bd0148">bit::BuiltInTest::test_groups_map_</a></div><div class="ttdeci">std::map&lt; TestGroupId, TestGroup &amp; &gt; test_groups_map_</div><div class="ttdoc">This map contains the collection of test groups.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:481</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_ab21bd2264224d4851f22b03b556d90f8"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#ab21bd2264224d4851f22b03b556d90f8">bit::BuiltInTest::BuiltInTest</a></div><div class="ttdeci">BuiltInTest(data::SharedData &amp;shared_data)</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:249</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_ab72a64921ff3b398b96ade9f731fc286"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#ab72a64921ff3b398b96ade9f731fc286">bit::BuiltInTest::general_bit_status_</a></div><div class="ttdeci">bit::TestStatus general_bit_status_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:400</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_ac23009605cb340b6abd07bbab68ea2b4"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#ac23009605cb340b6abd07bbab68ea2b4">bit::BuiltInTest::cam_test_group_</a></div><div class="ttdeci">TestGroup cam_test_group_</div><div class="ttdoc">Test cases for the CAM group.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:460</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_ad2e5d6e6ded33b543c86875983681f0d"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#ad2e5d6e6ded33b543c86875983681f0d">bit::BuiltInTest::logger_</a></div><div class="ttdeci">giraffe::Logger logger_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:398</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_ae31aaf62e154baec7b6a5fc4592f5cbc"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#ae31aaf62e154baec7b6a5fc4592f5cbc">bit::BuiltInTest::batt_test_group_</a></div><div class="ttdeci">TestGroup batt_test_group_</div><div class="ttdoc">Test cases for the BATT group.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:439</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_ae58833032b255dc341c86e89fa595f3f"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#ae58833032b255dc341c86e89fa595f3f">bit::BuiltInTest::start</a></div><div class="ttdeci">void start()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:270</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_af4cded38482216cac69365467dac6eeb"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#af4cded38482216cac69365467dac6eeb">bit::BuiltInTest::thread_</a></div><div class="ttdeci">std::thread thread_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:402</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_afbd6db1df15913f600fb2d9380ad0326"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">bit::BuiltInTest::shared_data_</a></div><div class="ttdeci">data::SharedData &amp; shared_data_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:397</div></div>
-<div class="ttc" id="aclassbit_1_1BuiltInTest_html_afc893d3379a337d1606913f294a1c1c0"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#afc893d3379a337d1606913f294a1c1c0">bit::BuiltInTest::env_test_group_</a></div><div class="ttdeci">TestGroup env_test_group_</div><div class="ttdoc">Test cases for the ENV group.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:453</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html"><div class="ttname"><a href="classbit_1_1BuiltInTest.html">bit::BuiltInTest</a></div><div class="ttdef"><b>Definition</b> built_in_test.hpp:250</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a25e8f11bd91aa561de9cea34d09e7596"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a25e8f11bd91aa561de9cea34d09e7596">bit::BuiltInTest::fcs_test_group_</a></div><div class="ttdeci">TestGroup fcs_test_group_</div><div class="ttdoc">Test cases for the FCS group.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:411</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a27f9265d2bcc56fea60b507d30a777dd"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a27f9265d2bcc56fea60b507d30a777dd">bit::BuiltInTest::getBitTestData</a></div><div class="ttdeci">void getBitTestData(Json &amp;out_data) override</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:322</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a3ea5600f1d96d5a407f150cc49483665"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a3ea5600f1d96d5a407f150cc49483665">bit::BuiltInTest::extn_test_group_</a></div><div class="ttdeci">TestGroup extn_test_group_</div><div class="ttdoc">Test cases for the EXTN group.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:449</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a5916180c9cb7028341b9cf0c04ead730"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a5916180c9cb7028341b9cf0c04ead730">bit::BuiltInTest::running_</a></div><div class="ttdeci">std::atomic&lt; bool &gt; running_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:406</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a5b6c86da3b452aa36e8cd74797d5f420"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a5b6c86da3b452aa36e8cd74797d5f420">bit::BuiltInTest::adc_test_group_</a></div><div class="ttdeci">TestGroup adc_test_group_</div><div class="ttdoc">Test cases for the ADC group.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:477</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a5b74cbccfb47539b32796b03598403e3"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a5b74cbccfb47539b32796b03598403e3">bit::BuiltInTest::updateBitTestData</a></div><div class="ttdeci">void updateBitTestData()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:330</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a6ab64088e3496035e5e71c720d56b4a6"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a6ab64088e3496035e5e71c720d56b4a6">bit::BuiltInTest::dlnk_test_group_</a></div><div class="ttdeci">TestGroup dlnk_test_group_</div><div class="ttdoc">Test cases for the DLNK group.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:428</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a700c0d8395116af33dd6e11165bf71f3"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a700c0d8395116af33dd6e11165bf71f3">bit::BuiltInTest::bitTestRunner</a></div><div class="ttdeci">void bitTestRunner()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:356</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a7e6a7ff01b01c5fabc010d4625a99443"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a7e6a7ff01b01c5fabc010d4625a99443">bit::BuiltInTest::gps_test_group_</a></div><div class="ttdeci">TestGroup gps_test_group_</div><div class="ttdoc">Test cases for the GPS group.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:435</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a877930f9756c4872d6ad193630e7b45e"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a877930f9756c4872d6ad193630e7b45e">bit::BuiltInTest::imu_test_group_</a></div><div class="ttdeci">TestGroup imu_test_group_</div><div class="ttdoc">Test cases for the IMU group.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:470</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a8968d91ecb46cbd52a294df83756a053"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a8968d91ecb46cbd52a294df83756a053">bit::BuiltInTest::~BuiltInTest</a></div><div class="ttdeci">~BuiltInTest()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:259</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a8e0d5490d5dd3364d248ffe66055762e"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a8e0d5490d5dd3364d248ffe66055762e">bit::BuiltInTest::test_data_mutex_</a></div><div class="ttdeci">std::mutex test_data_mutex_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:397</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a93367bed2a134e9583af2fcc4ba6676f"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a93367bed2a134e9583af2fcc4ba6676f">bit::BuiltInTest::sys_test_group_</a></div><div class="ttdeci">TestGroup sys_test_group_</div><div class="ttdoc">Test cases for the SYS group.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:421</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a9a208459b6118effc584061d743add77"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a9a208459b6118effc584061d743add77">bit::BuiltInTest::test_data_buffer_</a></div><div class="ttdeci">Json test_data_buffer_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:398</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_a9bb6b9b9d355a2988e21a79c1d154f77"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#a9bb6b9b9d355a2988e21a79c1d154f77">bit::BuiltInTest::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Reset the BIT system to it's initial state.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:303</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_aa2c036f9a685264aa639c9ac8b059739"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#aa2c036f9a685264aa639c9ac8b059739">bit::BuiltInTest::stop</a></div><div class="ttdeci">void stop()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:290</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_aa86c8c9204de69ff9281b12ad4bd0148"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#aa86c8c9204de69ff9281b12ad4bd0148">bit::BuiltInTest::test_groups_map_</a></div><div class="ttdeci">std::map&lt; TestGroupId, TestGroup &amp; &gt; test_groups_map_</div><div class="ttdoc">This map contains the collection of test groups.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:484</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_ab21bd2264224d4851f22b03b556d90f8"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#ab21bd2264224d4851f22b03b556d90f8">bit::BuiltInTest::BuiltInTest</a></div><div class="ttdeci">BuiltInTest(data::SharedData &amp;shared_data)</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:252</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_ab72a64921ff3b398b96ade9f731fc286"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#ab72a64921ff3b398b96ade9f731fc286">bit::BuiltInTest::general_bit_status_</a></div><div class="ttdeci">bit::TestStatus general_bit_status_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:403</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_ac23009605cb340b6abd07bbab68ea2b4"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#ac23009605cb340b6abd07bbab68ea2b4">bit::BuiltInTest::cam_test_group_</a></div><div class="ttdeci">TestGroup cam_test_group_</div><div class="ttdoc">Test cases for the CAM group.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:463</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_ad2e5d6e6ded33b543c86875983681f0d"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#ad2e5d6e6ded33b543c86875983681f0d">bit::BuiltInTest::logger_</a></div><div class="ttdeci">giraffe::Logger logger_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:401</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_ae31aaf62e154baec7b6a5fc4592f5cbc"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#ae31aaf62e154baec7b6a5fc4592f5cbc">bit::BuiltInTest::batt_test_group_</a></div><div class="ttdeci">TestGroup batt_test_group_</div><div class="ttdoc">Test cases for the BATT group.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:442</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_ae58833032b255dc341c86e89fa595f3f"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#ae58833032b255dc341c86e89fa595f3f">bit::BuiltInTest::start</a></div><div class="ttdeci">void start()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:273</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_af4cded38482216cac69365467dac6eeb"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#af4cded38482216cac69365467dac6eeb">bit::BuiltInTest::thread_</a></div><div class="ttdeci">std::thread thread_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:405</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_afbd6db1df15913f600fb2d9380ad0326"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#afbd6db1df15913f600fb2d9380ad0326">bit::BuiltInTest::shared_data_</a></div><div class="ttdeci">data::SharedData &amp; shared_data_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:400</div></div>
+<div class="ttc" id="aclassbit_1_1BuiltInTest_html_afc893d3379a337d1606913f294a1c1c0"><div class="ttname"><a href="classbit_1_1BuiltInTest.html#afc893d3379a337d1606913f294a1c1c0">bit::BuiltInTest::env_test_group_</a></div><div class="ttdeci">TestGroup env_test_group_</div><div class="ttdoc">Test cases for the ENV group.</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:456</div></div>
 <div class="ttc" id="aclassbit_1_1IBuiltInTest_html"><div class="ttname"><a href="classbit_1_1IBuiltInTest.html">bit::IBuiltInTest</a></div><div class="ttdoc">Access to build-in test data.</div><div class="ttdef"><b>Definition</b> i_built_in_test.hpp:21</div></div>
 <div class="ttc" id="aclassbit_1_1TestCase_html"><div class="ttname"><a href="classbit_1_1TestCase.html">bit::TestCase</a></div><div class="ttdef"><b>Definition</b> built_in_test.hpp:35</div></div>
 <div class="ttc" id="aclassbit_1_1TestCase_html_a011ef919db4df3b70683fd7ed4dff645"><div class="ttname"><a href="classbit_1_1TestCase.html#a011ef919db4df3b70683fd7ed4dff645">bit::TestCase::TestCase</a></div><div class="ttdeci">TestCase(TestGroupId group_id, TestId test_id, data::SharedData &amp;shared_data)</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:39</div></div>
@@ -701,32 +704,32 @@ $(document).ready(function(){initNavTree('built__in__test_8hpp_source.html','');
 <div class="ttc" id="aclassbit_1_1TestCase_html_a1e816a0ab5a3061a263a9e3be2da98c6"><div class="ttname"><a href="classbit_1_1TestCase.html#a1e816a0ab5a3061a263a9e3be2da98c6">bit::TestCase::getTestID</a></div><div class="ttdeci">TestId getTestID() const</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:48</div></div>
 <div class="ttc" id="aclassbit_1_1TestCase_html_a58c28c7dd6e545d320a7e18a8f0ad379"><div class="ttname"><a href="classbit_1_1TestCase.html#a58c28c7dd6e545d320a7e18a8f0ad379">bit::TestCase::stopTest</a></div><div class="ttdeci">void stopTest()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:74</div></div>
 <div class="ttc" id="aclassbit_1_1TestCase_html_a5abcc0a48bfee33a17b8d78be9ef06bc"><div class="ttname"><a href="classbit_1_1TestCase.html#a5abcc0a48bfee33a17b8d78be9ef06bc">bit::TestCase::startTest</a></div><div class="ttdeci">void startTest()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:70</div></div>
-<div class="ttc" id="aclassbit_1_1TestCase_html_a63d750ad8545165d8ab4b03fc7187638"><div class="ttname"><a href="classbit_1_1TestCase.html#a63d750ad8545165d8ab4b03fc7187638">bit::TestCase::test_id_</a></div><div class="ttdeci">TestId test_id_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:116</div></div>
-<div class="ttc" id="aclassbit_1_1TestCase_html_a8ec74d78370bb1d24cd4ee98b4381d0b"><div class="ttname"><a href="classbit_1_1TestCase.html#a8ec74d78370bb1d24cd4ee98b4381d0b">bit::TestCase::shared_data_</a></div><div class="ttdeci">data::SharedData &amp; shared_data_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:119</div></div>
+<div class="ttc" id="aclassbit_1_1TestCase_html_a63d750ad8545165d8ab4b03fc7187638"><div class="ttname"><a href="classbit_1_1TestCase.html#a63d750ad8545165d8ab4b03fc7187638">bit::TestCase::test_id_</a></div><div class="ttdeci">TestId test_id_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:119</div></div>
+<div class="ttc" id="aclassbit_1_1TestCase_html_a8ec74d78370bb1d24cd4ee98b4381d0b"><div class="ttname"><a href="classbit_1_1TestCase.html#a8ec74d78370bb1d24cd4ee98b4381d0b">bit::TestCase::shared_data_</a></div><div class="ttdeci">data::SharedData &amp; shared_data_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:122</div></div>
 <div class="ttc" id="aclassbit_1_1TestCase_html_a9dfb2da6b317d8866092c6eb4ccb8fd2"><div class="ttname"><a href="classbit_1_1TestCase.html#a9dfb2da6b317d8866092c6eb4ccb8fd2">bit::TestCase::update</a></div><div class="ttdeci">void update()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:80</div></div>
-<div class="ttc" id="aclassbit_1_1TestCase_html_aaf62dbc0f54f9591f04e882ba950d352"><div class="ttname"><a href="classbit_1_1TestCase.html#aaf62dbc0f54f9591f04e882ba950d352">bit::TestCase::group_id_</a></div><div class="ttdeci">TestGroupId group_id_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:115</div></div>
-<div class="ttc" id="aclassbit_1_1TestCase_html_ab4c26037e14383a18d24f210af7b1c91"><div class="ttname"><a href="classbit_1_1TestCase.html#ab4c26037e14383a18d24f210af7b1c91">bit::TestCase::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:110</div></div>
-<div class="ttc" id="aclassbit_1_1TestCase_html_acff8d2e424b0c2bb7b810b1b62dd7514"><div class="ttname"><a href="classbit_1_1TestCase.html#acff8d2e424b0c2bb7b810b1b62dd7514">bit::TestCase::status_</a></div><div class="ttdeci">TestStatus status_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:117</div></div>
+<div class="ttc" id="aclassbit_1_1TestCase_html_aaf62dbc0f54f9591f04e882ba950d352"><div class="ttname"><a href="classbit_1_1TestCase.html#aaf62dbc0f54f9591f04e882ba950d352">bit::TestCase::group_id_</a></div><div class="ttdeci">TestGroupId group_id_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:118</div></div>
+<div class="ttc" id="aclassbit_1_1TestCase_html_ab4c26037e14383a18d24f210af7b1c91"><div class="ttname"><a href="classbit_1_1TestCase.html#ab4c26037e14383a18d24f210af7b1c91">bit::TestCase::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:113</div></div>
+<div class="ttc" id="aclassbit_1_1TestCase_html_acff8d2e424b0c2bb7b810b1b62dd7514"><div class="ttname"><a href="classbit_1_1TestCase.html#acff8d2e424b0c2bb7b810b1b62dd7514">bit::TestCase::status_</a></div><div class="ttdeci">TestStatus status_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:120</div></div>
 <div class="ttc" id="aclassbit_1_1TestCase_html_af23736c63a80d7e66699ed73639b6609"><div class="ttname"><a href="classbit_1_1TestCase.html#af23736c63a80d7e66699ed73639b6609">bit::TestCase::~TestCase</a></div><div class="ttdeci">~TestCase()=default</div></div>
 <div class="ttc" id="aclassbit_1_1TestCase_html_afbde704dd65833d06dfe278362b66677"><div class="ttname"><a href="classbit_1_1TestCase.html#afbde704dd65833d06dfe278362b66677">bit::TestCase::getStatus</a></div><div class="ttdeci">TestStatus getStatus() const</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:44</div></div>
-<div class="ttc" id="aclassbit_1_1TestGroup_html"><div class="ttname"><a href="classbit_1_1TestGroup.html">bit::TestGroup</a></div><div class="ttdef"><b>Definition</b> built_in_test.hpp:122</div></div>
-<div class="ttc" id="aclassbit_1_1TestGroup_html_a1711ae59f0c55659cfb66ef7baa74527"><div class="ttname"><a href="classbit_1_1TestGroup.html#a1711ae59f0c55659cfb66ef7baa74527">bit::TestGroup::test_cases_</a></div><div class="ttdeci">std::vector&lt; TestCase &gt; test_cases_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:238</div></div>
-<div class="ttc" id="aclassbit_1_1TestGroup_html_a22647b9d51c6fec6ac44aeb3d8099117"><div class="ttname"><a href="classbit_1_1TestGroup.html#a22647b9d51c6fec6ac44aeb3d8099117">bit::TestGroup::logger_</a></div><div class="ttdeci">giraffe::Logger logger_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:237</div></div>
-<div class="ttc" id="aclassbit_1_1TestGroup_html_a2455a44b5b9ed5663a9ac776e54316e2"><div class="ttname"><a href="classbit_1_1TestGroup.html#a2455a44b5b9ed5663a9ac776e54316e2">bit::TestGroup::getGroupResults</a></div><div class="ttdeci">Json getGroupResults()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:167</div></div>
-<div class="ttc" id="aclassbit_1_1TestGroup_html_a31704c506e1806f1b5981e828ee911d9"><div class="ttname"><a href="classbit_1_1TestGroup.html#a31704c506e1806f1b5981e828ee911d9">bit::TestGroup::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:154</div></div>
-<div class="ttc" id="aclassbit_1_1TestGroup_html_a49d2eef44fd99740f57209794e0b1439"><div class="ttname"><a href="classbit_1_1TestGroup.html#a49d2eef44fd99740f57209794e0b1439">bit::TestGroup::test_results_mutex_</a></div><div class="ttdeci">std::mutex test_results_mutex_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:244</div></div>
-<div class="ttc" id="aclassbit_1_1TestGroup_html_a5489504c1cb64d10c66e1cac4b2211d0"><div class="ttname"><a href="classbit_1_1TestGroup.html#a5489504c1cb64d10c66e1cac4b2211d0">bit::TestGroup::group_id_</a></div><div class="ttdeci">bit::TestGroupId group_id_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:235</div></div>
-<div class="ttc" id="aclassbit_1_1TestGroup_html_a64a3cdcf96680062172aa71979dd3660"><div class="ttname"><a href="classbit_1_1TestGroup.html#a64a3cdcf96680062172aa71979dd3660">bit::TestGroup::getGroupStatus</a></div><div class="ttdeci">TestStatus getGroupStatus() const</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:163</div></div>
-<div class="ttc" id="aclassbit_1_1TestGroup_html_a6b5da1faf947ef417ad70f8042f3838f"><div class="ttname"><a href="classbit_1_1TestGroup.html#a6b5da1faf947ef417ad70f8042f3838f">bit::TestGroup::group_status_</a></div><div class="ttdeci">std::atomic&lt; TestStatus &gt; group_status_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:243</div></div>
-<div class="ttc" id="aclassbit_1_1TestGroup_html_a758e1e5dde0f057bbeb0ded0f3d6b916"><div class="ttname"><a href="classbit_1_1TestGroup.html#a758e1e5dde0f057bbeb0ded0f3d6b916">bit::TestGroup::start</a></div><div class="ttdeci">void start()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:133</div></div>
-<div class="ttc" id="aclassbit_1_1TestGroup_html_a7ca8bd6951ba4350d87e996cb5c8c599"><div class="ttname"><a href="classbit_1_1TestGroup.html#a7ca8bd6951ba4350d87e996cb5c8c599">bit::TestGroup::shared_data_</a></div><div class="ttdeci">data::SharedData &amp; shared_data_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:236</div></div>
+<div class="ttc" id="aclassbit_1_1TestGroup_html"><div class="ttname"><a href="classbit_1_1TestGroup.html">bit::TestGroup</a></div><div class="ttdef"><b>Definition</b> built_in_test.hpp:125</div></div>
+<div class="ttc" id="aclassbit_1_1TestGroup_html_a1711ae59f0c55659cfb66ef7baa74527"><div class="ttname"><a href="classbit_1_1TestGroup.html#a1711ae59f0c55659cfb66ef7baa74527">bit::TestGroup::test_cases_</a></div><div class="ttdeci">std::vector&lt; TestCase &gt; test_cases_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:241</div></div>
+<div class="ttc" id="aclassbit_1_1TestGroup_html_a22647b9d51c6fec6ac44aeb3d8099117"><div class="ttname"><a href="classbit_1_1TestGroup.html#a22647b9d51c6fec6ac44aeb3d8099117">bit::TestGroup::logger_</a></div><div class="ttdeci">giraffe::Logger logger_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:240</div></div>
+<div class="ttc" id="aclassbit_1_1TestGroup_html_a2455a44b5b9ed5663a9ac776e54316e2"><div class="ttname"><a href="classbit_1_1TestGroup.html#a2455a44b5b9ed5663a9ac776e54316e2">bit::TestGroup::getGroupResults</a></div><div class="ttdeci">Json getGroupResults()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:170</div></div>
+<div class="ttc" id="aclassbit_1_1TestGroup_html_a31704c506e1806f1b5981e828ee911d9"><div class="ttname"><a href="classbit_1_1TestGroup.html#a31704c506e1806f1b5981e828ee911d9">bit::TestGroup::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:157</div></div>
+<div class="ttc" id="aclassbit_1_1TestGroup_html_a49d2eef44fd99740f57209794e0b1439"><div class="ttname"><a href="classbit_1_1TestGroup.html#a49d2eef44fd99740f57209794e0b1439">bit::TestGroup::test_results_mutex_</a></div><div class="ttdeci">std::mutex test_results_mutex_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:247</div></div>
+<div class="ttc" id="aclassbit_1_1TestGroup_html_a5489504c1cb64d10c66e1cac4b2211d0"><div class="ttname"><a href="classbit_1_1TestGroup.html#a5489504c1cb64d10c66e1cac4b2211d0">bit::TestGroup::group_id_</a></div><div class="ttdeci">bit::TestGroupId group_id_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:238</div></div>
+<div class="ttc" id="aclassbit_1_1TestGroup_html_a64a3cdcf96680062172aa71979dd3660"><div class="ttname"><a href="classbit_1_1TestGroup.html#a64a3cdcf96680062172aa71979dd3660">bit::TestGroup::getGroupStatus</a></div><div class="ttdeci">TestStatus getGroupStatus() const</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:166</div></div>
+<div class="ttc" id="aclassbit_1_1TestGroup_html_a6b5da1faf947ef417ad70f8042f3838f"><div class="ttname"><a href="classbit_1_1TestGroup.html#a6b5da1faf947ef417ad70f8042f3838f">bit::TestGroup::group_status_</a></div><div class="ttdeci">std::atomic&lt; TestStatus &gt; group_status_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:246</div></div>
+<div class="ttc" id="aclassbit_1_1TestGroup_html_a758e1e5dde0f057bbeb0ded0f3d6b916"><div class="ttname"><a href="classbit_1_1TestGroup.html#a758e1e5dde0f057bbeb0ded0f3d6b916">bit::TestGroup::start</a></div><div class="ttdeci">void start()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:136</div></div>
+<div class="ttc" id="aclassbit_1_1TestGroup_html_a7ca8bd6951ba4350d87e996cb5c8c599"><div class="ttname"><a href="classbit_1_1TestGroup.html#a7ca8bd6951ba4350d87e996cb5c8c599">bit::TestGroup::shared_data_</a></div><div class="ttdeci">data::SharedData &amp; shared_data_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:239</div></div>
 <div class="ttc" id="aclassbit_1_1TestGroup_html_a88105120c8bf7390f51dfe5f3ae24936"><div class="ttname"><a href="classbit_1_1TestGroup.html#a88105120c8bf7390f51dfe5f3ae24936">bit::TestGroup::~TestGroup</a></div><div class="ttdeci">~TestGroup()=default</div></div>
-<div class="ttc" id="aclassbit_1_1TestGroup_html_a8962bb6d8b04c8052f165ba3b63fd596"><div class="ttname"><a href="classbit_1_1TestGroup.html#a8962bb6d8b04c8052f165ba3b63fd596">bit::TestGroup::thread_</a></div><div class="ttdeci">std::thread thread_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:240</div></div>
-<div class="ttc" id="aclassbit_1_1TestGroup_html_aafcf814ecf48d85d5887a25df56b373f"><div class="ttname"><a href="classbit_1_1TestGroup.html#aafcf814ecf48d85d5887a25df56b373f">bit::TestGroup::TestGroup</a></div><div class="ttdeci">TestGroup(bit::TestGroupId group_id, data::SharedData &amp;shared_data, std::vector&lt; TestCase &gt; test_cases)</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:124</div></div>
-<div class="ttc" id="aclassbit_1_1TestGroup_html_ab0cdcea1f77d0e45ce07cefccf6874bb"><div class="ttname"><a href="classbit_1_1TestGroup.html#ab0cdcea1f77d0e45ce07cefccf6874bb">bit::TestGroup::stop</a></div><div class="ttdeci">void stop()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:146</div></div>
-<div class="ttc" id="aclassbit_1_1TestGroup_html_ab9548b91b39be66fda85ebe42ee4739b"><div class="ttname"><a href="classbit_1_1TestGroup.html#ab9548b91b39be66fda85ebe42ee4739b">bit::TestGroup::running_</a></div><div class="ttdeci">std::atomic&lt; bool &gt; running_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:241</div></div>
-<div class="ttc" id="aclassbit_1_1TestGroup_html_ac197766975306b14edd500762488f9e0"><div class="ttname"><a href="classbit_1_1TestGroup.html#ac197766975306b14edd500762488f9e0">bit::TestGroup::groupRunner</a></div><div class="ttdeci">void groupRunner()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:181</div></div>
-<div class="ttc" id="aclassbit_1_1TestGroup_html_af498cc0e33524bfa7b83ea7a4501a3ee"><div class="ttname"><a href="classbit_1_1TestGroup.html#af498cc0e33524bfa7b83ea7a4501a3ee">bit::TestGroup::setGroupStatus</a></div><div class="ttdeci">void setGroupStatus(TestStatus status)</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:231</div></div>
+<div class="ttc" id="aclassbit_1_1TestGroup_html_a8962bb6d8b04c8052f165ba3b63fd596"><div class="ttname"><a href="classbit_1_1TestGroup.html#a8962bb6d8b04c8052f165ba3b63fd596">bit::TestGroup::thread_</a></div><div class="ttdeci">std::thread thread_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:243</div></div>
+<div class="ttc" id="aclassbit_1_1TestGroup_html_aafcf814ecf48d85d5887a25df56b373f"><div class="ttname"><a href="classbit_1_1TestGroup.html#aafcf814ecf48d85d5887a25df56b373f">bit::TestGroup::TestGroup</a></div><div class="ttdeci">TestGroup(bit::TestGroupId group_id, data::SharedData &amp;shared_data, std::vector&lt; TestCase &gt; test_cases)</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:127</div></div>
+<div class="ttc" id="aclassbit_1_1TestGroup_html_ab0cdcea1f77d0e45ce07cefccf6874bb"><div class="ttname"><a href="classbit_1_1TestGroup.html#ab0cdcea1f77d0e45ce07cefccf6874bb">bit::TestGroup::stop</a></div><div class="ttdeci">void stop()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:149</div></div>
+<div class="ttc" id="aclassbit_1_1TestGroup_html_ab9548b91b39be66fda85ebe42ee4739b"><div class="ttname"><a href="classbit_1_1TestGroup.html#ab9548b91b39be66fda85ebe42ee4739b">bit::TestGroup::running_</a></div><div class="ttdeci">std::atomic&lt; bool &gt; running_</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:244</div></div>
+<div class="ttc" id="aclassbit_1_1TestGroup_html_ac197766975306b14edd500762488f9e0"><div class="ttname"><a href="classbit_1_1TestGroup.html#ac197766975306b14edd500762488f9e0">bit::TestGroup::groupRunner</a></div><div class="ttdeci">void groupRunner()</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:184</div></div>
+<div class="ttc" id="aclassbit_1_1TestGroup_html_af498cc0e33524bfa7b83ea7a4501a3ee"><div class="ttname"><a href="classbit_1_1TestGroup.html#af498cc0e33524bfa7b83ea7a4501a3ee">bit::TestGroup::setGroupStatus</a></div><div class="ttdeci">void setGroupStatus(TestStatus status)</div><div class="ttdef"><b>Definition</b> built_in_test.hpp:234</div></div>
 <div class="ttc" id="aclassdata_1_1FlightData_html_a312127c867c9f4538b4d3cb24303a6e7"><div class="ttname"><a href="classdata_1_1FlightData.html#a312127c867c9f4538b4d3cb24303a6e7">data::FlightData::setBitTestData</a></div><div class="ttdeci">void setBitTestData(Json &amp;data)</div><div class="ttdef"><b>Definition</b> flight_data.hpp:141</div></div>
 <div class="ttc" id="aclassdata_1_1FlightData_html_a66c0ae403e8e6959292ee73dbd2ea34d"><div class="ttname"><a href="classdata_1_1FlightData.html#a66c0ae403e8e6959292ee73dbd2ea34d">data::FlightData::getFlightPhase</a></div><div class="ttdeci">FlightPhase getFlightPhase() const</div><div class="ttdoc">Get the current flight phase.</div><div class="ttdef"><b>Definition</b> flight_data.hpp:60</div></div>
 <div class="ttc" id="aclassdata_1_1LogStream_html_a18af3025ca8f1e60e5bd795f10b6c8b1"><div class="ttname"><a href="classdata_1_1LogStream.html#a18af3025ca8f1e60e5bd795f10b6c8b1">data::LogStream::error</a></div><div class="ttdeci">void error(node::Identification source, DiagnosticId error_id, std::string info=&quot;&quot;)</div><div class="ttdef"><b>Definition</b> streams.hpp:108</div></div>
@@ -736,8 +739,9 @@ $(document).ready(function(){initNavTree('built__in__test_8hpp_source.html','');
 <div class="ttc" id="ai__built__in__test_8hpp_html"><div class="ttname"><a href="i__built__in__test_8hpp.html">i_built_in_test.hpp</a></div></div>
 <div class="ttc" id="ajson_8hpp_html_a4a99353783822e2ef7bba2e6fa9b974f"><div class="ttname"><a href="json_8hpp.html#a4a99353783822e2ef7bba2e6fa9b974f">Json</a></div><div class="ttdeci">nlohmann::ordered_json Json</div><div class="ttdef"><b>Definition</b> json.hpp:24</div></div>
 <div class="ttc" id="alogger_8hpp_html"><div class="ttname"><a href="logger_8hpp.html">logger.hpp</a></div><div class="ttdoc">A simple logger class so difference classes have access to the same logger.</div></div>
-<div class="ttc" id="anamespacebit_1_1test__case_html_a26fa88abc804b5e8c2e4cc9311d13e21"><div class="ttname"><a href="namespacebit_1_1test__case.html#a26fa88abc804b5e8c2e4cc9311d13e21">bit::test_case::runTestFCS_0001</a></div><div class="ttdeci">TestResult runTestFCS_0001(data::SharedData &amp;shared_data)</div><div class="ttdoc">Checks if the error frame has any active errors.</div><div class="ttdef"><b>Definition</b> test_cases.cpp:19</div></div>
-<div class="ttc" id="anamespacebit_1_1test__case_html_a68866a4e2faa00fa702843c7a6f99b7a"><div class="ttname"><a href="namespacebit_1_1test__case.html#a68866a4e2faa00fa702843c7a6f99b7a">bit::test_case::runTestGPS_0400</a></div><div class="ttdeci">TestResult runTestGPS_0400(data::SharedData &amp;shared_data)</div><div class="ttdoc">Checks if GPS hardware is configured and running.</div><div class="ttdef"><b>Definition</b> test_cases.cpp:38</div></div>
+<div class="ttc" id="anamespacebit_1_1test__case_html_a26fa88abc804b5e8c2e4cc9311d13e21"><div class="ttname"><a href="namespacebit_1_1test__case.html#a26fa88abc804b5e8c2e4cc9311d13e21">bit::test_case::runTestFCS_0001</a></div><div class="ttdeci">TestResult runTestFCS_0001(data::SharedData &amp;shared_data)</div><div class="ttdoc">Checks if the error frame has any active errors.</div><div class="ttdef"><b>Definition</b> test_cases.cpp:21</div></div>
+<div class="ttc" id="anamespacebit_1_1test__case_html_a68866a4e2faa00fa702843c7a6f99b7a"><div class="ttname"><a href="namespacebit_1_1test__case.html#a68866a4e2faa00fa702843c7a6f99b7a">bit::test_case::runTestGPS_0400</a></div><div class="ttdeci">TestResult runTestGPS_0400(data::SharedData &amp;shared_data)</div><div class="ttdoc">Checks if GPS hardware is configured and running.</div><div class="ttdef"><b>Definition</b> test_cases.cpp:52</div></div>
+<div class="ttc" id="anamespacebit_1_1test__case_html_a8c4c0d6065c84b49d2334e5409651d14"><div class="ttname"><a href="namespacebit_1_1test__case.html#a8c4c0d6065c84b49d2334e5409651d14">bit::test_case::runTestFCS_0004</a></div><div class="ttdeci">TestResult runTestFCS_0004(data::SharedData &amp;shared_data)</div><div class="ttdoc">Checks if the data module is processing data correctly/at a reasonable rate.</div><div class="ttdef"><b>Definition</b> test_cases.cpp:40</div></div>
 <div class="ttc" id="anamespacebit_html"><div class="ttname"><a href="namespacebit.html">bit</a></div><div class="ttdef"><b>Definition</b> built_in_test.hpp:33</div></div>
 <div class="ttc" id="anamespacebit_html_a8af30dd359ad254eac33aaee15e39fae"><div class="ttname"><a href="namespacebit.html#a8af30dd359ad254eac33aaee15e39fae">bit::TestResult::status</a></div><div class="ttdeci">TestStatus status</div><div class="ttdef"><b>Definition</b> test_cases.hpp:25</div></div>
 <div class="ttc" id="anamespacebit_html_ad435a76681c12009d2ec2008856bae11"><div class="ttname"><a href="namespacebit.html#ad435a76681c12009d2ec2008856bae11">bit::TestResult::test_id</a></div><div class="ttdeci">TestId test_id</div><div class="ttdef"><b>Definition</b> test_cases.hpp:23</div></div>

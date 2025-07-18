@@ -25,32 +25,33 @@
 var NAVTREE =
 [
   [ "Giraffe", "index.html", [
-    [ "Giraffe <!-- omit from toc -->", "index.html#autotoc_md130", [
-      [ "Learn More About it", "index.html#autotoc_md134", null ],
-      [ "Photos", "index.html#autotoc_md136", null ],
-      [ "</blockquote>", "index.html#autotoc_md137", null ],
-      [ "Table of Contents <!-- omit from toc -->", "index.html#autotoc_md138", null ]
+    [ "Giraffe <!-- omit from toc -->", "index.html#autotoc_md152", [
+      [ "Learn More About it", "index.html#autotoc_md156", null ],
+      [ "Photos", "index.html#autotoc_md158", null ],
+      [ "</blockquote>", "index.html#autotoc_md159", null ],
+      [ "Table of Contents <!-- omit from toc -->", "index.html#autotoc_md160", null ]
     ] ],
-    [ "About", "index.html#autotoc_md140", [
-      [ "Current High Level Functionality", "index.html#autotoc_md141", null ],
-      [ "Planned High Level Functionality Prior to the First Flight", "index.html#autotoc_md142", null ],
-      [ "Development Details", "index.html#autotoc_md143", null ]
+    [ "About", "index.html#autotoc_md162", [
+      [ "Current High Level Functionality", "index.html#autotoc_md163", null ],
+      [ "Planned High Level Functionality Prior to the First Flight", "index.html#autotoc_md164", null ],
+      [ "Development Details", "index.html#autotoc_md165", null ]
     ] ],
-    [ "Hardware", "index.html#autotoc_md145", [
-      [ "Hat", "index.html#autotoc_md146", [
-        [ "Known Issues <!-- omit in toc -->", "index.html#autotoc_md147", null ]
+    [ "Hardware", "index.html#autotoc_md167", [
+      [ "Hat", "index.html#autotoc_md168", [
+        [ "Known Issues <!-- omit in toc -->", "index.html#autotoc_md169", null ]
       ] ],
-      [ "Shoe", "index.html#autotoc_md148", [
-        [ "Known Issues <!-- omit in toc -->", "index.html#autotoc_md149", null ],
-        [ "Shoe Testing PCBs <!-- omit in toc -->", "index.html#autotoc_md150", null ]
+      [ "Shoe", "index.html#autotoc_md170", [
+        [ "Known Issues <!-- omit in toc -->", "index.html#autotoc_md171", null ],
+        [ "Shoe Testing PCBs <!-- omit in toc -->", "index.html#autotoc_md172", null ]
       ] ],
-      [ "</blockquote>", "index.html#autotoc_md151", null ]
+      [ "</blockquote>", "index.html#autotoc_md173", null ]
     ] ],
-    [ "Building and Installing the Flight Software", "index.html#autotoc_md152", [
-      [ "Installing Prerequisites", "index.html#autotoc_md153", null ],
-      [ "Building the Flight Software", "index.html#autotoc_md154", null ]
+    [ "Building and Installing the Flight Software", "index.html#autotoc_md174", [
+      [ "Installing Prerequisites", "index.html#autotoc_md175", null ],
+      [ "Building the Flight Software", "index.html#autotoc_md176", null ]
     ] ],
-    [ "Flight Software Configuration/Web Client", "index.html#autotoc_md156", null ],
+    [ "Flight Software Configuration/Web Client", "index.html#autotoc_md178", null ],
+    [ "todo", "md_src_2common_2protocol_2todo.html", null ],
     [ "Giraffe Flight System", "md_docs_2introduction.html", [
       [ "Introduction", "md_docs_2introduction.html#autotoc_md4", null ],
       [ "C4 Model", "md_docs_2introduction.html#autotoc_md5", [
@@ -87,128 +88,143 @@ var NAVTREE =
         [ "ADC", "md_docs_2bit__test.html#autotoc_md30", null ]
       ] ]
     ] ],
+    [ "Giraffe Change Log", "md_docs_2change__log.html", [
+      [ "0.8", "md_docs_2change__log.html#autotoc_md32", null ],
+      [ "0.7", "md_docs_2change__log.html#autotoc_md34", null ],
+      [ "0.6", "md_docs_2change__log.html#autotoc_md36", null ],
+      [ "0.5", "md_docs_2change__log.html#autotoc_md38", null ],
+      [ "0.4", "md_docs_2change__log.html#autotoc_md40", [
+        [ "Software", "md_docs_2change__log.html#autotoc_md41", null ],
+        [ "Hardware", "md_docs_2change__log.html#autotoc_md42", null ]
+      ] ],
+      [ "0.3", "md_docs_2change__log.html#autotoc_md44", null ],
+      [ "0.2.0", "md_docs_2change__log.html#autotoc_md46", null ],
+      [ "0.1.0", "md_docs_2change__log.html#autotoc_md48", null ],
+      [ "0.0.9", "md_docs_2change__log.html#autotoc_md50", null ]
+    ] ],
     [ "Commands", "md_docs_2commands.html", [
-      [ "Command Format", "md_docs_2commands.html#autotoc_md32", [
-        [ "Command Flag", "md_docs_2commands.html#autotoc_md33", null ],
-        [ "Destination", "md_docs_2commands.html#autotoc_md34", null ],
-        [ "Command ID", "md_docs_2commands.html#autotoc_md35", null ],
-        [ "Command Argument", "md_docs_2commands.html#autotoc_md36", null ]
+      [ "Command Format", "md_docs_2commands.html#autotoc_md52", [
+        [ "Command Flag", "md_docs_2commands.html#autotoc_md53", null ],
+        [ "Destination", "md_docs_2commands.html#autotoc_md54", null ],
+        [ "Command ID", "md_docs_2commands.html#autotoc_md55", null ],
+        [ "Command Argument", "md_docs_2commands.html#autotoc_md56", null ]
       ] ],
-      [ "Command List", "md_docs_2commands.html#autotoc_md37", [
-        [ "Flight Runner Commands", "md_docs_2commands.html#autotoc_md38", null ]
+      [ "Command List", "md_docs_2commands.html#autotoc_md57", [
+        [ "Flight Runner Commands", "md_docs_2commands.html#autotoc_md58", null ]
       ] ],
-      [ "Configuration Commands", "md_docs_2commands.html#autotoc_md39", [
-        [ "Telemetry Configuration Commands", "md_docs_2commands.html#autotoc_md40", null ],
-        [ "Data Module Commands", "md_docs_2commands.html#autotoc_md41", null ],
-        [ "Extension Commands", "md_docs_2commands.html#autotoc_md42", null ],
-        [ "Telemetry Commands", "md_docs_2commands.html#autotoc_md43", null ]
+      [ "Configuration Commands", "md_docs_2commands.html#autotoc_md59", [
+        [ "Telemetry Configuration Commands", "md_docs_2commands.html#autotoc_md60", null ],
+        [ "Data Module Commands", "md_docs_2commands.html#autotoc_md61", null ],
+        [ "Extension Commands", "md_docs_2commands.html#autotoc_md62", null ],
+        [ "Telemetry Commands", "md_docs_2commands.html#autotoc_md63", null ]
       ] ]
     ] ],
     [ "Development Environment", "md_docs_2dev__environment.html", [
-      [ "Linux Packages", "md_docs_2dev__environment.html#autotoc_md45", null ],
-      [ "Cross Compiler GMock", "md_docs_2dev__environment.html#autotoc_md46", null ],
-      [ "Python", "md_docs_2dev__environment.html#autotoc_md47", null ],
-      [ "Static Analysis/Pre-Commit", "md_docs_2dev__environment.html#autotoc_md48", null ],
-      [ "Pre-Commit", "md_docs_2dev__environment.html#autotoc_md49", null ]
+      [ "Linux Packages", "md_docs_2dev__environment.html#autotoc_md65", null ],
+      [ "Cross Compiler GMock", "md_docs_2dev__environment.html#autotoc_md66", null ],
+      [ "Python", "md_docs_2dev__environment.html#autotoc_md67", null ],
+      [ "Static Analysis/Pre-Commit", "md_docs_2dev__environment.html#autotoc_md68", null ],
+      [ "Pre-Commit", "md_docs_2dev__environment.html#autotoc_md69", null ]
     ] ],
     [ "Flight Phases", "md_docs_2flight__phases.html", [
-      [ "Introduction", "md_docs_2flight__phases.html#autotoc_md51", null ],
-      [ "Phases", "md_docs_2flight__phases.html#autotoc_md52", [
-        [ "Pre-Launch", "md_docs_2flight__phases.html#autotoc_md53", [
-          [ "Transition In", "md_docs_2flight__phases.html#autotoc_md54", null ],
-          [ "Transition Out", "md_docs_2flight__phases.html#autotoc_md55", null ]
+      [ "Introduction", "md_docs_2flight__phases.html#autotoc_md71", null ],
+      [ "Phases", "md_docs_2flight__phases.html#autotoc_md72", [
+        [ "Pre-Launch", "md_docs_2flight__phases.html#autotoc_md73", [
+          [ "Transition In", "md_docs_2flight__phases.html#autotoc_md74", null ],
+          [ "Transition Out", "md_docs_2flight__phases.html#autotoc_md75", null ]
         ] ],
-        [ "Launch", "md_docs_2flight__phases.html#autotoc_md56", null ],
-        [ "Ascent", "md_docs_2flight__phases.html#autotoc_md57", null ],
-        [ "Descent", "md_docs_2flight__phases.html#autotoc_md58", null ],
-        [ "Recovery", "md_docs_2flight__phases.html#autotoc_md59", null ]
+        [ "Launch", "md_docs_2flight__phases.html#autotoc_md76", null ],
+        [ "Ascent", "md_docs_2flight__phases.html#autotoc_md77", null ],
+        [ "Descent", "md_docs_2flight__phases.html#autotoc_md78", null ],
+        [ "Recovery", "md_docs_2flight__phases.html#autotoc_md79", null ]
       ] ],
-      [ "Flight Phase Detection Model", "md_docs_2flight__phases.html#autotoc_md60", [
-        [ "Warning!", "md_docs_2flight__phases.html#autotoc_md61", null ],
-        [ "Introduction", "md_docs_2flight__phases.html#autotoc_md62", null ],
-        [ "Parameters", "md_docs_2flight__phases.html#autotoc_md63", [
-          [ "Barometer Indicated (Backup)", "md_docs_2flight__phases.html#autotoc_md64", null ]
+      [ "Flight Phase Detection Model", "md_docs_2flight__phases.html#autotoc_md80", [
+        [ "Warning!", "md_docs_2flight__phases.html#autotoc_md81", null ],
+        [ "Introduction", "md_docs_2flight__phases.html#autotoc_md82", null ],
+        [ "Parameters", "md_docs_2flight__phases.html#autotoc_md83", [
+          [ "Barometer Indicated (Backup)", "md_docs_2flight__phases.html#autotoc_md84", null ]
         ] ],
-        [ "Phases", "md_docs_2flight__phases.html#autotoc_md65", [
-          [ "Launch", "md_docs_2flight__phases.html#autotoc_md66", null ],
-          [ "Ascent", "md_docs_2flight__phases.html#autotoc_md67", null ],
-          [ "Descent", "md_docs_2flight__phases.html#autotoc_md68", null ],
-          [ "Recovery", "md_docs_2flight__phases.html#autotoc_md69", null ]
+        [ "Phases", "md_docs_2flight__phases.html#autotoc_md85", [
+          [ "Launch", "md_docs_2flight__phases.html#autotoc_md86", null ],
+          [ "Ascent", "md_docs_2flight__phases.html#autotoc_md87", null ],
+          [ "Descent", "md_docs_2flight__phases.html#autotoc_md88", null ],
+          [ "Recovery", "md_docs_2flight__phases.html#autotoc_md89", null ]
         ] ]
       ] ]
     ] ],
     [ "Configuration Schema", "md_docs_2gfs__configuration.html", [
-      [ "Process for adding a setting:", "md_docs_2gfs__configuration.html#autotoc_md71", null ],
-      [ "Guidelines to Follow:", "md_docs_2gfs__configuration.html#autotoc_md72", null ],
-      [ "Required Fields :", "md_docs_2gfs__configuration.html#autotoc_md73", null ]
+      [ "Process for adding a setting:", "md_docs_2gfs__configuration.html#autotoc_md91", null ],
+      [ "Guidelines to Follow:", "md_docs_2gfs__configuration.html#autotoc_md92", null ],
+      [ "Required Fields :", "md_docs_2gfs__configuration.html#autotoc_md93", null ]
+    ] ],
+    [ "Giraffe Application Structure", "md_docs_2giraffe__application__structure.html", [
+      [ "Giraffe Package", "md_docs_2giraffe__application__structure.html#autotoc_md95", [
+        [ "dpkg", "md_docs_2giraffe__application__structure.html#autotoc_md96", null ],
+        [ "DEPRECATED - Package File", "md_docs_2giraffe__application__structure.html#autotoc_md97", null ],
+        [ "Package Contents", "md_docs_2giraffe__application__structure.html#autotoc_md98", null ]
+      ] ]
     ] ],
     [ "Giraffe Paths", "md_docs_2giraffe__paths.html", [
-      [ "Primary Directory", "md_docs_2giraffe__paths.html#autotoc_md75", null ]
+      [ "Primary Directory", "md_docs_2giraffe__paths.html#autotoc_md100", null ]
     ] ],
+    [ "Ground Station", "md_docs_2ground__station.html", null ],
+    [ "Battery Pack Design", "md_docs_2hardware_2battery__pack__design.html", null ],
     [ "Giraffe Flight Computer Power Supply", "md_docs_2hardware_2power__supply.html", [
-      [ "Requirements", "md_docs_2hardware_2power__supply.html#autotoc_md77", [
-        [ "Power Output and Consumption", "md_docs_2hardware_2power__supply.html#autotoc_md78", null ],
-        [ "Battery Cells", "md_docs_2hardware_2power__supply.html#autotoc_md79", null ],
-        [ "Cell Configuration and Power Supply Architecture", "md_docs_2hardware_2power__supply.html#autotoc_md80", null ],
-        [ "Pack Design", "md_docs_2hardware_2power__supply.html#autotoc_md81", null ],
-        [ "Battery Management", "md_docs_2hardware_2power__supply.html#autotoc_md82", null ]
+      [ "Update 16 Mar 2025", "md_docs_2hardware_2power__supply.html#autotoc_md104", null ],
+      [ "Requirements", "md_docs_2hardware_2power__supply.html#autotoc_md105", [
+        [ "Power Output and Consumption", "md_docs_2hardware_2power__supply.html#autotoc_md106", null ],
+        [ "Battery Cells", "md_docs_2hardware_2power__supply.html#autotoc_md107", null ],
+        [ "Cell Configuration and Power Supply Architecture", "md_docs_2hardware_2power__supply.html#autotoc_md108", null ],
+        [ "Pack Design", "md_docs_2hardware_2power__supply.html#autotoc_md109", null ],
+        [ "Battery Management", "md_docs_2hardware_2power__supply.html#autotoc_md110", null ]
       ] ],
-      [ "Design", "md_docs_2hardware_2power__supply.html#autotoc_md83", [
-        [ "Battery", "md_docs_2hardware_2power__supply.html#autotoc_md84", null ],
-        [ "Current Sensing", "md_docs_2hardware_2power__supply.html#autotoc_md85", null ],
-        [ "Buck-Converter", "md_docs_2hardware_2power__supply.html#autotoc_md86", null ]
+      [ "Design", "md_docs_2hardware_2power__supply.html#autotoc_md111", [
+        [ "Battery", "md_docs_2hardware_2power__supply.html#autotoc_md112", null ],
+        [ "Current Sensing", "md_docs_2hardware_2power__supply.html#autotoc_md113", null ],
+        [ "Buck-Converter", "md_docs_2hardware_2power__supply.html#autotoc_md114", null ]
       ] ]
     ] ],
     [ "ports", "md_docs_2ports.html", null ],
     [ "protocol", "md_docs_2protocol.html", [
-      [ "Message Format and Fields", "md_docs_2protocol.html#autotoc_md87", [
-        [ "src/dst", "md_docs_2protocol.html#autotoc_md88", null ],
-        [ "typ", "md_docs_2protocol.html#autotoc_md89", null ],
-        [ "id", "md_docs_2protocol.html#autotoc_md90", null ],
-        [ "bdy", "md_docs_2protocol.html#autotoc_md91", [
-          [ "<tt>req</tt>", "md_docs_2protocol.html#autotoc_md92", null ],
-          [ "<tt>set</tt>", "md_docs_2protocol.html#autotoc_md93", null ],
-          [ "<tt>rsp</tt>", "md_docs_2protocol.html#autotoc_md94", null ]
+      [ "Message Format and Fields", "md_docs_2protocol.html#autotoc_md115", [
+        [ "src/dst", "md_docs_2protocol.html#autotoc_md116", null ],
+        [ "typ", "md_docs_2protocol.html#autotoc_md117", null ],
+        [ "id", "md_docs_2protocol.html#autotoc_md118", null ],
+        [ "bdy", "md_docs_2protocol.html#autotoc_md119", [
+          [ "<tt>req</tt>", "md_docs_2protocol.html#autotoc_md120", null ],
+          [ "<tt>set</tt>", "md_docs_2protocol.html#autotoc_md121", null ],
+          [ "<tt>rsp</tt>", "md_docs_2protocol.html#autotoc_md122", null ]
         ] ]
       ] ],
-      [ "Valid Resources", "md_docs_2protocol.html#autotoc_md95", null ],
-      [ "Response Codes", "md_docs_2protocol.html#autotoc_md96", null ],
-      [ "Ports", "md_docs_2protocol.html#autotoc_md97", null ],
-      [ "Streams", "md_docs_2protocol.html#autotoc_md98", [
-        [ "Stream Request Format", "md_docs_2protocol.html#autotoc_md99", [
-          [ "Example Stream Requests", "md_docs_2protocol.html#autotoc_md100", null ]
+      [ "Valid Resources", "md_docs_2protocol.html#autotoc_md123", null ],
+      [ "Response Codes", "md_docs_2protocol.html#autotoc_md124", null ],
+      [ "Ports", "md_docs_2protocol.html#autotoc_md125", null ],
+      [ "Streams", "md_docs_2protocol.html#autotoc_md126", [
+        [ "Stream Request Format", "md_docs_2protocol.html#autotoc_md127", [
+          [ "Example Stream Requests", "md_docs_2protocol.html#autotoc_md128", null ]
         ] ],
-        [ "Stream Response Example", "md_docs_2protocol.html#autotoc_md101", null ]
+        [ "Stream Response Example", "md_docs_2protocol.html#autotoc_md129", null ]
       ] ]
     ] ],
     [ "Release Process", "md_docs_2release__docs.html", null ],
     [ "Status LED", "md_docs_2status__led.html", [
-      [ "Green", "md_docs_2status__led.html#autotoc_md104", null ],
-      [ "Blue", "md_docs_2status__led.html#autotoc_md105", null ],
-      [ "Red", "md_docs_2status__led.html#autotoc_md106", null ]
+      [ "Green", "md_docs_2status__led.html#autotoc_md132", null ],
+      [ "Blue", "md_docs_2status__led.html#autotoc_md133", null ],
+      [ "Red", "md_docs_2status__led.html#autotoc_md134", null ]
     ] ],
     [ "Style Guide", "md_docs_2style__guide.html", [
-      [ "File names:", "md_docs_2style__guide.html#autotoc_md108", null ],
-      [ "C++", "md_docs_2style__guide.html#autotoc_md109", [
-        [ "Naming", "md_docs_2style__guide.html#autotoc_md110", null ],
-        [ "Namespace", "md_docs_2style__guide.html#autotoc_md111", null ],
-        [ "Doxygen", "md_docs_2style__guide.html#autotoc_md112", null ]
+      [ "File names:", "md_docs_2style__guide.html#autotoc_md136", null ],
+      [ "C++", "md_docs_2style__guide.html#autotoc_md137", [
+        [ "Naming", "md_docs_2style__guide.html#autotoc_md138", null ],
+        [ "Namespace", "md_docs_2style__guide.html#autotoc_md139", null ],
+        [ "Doxygen", "md_docs_2style__guide.html#autotoc_md140", null ]
       ] ]
     ] ],
     [ "Toolchain", "md_docs_2toolchain.html", null ],
-    [ "GFS Version Change Log", "md_docs_2versions.html", [
-      [ "0.8", "md_docs_2versions.html#autotoc_md119", null ],
-      [ "0.7", "md_docs_2versions.html#autotoc_md120", null ],
-      [ "0.6", "md_docs_2versions.html#autotoc_md121", null ],
-      [ "0.5", "md_docs_2versions.html#autotoc_md122", null ],
-      [ "0.4", "md_docs_2versions.html#autotoc_md123", [
-        [ "Software", "md_docs_2versions.html#autotoc_md124", null ],
-        [ "Hardware", "md_docs_2versions.html#autotoc_md125", null ]
-      ] ],
-      [ "0.3", "md_docs_2versions.html#autotoc_md126", null ],
-      [ "0.2.0", "md_docs_2versions.html#autotoc_md127", null ],
-      [ "0.1.0", "md_docs_2versions.html#autotoc_md128", null ],
-      [ "0.0.9", "md_docs_2versions.html#autotoc_md129", null ]
+    [ "Versioning", "md_docs_2versioning.html", [
+      [ "How to Update the Version", "md_docs_2versioning.html#autotoc_md147", null ],
+      [ "Versioning Scheme", "md_docs_2versioning.html#autotoc_md150", null ],
+      [ "Version String Format", "md_docs_2versioning.html#autotoc_md151", null ]
     ] ],
     [ "Todo List", "todo.html", null ],
     [ "Deprecated List", "deprecated.html", null ],
@@ -274,15 +290,16 @@ var NAVTREEINDEX =
 "classmodules_1_1Module.html#a7d855a6e0bc3c2a826fa396d4c5486d3",
 "classncurs_1_1Environment.html#a3b5c0bb29f8c9b6f7eff9c7b854019f5afbaedde498cdead4f2780217646e9ba1",
 "common__logger_8hpp.html#a7de051682a10e68f9259ee84278381edadc30ec20708ef7b0f641ef78b7880a15",
-"functions_vars_x.html",
-"group__ServerModule.html#aeedccb9e66f6b88db487d21d88b39800",
-"namespacedata.html#a22f68315ba8ce45834e9912c22f52fdd",
-"namespacegiraffe_1_1gdl.html#structgiraffe_1_1gdl_1_1Statistics",
-"prediction__model_8cpp.html#a0d8d0a5c0094e336c67cdf3911fb6e07",
-"structcfg_1_1AdcConfig.html#a30949927b07ae2814aec51cc8211fc90",
-"structdata_1_1blocks_1_1CalculatedData.html#ae3b3d2331c1e09143f0044ebc9557de2",
-"structgiraffe_1_1FCInfo.html#ac684457713d039ae9fccf943f9c8cf82a6887a15916fe6e27020feb673bc6488e",
-"test__prediction__parameters_8cpp.html#a5f859dff5bdcfeb9341c1dc40db9d2fe"
+"functions_vars_u.html",
+"group__ServerModule.html#ad77e0ae3d2cd0daba1388e7d7ffa1393",
+"namespacecmd.html#structcmd_1_1Command",
+"namespacegiraffe_1_1gdl.html#a0f4879e8289fa58347efd1fb611a86aa",
+"node_8hpp.html#ab16b2ecd4ea33131eb41b77a8c3e28a8ad08e68ea80bc3bf47a03757579c11900",
+"structPredictionParameters_1_1Parameter.html#a158620837f8983deaed39be06a34b09ca462b8957222f07f69146dabb832eeb45",
+"structdata_1_1blocks_1_1CalculatedData.html#a68524ea645e5758bffab386d4396c1aa",
+"structdata__middleware_1_1InfluxLine.html",
+"test__error__frame_8cpp.html#aea75e1e3c529dbbff5bd147c35517f58",
+"ubx__protocol_8hpp.html#adeeda5a4fc125d1ad07f95b20a621e39a9abd3d9b983e99aa1fd94837498b0bea"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

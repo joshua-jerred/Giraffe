@@ -112,7 +112,7 @@ $(document).ready(function(){initNavTree('md_docs_2protocol.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>The protocol used for all network communication within Giraffe is fairly simple.</p>
-<h1><a class="anchor" id="autotoc_md87"></a>
+<h1><a class="anchor" id="autotoc_md115"></a>
 Message Format and Fields</h1>
 <div class="fragment"><div class="line">{</div>
 <div class="line">  &quot;src&quot;: &quot;&quot;,</div>
@@ -121,7 +121,7 @@ Message Format and Fields</h1>
 <div class="line">  &quot;id&quot;: &quot;&quot;,</div>
 <div class="line">  &quot;bdy&quot;: {}</div>
 <div class="line">}</div>
-</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md88"></a>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md116"></a>
 src/dst</h2>
 <p>The source/destination is a string that identifies the source/destination of the message.</p>
 <p>Valid src/dst values:</p><ul>
@@ -130,7 +130,7 @@ src/dst</h2>
 <li><code>gdl</code> : Giraffe Data Link (ground)</li>
 <li><code>gwc/&lt;id&gt;</code> : Giraffe Web Client with a unique &lt;id&gt; (3-15 chars)</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md89"></a>
+<h2><a class="anchor" id="autotoc_md117"></a>
 typ</h2>
 <p>The type of the message.</p>
 <p>Valid types are:</p><ul>
@@ -138,13 +138,13 @@ typ</h2>
 <li><code>set</code> - A request to set values</li>
 <li><code>rsp</code> - A response to a <code>req</code> or <code>set</code></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md90"></a>
+<h2><a class="anchor" id="autotoc_md118"></a>
 id</h2>
 <p>A unique string that identifies this message. This is used to match requests/responses. Randomly generated 8 symbol (32 bit) hexadecimal value, in lowercase ascii characters.</p>
-<h2><a class="anchor" id="autotoc_md91"></a>
+<h2><a class="anchor" id="autotoc_md119"></a>
 bdy</h2>
 <p>The message body, unique to each </p>
-<h3><a class="anchor" id="autotoc_md92"></a>
+<h3><a class="anchor" id="autotoc_md120"></a>
 &lt;tt&gt;req&lt;/tt&gt;</h3>
 <div class="fragment"><div class="line">{</div>
 <div class="line">  &quot;rsc&quot;: &quot;string&quot;</div>
@@ -152,7 +152,7 @@ bdy</h2>
 </div><!-- fragment --><ul>
 <li><code>rsc</code> : The data resource requested to be returned</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md93"></a>
+<h3><a class="anchor" id="autotoc_md121"></a>
 &lt;tt&gt;set&lt;/tt&gt;</h3>
 <div class="fragment"><div class="line">{</div>
 <div class="line">  &quot;rsc&quot;: &quot;string&quot;,</div>
@@ -162,7 +162,7 @@ bdy</h2>
 <li><code>rsc</code> : The data requested to be set</li>
 <li><code>dat</code> : The data to set</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md94"></a>
+<h3><a class="anchor" id="autotoc_md122"></a>
 &lt;tt&gt;rsp&lt;/tt&gt;</h3>
 <div class="fragment"><div class="line">{</div>
 <div class="line">  &quot;cde&quot;: 0,</div>
@@ -173,14 +173,14 @@ bdy</h2>
 <li><code>dat</code> : The data requested from a <code>req</code> or <code>set</code>, given the context of the response code.</li>
 </ul>
 <hr  />
-<h1><a class="anchor" id="autotoc_md95"></a>
+<h1><a class="anchor" id="autotoc_md123"></a>
 Valid Resources</h1>
 <ul>
 <li><code>ping</code> : req</li>
 <li><code>setting/&lt;setting_id&gt;</code> : req, set</li>
 <li><code>data/&lt;data_id&gt;</code> : req</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md96"></a>
+<h1><a class="anchor" id="autotoc_md124"></a>
 Response Codes</h1>
 <ul>
 <li><code>er</code> error<ul>
@@ -196,14 +196,14 @@ Response Codes</h1>
 </ul>
 </li>
 </ul>
-<h1><a class="anchor" id="autotoc_md97"></a>
+<h1><a class="anchor" id="autotoc_md125"></a>
 Ports</h1>
 <ul>
 <li>GFS: 7893</li>
 <li>GGS: 7892</li>
 <li>GWC: 3000</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md98"></a>
+<h1><a class="anchor" id="autotoc_md126"></a>
 Streams</h1>
 <p>Streams are unique to the GWC/GGS connection. They use req/rsp messages.</p>
 <p>A client on GWC can request a stream, the GGS will then send the data associated with that stream on a set interval.</p>
@@ -225,7 +225,7 @@ Streams</h1>
 </ul>
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md99"></a>
+<h2><a class="anchor" id="autotoc_md127"></a>
 Stream Request Format</h2>
 <p>Stream requests are normal <code>req</code> messages, but in addition to the <code>rsc</code> (resource) field of the body there will be a <code>stream</code> and <code>action</code> field.</p>
 <ul>
@@ -236,7 +236,7 @@ Stream Request Format</h2>
 </ul>
 </li>
 </ul>
-<h3><a class="anchor" id="autotoc_md100"></a>
+<h3><a class="anchor" id="autotoc_md128"></a>
 Example Stream Requests</h3>
 <p><b>ADD</b> </p><div class="fragment"><div class="line">{</div>
 <div class="line">    &quot;src&quot;:&quot;gwc&quot;,</div>
@@ -282,7 +282,7 @@ Example Stream Requests</h3>
 <div class="line">        &quot;action&quot;:&quot;get&quot;</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md101"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md129"></a>
 Stream Response Example</h2>
 <div class="fragment"><div class="line">{</div>
 <div class="line">    &quot;src&quot;: &quot;ggs&quot;,</div>

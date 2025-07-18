@@ -1,12 +1,19 @@
 var searchData=
 [
-  ['bit_5fsense_0',['BIT_SENSE',['../classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#a25e92ee4c2a8e778aa1b4b7179cd04f9a0d8d13ce61767863dfe9656f6276d270',1,'giraffe::gdl::AprsTelemetrySender']]],
-  ['blink_1',['BLINK',['../classgiraffe_1_1StatusLedState.html#ac466bf4967bba3606a8c3718df6f342dad810ed8e97088a3c987f179dfb88cefc',1,'giraffe::StatusLedState']]],
-  ['blue_2',['BLUE',['../classgiraffe_1_1StatusLedChannel.html#a341df28b2908adef07d868ee8510ef6ca1b3e1ee9bff86431dea6b181365ba65f',1,'giraffe::StatusLedChannel']]],
-  ['broadcast_3',['broadcast',['../classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4a81d741a35dc8a42c885b7cc031afd17f',1,'giraffe::gdl::Message::BROADCAST'],['../classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824ba81d741a35dc8a42c885b7cc031afd17f',1,'giraffe::gdl::Packet::BROADCAST'],['../classgiraffe_1_1gdl_1_1TransportLayer.html#a6fe99966c74405692119f72071113be3a81d741a35dc8a42c885b7cc031afd17f',1,'giraffe::gdl::TransportLayer::BROADCAST']]],
-  ['bus_5fopen_5ferror_4',['BUS_OPEN_ERROR',['../classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518a0d5d4ff33032f733f227c7d8497372e7',1,'I2cInterface']]],
-  ['busy_5',['BUSY',['../classgiraffe_1_1gdl_1_1PhysicalLayer.html#ae6ee079a07a5a4918268273005532732a802706a9238e2928077f97736854bad4',1,'giraffe::gdl::PhysicalLayer']]],
-  ['bwp_5fnormal_6',['BWP_NORMAL',['../classextension_1_1Bmi088.html#a7e0348d797ef8d3e0193d02a816dbc11adc5a78485948fd5330db4c2634e5bd6f',1,'extension::Bmi088']]],
-  ['bwp_5fosr2_7',['BWP_OSR2',['../classextension_1_1Bmi088.html#a7e0348d797ef8d3e0193d02a816dbc11ad39e95aef5406de0d142353117847480',1,'extension::Bmi088']]],
-  ['bwp_5fosr4_8',['BWP_OSR4',['../classextension_1_1Bmi088.html#a7e0348d797ef8d3e0193d02a816dbc11a5c486db66d7fd15b90434878ca8af2c1',1,'extension::Bmi088']]]
+  ['acc_5factive_5fmode_0',['ACC_ACTIVE_MODE',['../classextension_1_1Bmi088.html#a94e7734f7db993a21928331c81246e27a21969e70335649310db567eec4774000',1,'extension::Bmi088']]],
+  ['acc_5foff_1',['ACC_OFF',['../classextension_1_1Bmi088.html#aad69a5cf8ec888ece970ac9efad4ef5ea6514e3f61a24429b714de82cf6a7a18b',1,'extension::Bmi088']]],
+  ['acc_5fon_2',['ACC_ON',['../classextension_1_1Bmi088.html#aad69a5cf8ec888ece970ac9efad4ef5eab3e99ae46ad3d891ab6e3d50fce696c2',1,'extension::Bmi088']]],
+  ['acc_5fsuspend_5fmode_3',['ACC_SUSPEND_MODE',['../classextension_1_1Bmi088.html#a94e7734f7db993a21928331c81246e27afa531a3e7a04c3393233abf2541b48bd',1,'extension::Bmi088']]],
+  ['ack_4',['ack',['../classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824ba0fc437bc317835cad5faafc12a83fad5',1,'giraffe::gdl::Packet::ACK'],['../namespaceubx.html#a6b284471c7fcbbece38600a40f0d0bb4a0fc437bc317835cad5faafc12a83fad5',1,'ubx::ACK']]],
+  ['address_5fset_5ferror_5',['ADDRESS_SET_ERROR',['../classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518af7a0d079ef0a8f709e89942bd1440d5d',1,'I2cInterface']]],
+  ['airborne_5f1g_6',['AIRBORNE_1G',['../namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39a8b8e6bc7cc013f12e6976ba186a0dc1e',1,'ubx']]],
+  ['airborne_5f2g_7',['AIRBORNE_2G',['../namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39a2ed54b19daae17a6201b512cfcd58ab5',1,'ubx']]],
+  ['airborne_5f4g_8',['AIRBORNE_4G',['../namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39ab91a23bbd633e16917c4f5a3e2c815c2',1,'ubx']]],
+  ['alpha_9',['ALPHA',['../structgiraffe_1_1SoftwareVersion.html#af1726656415b7e936d36363e803a6f64a002101f8725e5c78d9f30d87f3fa4c87',1,'giraffe::SoftwareVersion']]],
+  ['always_5fupdate_10',['ALWAYS_UPDATE',['../structPredictionParameters_1_1Parameter.html#a158620837f8983deaed39be06a34b09cac428ed72774b1a530ddd030f44eaa3bd',1,'PredictionParameters::Parameter']]],
+  ['aprs_11',['APRS',['../classgiraffe_1_1gdl_1_1PhysicalLayer.html#a2744a41c76184b417b9445ad925299dfa0c2b593da5ed5bcd8e6a33bf06e24e3b',1,'giraffe::gdl::PhysicalLayer']]],
+  ['aprs_5ftelemetry_12',['APRS_TELEMETRY',['../classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824ba4020fa2f22212c3d631c382b9f7add06',1,'giraffe::gdl::Packet']]],
+  ['arm_13',['ARM',['../structgiraffe_1_1FCInfo.html#ad154d9c6882c4f4f195043a3067bf7dda47f45e65244c17ec9fa8771a5c6d60e1',1,'giraffe::FCInfo']]],
+  ['ascent_14',['ascent',['../flight__phase_8hpp.html#ac9143ef49941f628dd4d190a8d64ff07a7047b93ddb56905562863fb339808bb4',1,'ASCENT:&#160;flight_phase.hpp'],['../namespacegfs__sim.html#a9a1ecaafdd3df4142d8be5590eb177e1a7047b93ddb56905562863fb339808bb4',1,'gfs_sim::ASCENT']]],
+  ['automotive_15',['AUTOMOTIVE',['../namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39ad5b209a2367d0fa577875ade4dbf26a8',1,'ubx']]]
 ];

@@ -29,6 +29,7 @@ var namespacegiraffe =
     [ "Logger", "classgiraffe_1_1Logger.html", "classgiraffe_1_1Logger" ],
     [ "LoggerEntry", "structgiraffe_1_1LoggerEntry.html", "structgiraffe_1_1LoggerEntry" ],
     [ "OptionalLogger", "classgiraffe_1_1OptionalLogger.html", "classgiraffe_1_1OptionalLogger" ],
+    [ "SoftwareVersion", "structgiraffe_1_1SoftwareVersion.html", "structgiraffe_1_1SoftwareVersion" ],
     [ "SpiInterface", "classgiraffe_1_1SpiInterface.html", "classgiraffe_1_1SpiInterface" ],
     [ "StatusLedChannel", "classgiraffe_1_1StatusLedChannel.html", "classgiraffe_1_1StatusLedChannel" ],
     [ "StatusLedState", "classgiraffe_1_1StatusLedState.html", "classgiraffe_1_1StatusLedState" ],
@@ -37,6 +38,14 @@ var namespacegiraffe =
       [ "INFO", "namespacegiraffe.html#a7de051682a10e68f9259ee84278381eda551b723eafd6a31d444fcb2f5920fbd3", null ],
       [ "WARN", "namespacegiraffe.html#a7de051682a10e68f9259ee84278381eda32bd8a1db2275458673903bdb84cb277", null ],
       [ "ERROR", "namespacegiraffe.html#a7de051682a10e68f9259ee84278381edabb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ],
+    [ "AppIdentifier", "namespacegiraffe.html#a0dc556da827074ae3dc5a59a24cfe5ee", [
+      [ "DAEMON", "namespacegiraffe.html#a0dc556da827074ae3dc5a59a24cfe5eea31a7eca4a60813c38871dc47c169cad7", null ],
+      [ "COMMAND_LINE", "namespacegiraffe.html#a0dc556da827074ae3dc5a59a24cfe5eea17c0d60311af7eb6f176ae236481a02d", null ],
+      [ "FLIGHT_SYSTEM", "namespacegiraffe.html#a0dc556da827074ae3dc5a59a24cfe5eea97774ed440fa393e8aae0ae54464d305", null ],
+      [ "DATA_LINK_SERVER", "namespacegiraffe.html#a0dc556da827074ae3dc5a59a24cfe5eeadf335115753db1c7a8cbd484a893c19d", null ],
+      [ "_COUNT", "namespacegiraffe.html#a0dc556da827074ae3dc5a59a24cfe5eeaf3351ee60ccc810690817d90739bf103", null ],
+      [ "UNKNOWN", "namespacegiraffe.html#a0dc556da827074ae3dc5a59a24cfe5eea696b031073e74bf2cb98e5ef201d4aa3", null ]
     ] ],
     [ "NLOHMANN_JSON_SERIALIZE_ENUM", "namespacegiraffe.html#aa5a7162d7cb40de16288349e41fd6ba0", null ],
     [ "getFlightComputerInfo", "namespacegiraffe.html#a913acd4504a335abcea9a3920a3f65cc", null ],

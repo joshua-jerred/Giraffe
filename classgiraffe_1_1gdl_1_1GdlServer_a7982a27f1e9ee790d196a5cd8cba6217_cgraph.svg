@@ -172,7 +172,7 @@
 <!-- Node73 -->
 <g id="Node000073" class="node">
 <title>Node73</title>
-<g id="a_Node000073"><a xlink:href="group__ServerModule.html#ae131e7d5b2827144d018f1482ab316cc" target="_top" xlink:title=" ">
+<g id="a_Node000073"><a xlink:href="group__ServerModule.html#ae131e7d5b2827144d018f1482ab316cc" target="_top" xlink:title="Create, bind, and listen on a port.">
 <polygon fill="white" stroke="#666666" points="310,-436 185,-436 185,-406 310,-406 310,-436"/>
 <text text-anchor="start" x="193" y="-424" font-family="Helvetica,sans-Serif" font-size="10.00">sock::TcpSocketServer</text>
 <text text-anchor="middle" x="247.5" y="-413" font-family="Helvetica,sans-Serif" font-size="10.00">::init</text>

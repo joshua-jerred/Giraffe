@@ -1,0 +1,5 @@
+<map id="giraffe::SoftwareVersion::getSemanticVersionString" name="giraffe::SoftwareVersion::getSemanticVersionString">
+<area shape="rect" id="Node000001" title="Get the version as a string in the format major.minor.patch[&#45;&lt;stage&gt;], where &#45;&lt;stage&gt; is optional." alt="" coords="5,5,204,45"/>
+<area shape="rect" id="Node000002" href="$structgiraffe_1_1SoftwareVersion.html#a1db3faa5409fe5d9e706b408bc177864" title="Get the stage as a string, per versioning.md." alt="" coords="252,5,429,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="204,23,238,23,238,28,204,28"/>
+</map>

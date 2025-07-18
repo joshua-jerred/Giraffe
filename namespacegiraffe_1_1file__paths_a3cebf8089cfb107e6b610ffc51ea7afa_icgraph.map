@@ -1,6 +1,6 @@
 <map id="giraffe::file_paths::createGiraffeDirIfNotExists" name="giraffe::file_paths::createGiraffeDirIfNotExists">
 <area shape="rect" id="Node000001" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="1095,359,1300,399"/>
-<area shape="rect" id="Node000002" href="$namespacegiraffe_1_1file__paths.html#ad3893d2b3c6641d111c0237cab96e09f" title="Get the path to the Flight System Agent directory." alt="" coords="824,85,1047,125"/>
+<area shape="rect" id="Node000002" href="$namespacegiraffe_1_1file__paths.html#ad3893d2b3c6641d111c0237cab96e09f" title=" " alt="" coords="824,85,1047,125"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="1180,348,1159,304,1129,252,1091,199,1045,152,1002,127,1005,122,1048,148,1095,195,1134,249,1164,302,1185,346"/>
 <area shape="rect" id="Node000005" href="$namespacegiraffe_1_1file__paths.html#a071e3968c8ee80bada890eb9a36ec2f0" title="Returns the path to the gfs data archive directory. Creates the directory if it does not exist." alt="" coords="551,149,751,189"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="1178,348,1157,311,1127,268,1090,228,1045,196,1010,181,973,169,896,156,820,153,752,156,751,151,820,148,896,151,974,164,1012,176,1048,192,1094,224,1132,265,1161,308,1183,345"/>
@@ -14,9 +14,9 @@
 <area shape="poly" id="edge20_Node000001_Node000018" title=" " alt="" coords="1153,409,971,522,968,517,1150,405"/>
 <area shape="rect" id="Node000020" href="$classgiraffe_1_1gdl_1_1GdlServer.html#a38bb766c005f9060bf13aeb5c553dd05" title=" " alt="" coords="853,605,1017,645"/>
 <area shape="poly" id="edge24_Node000001_Node000020" title=" " alt="" coords="1180,413,1126,491,1090,535,1048,573,1021,592,992,607,989,602,1018,587,1045,569,1086,531,1122,488,1175,410"/>
-<area shape="rect" id="Node000003" href="$namespacegiraffe_1_1file__paths.html#a0fc419b3cf5bf284d4e66a76f05d9f48" title="Get the path to the Flight System Agent config file." alt="" coords="543,5,759,60"/>
+<area shape="rect" id="Node000003" href="$namespacegiraffe_1_1file__paths.html#a0fc419b3cf5bf284d4e66a76f05d9f48" title=" " alt="" coords="543,5,759,60"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="842,84,759,63,760,57,843,79"/>
-<area shape="rect" id="Node000004" href="$namespacegiraffe_1_1file__paths.html#ae60e01f40243d47b41ec8fdb1a687ce5" title="Get the path to the Flight System Agent log file." alt="" coords="527,85,776,125"/>
+<area shape="rect" id="Node000004" href="$namespacegiraffe_1_1file__paths.html#ae60e01f40243d47b41ec8fdb1a687ce5" title=" " alt="" coords="527,85,776,125"/>
 <area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="810,107,776,107,776,102,810,102"/>
 <area shape="rect" id="Node000006" href="$group__DataLog.html#ga96a2e0cbd5f5f4bc55b9ad0b6dad9222" title="Used to create the data archive directory with createDirectory()." alt="" coords="266,195,463,235"/>
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="538,190,464,202,463,197,537,185"/>

@@ -1,0 +1,7 @@
+<map id="giraffe::SoftwareVersion::getNumbersAsString" name="giraffe::SoftwareVersion::getNumbersAsString">
+<area shape="rect" id="Node000001" title="Get the major, minor, and patch numbers as a string in the format &quot;major.minor.patch&quot;." alt="" coords="108,23,285,63"/>
+<area shape="rect" id="Node000002" href="$test__software__version_8cpp.html#a138c988009e4423d9cde8c114bbfcdf7" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="94,30,60,25,61,19,95,25"/>
+<area shape="rect" id="Node000003" href="$test__software__version_8cpp.html#ab933272c4658820b9dbdc551d61bd17d" title=" " alt="" coords="5,55,60,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="95,61,61,66,60,61,94,56"/>
+</map>

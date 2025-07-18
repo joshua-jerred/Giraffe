@@ -18,10 +18,13 @@ var dir_fdedb0aba14d44ce9d99bc100e026e6a =
     [ "giraffe_exception.hpp", "giraffe__exception_8hpp.html", "giraffe__exception_8hpp" ],
     [ "giraffe_file_paths.cpp", "giraffe__file__paths_8cpp.html", "giraffe__file__paths_8cpp" ],
     [ "giraffe_file_paths.hpp", "giraffe__file__paths_8hpp.html", "giraffe__file__paths_8hpp" ],
+    [ "giraffe_types.hpp", "giraffe__types_8hpp.html", "giraffe__types_8hpp" ],
     [ "i_logger.hpp", "i__logger_8hpp.html", "i__logger_8hpp" ],
     [ "json.hpp", "json_8hpp.html", "json_8hpp" ],
     [ "node.hpp", "node_8hpp.html", "node_8hpp" ],
     [ "optional_logger.hpp", "optional__logger_8hpp.html", "optional__logger_8hpp" ],
     [ "socket.cpp", "socket_8cpp.html", null ],
-    [ "socket.hpp", "socket_8hpp.html", "socket_8hpp" ]
+    [ "socket.hpp", "socket_8hpp.html", "socket_8hpp" ],
+    [ "software_version.cpp", "software__version_8cpp.html", "software__version_8cpp" ],
+    [ "software_version.hpp", "software__version_8hpp.html", "software__version_8hpp" ]
 ];

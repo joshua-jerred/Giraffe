@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['sock_0',['sock',['../namespacesock.html',1,'']]]
+  ['ubx_0',['ubx',['../namespaceubx.html',1,'']]],
+  ['util_1',['util',['../namespaceutil.html',1,'']]]
 ];

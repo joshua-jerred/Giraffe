@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['zero_5fif_5finvalid_0',['ZERO_IF_INVALID',['../structPredictionParameters_1_1Parameter.html#a158620837f8983deaed39be06a34b09ca05848ed73c5ae0de927b7264864fad23',1,'PredictionParameters::Parameter']]]
+  ['x86_0',['X86',['../structgiraffe_1_1FCInfo.html#ad154d9c6882c4f4f195043a3067bf7ddafd1a4608b5b463bc7a41d86a1662d3b7',1,'giraffe::FCInfo']]],
+  ['x86_5f64_1',['X86_64',['../structgiraffe_1_1FCInfo.html#ad154d9c6882c4f4f195043a3067bf7dda840030b2e70cfe0155e29ee926dbd8ae',1,'giraffe::FCInfo']]]
 ];

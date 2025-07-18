@@ -1,0 +1,11 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,77,60,102"/>
+<area shape="rect" id="Node000002" href="$structgiraffe_1_1SoftwareVersion.html#a3ebba227882fd5413e7bb6056e488200" title="Get the major, minor, and patch numbers as a string in the format &quot;major.minor.patch&quot;." alt="" coords="119,5,296,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="59,75,107,55,128,47,130,52,109,60,61,80"/>
+<area shape="rect" id="Node000003" href="$structgiraffe_1_1SoftwareVersion.html#a6e4900e83b9f5ca30cc11965fe50fd2e" title="Get the version as a string in the format major.minor.patch[&#45;&lt;stage&gt;], where &#45;&lt;stage&gt; is optional." alt="" coords="108,69,307,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="60,87,94,87,94,92,60,92"/>
+<area shape="rect" id="Node000005" href="$structgiraffe_1_1SoftwareVersion.html#ab85647fb07630457e1ae6b3f39a75e34" title="Set the major, minor, patch, and stage numbers from a string in the format major.minor...." alt="" coords="119,133,296,173"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="61,99,109,119,130,126,128,131,107,124,59,104"/>
+<area shape="rect" id="Node000004" href="$structgiraffe_1_1SoftwareVersion.html#a1db3faa5409fe5d9e706b408bc177864" title="Get the stage as a string, per versioning.md." alt="" coords="355,69,532,109"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="307,87,341,87,341,92,307,92"/>
+</map>

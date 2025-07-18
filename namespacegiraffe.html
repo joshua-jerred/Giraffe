@@ -153,6 +153,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1OptionalLogger.html">OptionalLogger</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional logger class.  <a href="classgiraffe_1_1OptionalLogger.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgiraffe_1_1SoftwareVersion.html">SoftwareVersion</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Giraffe Software Version Structure.  <a href="structgiraffe_1_1SoftwareVersion.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1SpiInterface.html">SpiInterface</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgiraffe_1_1StatusLedChannel.html">StatusLedChannel</a></td></tr>
@@ -162,6 +165,18 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
+<tr class="memitem:a0dc556da827074ae3dc5a59a24cfe5ee" id="r_a0dc556da827074ae3dc5a59a24cfe5ee"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegiraffe.html#a0dc556da827074ae3dc5a59a24cfe5ee">AppIdentifier</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="namespacegiraffe.html#a0dc556da827074ae3dc5a59a24cfe5eea31a7eca4a60813c38871dc47c169cad7">DAEMON</a> = 0
+, <a class="el" href="namespacegiraffe.html#a0dc556da827074ae3dc5a59a24cfe5eea17c0d60311af7eb6f176ae236481a02d">COMMAND_LINE</a>
+, <a class="el" href="namespacegiraffe.html#a0dc556da827074ae3dc5a59a24cfe5eea97774ed440fa393e8aae0ae54464d305">FLIGHT_SYSTEM</a>
+, <a class="el" href="namespacegiraffe.html#a0dc556da827074ae3dc5a59a24cfe5eeadf335115753db1c7a8cbd484a893c19d">DATA_LINK_SERVER</a>
+, <br />
+&#160;&#160;<a class="el" href="namespacegiraffe.html#a0dc556da827074ae3dc5a59a24cfe5eeaf3351ee60ccc810690817d90739bf103">_COUNT</a>
+, <a class="el" href="namespacegiraffe.html#a0dc556da827074ae3dc5a59a24cfe5eea696b031073e74bf2cb98e5ef201d4aa3">UNKNOWN</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a0dc556da827074ae3dc5a59a24cfe5ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">The applications of the Giraffe system.  <a href="namespacegiraffe.html#a0dc556da827074ae3dc5a59a24cfe5ee">More...</a><br /></td></tr>
+<tr class="separator:a0dc556da827074ae3dc5a59a24cfe5ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7de051682a10e68f9259ee84278381ed" id="r_a7de051682a10e68f9259ee84278381ed"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegiraffe.html#a7de051682a10e68f9259ee84278381ed">LoggerLevel</a> : uint8_t { <a class="el" href="namespacegiraffe.html#a7de051682a10e68f9259ee84278381edadc30ec20708ef7b0f641ef78b7880a15">DEBUG</a> = 0
 , <a class="el" href="namespacegiraffe.html#a7de051682a10e68f9259ee84278381eda551b723eafd6a31d444fcb2f5920fbd3">INFO</a> = 1
 , <a class="el" href="namespacegiraffe.html#a7de051682a10e68f9259ee84278381eda32bd8a1db2275458673903bdb84cb277">WARN</a> = 2
@@ -214,6 +229,45 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a0dc556da827074ae3dc5a59a24cfe5ee" name="a0dc556da827074ae3dc5a59a24cfe5ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dc556da827074ae3dc5a59a24cfe5ee">&#9670;&#160;</a></span>AppIdentifier</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="namespacegiraffe.html#a0dc556da827074ae3dc5a59a24cfe5ee">giraffe::AppIdentifier</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The applications of the Giraffe system. </p>
+<p>This should not be assumed to always be in the same order, or be complete. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a0dc556da827074ae3dc5a59a24cfe5eea31a7eca4a60813c38871dc47c169cad7" name="a0dc556da827074ae3dc5a59a24cfe5eea31a7eca4a60813c38871dc47c169cad7"></a>DAEMON&#160;</td><td class="fielddoc"><p>giraffe_daemon </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a0dc556da827074ae3dc5a59a24cfe5eea17c0d60311af7eb6f176ae236481a02d" name="a0dc556da827074ae3dc5a59a24cfe5eea17c0d60311af7eb6f176ae236481a02d"></a>COMMAND_LINE&#160;</td><td class="fielddoc"><p>gcli - giraffe_command_line </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a0dc556da827074ae3dc5a59a24cfe5eea97774ed440fa393e8aae0ae54464d305" name="a0dc556da827074ae3dc5a59a24cfe5eea97774ed440fa393e8aae0ae54464d305"></a>FLIGHT_SYSTEM&#160;</td><td class="fielddoc"><p>gfs - giraffe_flight_system </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a0dc556da827074ae3dc5a59a24cfe5eeadf335115753db1c7a8cbd484a893c19d" name="a0dc556da827074ae3dc5a59a24cfe5eeadf335115753db1c7a8cbd484a893c19d"></a>DATA_LINK_SERVER&#160;</td><td class="fielddoc"><p>gdl_server - giraffe_data_link_server </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a0dc556da827074ae3dc5a59a24cfe5eeaf3351ee60ccc810690817d90739bf103" name="a0dc556da827074ae3dc5a59a24cfe5eeaf3351ee60ccc810690817d90739bf103"></a>_COUNT&#160;</td><td class="fielddoc"><p>Number of Giraffe applications, must be last. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a0dc556da827074ae3dc5a59a24cfe5eea696b031073e74bf2cb98e5ef201d4aa3" name="a0dc556da827074ae3dc5a59a24cfe5eea696b031073e74bf2cb98e5ef201d4aa3"></a>UNKNOWN&#160;</td><td class="fielddoc"><p>unknown application, must be last. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="aa5a7162d7cb40de16288349e41fd6ba0" name="aa5a7162d7cb40de16288349e41fd6ba0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa5a7162d7cb40de16288349e41fd6ba0">&#9670;&#160;</a></span>NLOHMANN_JSON_SERIALIZE_ENUM()</h2>
@@ -259,7 +313,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000081">Todo:</a></b></dt><dd>Add support for PI 3, 4, etc. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000083">Todo:</a></b></dt><dd>Add support for PI 3, 4, etc. </dd></dl>
 
 <p class="reference">References <a class="el" href="structgiraffe_1_1FCInfo.html#a08f38f513d36709ad82bf77d1fa57be0">giraffe::FCInfo::architecture</a>, <a class="el" href="structgiraffe_1_1FCInfo.html#ad154d9c6882c4f4f195043a3067bf7dda47f45e65244c17ec9fa8771a5c6d60e1">giraffe::FCInfo::ARM</a>, <a class="el" href="structgiraffe_1_1FCInfo.html#ac684457713d039ae9fccf943f9c8cf82a03570470bad94692ce93e32700d2e1cb">giraffe::FCInfo::OTHER</a>, <a class="el" href="structgiraffe_1_1FCInfo.html#ac684457713d039ae9fccf943f9c8cf82a827a6f93854210479660277d65bb6b69">giraffe::FCInfo::PI_ZERO</a>, <a class="el" href="structgiraffe_1_1FCInfo.html#ac684457713d039ae9fccf943f9c8cf82a6887a15916fe6e27020feb673bc6488e">giraffe::FCInfo::PI_ZERO_2</a>, <a class="el" href="structgiraffe_1_1FCInfo.html#a87d761164b84a5f25abfe77e67933a58">giraffe::FCInfo::type</a>, <a class="el" href="structgiraffe_1_1FCInfo.html#ad154d9c6882c4f4f195043a3067bf7dda696b031073e74bf2cb98e5ef201d4aa3">giraffe::FCInfo::UNKNOWN</a>, <a class="el" href="structgiraffe_1_1FCInfo.html#ad154d9c6882c4f4f195043a3067bf7ddafd1a4608b5b463bc7a41d86a1662d3b7">giraffe::FCInfo::X86</a>, and <a class="el" href="structgiraffe_1_1FCInfo.html#ad154d9c6882c4f4f195043a3067bf7dda840030b2e70cfe0155e29ee926dbd8ae">giraffe::FCInfo::X86_64</a>.</p>
 

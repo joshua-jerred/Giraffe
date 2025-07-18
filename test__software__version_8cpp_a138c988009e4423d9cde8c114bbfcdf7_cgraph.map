@@ -1,0 +1,5 @@
+<map id="TEST" name="TEST">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,13,60,38"/>
+<area shape="rect" id="Node000002" href="$structgiraffe_1_1SoftwareVersion.html#a3ebba227882fd5413e7bb6056e488200" title="Get the major, minor, and patch numbers as a string in the format &quot;major.minor.patch&quot;." alt="" coords="108,5,285,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,23,94,23,94,28,60,28"/>
+</map>

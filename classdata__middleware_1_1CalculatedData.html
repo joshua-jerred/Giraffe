@@ -199,7 +199,7 @@ Private Attributes</h2></td></tr>
 <tr class="separator:abeb7600ae915dfc14246edf20940afc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000031">Todo:</a></b></dt><dd>Name conflict with struct <a class="el" href="structdata_1_1blocks_1_1CalculatedData.html" title="Data that is calculated from other data.">data::blocks::CalculatedData</a> </dd></dl>
+<div class="textblock"><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000033">Todo:</a></b></dt><dd>Name conflict with struct <a class="el" href="structdata_1_1blocks_1_1CalculatedData.html" title="Data that is calculated from other data.">data::blocks::CalculatedData</a> </dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd></dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0e82773a23d4e91838fc925c4e8fb94d" name="a0e82773a23d4e91838fc925c4e8fb94d"></a>
@@ -330,8 +330,8 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Update the pressure altitude based on data from barometers providing pressure data. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000029">Todo:</a></b></dt><dd>Check for validity of barometric pressure data </dd></dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000030">Todo:</a></b></dt><dd>Move this pressure calculation function to BoosterSeat </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000031">Todo:</a></b></dt><dd>Check for validity of barometric pressure data </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000032">Todo:</a></b></dt><dd>Move this pressure calculation function to BoosterSeat </dd></dl>
 
 <p class="reference">References <a class="el" href="structdata_1_1blocks_1_1CalculatedData.html#a26a08829e085d4aa5d46845516e52875">data::blocks::CalculatedData::barometric_pressure_mbar</a>, <a class="el" href="structdata_1_1blocks_1_1CalculatedData.html#ada49d89faa157eb5d5cd5a5c9da7457c">data::blocks::CalculatedData::barometric_pressure_valid</a>, <a class="el" href="classdata__middleware_1_1CalculatedData.html#ad3498fa9e2296a49ebdd1194dc563e3f">data_buffer_</a>, <a class="el" href="structdata_1_1blocks_1_1CalculatedData.html#af5b265b1cfc229a6863a753da454c017">data::blocks::CalculatedData::pressure_altitude_m</a>, <a class="el" href="structdata_1_1blocks_1_1CalculatedData.html#ab94fadab177d995691ec1bc0cea23fb7">data::blocks::CalculatedData::pressure_altitude_valid</a>, and <a class="el" href="classdata__middleware_1_1CalculatedData.html#af5ed9eae1c0c8e01a8ecf4857ccae6cf">pressure_data_timeout_</a>.</p>
 
@@ -731,7 +731,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Rolling average of the horizontal speed. Once every 5 seconds, 12 samples are averaged. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000032">Todo:</a></b></dt><dd>This assumes that data is coming in at the correct rate. Implement a check for this. Possibly use bst::RollingAverage::removeOldest(). </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000034">Todo:</a></b></dt><dd>This assumes that data is coming in at the correct rate. Implement a check for this. Possibly use bst::RollingAverage::removeOldest(). </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="classdata__middleware_1_1CalculatedData.html#a07eb1dd2ca097be51dc9324995d4f3e7">calculateVelocityData()</a>.</p>
 

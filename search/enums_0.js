@@ -6,5 +6,6 @@ var searchData=
   ['accpowerctrl_3',['AccPowerCtrl',['../classextension_1_1Bmi088.html#aad69a5cf8ec888ece970ac9efad4ef5e',1,'extension::Bmi088']]],
   ['accrange_4',['AccRange',['../classextension_1_1Bmi088.html#ae72d1cc6a1a56159e5292769f6429b43',1,'extension::Bmi088']]],
   ['ack_5',['ACK',['../namespaceubx.html#a6b284471c7fcbbece38600a40f0d0bb4',1,'ubx']]],
-  ['architecture_6',['Architecture',['../structgiraffe_1_1FCInfo.html#ad154d9c6882c4f4f195043a3067bf7dd',1,'giraffe::FCInfo']]]
+  ['appidentifier_6',['AppIdentifier',['../namespacegiraffe.html#a0dc556da827074ae3dc5a59a24cfe5ee',1,'giraffe']]],
+  ['architecture_7',['Architecture',['../structgiraffe_1_1FCInfo.html#ad154d9c6882c4f4f195043a3067bf7dd',1,'giraffe::FCInfo']]]
 ];

@@ -638,7 +638,7 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000059">Todo:</a></b></dt><dd>Sets the status of the module and reports it to the data stream. </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000061">Todo:</a></b></dt><dd>Sets the status of the module and reports it to the data stream. </dd></dl>
 
 </div>
 </div>
@@ -1496,7 +1496,7 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 
 <p>Used to update the rolling average of bytes per second. </p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000060">Todo:</a></b></dt><dd>remove </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000062">Todo:</a></b></dt><dd>remove </dd></dl>
 
 <p class="reference">References <a class="el" href="group__ServerModule.html#a01613c8c110e73b35d011ed8952787d9">bps_down_in_a_second_</a>, <a class="el" href="group__ServerModule.html#ad8308bd40837da7b57f8cac858cb3e28">bps_up_in_a_second_</a>, <a class="el" href="group__ServerModule.html#a0116cb1c86777db9d1581b00a0b247cf">bytes_per_second_down_</a>, and <a class="el" href="group__ServerModule.html#a33169e5794511db4b2a4187a7b78f191">bytes_per_second_up_</a>.</p>
 
@@ -2489,6 +2489,7 @@ Collaboration diagram for sock::TcpSocketServer:</div>
 <tr class="memitem:ae9def188b439f30cb52f9e908dcb8be4" id="r_ae9def188b439f30cb52f9e908dcb8be4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ServerModule.html#ae9def188b439f30cb52f9e908dcb8be4">getClientAddress</a> () const</td></tr>
 <tr class="separator:ae9def188b439f30cb52f9e908dcb8be4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae131e7d5b2827144d018f1482ab316cc" id="r_ae131e7d5b2827144d018f1482ab316cc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ServerModule.html#ae131e7d5b2827144d018f1482ab316cc">init</a> (<a class="el" href="namespace_3globalScope_4.html#classint">int</a> port_number)</td></tr>
+<tr class="memdesc:ae131e7d5b2827144d018f1482ab316cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create, bind, and listen on a port.  <br /></td></tr>
 <tr class="separator:ae131e7d5b2827144d018f1482ab316cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67fd24b7ac134d195a0c0bb112834602" id="r_a67fd24b7ac134d195a0c0bb112834602"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ServerModule.html#a67fd24b7ac134d195a0c0bb112834602">isValid</a> () const</td></tr>
 <tr class="separator:a67fd24b7ac134d195a0c0bb112834602"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2521,7 +2522,7 @@ Collaboration diagram for sock::TcpSocketServer:</div>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000083">Todo:</a></b></dt><dd>remove this </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000085">Todo:</a></b></dt><dd>remove this </dd></dl>
 
 <p class="reference">References <a class="el" href="group__ServerModule.html#a67c7f50ea6086d19f47542a5767979f4">addr_</a>.</p>
 
@@ -2560,6 +2561,15 @@ Collaboration diagram for sock::TcpSocketServer:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Create, bind, and listen on a port. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port_number</td><td>- The port number to listen on. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the socket was created, bound, and listening, <code>false</code> if denied. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="classgiraffe_1_1gdl_1_1GdlServer.html#a7982a27f1e9ee790d196a5cd8cba6217">giraffe::gdl::GdlServer::run()</a>.</p>
 <div class="dynheader">

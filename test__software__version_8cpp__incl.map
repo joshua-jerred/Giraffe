@@ -1,0 +1,13 @@
+<map id="test_software_version.cpp" name="test_software_version.cpp">
+<area shape="rect" id="Node000001" title=" " alt="" coords="69,5,261,31"/>
+<area shape="rect" id="Node000002" href="$software__version_8hpp.html" title=" " alt="" coords="5,79,167,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="154,33,111,71,107,68,150,29"/>
+<area shape="rect" id="Node000004" href="$unit__test_8hpp.html" title="Simple wrapper for GTest to get rid of compiler warnings." alt="" coords="191,79,298,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="179,29,223,68,220,72,176,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="57,152,115,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="89,104,89,138,83,138,83,104"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="160,152,287,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="244,105,233,140,228,138,239,104"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="311,152,415,177"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="265,102,333,142,331,147,262,106"/>
+</map>

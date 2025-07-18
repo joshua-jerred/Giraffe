@@ -157,6 +157,7 @@ var hierarchy =
     [ "giraffe::OptionalLogger", "classgiraffe_1_1OptionalLogger.html", [
       [ "sock::TcpSocketClient", "classsock_1_1TcpSocketClient.html", null ]
     ] ],
+    [ "giraffe::SoftwareVersion", "structgiraffe_1_1SoftwareVersion.html", null ],
     [ "giraffe::SpiInterface", "classgiraffe_1_1SpiInterface.html", null ],
     [ "giraffe::SpiInterface::Config", "classgiraffe_1_1SpiInterface.html#structgiraffe_1_1SpiInterface_1_1Config", null ],
     [ "giraffe::StatusLedChannel", "classgiraffe_1_1StatusLedChannel.html", null ],

@@ -1,9 +1,26 @@
 var searchData=
 [
-  ['telemetry_0',['telemetry',['../classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4abb3d2d909c73fe49800949a344775f8b',1,'giraffe::gdl::Message::TELEMETRY'],['../namespaceconsole__pages.html#ad6363c61e7b2423fe3e8baae0749e769abb3d2d909c73fe49800949a344775f8b',1,'console_pages::TELEMETRY']]],
-  ['telemetry_5fdata_1',['TELEMETRY_DATA',['../namespacedata__middleware.html#a63a3cd96e24ab4ac12de225b6285198fa7605bf6d834a2e93d8cc619e14c7fbf3',1,'data_middleware']]],
-  ['telemetry_5fmodule_2',['TELEMETRY_MODULE',['../namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7cc2660d640b0a597c45ba01f386bf62',1,'node']]],
-  ['telemetry_5fsdn_5fcommand_3',['TELEMETRY_SDN_COMMAND',['../classgiraffe_1_1FlightRunnerData.html#afd58bbf952b965cbacc36aed52a4f7f3a030a8d151c3fc1f3f15e2653e13b5ac4',1,'giraffe::FlightRunnerData']]],
-  ['time_5fonly_4',['TIME_ONLY',['../namespaceubx.html#aba153c45e93e3996e6340d000dfddbf8ad4277ea6f261aab6f786ba008436f7bd',1,'ubx']]],
-  ['transmitting_5',['TRANSMITTING',['../classgiraffe_1_1gdl_1_1PhysicalLayer.html#ae6ee079a07a5a4918268273005532732aa4af22aa2f8c5c8268f1e23841ad48da',1,'giraffe::gdl::PhysicalLayer']]]
+  ['sea_0',['SEA',['../namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39a9abd3d9b983e99aa1fd94837498b0bea',1,'ubx']]],
+  ['send_5fdata_5fdelay_1',['SEND_DATA_DELAY',['../classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#a9986a5afef75a39fd92ce2b740c2cd46a8d5511010056d0e607f465c9be381fe9',1,'giraffe::gdl::AprsTelemetrySender']]],
+  ['send_5freset_2',['SEND_RESET',['../group__SAMM8QState.html#ggab4b80b84b47aaa1ff2dbd2d1c16f5d19a5f81a83853015381e702ad82ed786cc0',1,'extension::SamM8q']]],
+  ['sending_5fdata_3',['SENDING_DATA',['../classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#a9986a5afef75a39fd92ce2b740c2cd46abb06c7633e3f218d4bdaa98908f4ac47',1,'giraffe::gdl::AprsTelemetrySender']]],
+  ['sending_5fmetadata_4',['SENDING_METADATA',['../classgiraffe_1_1gdl_1_1AprsTelemetrySender.html#a9986a5afef75a39fd92ce2b740c2cd46ac45809db860c0e90f39622ad94c2d451',1,'giraffe::gdl::AprsTelemetrySender']]],
+  ['server_5',['SERVER',['../namespaceconsole__pages.html#ad6363c61e7b2423fe3e8baae0749e769a3d27c95bfdbea691b250894d96852844',1,'console_pages']]],
+  ['server_5fmodule_6',['SERVER_MODULE',['../namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a3df8ece3baaa3dbaab4d2294add9be3d',1,'node']]],
+  ['server_5fstats_7',['SERVER_STATS',['../namespacedata__middleware.html#a63a3cd96e24ab4ac12de225b6285198fa9137c92c128dd3190285cac74a446e61',1,'data_middleware']]],
+  ['set_8',['SET',['../namespaceprotocol.html#a9731025e73bc9be65076786a05ea9624a8c52684db8f49511e9b44471716bf164',1,'protocol']]],
+  ['sleeping_9',['SLEEPING',['../namespacenode.html#a5360cad6ada29a0aae6013099cab6419a7850588c11fe6db41b8b2dd6c455f8f3',1,'node']]],
+  ['sstv_10',['sstv',['../classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824ba9eed40bd951e903d55dd6c8f01a50cc2',1,'giraffe::gdl::Packet::SSTV'],['../classgiraffe_1_1gdl_1_1PhysicalLayer.html#a2744a41c76184b417b9445ad925299dfa9eed40bd951e903d55dd6c8f01a50cc2',1,'giraffe::gdl::PhysicalLayer::SSTV']]],
+  ['start_11',['START',['../classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0ab078ffd28db767c502ac367053f6e0ac',1,'modules::ExtensionModule']]],
+  ['starting_12',['starting',['../classgiraffe_1_1gdl_1_1PhysicalLayer.html#ae6ee079a07a5a4918268273005532732a034312d8adc8099c1c6f53aaff745e26',1,'giraffe::gdl::PhysicalLayer::STARTING'],['../classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76a034312d8adc8099c1c6f53aaff745e26',1,'giraffe::gdl::DataLink::STARTING'],['../namespacenode.html#a5360cad6ada29a0aae6013099cab6419a034312d8adc8099c1c6f53aaff745e26',1,'node::STARTING']]],
+  ['stationary_13',['STATIONARY',['../namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39a4120eb7591bd0789af75a8973d5f9146',1,'ubx']]],
+  ['status_14',['STATUS',['../structdata_1_1DataPacket.html#a7ac4c3266ecc030764f211293194c872a5f241c8c8f985b3c51e05d39cf030f4c',1,'data::DataPacket']]],
+  ['stop_15',['STOP',['../classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0a615a46af313786fc4e349f34118be111',1,'modules::ExtensionModule']]],
+  ['stopped_16',['STOPPED',['../namespacenode.html#a5360cad6ada29a0aae6013099cab6419a09d4d696b4e935115b9313e3c412509a',1,'node']]],
+  ['stopping_17',['stopping',['../classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76af6cdb3c6710b50ec65ee07f740847e10',1,'giraffe::gdl::DataLink::STOPPING'],['../namespacenode.html#a5360cad6ada29a0aae6013099cab6419af6cdb3c6710b50ec65ee07f740847e10',1,'node::STOPPING']]],
+  ['stream_5fstats_18',['STREAM_STATS',['../namespacedata__middleware.html#a63a3cd96e24ab4ac12de225b6285198fabb2e17b169d465e87c15b32697345451',1,'data_middleware']]],
+  ['success_19',['SUCCESS',['../classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518ad0749aaba8b833466dfcbb0428e4f89c',1,'I2cInterface']]],
+  ['system_20',['SYSTEM',['../namespaceconsole__pages.html#ad6363c61e7b2423fe3e8baae0749e769afa177138f94a7ea01f549b1aa7893d03',1,'console_pages']]],
+  ['system_5finfo_21',['SYSTEM_INFO',['../namespacedata__middleware.html#a63a3cd96e24ab4ac12de225b6285198fafde6d9248411caac0e765167c7fa1750',1,'data_middleware']]],
+  ['system_5fmodule_22',['SYSTEM_MODULE',['../namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a04e4c0da662c0b6d1c22348aabe5e95d',1,'node']]]
 ];

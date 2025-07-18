@@ -205,7 +205,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class is used to interface extensions with the BCM <a class="el" href="classgiraffe_1_1Gpio.html" title="This class is used to interface extensions with the BCM Gpio pins.">Gpio</a> pins. </p>
-<p>Currently this only supports the Raspberry Pi. It has not been thoroughly tested. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000021">Todo:</a></b></dt><dd>Unit Tests </dd></dl>
+<p>Currently this only supports the Raspberry Pi. It has not been thoroughly tested. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000023">Todo:</a></b></dt><dd>Unit Tests </dd></dl>
 <dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>If Gpio::Close() is called, instances of <a class="el" href="classgiraffe_1_1Gpio.html" title="This class is used to interface extensions with the BCM Gpio pins.">Gpio</a> may have weird behavior. </dd></dl>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a id="a7fc4b418ee03c60203b38898a1c4a0b2" name="a7fc4b418ee03c60203b38898a1c4a0b2"></a>
@@ -297,7 +297,7 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Static function to close the BCM registers and reset the reserved pins. </p>
-<p>This deallocates the memory map and resets the reserved pins array. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000022">Todo:</a></b></dt><dd>Set pins to their 'initial_state_' before closing. </dd></dl>
+<p>This deallocates the memory map and resets the reserved pins array. </p><dl class="todo"><dt><b><a class="el" href="todo.html#_todo000024">Todo:</a></b></dt><dd>Set pins to their 'initial_state_' before closing. </dd></dl>
 
 <p class="reference">References <a class="el" href="classgiraffe_1_1Gpio.html#a812b19fc1dae93cdfaee1afa876c5996">gpio_lock_</a>, <a class="el" href="gpio_8cpp.html#a92b3a8587ce26e4a682657be60bb4f70">GPIO_MEMORY_MAP_SIZE</a>, <a class="el" href="classgiraffe_1_1Gpio.html#ad08a698336e35b5231129917f3cc1188">reserved_pins_</a>, and <a class="el" href="gpio_8cpp.html#afa9f605689fcf3565d793f785726674a">s_gpio_memory_map</a>.</p>
 
@@ -427,7 +427,7 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000023">Todo:</a></b></dt><dd><p class="startdd">Verify that the pin is owned by the current instance. </p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000025">Todo:</a></b></dt><dd><p class="startdd">Verify that the pin is owned by the current instance. </p>
 <p class="enddd">Can a user change the mode of a pin after it has been reserved to write to it? </p>
 </dd></dl>
 
@@ -732,7 +732,7 @@ Here is the caller graph for this function:</div>
 
 <p>The lock used to ensure that only one instance can reserve a pin or user it at a time. </p>
 <p>This mutex is used to ensure that only one instance of <a class="el" href="classgiraffe_1_1Gpio.html" title="This class is used to interface extensions with the BCM Gpio pins.">Gpio</a> can access the BCM registers at a time along with static members.</p>
-<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000024">Todo:</a></b></dt><dd>ability to release a pin </dd></dl>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000026">Todo:</a></b></dt><dd>ability to release a pin </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="classgiraffe_1_1Gpio.html#aaf37ff0fc5a64798a8565669f9aac4e2">deInitialize()</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a54884bbf5e55975e2872f3c3cd648375">initialize()</a>, <a class="el" href="classgiraffe_1_1Gpio.html#ab7556c99494356b7afbdb7260f9649c7">isInitialized()</a>, <a class="el" href="classgiraffe_1_1Gpio.html#ad9bd7030420bdbf1979b3664dff68ff7">read()</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a60b4d177dfc4536f9cd469ded46f6ec4">releasePin()</a>, <a class="el" href="classgiraffe_1_1Gpio.html#a5e84f1224ccd58fa33cb303211ed935c">setupPin()</a>, and <a class="el" href="classgiraffe_1_1Gpio.html#a9e87bc845dcd7e6f819591291baa73ef">write()</a>.</p>
 

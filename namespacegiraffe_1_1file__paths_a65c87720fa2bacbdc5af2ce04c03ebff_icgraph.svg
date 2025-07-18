@@ -59,7 +59,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="namespacegiraffe_1_1file__paths.html#ad3893d2b3c6641d111c0237cab96e09f" target="_top" xlink:title="Get the path to the Flight System Agent directory.">
+<g id="a_Node000004"><a xlink:href="namespacegiraffe_1_1file__paths.html#ad3893d2b3c6641d111c0237cab96e09f" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="858,-400.5 691,-400.5 691,-370.5 858,-370.5 858,-400.5"/>
 <text text-anchor="start" x="699" y="-388.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::file_paths</text>
 <text text-anchor="middle" x="774.5" y="-377.5" font-family="Helvetica,sans-Serif" font-size="10.00">::getFlightSystemAgentDirPath</text>
@@ -285,7 +285,7 @@
 <!-- Node5 -->
 <g id="Node000005" class="node">
 <title>Node5</title>
-<g id="a_Node000005"><a xlink:href="namespacegiraffe_1_1file__paths.html#a0fc419b3cf5bf284d4e66a76f05d9f48" target="_top" xlink:title="Get the path to the Flight System Agent config file.">
+<g id="a_Node000005"><a xlink:href="namespacegiraffe_1_1file__paths.html#a0fc419b3cf5bf284d4e66a76f05d9f48" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="642.5,-455 480.5,-455 480.5,-414 642.5,-414 642.5,-455"/>
 <text text-anchor="start" x="488.5" y="-443" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::file_paths</text>
 <text text-anchor="start" x="488.5" y="-432" font-family="Helvetica,sans-Serif" font-size="10.00">::getFlightSystemAgentConfig</text>
@@ -305,7 +305,7 @@
 <!-- Node6 -->
 <g id="Node000006" class="node">
 <title>Node6</title>
-<g id="a_Node000006"><a xlink:href="namespacegiraffe_1_1file__paths.html#ae60e01f40243d47b41ec8fdb1a687ce5" target="_top" xlink:title="Get the path to the Flight System Agent log file.">
+<g id="a_Node000006"><a xlink:href="namespacegiraffe_1_1file__paths.html#ae60e01f40243d47b41ec8fdb1a687ce5" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="655,-395.5 468,-395.5 468,-365.5 655,-365.5 655,-395.5"/>
 <text text-anchor="start" x="476" y="-383.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::file_paths</text>
 <text text-anchor="middle" x="561.5" y="-372.5" font-family="Helvetica,sans-Serif" font-size="10.00">::getFlightSystemAgentLogFilePath</text>

@@ -1,0 +1,7 @@
+<map id="giraffe::SoftwareVersion::getStageAsString" name="giraffe::SoftwareVersion::getStageAsString">
+<area shape="rect" id="Node000001" title="Get the stage as a string, per versioning.md." alt="" coords="355,5,532,45"/>
+<area shape="rect" id="Node000002" href="$structgiraffe_1_1SoftwareVersion.html#a6e4900e83b9f5ca30cc11965fe50fd2e" title="Get the version as a string in the format major.minor.patch[&#45;&lt;stage&gt;], where &#45;&lt;stage&gt; is optional." alt="" coords="108,5,307,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="341,28,307,28,307,23,341,23"/>
+<area shape="rect" id="Node000003" href="$test__software__version_8cpp.html#ab933272c4658820b9dbdc551d61bd17d" title=" " alt="" coords="5,13,60,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="94,28,60,28,60,23,94,23"/>
+</map>

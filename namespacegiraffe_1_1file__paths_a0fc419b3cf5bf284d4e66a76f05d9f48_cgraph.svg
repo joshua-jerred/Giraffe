@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title="Get the path to the Flight System Agent config file.">
+<g id="a_Node000001"><a xlink:title=" ">
 <polygon fill="#999999" stroke="#666666" points="162,-41 0,-41 0,0 162,0 162,-41"/>
 <text text-anchor="start" x="8" y="-29" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::file_paths</text>
 <text text-anchor="start" x="8" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">::getFlightSystemAgentConfig</text>
@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="namespacegiraffe_1_1file__paths.html#ad3893d2b3c6641d111c0237cab96e09f" target="_top" xlink:title="Get the path to the Flight System Agent directory.">
+<g id="a_Node000002"><a xlink:href="namespacegiraffe_1_1file__paths.html#ad3893d2b3c6641d111c0237cab96e09f" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="365,-35.5 198,-35.5 198,-5.5 365,-5.5 365,-35.5"/>
 <text text-anchor="start" x="206" y="-23.5" font-family="Helvetica,sans-Serif" font-size="10.00">giraffe::file_paths</text>
 <text text-anchor="middle" x="281.5" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">::getFlightSystemAgentDirPath</text>

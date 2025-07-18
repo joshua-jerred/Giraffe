@@ -133,6 +133,7 @@ var annotated_dup =
       [ "Logger", "classgiraffe_1_1Logger.html", "classgiraffe_1_1Logger" ],
       [ "LoggerEntry", "structgiraffe_1_1LoggerEntry.html", "structgiraffe_1_1LoggerEntry" ],
       [ "OptionalLogger", "classgiraffe_1_1OptionalLogger.html", "classgiraffe_1_1OptionalLogger" ],
+      [ "SoftwareVersion", "structgiraffe_1_1SoftwareVersion.html", "structgiraffe_1_1SoftwareVersion" ],
       [ "SpiInterface", "classgiraffe_1_1SpiInterface.html", "classgiraffe_1_1SpiInterface" ],
       [ "StatusLedChannel", "classgiraffe_1_1StatusLedChannel.html", "classgiraffe_1_1StatusLedChannel" ],
       [ "StatusLedState", "classgiraffe_1_1StatusLedState.html", "classgiraffe_1_1StatusLedState" ]

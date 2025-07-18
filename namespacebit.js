@@ -2,6 +2,7 @@ var namespacebit =
 [
     [ "test_case", "namespacebit_1_1test__case.html", [
       [ "runTestFCS_0001", "namespacebit_1_1test__case.html#a26fa88abc804b5e8c2e4cc9311d13e21", null ],
+      [ "runTestFCS_0004", "namespacebit_1_1test__case.html#a8c4c0d6065c84b49d2334e5409651d14", null ],
       [ "runTestGPS_0400", "namespacebit_1_1test__case.html#a68866a4e2faa00fa702843c7a6f99b7a", null ]
     ] ],
     [ "BuiltInTest", "classbit_1_1BuiltInTest.html", "classbit_1_1BuiltInTest" ],

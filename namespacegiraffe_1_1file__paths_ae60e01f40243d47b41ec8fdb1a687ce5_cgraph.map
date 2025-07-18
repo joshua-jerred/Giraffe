@@ -1,6 +1,6 @@
 <map id="giraffe::file_paths::getFlightSystemAgentLogFilePath" name="giraffe::file_paths::getFlightSystemAgentLogFilePath">
-<area shape="rect" id="Node000001" title="Get the path to the Flight System Agent log file." alt="" coords="5,35,255,75"/>
-<area shape="rect" id="Node000002" href="$namespacegiraffe_1_1file__paths.html#ad3893d2b3c6641d111c0237cab96e09f" title="Get the path to the Flight System Agent directory." alt="" coords="303,35,525,75"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,35,255,75"/>
+<area shape="rect" id="Node000002" href="$namespacegiraffe_1_1file__paths.html#ad3893d2b3c6641d111c0237cab96e09f" title=" " alt="" coords="303,35,525,75"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="255,52,289,52,289,57,255,57"/>
 <area shape="rect" id="Node000003" href="$namespacegiraffe_1_1file__paths.html#a3cebf8089cfb107e6b610ffc51ea7afa" title="Creates the Giraffe directory if it does not exist. Throws a GiraffeException if it cannot be created..." alt="" coords="573,5,779,45"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="525,40,559,36,560,41,526,45"/>

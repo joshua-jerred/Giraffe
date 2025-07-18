@@ -1,8 +1,16 @@
 var searchData=
 [
-  ['fd_5fnot_5fopen_0',['FD_NOT_OPEN',['../classI2cInterface.html#a41cc3ddf4b2f0be0f715d008c9bf1518a85c674de9efd7ba2e8a7e4e0a3381e77',1,'I2cInterface']]],
-  ['fix_5f2d_1',['fix_2d',['../namespaceubx.html#aba153c45e93e3996e6340d000dfddbf8a8b433e3f63d83e78dfbfe6da3ff61b3e',1,'ubx::FIX_2D'],['../namespacedata.html#ab828a916e0a524f5d9d29e881a1e829ba8b433e3f63d83e78dfbfe6da3ff61b3e',1,'data::FIX_2D']]],
-  ['fix_5f3d_2',['fix_3d',['../namespaceubx.html#aba153c45e93e3996e6340d000dfddbf8a5eddc8631075de75c679f84846de5d51',1,'ubx::FIX_3D'],['../namespacedata.html#ab828a916e0a524f5d9d29e881a1e829ba5eddc8631075de75c679f84846de5d51',1,'data::FIX_3D']]],
-  ['flight_5frunner_3',['FLIGHT_RUNNER',['../namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a7a3df0d9f8595b9e4a612f4860811763',1,'node']]],
-  ['fsa_4',['FSA',['../namespaceprotocol.html#add796d366d28c1ed225e24b92b68c09ea39bc1c02846bc8749a79ee2b65d51e5f',1,'protocol']]]
+  ['environmental_5fdata_0',['ENVIRONMENTAL_DATA',['../namespacedata__middleware.html#a63a3cd96e24ab4ac12de225b6285198fa92254e453c7fe69ce540db82bd8415b1',1,'data_middleware']]],
+  ['error_1',['error',['../classgiraffe_1_1gdl_1_1DataLink.html#ab56b0bd6ebaf2aa7c4317492d6330e76abb1ca97ec761fc37101737ba0aa2e7c5',1,'giraffe::gdl::DataLink::ERROR'],['../namespaceprotocol.html#a14a4518c9c5eba60611b473d659c069dabb1ca97ec761fc37101737ba0aa2e7c5',1,'protocol::ERROR'],['../namespacenode.html#a5360cad6ada29a0aae6013099cab6419abb1ca97ec761fc37101737ba0aa2e7c5',1,'node::ERROR'],['../namespacegiraffe.html#a7de051682a10e68f9259ee84278381edabb1ca97ec761fc37101737ba0aa2e7c5',1,'giraffe::ERROR'],['../namespacedata.html#ab828a916e0a524f5d9d29e881a1e829babb1ca97ec761fc37101737ba0aa2e7c5',1,'data::ERROR'],['../namespaceubx.html#aba153c45e93e3996e6340d000dfddbf8abb1ca97ec761fc37101737ba0aa2e7c5',1,'ubx::ERROR'],['../namespaceubx.html#adeeda5a4fc125d1ad07f95b20a621e39abb1ca97ec761fc37101737ba0aa2e7c5',1,'ubx::ERROR'],['../classgiraffe_1_1gdl_1_1PhysicalLayer.html#ae6ee079a07a5a4918268273005532732abb1ca97ec761fc37101737ba0aa2e7c5',1,'giraffe::gdl::PhysicalLayer::ERROR'],['../structdata_1_1LogPacket.html#acf1eb5602d42a50429a2d4b4752279f4abb1ca97ec761fc37101737ba0aa2e7c5',1,'data::LogPacket::ERROR']]],
+  ['error_5fdisable_2',['ERROR_DISABLE',['../classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0a96625ccd445f48cbdf63a89fe5a42986',1,'modules::ExtensionModule']]],
+  ['error_5frestart_3',['ERROR_RESTART',['../classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0a5e8be6f910195a9e4e39316f8e9b1ca8',1,'modules::ExtensionModule']]],
+  ['error_5fstart_4',['ERROR_START',['../classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0af8d4d3f467764b466066ba19c58b063d',1,'modules::ExtensionModule']]],
+  ['error_5fstop_5',['ERROR_STOP',['../classmodules_1_1ExtensionModule.html#abc010fc7fb69af5d93ec46df2b4a79c0a71324e1dc72376e51aa681da3ede17de',1,'modules::ExtensionModule']]],
+  ['exchange_6',['exchange',['../classgiraffe_1_1gdl_1_1Packet.html#a4cb19dc3bb0c9cfb0cc0d2d877bd824baa19e33a03873dfa815e53ad6fcece8bf',1,'giraffe::gdl::Packet::EXCHANGE'],['../classgiraffe_1_1gdl_1_1Message.html#a6a6e8704d83836037deed77775a6e8e4aa19e33a03873dfa815e53ad6fcece8bf',1,'giraffe::gdl::Message::EXCHANGE']]],
+  ['exchange_5fsend_7',['EXCHANGE_SEND',['../classgiraffe_1_1gdl_1_1TransportLayer.html#a6fe99966c74405692119f72071113be3ab7b492e0d3c2be7dd76bd12415935514',1,'giraffe::gdl::TransportLayer']]],
+  ['exchange_5fwaiting_5ffor_5fack_8',['EXCHANGE_WAITING_FOR_ACK',['../classgiraffe_1_1gdl_1_1TransportLayer.html#a6fe99966c74405692119f72071113be3ada3d9f36e6c67698f1f962d1f612f079',1,'giraffe::gdl::TransportLayer']]],
+  ['extension_9',['EXTENSION',['../namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8a1d1cd00b7cd275ef0629c38d0eb70b4d',1,'node']]],
+  ['extension_5fdata_10',['EXTENSION_DATA',['../namespaceconsole__pages.html#ad6363c61e7b2423fe3e8baae0749e769a45a83411621b66acc094da1a7fe49cfb',1,'console_pages']]],
+  ['extension_5fmodule_11',['EXTENSION_MODULE',['../namespacenode.html#ab16b2ecd4ea33131eb41b77a8c3e28a8adf40e6afff32895bb61e4287462eade3',1,'node']]],
+  ['extensions_12',['EXTENSIONS',['../namespaceconsole__pages.html#ad6363c61e7b2423fe3e8baae0749e769a161ad92de902d4ca8e8d835c07fed8c7',1,'console_pages']]]
 ];
