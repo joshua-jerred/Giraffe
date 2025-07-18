@@ -2,7 +2,7 @@
 # joshuajerred/giraffe
 # update with:
 # cd project/
-# docker build -t joshuajerred/giraffe .
+# docker build --progress=plain -t joshuajerred/giraffe .
 # docker push joshuajerred/giraffe
 
 # to run:
@@ -18,7 +18,10 @@ RUN apt-get update && apt-get install -y \
    git \
    build-essential \
    cppcheck \
-   ninja-build
+   ninja-build \
+   python3
+
+RUN ln -s /usr/bin/python3 /usr/local/bin/python
 
 # Install CMake 3.30.5
 COPY cmake-${CMAKE_VERSION}-linux-x86_64.sh /tmp/cmake-${CMAKE_VERSION}-Linux-x86_64.sh

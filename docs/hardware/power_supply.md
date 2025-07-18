@@ -5,6 +5,13 @@ battery and creating a stable 5V and 3.3V output for the whole system.
 
 ***
 
+## Update 16 Mar 2025
+
+Switched to a 18650 topology to better fit the Pi Zero form factor.
+
+
+***
+
 ## Requirements
 
 ### Power Output and Consumption
@@ -121,3 +128,6 @@ requirements, goes up to 3A, and comes in a easier to use SOT-23 (Thin) package.
 The TPS563201 specifically uses Pulse Skip Mode, because it's not CCM it does
 not have a fixed frequency. The hope is that this will not be an issue EMI/EMC
 wise.
+
+
+

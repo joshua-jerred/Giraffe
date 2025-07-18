@@ -15,7 +15,7 @@
  *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
- * @date       2024-12-25
+ * @date       2025-05-23
  * @copyright  2023 (license to be defined)
  * =*=======================*=
  *
@@ -62,7 +62,7 @@ namespace bit {
 
   /// @brief This enum contains the test ids for the Built-In Test (BIT) system.
   enum class TestId : uint16_t {
-    FCS_ErrorTest = 0x0001,
+    FCS_NoErrorsTest = 0x0001,
     FCS_FlightPhasePredictorTest = 0x0002,
     FCS_LaunchPositionTest = 0x0003,
     FCS_DataModuleProcessingTest = 0x0004,
@@ -83,7 +83,7 @@ namespace bit {
 
 /**
  *
- * Generated on: 2024-12-25
+ * Generated on: 2025-05-23
  *
  * @endverbatim
  *

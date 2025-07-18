@@ -927,6 +927,11 @@
       "name": "APRS Telemetry Initialization Error",
       "details": "Error related to initializing the APRS telemetry. See info.",
       "value": "0xB006"
+    },
+    "aprs_on_air_telemetry_definition_queue": {
+      "name": "APRS On Air Telemetry Definition Queue Error",
+      "details": "Failed to queue up the on air definition of the APRS telemetry data, is APRS telemetry enabled?",
+      "value": "0xB007"
     }
   }
 }

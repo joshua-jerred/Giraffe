@@ -155,6 +155,12 @@
       "details": "Sends the SSTV image from the telemetry module. Only works if SSTV is enabled.",
       "value": "0x3004",
       "cmd_key": "stv"
+    },
+    "send_on_air_definition_of_telem": {
+      "name": "Send On Air Definition of APRS Telem",
+      "details": "Sends the on air definition of telemetry.",
+      "value": "0x3005",
+      "cmd_key": "oat"
     }
   },
   "extension_module": {

@@ -110,7 +110,7 @@ void modules::TelemetryModule::processTelemetryMessageQueue() {
 
   if (msg.getType() == giraffe::gdl::Message::Type::LOCATION) {
     // @todo log error
-    std::cout << "message should not be a location packet" << std::endl;
+    // std::cout << "message should not be a location packet" << std::endl;
     return;
   }
 
@@ -294,6 +294,12 @@ void modules::TelemetryModule::processCommand(const cmd::Command &command) {
   case cmd::CommandId::TELEMETRY_MODULE_sendAprsLocation:
     std::cout << "TELEMETRY_MODULE_sendAprsLocation" << std::endl;
     sendAprsPositionPacket(true);
+    break;
+  case cmd::CommandId::TELEMETRY_MODULE_sendOnAirDefinitionOfTelem:
+    std::cout << "TELEMETRY_MODULE_sendOnAirDefinitionOfTelem" << std::endl;
+    if (!aprs_telemetry_manager_.sendOnAirDefinitionPackets()) {
+      error(DiagnosticId::TELEMETRY_aprsOnAirTelemetryDefinitionQueue);
+    }
     break;
   default:
     error(DiagnosticId::TELEMETRY_invalidCommand);

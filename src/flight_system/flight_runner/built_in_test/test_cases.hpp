@@ -33,6 +33,12 @@ namespace test_case {
 /// @return TestResult - The result of the test.
 TestResult runTestFCS_0001(data::SharedData &shared_data);
 
+/// @brief Checks if the data module is processing data correctly/at a
+/// reasonable rate.
+/// @param shared_data - The shared data object.
+/// @return TestResult - The result of the test.
+TestResult runTestFCS_0004(data::SharedData &shared_data);
+
 /// @brief Checks if GPS hardware is configured and running.
 /// @param shared_data - The shared data object.
 /// @return TestResult - The result of the test.

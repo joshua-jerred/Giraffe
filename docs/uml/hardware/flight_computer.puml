@@ -1,0 +1,21 @@
+@startuml
+
+title "Flight Computer Block Diagram"
+
+rectangle "Primary Board Stackup" as primary_assembly {
+
+rectangle "Top PCBA" as hat {
+  component "Switching Power Supply" as buck
+}
+
+rectangle "Raspberry Pi Zero 2 W" as pi {
+}
+
+rectangle "Bottom PCBA" as shoe {
+  component "SA868\n2W VHF Radio" as sa868
+  component "PCM2902C\nUSB Audio Codec" as pcm2902c
+}
+
+}
+
+@enduml

@@ -16,7 +16,43 @@
         "default": 7893
       }
     },
-    "ggs_settings":{
+    "ggs_settings": {
+      "launch_position_set": {
+        "type": "bool",
+        "name": "Launch Position Set",
+        "description": "Whether or not the launch position is set. This is used to determine if the ground station is in a valid state.",
+        "default": false
+      },
+      "launch_position_latitude": {
+        "type": "float",
+        "name": "Ground Station Latitude",
+        "description": "The latitude of the launch site in decimal degrees.",
+        "min": -90,
+        "max": 90,
+        "default": 40
+      },
+      "launch_position_longitude": {
+        "type": "float",
+        "name": "Ground Station Longitude",
+        "description": "The longitude of the launch site in decimal degrees.",
+        "min": -180,
+        "max": 180,
+        "default": -100
+      },
+      "launch_position_altitude": {
+        "type": "float",
+        "name": "Ground Station Altitude",
+        "description": "The altitude of the launch site in meters.",
+        "min": 0,
+        "max": 10000,
+        "default": 100
+      },
+      "launch_position_set_time": {
+        "type": "string",
+        "name": "Launch Position Set Time",
+        "description": "The time that the launch position was set.",
+        "default": "unknown"
+      },
       "logging_level": {
         "name": "Logging Level",
         "description": "The logging level for the ground station. Error = less logs, Debug = more logs.",
@@ -37,7 +73,7 @@
           "sqlite",
           "mysql"
         ],
-        "default": "sqlite"
+        "default": "mysql"
       },
       "gfs_config_interval": {
         "type": "int",
@@ -72,7 +108,7 @@
         "default": 1000
       }
     },
-    "gdl":{
+    "gdl": {
       "gdl_enabled": {
         "type": "bool",
         "name": "GDL Enabled",
@@ -156,7 +192,7 @@
         "default": "INF"
       }
     },
-    "mysql":{
+    "mysql": {
       "host": {
         "type": "string",
         "name": "Host",
@@ -196,7 +232,21 @@
         "default": false
       }
     },
-    "aprs_fi":{
+    "aprs": {
+      "ground_station_callsign": {
+        "type": "string",
+        "name": "Ground Station Call",
+        "description": "The call sign of the ground station, including the SSID.",
+        "default": "none-1"
+      },
+      "flight_callsign": {
+        "type": "string",
+        "name": "Flight Callsign",
+        "description": "The call sign of the flight system that we are tracking, including the SSID.",
+        "default": "none-11"
+      }
+    },
+    "aprs_fi": {
       "enabled": {
         "type": "bool",
         "name": "APRS.fi Enabled",
@@ -209,7 +259,7 @@
         "description": "The API key for the APRS.fi API. https://aprs.fi/page/api",
         "default": "none"
       },
-      "name":{
+      "name": {
         "type": "string",
         "name": "APRS.fi Name",
         "description": "The name of the station to track. This includes the SSID.",
@@ -223,6 +273,48 @@
         "max": 3600,
         "default": 1800
       }
+    },
+    "aprs_is": {
+      "enabled": {
+        "type": "bool",
+        "name": "APRS-IS Enabled",
+        "description": "Get APRS packets from APRS-IS.",
+        "default": false
+      },
+      "log_other_packets": {
+        "type": "bool",
+        "name": "Log External Packets",
+        "description": "Log packets to the database that are not from the flight system or ground station.",
+        "default": false
+      },
+      "address": {
+        "type": "string",
+        "name": "APRS-IS Address",
+        "description": "Address to the APRS-IS server. This shouldn't be a public APRS-IS server at this time.",
+        "default": "localhost"
+      },
+      "port": {
+        "type": "int",
+        "name": "APRS-IS Port",
+        "description": "The port to connect to the APRS-IS server.",
+        "min": 0,
+        "max": 65535,
+        "default": 10152
+      },
+      "client_name": {
+        "type": "string",
+        "name": "APRS-IS Client Name",
+        "description": "The name of this client, used to log into APRS-IS. This includes the SSID. ex: KD9GDC-1",
+        "default": "none-1"
+      },
+      "client_passcode": {
+        "type": "int",
+        "name": "APRS-IS Passcode",
+        "description": "Generated APRS-IS passcode",
+        "min": 0,
+        "max": 65535,
+        "default": 1234
+      }
     }
   },
   "data": {
@@ -234,29 +326,29 @@
       }
     },
     "stream_stats": {
-      "NOT_IN_DB":"NOT_IN_DB",
-      "num_current_clients":{
+      "NOT_IN_DB": "NOT_IN_DB",
+      "num_current_clients": {
         "name": "Number of Current Clients",
         "description": "The number of clients that are currently connected to the ggs web socket.",
         "default": "unknown"
       },
-      "num_current_streams":{
+      "num_current_streams": {
         "name": "Number of Current Streams",
         "description": "The number of streams that are currently open.",
         "default": "unknown"
       },
-      "num_current_users":{
+      "num_current_users": {
         "name": "Number of Current Users",
         "description": "The number of users that are currently connected to the ggs web socket.",
         "default": "unknown"
       },
-      "current_users":{
+      "current_users": {
         "name": "Current Users",
         "description": "The users that are currently connected to the ggs web socket.",
         "default": "unknown"
       }
     },
-    "status":{
+    "status": {
       "this_doesnt_exist": {
         "name": "This Doesn't Exist",
         "description": "This is a made up data point.",

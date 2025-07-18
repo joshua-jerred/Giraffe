@@ -1,0 +1,44 @@
+@startuml "Giraffe Software Topology"
+
+left to right direction
+
+node "Ground Computer" as ground_computer {
+  ' frame 
+  component "Web Client" as web_client
+  component "Ground Software" as ground_software
+  component "Data Link Server" as gdl_server
+  component "Daemon" as daemon_gc
+
+  web_client --> ground_software : http
+  ground_software --> gdl_server : tcp
+
+  ' daemon connections
+  daemon_gc --> gdl_server : tcp
+  daemon_gc --> ground_software : tcp
+  daemon_gc --> web_client : tcp
+}
+
+actor "User" as user
+user --> web_client : http
+
+cloud " " as cloud {
+  frame "aprs.fi GET API" as aprs_api
+}
+ground_software -up-> aprs_api : http
+
+node "Flight Computer" as flight_computer {
+    component "Daemon" as daemon_fc
+    component "Flight Software\n& Data Link" as flight_software
+    database Database as flight_computer_db
+  
+    ' daemon_fc <-up-> flight_software : "tcp"
+    ' flight_software --> flight_computer_db : "http"
+    ' daemon_fc --> flight_computer_db : "http"
+}
+
+' ground_software --> flight_software : "tcp"
+' ground_software --> daemon_fc : "tcp"
+' gdl_server <--> flight_software : "VHF"
+
+
+@enduml

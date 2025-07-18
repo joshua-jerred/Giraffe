@@ -5,6 +5,18 @@ on:
     branches: [ main ]
 
 jobs:
+  static_analysis:
+    name: Static Analysis
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout/@v3
+        with:
+          submodules: recursive
+      - name: Install cmake-lint
+        run: pip install cmakelint
+      - name: Run cmake-lint
+        run: cmakelint
+
   build_gfs:
     name: Build / Giraffe Flight System
     runs-on: ubuntu-latest
@@ -37,7 +49,7 @@ jobs:
       - name: CMake Configure
         run: mkdir build -p && cd build && cmake ..
       - name: Build Giraffe Data Link
-        run: cd build && make giraffe_data_link_core -j 4
+        run: cd build && make gdl_core -j 4
 
   build_utilities:
     name: Build / Utilities
@@ -126,13 +138,19 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+      - name: Use Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Run Version Script
+        run: python ./project/generate_version_files.py
       - run: npm install
         working-directory: ./src/common/protocol
       - run: npm test
         working-directory: ./src/common/protocol
 
   ggs_tests:
-    name: Unit Tests / Giraffe Ground Station
+    name: Unit Tests / Giraffe Ground Station Backend
     runs-on: ubuntu-latest
     container:
       image: joshuajerred/giraffe:latest
@@ -143,35 +161,56 @@ jobs:
           submodules: recursive
       - name: Take Ownership of Source
         run: git config --global --add safe.directory '*'
+      - name: Run Version Script
+        run: python ./project/generate_version_files.py
       - name: CMake Configure
         run: mkdir build -p && cd build && cmake ..
       - run: npm install
-        working-directory: ./src/ground_station
+        working-directory: ./src/ground_station/backend
       - run: npm test
-        working-directory: ./src/ground_station
+        working-directory: ./src/ground_station/backend
 
   gwc_tests:
-    name: Unit Tests / Giraffe Web Client
+    name: Unit Tests / Giraffe Ground Station Frontend
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Use Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Run Version Script
+        run: python ./project/generate_version_files.py
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22.x'
       - run: npm install
-        working-directory: ./src/web_client
+        working-directory: ./src/ground_station/frontend
       - run: npm test
-        working-directory: ./src/web_client
+        working-directory: ./src/ground_station/frontend
 
-  static_analysis:
-    name: Static Analysis
+  build_package:
+    name: Giraffe Package
     runs-on: ubuntu-latest
+    container:
+      image: joshuajerred/giraffe:latest
+      options: --user root
     steps:
-      - uses: actions/checkout/@v3
+      - uses: actions/checkout/@v1
         with:
           submodules: recursive
-      - name: Install cmake-lint
-        run: pip install cmakelint
-      - name: Run cmake-lint
-        run: cmakelint
+      - name: Take Ownership of Source
+        # @todo This probably needs to be addressed, it's a copied band-aid
+        run: git config --global --add safe.directory '*'
+      - name: CMake Configure
+        run: mkdir build -p && cd build && cmake ..
+      - name: Build Core Binaries
+        run: cd build && make giraffe_core -j 4
+      - name: Package Giraffe
+        run: cd build && make giraffe -j 4
+      - uses: actions/upload-artifact@v4
+        with:
+          name: giraffe
+          path: build/**/giraffe*.tar.gz
+          if-no-files-found: error

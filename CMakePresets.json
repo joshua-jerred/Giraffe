@@ -44,6 +44,30 @@
         "RASPBERRY_PI": "1",
         "RUN_IN_SIMULATOR": "1"
       }
+    },
+    {
+      "name": "pi_pico",
+      "displayName": "Pi Pico",
+      "description": "Build for Raspberry Pi Pico",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "BUILD_FOR_PICO": "1",
+        "USE_USB_FOR_UART_STDIO": "0"
+      },
+      "environment": {
+        "RASPBERRY_PI": "1",
+        "RUN_IN_SIMULATOR": "1",
+        "PICO_SDK_PATH": "$env{HOME}/pico/pico-sdk"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "host",
+      "displayName": "GCC Host",
+      "configurePreset": "host"
     }
   ]
 }
