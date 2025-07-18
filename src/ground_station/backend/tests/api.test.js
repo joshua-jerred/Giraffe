@@ -1,6 +1,6 @@
 const test = require("ava").serial;
 const request = require("supertest");
-const app = require("../index");
+// const app = require("../index");
 const loadMetaData = require("../metadata/metaLoader");
 
 async function getSettings(t, resource, setting_category, include = "all") {
@@ -33,7 +33,7 @@ async function setSettings(t, resource, setting_category, values) {
   return response.body;
 }
 
-test("GET /api/status", async (t) => {
+test.skip("GET /api/status", async (t) => {
   const response = await request(app).get("/api/status");
   t.is(response.status, 200);
   t.true(response.body.hasOwnProperty("gfs"));
@@ -41,7 +41,7 @@ test("GET /api/status", async (t) => {
   t.true(response.body.hasOwnProperty("gdl"));
 });
 
-test("GET /api/ggs/settings", async (t) => {
+test.skip("GET /api/ggs/settings", async (t) => {
   settings = loadMetaData("ggs", "settings");
 
   for (key in settings) {

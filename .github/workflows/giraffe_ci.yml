@@ -138,6 +138,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+      - name: Use Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Run Version Script
+        run: python ./project/generate_version_files.py
       - run: npm install
         working-directory: ./src/common/protocol
       - run: npm test
@@ -155,6 +161,8 @@ jobs:
           submodules: recursive
       - name: Take Ownership of Source
         run: git config --global --add safe.directory '*'
+      - name: Run Version Script
+        run: python ./project/generate_version_files.py
       - name: CMake Configure
         run: mkdir build -p && cd build && cmake ..
       - run: npm install
@@ -167,6 +175,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Use Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Run Version Script
+        run: python ./project/generate_version_files.py
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:

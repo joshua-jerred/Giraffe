@@ -67,8 +67,9 @@ function DocsPage() {
             Build Date and Time: {GiraffeVersion.build_date}{" "}
             {GiraffeVersion.build_time}
             <br />
-            git: {GiraffeVersion.git_hash} ({GiraffeVersion.git_branch} /{" "}
-            {GiraffeVersion.git_commit_count})
+            git: {GiraffeVersion.git_hash} ({GiraffeVersion.git_branch}
+            {/* {GiraffeVersion.git_commit_count} */}
+            )
             <br />
             {GiraffeVersion.git_repo}
             <br />

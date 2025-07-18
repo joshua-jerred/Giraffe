@@ -31904,6 +31904,17 @@
 		(uuid "4f664fc9-50c6-4086-8359-619930c6b73a")
 	)
 	(gr_rect
+		(start 150.5 38)
+		(end 160.3 42.7)
+		(stroke
+			(width 0.15)
+			(type default)
+		)
+		(fill no)
+		(layer "F.SilkS")
+		(uuid "63bdaede-c0bb-4313-8b0e-de02970ad472")
+	)
+	(gr_rect
 		(start 34.3275 28.5925)
 		(end 36.0725 31.4075)
 		(stroke
@@ -31999,6 +32010,18 @@
 			(justify left bottom)
 		)
 	)
+	(gr_text "GIRAFFE\nTELEMETRY"
+		(at 150.5 41.5 0)
+		(layer "F.SilkS" knockout)
+		(uuid "14e5e8f4-3268-4f94-8c53-4688423e5316")
+		(effects
+			(font
+				(size 1.2 1.2)
+				(thickness 0.15)
+			)
+			(justify left bottom)
+		)
+	)
 	(gr_text "PWR"
 		(at 28.6 23.2 0)
 		(layer "F.SilkS")
@@ -32011,10 +32034,23 @@
 			)
 		)
 	)
-	(gr_text "https://keystone.joshuajer.red"
+	(gr_text "https://giraffe.joshuajer.red"
 		(at 68 46.8 0)
 		(layer "F.SilkS")
 		(uuid "32fed02d-ea53-4a7b-b511-f70c7220e794")
+		(effects
+			(font
+				(size 0.7 0.7)
+				(thickness 0.125)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "V1 Rev A"
+		(at 150.9 42.5 0)
+		(layer "F.SilkS")
+		(uuid "4b746937-bb7a-4110-a7d1-0348ecc31911")
 		(effects
 			(font
 				(size 0.7 0.7)
@@ -32124,7 +32160,7 @@
 			(justify bottom)
 		)
 	)
-	(gr_text "KEYSTONE\nFLIGHT\nCOMPUTER"
+	(gr_text "GIRAFFE\nFLIGHT\nCOMPUTER"
 		(at 55.8 34.8 0)
 		(layer "F.SilkS" knockout)
 		(uuid "f5a07757-1efb-41f9-9cf2-1435b11afc8b")
