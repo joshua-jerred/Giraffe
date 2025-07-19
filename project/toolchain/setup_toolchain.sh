@@ -28,7 +28,6 @@ update_remote() {
   ssh $SSH_HOST "sudo apt-get install -y rsync"
   ssh $SSH_HOST "sudo apt install -y build-essential cmake unzip pkg-config gfortran gcc g++ gperf flex texinfo gawk bison openssl pigz libncurses-dev autoconf automake tar figlet"
   ssh $SSH_HOST "sudo apt install -y ${GIRAFFE_DEV_PACKAGES}"
-
 }
 
 # sync the root filesystem
@@ -72,9 +71,9 @@ if [ "$REQUEST" == "download" ]; then
 elif [ "$REQUEST" == "update_remote" ]; then
     update_remote
     exit 0
-elif [ "$REQUEST" == "sudo_rsync" ]; then
-    sudo_rsync
-    exit 0
+# elif [ "$REQUEST" == "sudo_rsync" ]; then
+    # sudo_rsync
+    # exit 0
 elif [ "$REQUEST" == "sync" ]; then
     sync
     exit 0

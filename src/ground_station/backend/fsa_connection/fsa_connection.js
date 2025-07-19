@@ -72,7 +72,7 @@ class SocketExchangeQueue {
       }
     });
     socket.on("timeout", () => {
-      callback("FSA connection timed out for resource: " + resource, null);
+      callback("FSA connection timed out for resource", null);
       socket.destroy();
       this.timeout_count++;
     });
