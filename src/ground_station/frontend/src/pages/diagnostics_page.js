@@ -205,7 +205,7 @@ function ExtensionsData() {
     );
 
     setLastUpdatedSource(extensionsData.values.last_updated_source);
-    setExtensions(extensionsData.values.extensions);
+    setExtensions(extensionsData.values.extensions || {});
     setModuleStats(extensionsData.values.module_stats);
   }, [extensionsData, extensionsDataError, isExtensionsDataLoading]);
 

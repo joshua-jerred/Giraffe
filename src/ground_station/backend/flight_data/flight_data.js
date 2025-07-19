@@ -214,7 +214,7 @@ module.exports = class FlightData {
     num_inactive,
     extensions
   ) {
-    this.extension_data.last_updated_source = source;
+    this.extension_data.last_updated_source = source || [];
     this.extension_data.last_updated = new Date();
 
     this.extension_data.module_stats = {

@@ -220,7 +220,7 @@ export function DataBlock({
       if (new_items[data_item] === undefined) {
         new_items[data_item] = {
           name: data_item,
-          value: value,
+          value: value !== null ? value : "null-data",
           description: "",
         };
       }
