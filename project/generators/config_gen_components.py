@@ -98,8 +98,11 @@ void cfg::Configuration::load(std::string file_path) {{
   const std::lock_guard<std::mutex> lock(file_lock_);
 
   if (!std::filesystem::exists(file_path)) {{
-    error(DiagnosticId::CONFIG_configFileDoesNotExist, file_path);
-    return; 
+    save(file_path);
+    if (!std::filesystem::exists(file_path)) {{
+        error(DiagnosticId::CONFIG_configFileDoesNotExist, file_path);
+        return;
+    }}
   }}
 
   std::ifstream in(file_path);
