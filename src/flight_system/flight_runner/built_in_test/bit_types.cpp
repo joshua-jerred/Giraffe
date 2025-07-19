@@ -15,7 +15,7 @@
  *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
- * @date       2025-07-18
+ * @date       2025-07-19
  * @copyright  2023 (license to be defined)
  * =*=======================*=
  *
@@ -95,7 +95,7 @@ namespace bit {
 
   /// @brief This map converts the TestId enum to a string.
   static const std::map<TestId, const std::string> TestIdToStringMap{
-    {TestId::FCS_NoErrorsTest, "FCS_NoErrorsTest"},
+    {TestId::FCS_ErrorFrameEmptyTest, "FCS_ErrorFrameEmptyTest"},
     {TestId::FCS_FlightPhasePredictorTest, "FCS_FlightPhasePredictorTest"},
     {TestId::FCS_LaunchPositionTest, "FCS_LaunchPositionTest"},
     {TestId::FCS_DataModuleProcessingTest, "FCS_DataModuleProcessingTest"},
@@ -112,7 +112,7 @@ namespace bit {
   /// @brief This function converts a TestId enum to a string.
   std::string testIdToString(TestId testId)  {
     switch (testId) {
-    case TestId::FCS_NoErrorsTest: return "FCS_NoErrorsTest";
+    case TestId::FCS_ErrorFrameEmptyTest: return "FCS_ErrorFrameEmptyTest";
     case TestId::FCS_FlightPhasePredictorTest: return "FCS_FlightPhasePredictorTest";
     case TestId::FCS_LaunchPositionTest: return "FCS_LaunchPositionTest";
     case TestId::FCS_DataModuleProcessingTest: return "FCS_DataModuleProcessingTest";
@@ -135,7 +135,7 @@ namespace bit {
 
 /**
  *
- * Generated on: 2025-07-18
+ * Generated on: 2025-07-19
  *
  * @endverbatim
  *

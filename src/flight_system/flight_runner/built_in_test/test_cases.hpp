@@ -33,6 +33,30 @@ namespace test_case {
 /// @return TestResult - The result of the test.
 TestResult runTestFCS_0001(data::SharedData &shared_data);
 
+/// @brief Checks if the launch position is set correctly.
+/// @param shared_data - The shared data object.
+/// @return TestResult - The result of the test.
+static inline TestResult runTestFCS_0003(data::SharedData &shared_data) {
+  TestResult result{.test_id = TestId::FCS_LaunchPositionTest,
+                    .group_id = TestGroupId::FCS,
+                    .status = TestStatus::SKIPPED,
+                    .failure_reason = ""};
+  double latitude = 0.0;
+  double longitude = 0.0;
+  double altitude = 0.0;
+
+  if (!shared_data.flight_data.getLaunchPosition(latitude, longitude,
+                                                 altitude)) {
+    result.status = TestStatus::FAILED;
+    result.failure_reason = "Launch position is not set.";
+    return result;
+  }
+
+  result.status = TestStatus::PASSED;
+
+  return result;
+};
+
 /// @brief Checks if the data module is processing data correctly/at a
 /// reasonable rate.
 /// @param shared_data - The shared data object.

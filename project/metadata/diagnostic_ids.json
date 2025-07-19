@@ -465,6 +465,21 @@
       "name": "Failed to Find Extension",
       "details": "The extension from the previous command could not be found.",
       "value": "0x4007"
+    },
+    "invalid_extension_type": {
+      "name": "Invalid Extension Type",
+      "details": "The extension type is not valid.",
+      "value": "0x4008"
+    },
+    "internal_error": {
+      "name": "Internal Error",
+      "details": "An internal error occurred in the extension module.",
+      "value": "0x4009"
+    },
+    "extension_error_disabled": {
+      "name": "Erroed Extension Disabled",
+      "details": "An extension has entered an error state and has been disabled.",
+      "value": "0x400A"
     }
   },
   "extension": {

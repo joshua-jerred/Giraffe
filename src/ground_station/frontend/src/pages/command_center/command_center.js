@@ -25,6 +25,7 @@ import { MissionClockDisplay } from "./mission_clock_display";
 
 import CoreControl from "./core_control";
 import BitTestPanel from "./bit_test";
+import FlightSequencer from "./flight_sequencer";
 
 const CommandsMetadata = CommandsMetadataFile.CommandMetadata;
 const CommandSectionStyled = styled.ul`
@@ -310,6 +311,7 @@ function CommandCenterPage() {
             <DataBlock resource="flight_data" category="general" />
             <CardBreak />
           </Card>
+          <FlightSequencer />
           <Card title="Tracking">
             <MissionMap />
             <CardBreak />

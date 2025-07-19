@@ -101,7 +101,11 @@ function CoreControl() {
         setPreLaunchMode(false);
       }
 
-      if (flightPhase === "Launch" || flightPhase === "Recovery") {
+      if (
+        flightPhase === "Launch" ||
+        flightPhase === "Recovery" ||
+        flightPhase === "Unknown"
+      ) {
         setAllowSetPreLaunchMode(true);
       } else {
         setAllowSetPreLaunchMode(false);

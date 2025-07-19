@@ -121,6 +121,9 @@ enum class DiagnosticId : uint16_t {
   EXTENSION_MODULE_invalidCommand=0x4005, // Invalid Command
   EXTENSION_MODULE_invalidPreconfiguredExtensionType=0x4006, // Invalid Preconfigured Extension Type
   EXTENSION_MODULE_failedToFindExtension=0x4007, // Failed to Find Extension
+  EXTENSION_MODULE_invalidExtensionType=0x4008, // Invalid Extension Type
+  EXTENSION_MODULE_internalError=0x4009, // Internal Error
+  EXTENSION_MODULE_extensionErrorDisabled=0x400A, // Erroed Extension Disabled
   EXTENSION_startCall=0x5001, // Can not start if already running, starting, or sleeping.
   EXTENSION_stopTimeout=0x5002, // Failed to stop in time
   EXTENSION_bme280TemperatureRange=0x5003, // BME280 Temperature Range Warning

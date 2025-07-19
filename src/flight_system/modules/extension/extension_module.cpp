@@ -307,8 +307,8 @@ ExtensionModule::createExtension(const cfg::ExtensionMetadata &meta) {
     extension = std::make_shared<extension::Bmi088>(extension_resources_, meta);
     break;
   default:
-    giraffe_assert(false); // Shouldn't get here
-    /// @todo consider handling this with an error if it isn't handled above.
+    error(DiagnosticId::EXTENSION_MODULE_invalidExtensionType,
+          "type: " + std::to_string(static_cast<uint16_t>(meta.type)));
     return option;
   }
 
@@ -346,6 +346,9 @@ void ExtensionModule::stateMachine(ExtContainer &ext) {
   case ExtAction::ERROR_STOP:
     giraffe_assert(false);
     stopState(ext);
+    break;
+  case ExtAction::ERROR_DISABLE:
+    errorDisableState(ext);
     break;
   default:
     giraffe_assert(false);
@@ -476,13 +479,44 @@ void ExtensionModule::errorStartState(ExtContainer &ext) {
 }
 
 void ExtensionModule::errorRestartState(ExtContainer &ext) {
-  (void)ext;
-  giraffe_assert(false); // not implemented yet
+  auto status = ext.extension->getStatus();
+  if (status == node::Status::ERROR) {
+    // if critical, always attempt to restart
+    if (ext.restart_attempts < max_restart_attempts_ || ext.metadata.critical) {
+      /// @todo handle the fault code
+      /// @todo add delay
+
+      ext.restart_attempts++;
+      ext.extension->reset();
+      ext.action = ExtAction::RESTART;
+      return;
+    } else {
+      // Reached max restart attempts, disable the extension.
+      ext.action = ExtAction::ERROR_DISABLE;
+      return;
+    }
+  }
+  error(DiagnosticId::EXTENSION_MODULE_internalError,
+        "invalid error restart state: " + ext.metadata.name +
+            " status: " + std::to_string(static_cast<uint16_t>(status)));
 }
 
 void ExtensionModule::errorDisableState(ExtContainer &ext) {
-  (void)ext;
-  giraffe_assert(false); // not implemented yet
+  if (!ext.metadata.enabled) {
+    // Already disabled, nothing to do.
+    return;
+  }
+
+  auto status = ext.extension->getStatus();
+  if (status == node::Status::ERROR) {
+    error(DiagnosticId::EXTENSION_MODULE_extensionErrorDisabled,
+          "Extension: " + ext.metadata.name + " - " +
+              std::to_string(static_cast<uint16_t>(status)));
+
+    ext.extension->stop();
+    ext.metadata.enabled = false;
+    return;
+  }
 }
 
 } // namespace modules

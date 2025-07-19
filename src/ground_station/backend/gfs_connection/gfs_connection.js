@@ -87,7 +87,7 @@ module.exports = class GfsConnection {
     let request = new SetMessage("ggs", "gfs", cat_with_prefix, data);
     try {
       this.#sendRequest(request, (response) => {
-        if (!response.bdy.cde || response.bdy.cde !== "ok") {
+        if (response.bdy.cde || response.bdy.cde !== "ok") {
           res.status(500).json(response.getJson());
           return;
         }

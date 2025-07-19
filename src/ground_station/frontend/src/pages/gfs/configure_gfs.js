@@ -10,6 +10,7 @@ import { GfsEditBox } from "../../components/Editable";
 
 import ExtensionsConfiguration from "../../components/extension_configuration";
 import AdcMappingsConfig from "../../components/adc_mapping_configuration";
+import { StySaveButton } from "../../components/styled/StyledComponents";
 
 function ConfigureGfsPage() {
   return (

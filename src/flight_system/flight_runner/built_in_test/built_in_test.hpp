@@ -84,8 +84,11 @@ public:
 
     TestResult result;
     switch (test_id_) {
-    case TestId::FCS_NoErrorsTest:
+    case TestId::FCS_ErrorFrameEmptyTest:
       result = test_case::runTestFCS_0001(shared_data_);
+      break;
+    case TestId::FCS_LaunchPositionTest:
+      result = test_case::runTestFCS_0003(shared_data_);
       break;
     case TestId::FCS_DataModuleProcessingTest:
       result = test_case::runTestFCS_0004(shared_data_);
@@ -405,12 +408,13 @@ private:
   std::thread thread_{};
   std::atomic<bool> running_{false};
 
+  // below is auto-generated code
   //<{{bit_test_groups}}@
 
   /// @brief Test cases for the FCS group.
    TestGroup fcs_test_group_{
     TestGroupId::FCS, shared_data_,
-    {{TestGroupId::FCS, TestId::FCS_NoErrorsTest, shared_data_},
+    {{TestGroupId::FCS, TestId::FCS_ErrorFrameEmptyTest, shared_data_},
     {TestGroupId::FCS, TestId::FCS_FlightPhasePredictorTest, shared_data_},
     {TestGroupId::FCS, TestId::FCS_LaunchPositionTest, shared_data_},
     {TestGroupId::FCS, TestId::FCS_DataModuleProcessingTest, shared_data_},

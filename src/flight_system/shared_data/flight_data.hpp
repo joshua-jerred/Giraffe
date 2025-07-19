@@ -78,13 +78,13 @@ public:
 
   bool getLaunchPosition(double &latitude, double &longitude,
                          double &altitude) {
-    if (have_launch_position_) {
-      latitude = launch_position_latitude_;
-      longitude = launch_position_longitude_;
-      altitude = launch_altitude_;
-      return true;
+    if (!have_launch_position_) {
+      return false;
     }
-    return false;
+    latitude = launch_position_latitude_;
+    longitude = launch_position_longitude_;
+    altitude = launch_altitude_;
+    return true;
   }
 
   /// @brief Get the mission clock time in seconds. May be negative or positive.

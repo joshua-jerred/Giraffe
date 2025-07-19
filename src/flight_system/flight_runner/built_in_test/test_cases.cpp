@@ -19,7 +19,7 @@ namespace bit {
 namespace test_case {
 
 TestResult runTestFCS_0001(data::SharedData &shared_data) {
-  TestResult result{.test_id = TestId::FCS_NoErrorsTest,
+  TestResult result{.test_id = TestId::FCS_ErrorFrameEmptyTest,
                     .group_id = TestGroupId::FCS,
                     .status = TestStatus::UNKNOWN,
                     .failure_reason = ""};
@@ -38,7 +38,7 @@ TestResult runTestFCS_0001(data::SharedData &shared_data) {
 }
 
 TestResult runTestFCS_0004(data::SharedData &shared_data) {
-  TestResult result{.test_id = TestId::FCS_FlightPhasePredictorTest,
+  TestResult result{.test_id = TestId::FCS_DataModuleProcessingTest,
                     .group_id = TestGroupId::FCS,
                     .status = TestStatus::SKIPPED,
                     .failure_reason = ""};
