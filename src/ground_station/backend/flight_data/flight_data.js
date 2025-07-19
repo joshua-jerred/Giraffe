@@ -2,6 +2,7 @@ const DiagnosticData = require("./diagnostic_data");
 const MissionClock = require("./mission_clock");
 const BitTest = require("./bit_test");
 const LocationData = require("./location_data");
+const Sequencer = require("./sequencer");
 const FLIGHT_DATA_UPDATE_INTERVAL = 1000;
 
 module.exports = class FlightData {
@@ -12,6 +13,7 @@ module.exports = class FlightData {
     this.diagnostics = new DiagnosticData(global_state);
     this.bit_test = new BitTest(global_state);
     this.location_data = new LocationData(global_state);
+    this.sequencer = new Sequencer(global_state);
 
     this.general = {
       flight_phase: "n/d",
@@ -34,26 +36,6 @@ module.exports = class FlightData {
       recovery: 0,
       last_updated: new Date(),
     };
-
-    /// @todo remove this, a location_data object exists now
-    // this.location = {
-    //   launch_position: {
-    //     valid: false,
-    //     latitude: 0,
-    //     longitude: 0,
-    //     altitude: 0,
-    //   },
-    //   have_gps: "n/d",
-    //   valid: "n/d",
-    //   latitude: 0,
-    //   longitude: 0,
-    //   altitude: 0,
-    //   heading: 0,
-    //   horizontal_speed: 0,
-    //   vertical_speed: 0,
-    //   gps_time: "n/d",
-    //   last_updated: "n/d",
-    // };
 
     this.extension_data = {
       last_updated: null,
@@ -96,6 +78,7 @@ module.exports = class FlightData {
     this.general.bit_test_status = this.bit_test.getBitTestStatus();
     this.general.mission_clock_running = this.mission_clock.getIsRunning();
     this.location_data.cycle();
+    this.sequencer.cycle();
   }
 
   // ################ GENERAL DATA ################

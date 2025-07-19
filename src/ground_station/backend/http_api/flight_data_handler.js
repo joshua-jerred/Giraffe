@@ -1,5 +1,6 @@
 const express = require("express");
 const genericResponse = require("./generic_response");
+const e = require("express");
 
 const responseMetadata = {
   general: {
@@ -136,6 +137,7 @@ module.exports = class FlightDataHandler {
       "phase_prediction",
       "error_frame",
       "extensions",
+      "sequencer",
     ];
 
     let category = req.query.category;
@@ -149,6 +151,27 @@ module.exports = class FlightDataHandler {
       res.json(this.global_state.flight_data.mission_clock.getJsonData());
     } else if (category === "flight_path") {
       res.json(this.global_state.flight_data.location_data.getFlightPathData());
+    } else if (category === "sequencer") {
+      if (
+        req.query.hasOwnProperty("include") &&
+        req.query.include === "metadata"
+      ) {
+        res.json(this.global_state.flight_data.sequencer.getSequenceMetadata());
+      } else if (
+        req.query.hasOwnProperty("include") &&
+        req.query.include === "data"
+      ) {
+        res.json(this.global_state.flight_data.sequencer.getSequenceData());
+      } else if (
+        req.query.hasOwnProperty("include") &&
+        req.query.include === "all"
+      ) {
+        res.json({
+          metadata:
+            this.global_state.flight_data.sequencer.getSequenceMetadata(),
+          data: this.global_state.flight_data.sequencer.getSequenceData(),
+        });
+      }
     } else {
       res.json(this.#getResponseBody(category));
     }
