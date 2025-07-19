@@ -1,9 +1,26 @@
+import React from "react";
+
 export function getCurrentUtc(include_label = false) {
   let date = new Date();
   return (
     date.toISOString().split("T")[1].split(".")[0] +
     (include_label ? " UTC" : "")
   );
+}
+
+export function useCurrentUtcTime() {
+  const [currentUtcTime, setCurrentUtcTime] = React.useState(getCurrentUtc());
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentUtcTime(getCurrentUtc());
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return {
+    currentUtcTime,
+  };
 }
 
 export function unixTimeToShortUtc(unix_time) {

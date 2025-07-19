@@ -182,7 +182,7 @@ auto FlightRunner::start() -> int {
  * @brief Called only from main via a keyboard interrupt, this function sends a
  * shutdown signal to the flight runner.
  */
-auto FlightRunner::shutdown() -> void {
+void FlightRunner::shutdown() {
   flight_runner_data_.setShutdownReason(
       FlightRunnerData::ShutdownReason::CTRL_C);
   shutdown_signal_ = true;

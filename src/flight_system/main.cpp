@@ -19,19 +19,23 @@
 #include "gfs_simulator.hpp"
 gfs_sim::GfsSimulator g_GFS_SIMULATOR{};
 
+FlightRunner flight{&g_GFS_SIMULATOR};
 #else
-// FlightRunner flight{};
+FlightRunner flight{};
 #endif
 
 auto signalHandler(int signal_number) -> void {
   signal(SIGINT, signalHandler);
-  if (signal_number == SIGINT) {
+  if (signal_number == SIGINT || signal_number == SIGTERM) {
+    std::cout << "received shutdown signal" << std::endl;
 
 #if RUN_IN_SIMULATOR == 1
     g_GFS_SIMULATOR.stop();
+    std::cout << "simulator stopped" << std::endl;
 #endif
 
-    // flight.shutdown();
+    flight.shutdown();
+    std::cout << "flight runner shutdown signal sent" << std::endl;
   }
 }
 
@@ -45,14 +49,13 @@ auto signalHandler(int signal_number) -> void {
  * @bug FlightRunner currently only returns 0.
  */
 int main() {
-  signal(SIGINT, signalHandler); // Register signal handler
+  signal(SIGINT, signalHandler);  // Register signal handler
+  signal(SIGTERM, signalHandler); // Register signal handler for termination
 
 #if RUN_IN_SIMULATOR == 1
   g_GFS_SIMULATOR.start();
-  FlightRunner flight{&g_GFS_SIMULATOR};
-#else
-  FlightRunner flight{};
 #endif
+
   int exit_code = -1;
   try {
     exit_code = flight.start();

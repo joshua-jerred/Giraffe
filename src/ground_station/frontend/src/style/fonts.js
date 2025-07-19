@@ -232,6 +232,10 @@ export const FontFiles = createGlobalStyle`
 `;
 
 export const StyleFonts = {
+  sizes: {
+    small: `15px`,
+  },
+
   default: {
     family: `Roboto Mono`,
     weight: `400`,

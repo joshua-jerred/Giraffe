@@ -9,23 +9,42 @@ import StatusChip from "./status_chip";
 const ServiceGrid = styled.div`
   // border: 1px solid red;
 
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 0.5em;
+  // display: grid;
+  // grid-template-columns: repeat(3, 1fr);
+  // grid-gap: 0.5em;
+  // align-items: center;
+  // margin: auto;
 
-  margin: auto;
+  // @media (max-width: 768px) {
+  //   grid-template-columns: repeat(2, 1fr);
+  // }
 
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
 `;
 
 const MAIN_SERVICES = {
-  ggs: "DISCONNECTED",
   gdl: "UNKNOWN",
   gfs: "UNKNOWN",
   aprs_is: "UNKNOWN",
   // fsa: "UNKNOWN",
+};
+
+const SERVICE_METADATA = {
+  gdl: {
+    label: "GDL",
+    name: "Giraffe Data Link (GDL)",
+  },
+  gfs: {
+    label: "GFS TCP",
+    name: "Giraffe Flight Server TCP Connection",
+  },
+  aprs_is: {
+    label: "APRS-IS",
+    name: "APRS-IS Connection",
+  },
 };
 
 function ServiceStatusDisplay() {
@@ -41,16 +60,10 @@ function ServiceStatusDisplay() {
     }
 
     let newServices = { ...mainServices };
-    newServices.ggs = "CONNECTED";
-
     for (const service in MAIN_SERVICES) {
       if (serviceStatuses.hasOwnProperty(service)) {
         newServices[service] = serviceStatuses[service];
       } else {
-        if (service === "ggs") {
-          // handled above
-          continue;
-        }
         newServices[service] = "UNKNOWN";
       }
     }
@@ -81,7 +94,10 @@ function ServiceStatusDisplay() {
         return (
           <StatusChip
             key={service}
-            abbreviation={service}
+            abbreviation={SERVICE_METADATA[service]?.label || service}
+            tooltip={
+              SERVICE_METADATA[service]?.name || `Status for ${service} service`
+            }
             status={mainServices[service]}
           />
         );

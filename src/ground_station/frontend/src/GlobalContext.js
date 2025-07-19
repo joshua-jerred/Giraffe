@@ -49,8 +49,8 @@ export const GwsGlobalContextProvider = ({ children }) => {
 
   // ------ STATUSES & ALERTER ------
   const serviceStatusesDefault = {
-    telemetry_uplink: "n/d",
     telemetry_downlink: "n/d",
+    telemetry_uplink: "n/d",
     gfs: "n/d",
     gdl: "n/d",
     fsa: "n/d", // Connected to the agent

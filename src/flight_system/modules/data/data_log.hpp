@@ -22,6 +22,7 @@
 #include "data_formatting.hpp"
 #include "shared_data.hpp"
 #include <BoosterSeat/stopwatch.hpp>
+#include <BoosterSeat/timer.hpp>
 
 namespace data_middleware {
 
@@ -340,6 +341,10 @@ private:
    * things into json strings.)
    */
   DataFormatter formatter_;
+
+  /// @brief A timer used to reduce the number of file system updates.
+  /// @details Updates the file listing at a maximum of every 5 seconds.
+  bst::Timer maximum_file_system_update_timer_{5000};
 };
 
 } // namespace data_middleware

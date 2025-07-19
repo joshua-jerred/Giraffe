@@ -182,6 +182,12 @@ void mw::DataLog::updateFileSystem() {
   }
   validateFileSystem();
   rotateFiles();
+
+  if (maximum_file_system_update_timer_.isDone()) {
+    updateFileList();
+    maximum_file_system_update_timer_.reset();
+  }
+
   shared_data_.blocks.data_log_stats.set(fs_status_);
 }
 
@@ -401,7 +407,7 @@ void mw::DataLog::createLogArchiveDir() {
 inline std::string generateFilePath(const std::string path,
                                     const std::string &file_prefix) {
   return path + "/" + file_prefix +
-         bst::time::dateAndTimeString(kDataTimeZone, '-', '_', ':') +
+         bst::time::dateAndTimeString(kDataTimeZone, '-', '_', '.') +
          kFileExtension;
 }
 
@@ -620,6 +626,8 @@ void getFileNamesInDir(const std::string &dir_path,
                        std::vector<std::string> &file_list) {
   file_list.clear();
   std::filesystem::path dir(dir_path);
+
+  constexpr size_t MAX_FILE_LIST_SIZE = 100;
   for (const auto &file : std::filesystem::directory_iterator(dir)) {
     std::string file_path = file.path().filename().string();
     file_list.push_back(file_path);

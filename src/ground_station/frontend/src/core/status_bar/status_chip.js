@@ -34,6 +34,8 @@ const ChipLabel = styled.div`
   background: ${(props) => props.theme.surface_hover_soft};
   border-radius: 0.5em;
   padding: 0em 0.3em;
+  width: fit-content;
+  text-wrap: nowrap;
 `;
 
 const ChipValue = styled.div`
@@ -109,7 +111,7 @@ function StatusChip({
   }, [status]);
 
   return (
-    <Tooltip text={tooltip} vertical_position={"-400%"}>
+    <Tooltip text={tooltip} vertical_position={"150%"} horizontal_position="0%">
       <ChipStyle>
         <ChipLabel
           style={{
