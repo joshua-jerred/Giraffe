@@ -107,6 +107,7 @@ const std::unordered_map<DiagnosticId, std::string> K_DIAGNOSTIC_ID_STRING_MAP {
   {DiagnosticId::DATA_LOG_fileListFail,"DATA_LOG_fileListFail"},
   {DiagnosticId::DATA_LOG_dataArchiveTrimmed,"DATA_LOG_dataArchiveTrimmed"},
   {DiagnosticId::DATA_LOG_dataArchiveTrimFailed,"DATA_LOG_dataArchiveTrimFailed"},
+  {DiagnosticId::CONSOLE_MODULE_failedToStart,"CONSOLE_MODULE_failedToStart"},
   {DiagnosticId::SYSTEM_MODULE_systemInfoReadFail,"SYSTEM_MODULE_systemInfoReadFail"},
   {DiagnosticId::SYSTEM_MODULE_cpuTempReadFail,"SYSTEM_MODULE_cpuTempReadFail"},
   {DiagnosticId::SYSTEM_MODULE_diskInfoReadFail,"SYSTEM_MODULE_diskInfoReadFail"},

@@ -71,7 +71,7 @@
             "type": "bool",
             "name": "Print Errors To Console",
             "description": "If enabled, errors will be printed to the console.",
-            "default": false,
+            "default": true,
             "true": "enabled",
             "false": "disabled"
         },
@@ -350,7 +350,7 @@
             "type": "bool",
             "name": "Console Interface",
             "description": "Whether or not to enable the console interface. Helpful for debugging without the web interface.",
-            "default": true,
+            "default": false,
             "true": "enabled",
             "false": "disabled"
         },

@@ -4,7 +4,7 @@ set -e
 set -u
 
 mkdir -p /opt/giraffe
-mkdir -p /var/lib/giraffe
+mkdir -p /var/lib/giraffe/gfs
 
 # Install the binary
 cp ./flight_system/gfs /opt/giraffe/gfs

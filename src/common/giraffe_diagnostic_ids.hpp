@@ -112,6 +112,7 @@ enum class DiagnosticId : uint16_t {
   DATA_LOG_fileListFail=0x3029, // Failed to update archive file list
   DATA_LOG_dataArchiveTrimmed=0x2004, // Data Archive Trimmed
   DATA_LOG_dataArchiveTrimFailed=0x302A, // Data Archive Trim Failed
+  CONSOLE_MODULE_failedToStart=0x4000, // Failed to start console module
   SYSTEM_MODULE_systemInfoReadFail=0x4001, // Failed to read system info
   SYSTEM_MODULE_cpuTempReadFail=0x4002, // Failed to read CPU temperature
   SYSTEM_MODULE_diskInfoReadFail=0x4003, // Failed to read disk info

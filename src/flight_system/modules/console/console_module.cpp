@@ -24,15 +24,30 @@ modules::ConsoleModule::~ConsoleModule() {
 }
 
 void modules::ConsoleModule::startup() {
-  ncurs_env_.start(metadata_.sleep_interval_);
+  try {
+    ncurs_env_.start(metadata_.sleep_interval_);
+  } catch (const std::exception &e) {
+    error(DiagnosticId::CONSOLE_MODULE_failedToStart,
+          "exception: " + std::string(e.what()));
+    return;
+  }
+
+  started_ = true;
 }
 
 void modules::ConsoleModule::loop() {
+  if (!started_) {
+    return; // Do not update if the module failed to start
+  }
   ncurs_env_.update();
 }
 
 void modules::ConsoleModule::shutdown() {
+  if (!started_) {
+    return; // Do not update if the module failed to start
+  }
   ncurs_env_.end();
+  started_ = false;
 }
 
 void modules::ConsoleModule::processCommand(const cmd::Command &command) {

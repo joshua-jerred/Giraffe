@@ -14,6 +14,7 @@
  * @copyright  2024 (license to be defined)
  */
 
+#include "giraffe_file_paths.hpp"
 #include "request_handler.hpp"
 
 void RequestRouter::handleSettingRequest(sock::TcpSocketServer &client,
@@ -121,6 +122,8 @@ void RequestRouter::handleSettingSet(sock::TcpSocketServer &client,
     sendErrorPacket(client, "setting section not found");
     return;
   }
+
+  config_.save(giraffe::file_paths::getGfsConfigFilePath());
 
   protocol::Message response_message;
   protocol::createResponseMessage(response_message, protocol::Endpoint::GFS,

@@ -2,9 +2,11 @@
 Description=Giraffe Flight System
 
 [Service]
+Environment="GFS_AS_SERVICE=true"
+Environment="HOME=/var/lib"
 ExecStart=/opt/giraffe/gfs
-WorkingDirectory=/var/lib/giraffe
-Restart=
+WorkingDirectory=/var/lib
+Restart=always
 
 [Install]
 WantedBy=multi-user.target

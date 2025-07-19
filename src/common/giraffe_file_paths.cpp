@@ -22,9 +22,8 @@
 
 namespace giraffe::file_paths {
 
-const std::string GIRAFFE_DIRECTORY = ".giraffe";
-
 std::string getGiraffeDirectoryPath() {
+  const std::string GIRAFFE_DIRECTORY = "giraffe";
   char *home_env = getenv("HOME");
 
   if (home_env == nullptr) {

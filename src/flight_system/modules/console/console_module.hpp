@@ -47,6 +47,10 @@ private:
    */
   void processCommand(const cmd::Command &);
 
+  /// @brief Identifies if the console module has started. Prevents
+  /// updates if the module failed to start.
+  bool started_ = false;
+
   console_pages::Pages pages_;
   ncurs::Environment ncurs_env_;
 

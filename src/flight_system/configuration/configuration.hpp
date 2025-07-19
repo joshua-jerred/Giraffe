@@ -102,7 +102,7 @@ public:
 
 private:
   bool log_data_to_file_ = true;
-  bool print_errors_to_console_ = false;
+  bool print_errors_to_console_ = true;
   int file_system_check_interval_ = 10000;
   cfg::gEnum::LogStrategy log_strategy_ = cfg::gEnum::LogStrategy::INTERVAL;
   cfg::gEnum::TimestampDetail timestamp_detail_ = cfg::gEnum::TimestampDetail::HHMMSS;
@@ -204,7 +204,7 @@ public:
   Json getJson() const;
 
 private:
-  bool enabled_ = true;
+  bool enabled_ = false;
   int update_interval_ = 1000;
 };
 
