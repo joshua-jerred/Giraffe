@@ -183,6 +183,7 @@ auto FlightRunner::start() -> int {
  * shutdown signal to the flight runner.
  */
 void FlightRunner::shutdown() {
+  std::cout << "flight runner shutdown" << std::endl;
   flight_runner_data_.setShutdownReason(
       FlightRunnerData::ShutdownReason::CTRL_C);
   shutdown_signal_ = true;

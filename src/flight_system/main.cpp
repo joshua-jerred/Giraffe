@@ -19,9 +19,9 @@
 #include "gfs_simulator.hpp"
 gfs_sim::GfsSimulator g_GFS_SIMULATOR{};
 
-FlightRunner flight{&g_GFS_SIMULATOR};
+static FlightRunner flight{&g_GFS_SIMULATOR};
 #else
-FlightRunner flight{};
+static FlightRunner flight{};
 #endif
 
 auto signalHandler(int signal_number) -> void {
@@ -35,7 +35,6 @@ auto signalHandler(int signal_number) -> void {
 #endif
 
     flight.shutdown();
-    std::cout << "flight runner shutdown signal sent" << std::endl;
   }
 }
 
@@ -56,13 +55,5 @@ int main() {
   g_GFS_SIMULATOR.start();
 #endif
 
-  int exit_code = -1;
-  try {
-    exit_code = flight.start();
-  } catch (const std::exception &e) {
-    std::cerr << "GFS UNCAUGHT EXCEPTION: " << e.what() << std::endl;
-    return 1; // Return a non-zero exit code to indicate an error
-  }
-
-  return exit_code; // Return the exit code from flight.start()
+  return flight.start(); // Return the exit code from flight.start()
 }

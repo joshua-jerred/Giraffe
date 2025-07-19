@@ -236,6 +236,7 @@ export function CollapsibleCardSection({
   style,
   className,
   tooltip = null,
+  full_width_when_collapsed = false,
 }) {
   const theme = useTheme();
   const [isExpanded, setIsExpanded] = useState(start_expanded);
@@ -278,6 +279,7 @@ export function CollapsibleCardSection({
             display: "flex",
             flexDirection: "row",
             justifyContent: "space-between",
+            gap: "0.5em",
             borderBottom: isExpanded
               ? "none"
               : `1px solid ${theme.primary_soft}`,
@@ -286,6 +288,7 @@ export function CollapsibleCardSection({
             // flexDirection: "column",
             // justifyContent: "center",
             // alignItems: "center",
+            width: full_width_when_collapsed ? "100%" : "fit-content",
           }}
         >
           {title}

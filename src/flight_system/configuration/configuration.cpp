@@ -22,11 +22,9 @@
  * @verbatim
  */
 
-
-#include <filesystem>
 #include "configuration.hpp"
 #include "validation.hpp"
-
+#include <filesystem>
 
 std::string cfg::General::getProjectName() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
@@ -80,63 +78,32 @@ void cfg::General::setModuleStatusUpdateRate(int val) {
 
 void cfg::General::setFromJson(const Json &json_data) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  validation::setValidValue<std::string>(
-        streams_.log,
-        json_data,
-        "general",
-        "project_name",
-        project_name_,
-        1,
-        20,
-        "^(?!\\s)[a-zA-Z0-9_ -]{0,19}[^\\s]$"
-  );
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "general",
-        "flight_identifier_number",
-        flight_identifier_number_,
-        0,
-        1000,
-        ""
-  );
+  validation::setValidValue<std::string>(streams_.log, json_data, "general",
+                                         "project_name", project_name_, 1, 20,
+                                         "^(?!\\s)[a-zA-Z0-9_ -]{0,19}[^\\s]$");
+  validation::setValidValue<int>(streams_.log, json_data, "general",
+                                 "flight_identifier_number",
+                                 flight_identifier_number_, 0, 1000, "");
   validation::setValidEnum<cfg::gEnum::MainBoard>(
-        streams_.log,
-        json_data,
-        "general",
-        "main_board",
-        main_board_,
-        cfg::gEnum::K_STRING_TO_MAIN_BOARD_MAP
-  );
+      streams_.log, json_data, "general", "main_board", main_board_,
+      cfg::gEnum::K_STRING_TO_MAIN_BOARD_MAP);
   validation::setValidEnum<cfg::gEnum::ProcedureType>(
-        streams_.log,
-        json_data,
-        "general",
-        "starting_procedure",
-        starting_procedure_,
-        cfg::gEnum::K_STRING_TO_PROCEDURE_TYPE_MAP
-  );
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "general",
-        "module_status_update_rate",
-        module_status_update_rate_,
-        50,
-        60000,
-        ""
-  );
+      streams_.log, json_data, "general", "starting_procedure",
+      starting_procedure_, cfg::gEnum::K_STRING_TO_PROCEDURE_TYPE_MAP);
+  validation::setValidValue<int>(streams_.log, json_data, "general",
+                                 "module_status_update_rate",
+                                 module_status_update_rate_, 50, 60000, "");
 }
 
 Json cfg::General::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return Json({
-    {"project_name", project_name_},
-    {"flight_identifier_number", flight_identifier_number_},
-    {"main_board", cfg::gEnum::K_MAIN_BOARD_TO_STRING_MAP.at(main_board_)},
-    {"starting_procedure", cfg::gEnum::K_PROCEDURE_TYPE_TO_STRING_MAP.at(starting_procedure_)},
-    {"module_status_update_rate", module_status_update_rate_}
-  });
+  return Json(
+      {{"project_name", project_name_},
+       {"flight_identifier_number", flight_identifier_number_},
+       {"main_board", cfg::gEnum::K_MAIN_BOARD_TO_STRING_MAP.at(main_board_)},
+       {"starting_procedure",
+        cfg::gEnum::K_PROCEDURE_TYPE_TO_STRING_MAP.at(starting_procedure_)},
+       {"module_status_update_rate", module_status_update_rate_}});
 }
 bool cfg::DataModuleData::getLogDataToFile() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
@@ -163,7 +130,8 @@ cfg::gEnum::TimestampDetail cfg::DataModuleData::getTimestampDetail() const {
   return timestamp_detail_;
 }
 
-cfg::gEnum::TimestampTimezone cfg::DataModuleData::getTimestampTimezone() const {
+cfg::gEnum::TimestampTimezone
+cfg::DataModuleData::getTimestampTimezone() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return timestamp_timezone_;
 }
@@ -223,7 +191,8 @@ void cfg::DataModuleData::setTimestampDetail(cfg::gEnum::TimestampDetail val) {
   timestamp_detail_ = val;
 }
 
-void cfg::DataModuleData::setTimestampTimezone(cfg::gEnum::TimestampTimezone val) {
+void cfg::DataModuleData::setTimestampTimezone(
+    cfg::gEnum::TimestampTimezone val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   timestamp_timezone_ = val;
 }
@@ -260,136 +229,62 @@ void cfg::DataModuleData::setDataLogFileContents(std::string val) {
 
 void cfg::DataModuleData::setFromJson(const Json &json_data) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  validation::setValidValue<bool>(
-        streams_.log,
-        json_data,
-        "data_module_data",
-        "log_data_to_file",
-        log_data_to_file_,
-        0,
-        0,
-        ""
-  );
-  validation::setValidValue<bool>(
-        streams_.log,
-        json_data,
-        "data_module_data",
-        "print_errors_to_console",
-        print_errors_to_console_,
-        0,
-        0,
-        ""
-  );
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "data_module_data",
-        "file_system_check_interval",
-        file_system_check_interval_,
-        500,
-        60000,
-        ""
-  );
+  validation::setValidValue<bool>(streams_.log, json_data, "data_module_data",
+                                  "log_data_to_file", log_data_to_file_, 0, 0,
+                                  "");
+  validation::setValidValue<bool>(streams_.log, json_data, "data_module_data",
+                                  "print_errors_to_console",
+                                  print_errors_to_console_, 0, 0, "");
+  validation::setValidValue<int>(streams_.log, json_data, "data_module_data",
+                                 "file_system_check_interval",
+                                 file_system_check_interval_, 500, 60000, "");
   validation::setValidEnum<cfg::gEnum::LogStrategy>(
-        streams_.log,
-        json_data,
-        "data_module_data",
-        "log_strategy",
-        log_strategy_,
-        cfg::gEnum::K_STRING_TO_LOG_STRATEGY_MAP
-  );
+      streams_.log, json_data, "data_module_data", "log_strategy",
+      log_strategy_, cfg::gEnum::K_STRING_TO_LOG_STRATEGY_MAP);
   validation::setValidEnum<cfg::gEnum::TimestampDetail>(
-        streams_.log,
-        json_data,
-        "data_module_data",
-        "timestamp_detail",
-        timestamp_detail_,
-        cfg::gEnum::K_STRING_TO_TIMESTAMP_DETAIL_MAP
-  );
+      streams_.log, json_data, "data_module_data", "timestamp_detail",
+      timestamp_detail_, cfg::gEnum::K_STRING_TO_TIMESTAMP_DETAIL_MAP);
   validation::setValidEnum<cfg::gEnum::TimestampTimezone>(
-        streams_.log,
-        json_data,
-        "data_module_data",
-        "timestamp_timezone",
-        timestamp_timezone_,
-        cfg::gEnum::K_STRING_TO_TIMESTAMP_TIMEZONE_MAP
-  );
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "data_module_data",
-        "log_interval_ms",
-        log_interval_ms_,
-        100,
-        600000,
-        ""
-  );
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "data_module_data",
-        "max_data_log_file_size_mb",
-        max_data_log_file_size_mb_,
-        1,
-        500,
-        ""
-  );
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "data_module_data",
-        "max_data_archive_size_mb",
-        max_data_archive_size_mb_,
-        50,
-        100000,
-        ""
-  );
-  validation::setValidValue<bool>(
-        streams_.log,
-        json_data,
-        "data_module_data",
-        "warn_on_trim",
-        warn_on_trim_,
-        0,
-        0,
-        ""
-  );
+      streams_.log, json_data, "data_module_data", "timestamp_timezone",
+      timestamp_timezone_, cfg::gEnum::K_STRING_TO_TIMESTAMP_TIMEZONE_MAP);
+  validation::setValidValue<int>(streams_.log, json_data, "data_module_data",
+                                 "log_interval_ms", log_interval_ms_, 100,
+                                 600000, "");
+  validation::setValidValue<int>(streams_.log, json_data, "data_module_data",
+                                 "max_data_log_file_size_mb",
+                                 max_data_log_file_size_mb_, 1, 500, "");
+  validation::setValidValue<int>(streams_.log, json_data, "data_module_data",
+                                 "max_data_archive_size_mb",
+                                 max_data_archive_size_mb_, 50, 100000, "");
+  validation::setValidValue<bool>(streams_.log, json_data, "data_module_data",
+                                  "warn_on_trim", warn_on_trim_, 0, 0, "");
   validation::setValidEnum<cfg::gEnum::ArchiveMethod>(
-        streams_.log,
-        json_data,
-        "data_module_data",
-        "archive_method",
-        archive_method_,
-        cfg::gEnum::K_STRING_TO_ARCHIVE_METHOD_MAP
-  );
+      streams_.log, json_data, "data_module_data", "archive_method",
+      archive_method_, cfg::gEnum::K_STRING_TO_ARCHIVE_METHOD_MAP);
   validation::setValidValue<std::string>(
-        streams_.log,
-        json_data,
-        "data_module_data",
-        "data_log_file_contents",
-        data_log_file_contents_,
-        0,
-        50,
-        ""
-  );
+      streams_.log, json_data, "data_module_data", "data_log_file_contents",
+      data_log_file_contents_, 0, 50, "");
 }
 
 Json cfg::DataModuleData::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return Json({
-    {"log_data_to_file", log_data_to_file_},
-    {"print_errors_to_console", print_errors_to_console_},
-    {"file_system_check_interval", file_system_check_interval_},
-    {"log_strategy", cfg::gEnum::K_LOG_STRATEGY_TO_STRING_MAP.at(log_strategy_)},
-    {"timestamp_detail", cfg::gEnum::K_TIMESTAMP_DETAIL_TO_STRING_MAP.at(timestamp_detail_)},
-    {"timestamp_timezone", cfg::gEnum::K_TIMESTAMP_TIMEZONE_TO_STRING_MAP.at(timestamp_timezone_)},
-    {"log_interval_ms", log_interval_ms_},
-    {"max_data_log_file_size_mb", max_data_log_file_size_mb_},
-    {"max_data_archive_size_mb", max_data_archive_size_mb_},
-    {"warn_on_trim", warn_on_trim_},
-    {"archive_method", cfg::gEnum::K_ARCHIVE_METHOD_TO_STRING_MAP.at(archive_method_)},
-    {"data_log_file_contents", data_log_file_contents_}
-  });
+  return Json(
+      {{"log_data_to_file", log_data_to_file_},
+       {"print_errors_to_console", print_errors_to_console_},
+       {"file_system_check_interval", file_system_check_interval_},
+       {"log_strategy",
+        cfg::gEnum::K_LOG_STRATEGY_TO_STRING_MAP.at(log_strategy_)},
+       {"timestamp_detail",
+        cfg::gEnum::K_TIMESTAMP_DETAIL_TO_STRING_MAP.at(timestamp_detail_)},
+       {"timestamp_timezone",
+        cfg::gEnum::K_TIMESTAMP_TIMEZONE_TO_STRING_MAP.at(timestamp_timezone_)},
+       {"log_interval_ms", log_interval_ms_},
+       {"max_data_log_file_size_mb", max_data_log_file_size_mb_},
+       {"max_data_archive_size_mb", max_data_archive_size_mb_},
+       {"warn_on_trim", warn_on_trim_},
+       {"archive_method",
+        cfg::gEnum::K_ARCHIVE_METHOD_TO_STRING_MAP.at(archive_method_)},
+       {"data_log_file_contents", data_log_file_contents_}});
 }
 bool cfg::DataModuleInfluxdb::getInfluxEnabled() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
@@ -426,7 +321,8 @@ std::string cfg::DataModuleInfluxdb::getErrorBucket() const {
   return error_bucket_;
 }
 
-cfg::gEnum::InfluxdbRetentionPolicy cfg::DataModuleInfluxdb::getRetentionPolicy() const {
+cfg::gEnum::InfluxdbRetentionPolicy
+cfg::DataModuleInfluxdb::getRetentionPolicy() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   return retention_policy_;
 }
@@ -476,7 +372,8 @@ void cfg::DataModuleInfluxdb::setErrorBucket(std::string val) {
   error_bucket_ = val;
 }
 
-void cfg::DataModuleInfluxdb::setRetentionPolicy(cfg::gEnum::InfluxdbRetentionPolicy val) {
+void cfg::DataModuleInfluxdb::setRetentionPolicy(
+    cfg::gEnum::InfluxdbRetentionPolicy val) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   retention_policy_ = val;
 }
@@ -493,120 +390,51 @@ void cfg::DataModuleInfluxdb::setDataDumpInterval(int val) {
 
 void cfg::DataModuleInfluxdb::setFromJson(const Json &json_data) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  validation::setValidValue<bool>(
-        streams_.log,
-        json_data,
-        "data_module_influxdb",
-        "influx_enabled",
-        influx_enabled_,
-        0,
-        0,
-        ""
-  );
-  validation::setValidValue<bool>(
-        streams_.log,
-        json_data,
-        "data_module_influxdb",
-        "log_errors",
-        log_errors_,
-        0,
-        0,
-        ""
-  );
+  validation::setValidValue<bool>(streams_.log, json_data,
+                                  "data_module_influxdb", "influx_enabled",
+                                  influx_enabled_, 0, 0, "");
+  validation::setValidValue<bool>(streams_.log, json_data,
+                                  "data_module_influxdb", "log_errors",
+                                  log_errors_, 0, 0, "");
   validation::setValidValue<std::string>(
-        streams_.log,
-        json_data,
-        "data_module_influxdb",
-        "url",
-        url_,
-        0,
-        100,
-        ""
-  );
-  validation::setValidValue<std::string>(
-        streams_.log,
-        json_data,
-        "data_module_influxdb",
-        "token",
-        token_,
-        0,
-        100,
-        ""
-  );
-  validation::setValidValue<std::string>(
-        streams_.log,
-        json_data,
-        "data_module_influxdb",
-        "organization",
-        organization_,
-        0,
-        50,
-        ""
-  );
-  validation::setValidValue<std::string>(
-        streams_.log,
-        json_data,
-        "data_module_influxdb",
-        "data_bucket",
-        data_bucket_,
-        0,
-        50,
-        ""
-  );
-  validation::setValidValue<std::string>(
-        streams_.log,
-        json_data,
-        "data_module_influxdb",
-        "error_bucket",
-        error_bucket_,
-        0,
-        50,
-        ""
-  );
+      streams_.log, json_data, "data_module_influxdb", "url", url_, 0, 100, "");
+  validation::setValidValue<std::string>(streams_.log, json_data,
+                                         "data_module_influxdb", "token",
+                                         token_, 0, 100, "");
+  validation::setValidValue<std::string>(streams_.log, json_data,
+                                         "data_module_influxdb", "organization",
+                                         organization_, 0, 50, "");
+  validation::setValidValue<std::string>(streams_.log, json_data,
+                                         "data_module_influxdb", "data_bucket",
+                                         data_bucket_, 0, 50, "");
+  validation::setValidValue<std::string>(streams_.log, json_data,
+                                         "data_module_influxdb", "error_bucket",
+                                         error_bucket_, 0, 50, "");
   validation::setValidEnum<cfg::gEnum::InfluxdbRetentionPolicy>(
-        streams_.log,
-        json_data,
-        "data_module_influxdb",
-        "retention_policy",
-        retention_policy_,
-        cfg::gEnum::K_STRING_TO_INFLUXDB_RETENTION_POLICY_MAP
-  );
-  validation::setValidValue<std::string>(
-        streams_.log,
-        json_data,
-        "data_module_influxdb",
-        "contents",
-        contents_,
-        0,
-        50,
-        ""
-  );
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "data_module_influxdb",
-        "data_dump_interval",
-        data_dump_interval_,
-        100,
-        60000,
-        ""
-  );
+      streams_.log, json_data, "data_module_influxdb", "retention_policy",
+      retention_policy_, cfg::gEnum::K_STRING_TO_INFLUXDB_RETENTION_POLICY_MAP);
+  validation::setValidValue<std::string>(streams_.log, json_data,
+                                         "data_module_influxdb", "contents",
+                                         contents_, 0, 50, "");
+  validation::setValidValue<int>(streams_.log, json_data,
+                                 "data_module_influxdb", "data_dump_interval",
+                                 data_dump_interval_, 100, 60000, "");
 }
 
 Json cfg::DataModuleInfluxdb::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return Json({
-    {"influx_enabled", influx_enabled_},
-    {"log_errors", log_errors_},
-    {"url", url_},
-    {"token", token_},
-    {"organization", organization_},
-    {"data_bucket", data_bucket_},
-    {"error_bucket", error_bucket_},
-    {"retention_policy", cfg::gEnum::K_INFLUXDB_RETENTION_POLICY_TO_STRING_MAP.at(retention_policy_)},
-    {"contents", contents_},
-    {"data_dump_interval", data_dump_interval_}
-  });
+  return Json({{"influx_enabled", influx_enabled_},
+               {"log_errors", log_errors_},
+               {"url", url_},
+               {"token", token_},
+               {"organization", organization_},
+               {"data_bucket", data_bucket_},
+               {"error_bucket", error_bucket_},
+               {"retention_policy",
+                cfg::gEnum::K_INFLUXDB_RETENTION_POLICY_TO_STRING_MAP.at(
+                    retention_policy_)},
+               {"contents", contents_},
+               {"data_dump_interval", data_dump_interval_}});
 }
 bool cfg::DataModuleLog::getLogToFile() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
@@ -680,83 +508,40 @@ void cfg::DataModuleLog::setErrorFrameLogInterval(int val) {
 
 void cfg::DataModuleLog::setFromJson(const Json &json_data) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  validation::setValidValue<bool>(
-        streams_.log,
-        json_data,
-        "data_module_log",
-        "log_to_file",
-        log_to_file_,
-        0,
-        0,
-        ""
-  );
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "data_module_log",
-        "max_log_file_size_mb",
-        max_log_file_size_mb_,
-        1,
-        500,
-        ""
-  );
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "data_module_log",
-        "max_log_archive_size_mb",
-        max_log_archive_size_mb_,
-        50,
-        100000,
-        ""
-  );
+  validation::setValidValue<bool>(streams_.log, json_data, "data_module_log",
+                                  "log_to_file", log_to_file_, 0, 0, "");
+  validation::setValidValue<int>(streams_.log, json_data, "data_module_log",
+                                 "max_log_file_size_mb", max_log_file_size_mb_,
+                                 1, 500, "");
+  validation::setValidValue<int>(streams_.log, json_data, "data_module_log",
+                                 "max_log_archive_size_mb",
+                                 max_log_archive_size_mb_, 50, 100000, "");
   validation::setValidEnum<cfg::gEnum::ArchiveMethod>(
-        streams_.log,
-        json_data,
-        "data_module_log",
-        "error_archive_method",
-        error_archive_method_,
-        cfg::gEnum::K_STRING_TO_ARCHIVE_METHOD_MAP
-  );
+      streams_.log, json_data, "data_module_log", "error_archive_method",
+      error_archive_method_, cfg::gEnum::K_STRING_TO_ARCHIVE_METHOD_MAP);
   validation::setValidEnum<cfg::gEnum::LogLevel>(
-        streams_.log,
-        json_data,
-        "data_module_log",
-        "log_level",
-        log_level_,
-        cfg::gEnum::K_STRING_TO_LOG_LEVEL_MAP
-  );
+      streams_.log, json_data, "data_module_log", "log_level", log_level_,
+      cfg::gEnum::K_STRING_TO_LOG_LEVEL_MAP);
   validation::setValidEnum<cfg::gEnum::ErrorLogStrategy>(
-        streams_.log,
-        json_data,
-        "data_module_log",
-        "error_log_strategy",
-        error_log_strategy_,
-        cfg::gEnum::K_STRING_TO_ERROR_LOG_STRATEGY_MAP
-  );
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "data_module_log",
-        "error_frame_log_interval",
-        error_frame_log_interval_,
-        500,
-        600000,
-        ""
-  );
+      streams_.log, json_data, "data_module_log", "error_log_strategy",
+      error_log_strategy_, cfg::gEnum::K_STRING_TO_ERROR_LOG_STRATEGY_MAP);
+  validation::setValidValue<int>(streams_.log, json_data, "data_module_log",
+                                 "error_frame_log_interval",
+                                 error_frame_log_interval_, 500, 600000, "");
 }
 
 Json cfg::DataModuleLog::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return Json({
-    {"log_to_file", log_to_file_},
-    {"max_log_file_size_mb", max_log_file_size_mb_},
-    {"max_log_archive_size_mb", max_log_archive_size_mb_},
-    {"error_archive_method", cfg::gEnum::K_ARCHIVE_METHOD_TO_STRING_MAP.at(error_archive_method_)},
-    {"log_level", cfg::gEnum::K_LOG_LEVEL_TO_STRING_MAP.at(log_level_)},
-    {"error_log_strategy", cfg::gEnum::K_ERROR_LOG_STRATEGY_TO_STRING_MAP.at(error_log_strategy_)},
-    {"error_frame_log_interval", error_frame_log_interval_}
-  });
+  return Json(
+      {{"log_to_file", log_to_file_},
+       {"max_log_file_size_mb", max_log_file_size_mb_},
+       {"max_log_archive_size_mb", max_log_archive_size_mb_},
+       {"error_archive_method",
+        cfg::gEnum::K_ARCHIVE_METHOD_TO_STRING_MAP.at(error_archive_method_)},
+       {"log_level", cfg::gEnum::K_LOG_LEVEL_TO_STRING_MAP.at(log_level_)},
+       {"error_log_strategy",
+        cfg::gEnum::K_ERROR_LOG_STRATEGY_TO_STRING_MAP.at(error_log_strategy_)},
+       {"error_frame_log_interval", error_frame_log_interval_}});
 }
 bool cfg::ConsoleModule::getEnabled() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
@@ -780,34 +565,16 @@ void cfg::ConsoleModule::setUpdateInterval(int val) {
 
 void cfg::ConsoleModule::setFromJson(const Json &json_data) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  validation::setValidValue<bool>(
-        streams_.log,
-        json_data,
-        "console_module",
-        "enabled",
-        enabled_,
-        0,
-        0,
-        ""
-  );
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "console_module",
-        "update_interval",
-        update_interval_,
-        100,
-        10000,
-        ""
-  );
+  validation::setValidValue<bool>(streams_.log, json_data, "console_module",
+                                  "enabled", enabled_, 0, 0, "");
+  validation::setValidValue<int>(streams_.log, json_data, "console_module",
+                                 "update_interval", update_interval_, 100,
+                                 10000, "");
 }
 
 Json cfg::ConsoleModule::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return Json({
-    {"enabled", enabled_},
-    {"update_interval", update_interval_}
-  });
+  return Json({{"enabled", enabled_}, {"update_interval", update_interval_}});
 }
 bool cfg::ServerModule::getEnabled() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
@@ -831,34 +598,16 @@ void cfg::ServerModule::setTcpSocketPort(int val) {
 
 void cfg::ServerModule::setFromJson(const Json &json_data) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  validation::setValidValue<bool>(
-        streams_.log,
-        json_data,
-        "server_module",
-        "enabled",
-        enabled_,
-        0,
-        0,
-        ""
-  );
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "server_module",
-        "tcp_socket_port",
-        tcp_socket_port_,
-        1024,
-        65535,
-        ""
-  );
+  validation::setValidValue<bool>(streams_.log, json_data, "server_module",
+                                  "enabled", enabled_, 0, 0, "");
+  validation::setValidValue<int>(streams_.log, json_data, "server_module",
+                                 "tcp_socket_port", tcp_socket_port_, 1024,
+                                 65535, "");
 }
 
 Json cfg::ServerModule::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return Json({
-    {"enabled", enabled_},
-    {"tcp_socket_port", tcp_socket_port_}
-  });
+  return Json({{"enabled", enabled_}, {"tcp_socket_port", tcp_socket_port_}});
 }
 bool cfg::SystemModule::getEnabled() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
@@ -882,34 +631,17 @@ void cfg::SystemModule::setSystemInfoPollRateMs(int val) {
 
 void cfg::SystemModule::setFromJson(const Json &json_data) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  validation::setValidValue<bool>(
-        streams_.log,
-        json_data,
-        "system_module",
-        "enabled",
-        enabled_,
-        0,
-        0,
-        ""
-  );
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "system_module",
-        "system_info_poll_rate_ms",
-        system_info_poll_rate_ms_,
-        100,
-        600000,
-        ""
-  );
+  validation::setValidValue<bool>(streams_.log, json_data, "system_module",
+                                  "enabled", enabled_, 0, 0, "");
+  validation::setValidValue<int>(streams_.log, json_data, "system_module",
+                                 "system_info_poll_rate_ms",
+                                 system_info_poll_rate_ms_, 100, 600000, "");
 }
 
 Json cfg::SystemModule::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return Json({
-    {"enabled", enabled_},
-    {"system_info_poll_rate_ms", system_info_poll_rate_ms_}
-  });
+  return Json({{"enabled", enabled_},
+               {"system_info_poll_rate_ms", system_info_poll_rate_ms_}});
 }
 bool cfg::Telemetry::getTelemetryEnabled() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
@@ -953,54 +685,27 @@ void cfg::Telemetry::setRadioType(cfg::gEnum::RadioType val) {
 
 void cfg::Telemetry::setFromJson(const Json &json_data) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  validation::setValidValue<bool>(
-        streams_.log,
-        json_data,
-        "telemetry",
-        "telemetry_enabled",
-        telemetry_enabled_,
-        0,
-        0,
-        ""
-  );
+  validation::setValidValue<bool>(streams_.log, json_data, "telemetry",
+                                  "telemetry_enabled", telemetry_enabled_, 0, 0,
+                                  "");
   validation::setValidValue<std::string>(
-        streams_.log,
-        json_data,
-        "telemetry",
-        "call_sign",
-        call_sign_,
-        3,
-        6,
-        "[a-zA-Z0-9]{1,3}[0-9][a-zA-Z0-9]{0,3}[a-zA-Z]"
-  );
-  validation::setValidValue<bool>(
-        streams_.log,
-        json_data,
-        "telemetry",
-        "data_link_enabled",
-        data_link_enabled_,
-        0,
-        0,
-        ""
-  );
+      streams_.log, json_data, "telemetry", "call_sign", call_sign_, 3, 6,
+      "[a-zA-Z0-9]{1,3}[0-9][a-zA-Z0-9]{0,3}[a-zA-Z]");
+  validation::setValidValue<bool>(streams_.log, json_data, "telemetry",
+                                  "data_link_enabled", data_link_enabled_, 0, 0,
+                                  "");
   validation::setValidEnum<cfg::gEnum::RadioType>(
-        streams_.log,
-        json_data,
-        "telemetry",
-        "radio_type",
-        radio_type_,
-        cfg::gEnum::K_STRING_TO_RADIO_TYPE_MAP
-  );
+      streams_.log, json_data, "telemetry", "radio_type", radio_type_,
+      cfg::gEnum::K_STRING_TO_RADIO_TYPE_MAP);
 }
 
 Json cfg::Telemetry::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return Json({
-    {"telemetry_enabled", telemetry_enabled_},
-    {"call_sign", call_sign_},
-    {"data_link_enabled", data_link_enabled_},
-    {"radio_type", cfg::gEnum::K_RADIO_TYPE_TO_STRING_MAP.at(radio_type_)}
-  });
+  return Json(
+      {{"telemetry_enabled", telemetry_enabled_},
+       {"call_sign", call_sign_},
+       {"data_link_enabled", data_link_enabled_},
+       {"radio_type", cfg::gEnum::K_RADIO_TYPE_TO_STRING_MAP.at(radio_type_)}});
 }
 bool cfg::TelemetryAprs::getPositionPackets() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
@@ -1114,131 +819,54 @@ void cfg::TelemetryAprs::setComment(std::string val) {
 
 void cfg::TelemetryAprs::setFromJson(const Json &json_data) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  validation::setValidValue<bool>(
-        streams_.log,
-        json_data,
-        "telemetry_aprs",
-        "position_packets",
-        position_packets_,
-        0,
-        0,
-        ""
-  );
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "telemetry_aprs",
-        "position_packet_interval",
-        position_packet_interval_,
-        10,
-        3600,
-        ""
-  );
-  validation::setValidValue<bool>(
-        streams_.log,
-        json_data,
-        "telemetry_aprs",
-        "telemetry_packets",
-        telemetry_packets_,
-        0,
-        0,
-        ""
-  );
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "telemetry_aprs",
-        "telemetry_packet_interval",
-        telemetry_packet_interval_,
-        10,
-        3600,
-        ""
-  );
+  validation::setValidValue<bool>(streams_.log, json_data, "telemetry_aprs",
+                                  "position_packets", position_packets_, 0, 0,
+                                  "");
+  validation::setValidValue<int>(streams_.log, json_data, "telemetry_aprs",
+                                 "position_packet_interval",
+                                 position_packet_interval_, 10, 3600, "");
+  validation::setValidValue<bool>(streams_.log, json_data, "telemetry_aprs",
+                                  "telemetry_packets", telemetry_packets_, 0, 0,
+                                  "");
+  validation::setValidValue<int>(streams_.log, json_data, "telemetry_aprs",
+                                 "telemetry_packet_interval",
+                                 telemetry_packet_interval_, 10, 3600, "");
+  validation::setValidValue<std::string>(streams_.log, json_data,
+                                         "telemetry_aprs", "frequency",
+                                         frequency_, 8, 8, "[0-9]{3}.[0-9]{4}");
+  validation::setValidValue<int>(streams_.log, json_data, "telemetry_aprs",
+                                 "ssid", ssid_, 0, 15, "");
   validation::setValidValue<std::string>(
-        streams_.log,
-        json_data,
-        "telemetry_aprs",
-        "frequency",
-        frequency_,
-        8,
-        8,
-        "[0-9]{3}.[0-9]{4}"
-  );
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "telemetry_aprs",
-        "ssid",
-        ssid_,
-        0,
-        15,
-        ""
-  );
-  validation::setValidValue<std::string>(
-        streams_.log,
-        json_data,
-        "telemetry_aprs",
-        "destination_address",
-        destination_address_,
-        3,
-        6,
-        ""
-  );
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "telemetry_aprs",
-        "destination_ssid",
-        destination_ssid_,
-        0,
-        15,
-        ""
-  );
+      streams_.log, json_data, "telemetry_aprs", "destination_address",
+      destination_address_, 3, 6, "");
+  validation::setValidValue<int>(streams_.log, json_data, "telemetry_aprs",
+                                 "destination_ssid", destination_ssid_, 0, 15,
+                                 "");
   validation::setValidEnum<cfg::gEnum::AprsSymbolTable>(
-        streams_.log,
-        json_data,
-        "telemetry_aprs",
-        "symbol_table",
-        symbol_table_,
-        cfg::gEnum::K_STRING_TO_APRS_SYMBOL_TABLE_MAP
-  );
+      streams_.log, json_data, "telemetry_aprs", "symbol_table", symbol_table_,
+      cfg::gEnum::K_STRING_TO_APRS_SYMBOL_TABLE_MAP);
   validation::setValidValue<std::string>(
-        streams_.log,
-        json_data,
-        "telemetry_aprs",
-        "symbol",
-        symbol_,
-        1,
-        1,
-        ""
-  );
-  validation::setValidValue<std::string>(
-        streams_.log,
-        json_data,
-        "telemetry_aprs",
-        "comment",
-        comment_,
-        0,
-        43,
-        ""
-  );
+      streams_.log, json_data, "telemetry_aprs", "symbol", symbol_, 1, 1, "");
+  validation::setValidValue<std::string>(streams_.log, json_data,
+                                         "telemetry_aprs", "comment", comment_,
+                                         0, 43, "");
 }
 
 Json cfg::TelemetryAprs::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return Json({
-    {"position_packets", position_packets_},
-    {"position_packet_interval", position_packet_interval_},
-    {"telemetry_packets", telemetry_packets_},
-    {"telemetry_packet_interval", telemetry_packet_interval_},
-    {"frequency", frequency_},
-    {"ssid", ssid_},
-    {"destination_address", destination_address_},
-    {"destination_ssid", destination_ssid_},
-    {"symbol_table", cfg::gEnum::K_APRS_SYMBOL_TABLE_TO_STRING_MAP.at(symbol_table_)},
-    {"symbol", symbol_},
-    {"comment", comment_}
-  });
+  return Json(
+      {{"position_packets", position_packets_},
+       {"position_packet_interval", position_packet_interval_},
+       {"telemetry_packets", telemetry_packets_},
+       {"telemetry_packet_interval", telemetry_packet_interval_},
+       {"frequency", frequency_},
+       {"ssid", ssid_},
+       {"destination_address", destination_address_},
+       {"destination_ssid", destination_ssid_},
+       {"symbol_table",
+        cfg::gEnum::K_APRS_SYMBOL_TABLE_TO_STRING_MAP.at(symbol_table_)},
+       {"symbol", symbol_},
+       {"comment", comment_}});
 }
 bool cfg::TelemetrySstv::getEnabled() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
@@ -1282,54 +910,24 @@ void cfg::TelemetrySstv::setOverlayData(bool val) {
 
 void cfg::TelemetrySstv::setFromJson(const Json &json_data) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  validation::setValidValue<bool>(
-        streams_.log,
-        json_data,
-        "telemetry_sstv",
-        "enabled",
-        enabled_,
-        0,
-        0,
-        ""
-  );
-  validation::setValidValue<std::string>(
-        streams_.log,
-        json_data,
-        "telemetry_sstv",
-        "frequency",
-        frequency_,
-        8,
-        8,
-        "[0-9]{3}.[0-9]{4}"
-  );
+  validation::setValidValue<bool>(streams_.log, json_data, "telemetry_sstv",
+                                  "enabled", enabled_, 0, 0, "");
+  validation::setValidValue<std::string>(streams_.log, json_data,
+                                         "telemetry_sstv", "frequency",
+                                         frequency_, 8, 8, "[0-9]{3}.[0-9]{4}");
   validation::setValidEnum<cfg::gEnum::SstvMode>(
-        streams_.log,
-        json_data,
-        "telemetry_sstv",
-        "mode",
-        mode_,
-        cfg::gEnum::K_STRING_TO_SSTV_MODE_MAP
-  );
-  validation::setValidValue<bool>(
-        streams_.log,
-        json_data,
-        "telemetry_sstv",
-        "overlay_data",
-        overlay_data_,
-        0,
-        0,
-        ""
-  );
+      streams_.log, json_data, "telemetry_sstv", "mode", mode_,
+      cfg::gEnum::K_STRING_TO_SSTV_MODE_MAP);
+  validation::setValidValue<bool>(streams_.log, json_data, "telemetry_sstv",
+                                  "overlay_data", overlay_data_, 0, 0, "");
 }
 
 Json cfg::TelemetrySstv::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return Json({
-    {"enabled", enabled_},
-    {"frequency", frequency_},
-    {"mode", cfg::gEnum::K_SSTV_MODE_TO_STRING_MAP.at(mode_)},
-    {"overlay_data", overlay_data_}
-  });
+  return Json({{"enabled", enabled_},
+               {"frequency", frequency_},
+               {"mode", cfg::gEnum::K_SSTV_MODE_TO_STRING_MAP.at(mode_)},
+               {"overlay_data", overlay_data_}});
 }
 bool cfg::TelemetryDataPackets::getEnabled() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
@@ -1383,65 +981,31 @@ void cfg::TelemetryDataPackets::setComment(std::string val) {
 
 void cfg::TelemetryDataPackets::setFromJson(const Json &json_data) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  validation::setValidValue<bool>(
-        streams_.log,
-        json_data,
-        "telemetry_data_packets",
-        "enabled",
-        enabled_,
-        0,
-        0,
-        ""
-  );
-  validation::setValidValue<std::string>(
-        streams_.log,
-        json_data,
-        "telemetry_data_packets",
-        "frequency",
-        frequency_,
-        8,
-        8,
-        "[0-9]{3}.[0-9]{4}"
-  );
+  validation::setValidValue<bool>(streams_.log, json_data,
+                                  "telemetry_data_packets", "enabled", enabled_,
+                                  0, 0, "");
+  validation::setValidValue<std::string>(streams_.log, json_data,
+                                         "telemetry_data_packets", "frequency",
+                                         frequency_, 8, 8, "[0-9]{3}.[0-9]{4}");
   validation::setValidEnum<cfg::gEnum::DataPacketsMode>(
-        streams_.log,
-        json_data,
-        "telemetry_data_packets",
-        "mode",
-        mode_,
-        cfg::gEnum::K_STRING_TO_DATA_PACKETS_MODE_MAP
-  );
-  validation::setValidValue<bool>(
-        streams_.log,
-        json_data,
-        "telemetry_data_packets",
-        "morse_call_sign",
-        morse_call_sign_,
-        0,
-        0,
-        ""
-  );
-  validation::setValidValue<std::string>(
-        streams_.log,
-        json_data,
-        "telemetry_data_packets",
-        "comment",
-        comment_,
-        0,
-        200,
-        ""
-  );
+      streams_.log, json_data, "telemetry_data_packets", "mode", mode_,
+      cfg::gEnum::K_STRING_TO_DATA_PACKETS_MODE_MAP);
+  validation::setValidValue<bool>(streams_.log, json_data,
+                                  "telemetry_data_packets", "morse_call_sign",
+                                  morse_call_sign_, 0, 0, "");
+  validation::setValidValue<std::string>(streams_.log, json_data,
+                                         "telemetry_data_packets", "comment",
+                                         comment_, 0, 200, "");
 }
 
 Json cfg::TelemetryDataPackets::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return Json({
-    {"enabled", enabled_},
-    {"frequency", frequency_},
-    {"mode", cfg::gEnum::K_DATA_PACKETS_MODE_TO_STRING_MAP.at(mode_)},
-    {"morse_call_sign", morse_call_sign_},
-    {"comment", comment_}
-  });
+  return Json(
+      {{"enabled", enabled_},
+       {"frequency", frequency_},
+       {"mode", cfg::gEnum::K_DATA_PACKETS_MODE_TO_STRING_MAP.at(mode_)},
+       {"morse_call_sign", morse_call_sign_},
+       {"comment", comment_}});
 }
 int cfg::ExtensionModule::getStatusPollingRate() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
@@ -1495,67 +1059,30 @@ void cfg::ExtensionModule::setMaxStartupAttempts(int val) {
 
 void cfg::ExtensionModule::setFromJson(const Json &json_data) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "extension_module",
-        "status_polling_rate",
-        status_polling_rate_,
-        100,
-        60000,
-        ""
-  );
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "extension_module",
-        "max_restart_attempts",
-        max_restart_attempts_,
-        1,
-        10,
-        ""
-  );
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "extension_module",
-        "restart_delay_minimum",
-        restart_delay_minimum_,
-        500,
-        60000,
-        ""
-  );
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "extension_module",
-        "start_timeout",
-        start_timeout_,
-        500,
-        60000,
-        ""
-  );
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "extension_module",
-        "max_startup_attempts",
-        max_startup_attempts_,
-        1,
-        10,
-        ""
-  );
+  validation::setValidValue<int>(streams_.log, json_data, "extension_module",
+                                 "status_polling_rate", status_polling_rate_,
+                                 100, 60000, "");
+  validation::setValidValue<int>(streams_.log, json_data, "extension_module",
+                                 "max_restart_attempts", max_restart_attempts_,
+                                 1, 10, "");
+  validation::setValidValue<int>(streams_.log, json_data, "extension_module",
+                                 "restart_delay_minimum",
+                                 restart_delay_minimum_, 500, 60000, "");
+  validation::setValidValue<int>(streams_.log, json_data, "extension_module",
+                                 "start_timeout", start_timeout_, 500, 60000,
+                                 "");
+  validation::setValidValue<int>(streams_.log, json_data, "extension_module",
+                                 "max_startup_attempts", max_startup_attempts_,
+                                 1, 10, "");
 }
 
 Json cfg::ExtensionModule::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return Json({
-    {"status_polling_rate", status_polling_rate_},
-    {"max_restart_attempts", max_restart_attempts_},
-    {"restart_delay_minimum", restart_delay_minimum_},
-    {"start_timeout", start_timeout_},
-    {"max_startup_attempts", max_startup_attempts_}
-  });
+  return Json({{"status_polling_rate", status_polling_rate_},
+               {"max_restart_attempts", max_restart_attempts_},
+               {"restart_delay_minimum", restart_delay_minimum_},
+               {"start_timeout", start_timeout_},
+               {"max_startup_attempts", max_startup_attempts_}});
 }
 cfg::gEnum::I2CBus cfg::HardwareInterface::getI2CBus() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
@@ -1570,20 +1097,13 @@ void cfg::HardwareInterface::setI2CBus(cfg::gEnum::I2CBus val) {
 void cfg::HardwareInterface::setFromJson(const Json &json_data) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
   validation::setValidEnum<cfg::gEnum::I2CBus>(
-        streams_.log,
-        json_data,
-        "hardware_interface",
-        "i2c_bus",
-        i2c_bus_,
-        cfg::gEnum::K_STRING_TO_I2C_BUS_MAP
-  );
+      streams_.log, json_data, "hardware_interface", "i2c_bus", i2c_bus_,
+      cfg::gEnum::K_STRING_TO_I2C_BUS_MAP);
 }
 
 Json cfg::HardwareInterface::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return Json({
-    {"i2c_bus", cfg::gEnum::K_I2C_BUS_TO_STRING_MAP.at(i2c_bus_)}
-  });
+  return Json({{"i2c_bus", cfg::gEnum::K_I2C_BUS_TO_STRING_MAP.at(i2c_bus_)}});
 }
 int cfg::Battery::getVoltageMaxMv() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
@@ -1607,67 +1127,49 @@ void cfg::Battery::setVoltageMinMv(int val) {
 
 void cfg::Battery::setFromJson(const Json &json_data) {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "battery",
-        "voltage_max_mv",
-        voltage_max_mv_,
-        1000,
-        20000,
-        ""
-  );
-  validation::setValidValue<int>(
-        streams_.log,
-        json_data,
-        "battery",
-        "voltage_min_mv",
-        voltage_min_mv_,
-        1000,
-        20000,
-        ""
-  );
+  validation::setValidValue<int>(streams_.log, json_data, "battery",
+                                 "voltage_max_mv", voltage_max_mv_, 1000, 20000,
+                                 "");
+  validation::setValidValue<int>(streams_.log, json_data, "battery",
+                                 "voltage_min_mv", voltage_min_mv_, 1000, 20000,
+                                 "");
 }
 
 Json cfg::Battery::getJson() const {
   const std::lock_guard<std::mutex> lock(cfg_lock_);
-  return Json({
-    {"voltage_max_mv", voltage_max_mv_},
-    {"voltage_min_mv", voltage_min_mv_}
-  });
+  return Json({{"voltage_max_mv", voltage_max_mv_},
+               {"voltage_min_mv", voltage_min_mv_}});
 }
 
 void cfg::Configuration::getAllJson(Json &all_data) const {
-  all_data = {
-    {"general", general.getJson()}
-,    {"data_module_data", data_module_data.getJson()}
-,    {"data_module_influxdb", data_module_influxdb.getJson()}
-,    {"data_module_log", data_module_log.getJson()}
-,    {"console_module", console_module.getJson()}
-,    {"server_module", server_module.getJson()}
-,    {"system_module", system_module.getJson()}
-,    {"telemetry", telemetry.getJson()}
-,    {"telemetry_aprs", telemetry_aprs.getJson()}
-,    {"telemetry_sstv", telemetry_sstv.getJson()}
-,    {"telemetry_data_packets", telemetry_data_packets.getJson()}
-,    {"extensions", extensions.getJson()}
-,    {"adc_mappings", adc_mappings.getJson()}
-,    {"extension_module", extension_module.getJson()}
-,    {"hardware_interface", hardware_interface.getJson()}
-,    {"battery", battery.getJson()}
-  };
+  all_data = {{"general", general.getJson()},
+              {"data_module_data", data_module_data.getJson()},
+              {"data_module_influxdb", data_module_influxdb.getJson()},
+              {"data_module_log", data_module_log.getJson()},
+              {"console_module", console_module.getJson()},
+              {"server_module", server_module.getJson()},
+              {"system_module", system_module.getJson()},
+              {"telemetry", telemetry.getJson()},
+              {"telemetry_aprs", telemetry_aprs.getJson()},
+              {"telemetry_sstv", telemetry_sstv.getJson()},
+              {"telemetry_data_packets", telemetry_data_packets.getJson()},
+              {"extensions", extensions.getJson()},
+              {"adc_mappings", adc_mappings.getJson()},
+              {"extension_module", extension_module.getJson()},
+              {"hardware_interface", hardware_interface.getJson()},
+              {"battery", battery.getJson()}};
 }
-  
+
 void cfg::Configuration::save(std::string file_path) {
   const std::lock_guard<std::mutex> lock(file_lock_);
-  
+
   std::ofstream out(file_path);
-  
+
   if (out.fail()) {
     error(DiagnosticId::CONFIG_failedToSaveToPath, file_path);
     return;
   }
-  
+
   Json config_json;
   getAllJson(config_json);
 
@@ -1676,35 +1178,35 @@ void cfg::Configuration::save(std::string file_path) {
   out << data;
 }
 
-inline bool sectionExists(const Json &all_data, const std::string &section_key) {
+inline bool sectionExists(const Json &all_data,
+                          const std::string &section_key) {
   return all_data.contains(section_key);
 }
 
 void cfg::Configuration::load(std::string file_path) {
-  const std::lock_guard<std::mutex> lock(file_lock_);
-
   if (!std::filesystem::exists(file_path)) {
     save(file_path);
     if (!std::filesystem::exists(file_path)) {
-        error(DiagnosticId::CONFIG_configFileDoesNotExist, file_path);
-        return;
+      error(DiagnosticId::CONFIG_configFileDoesNotExist, file_path);
+      return;
     }
   }
+  const std::lock_guard<std::mutex> lock(file_lock_);
 
   std::ifstream in(file_path);
-  
+
   if (in.fail()) {
     error(DiagnosticId::CONFIG_failedToOpenConfig, file_path);
     return;
   }
-  
+
   Json parsed;
   try {
     parsed = Json::parse(in);
   } catch (Json::parse_error &e) {
     return;
   }
-  
+
   if (sectionExists(parsed, "general")) {
     general.setFromJson(parsed["general"]);
   } else {
@@ -1720,7 +1222,8 @@ void cfg::Configuration::load(std::string file_path) {
   if (sectionExists(parsed, "data_module_influxdb")) {
     data_module_influxdb.setFromJson(parsed["data_module_influxdb"]);
   } else {
-    error(DiagnosticId::CONFIG_failedToLoadSectionNotFound, "data_module_influxdb");
+    error(DiagnosticId::CONFIG_failedToLoadSectionNotFound,
+          "data_module_influxdb");
   }
 
   if (sectionExists(parsed, "data_module_log")) {
@@ -1768,7 +1271,8 @@ void cfg::Configuration::load(std::string file_path) {
   if (sectionExists(parsed, "telemetry_data_packets")) {
     telemetry_data_packets.setFromJson(parsed["telemetry_data_packets"]);
   } else {
-    error(DiagnosticId::CONFIG_failedToLoadSectionNotFound, "telemetry_data_packets");
+    error(DiagnosticId::CONFIG_failedToLoadSectionNotFound,
+          "telemetry_data_packets");
   }
 
   if (sectionExists(parsed, "extensions")) {
@@ -1792,7 +1296,8 @@ void cfg::Configuration::load(std::string file_path) {
   if (sectionExists(parsed, "hardware_interface")) {
     hardware_interface.setFromJson(parsed["hardware_interface"]);
   } else {
-    error(DiagnosticId::CONFIG_failedToLoadSectionNotFound, "hardware_interface");
+    error(DiagnosticId::CONFIG_failedToLoadSectionNotFound,
+          "hardware_interface");
   }
 
   if (sectionExists(parsed, "battery")) {
@@ -1800,9 +1305,7 @@ void cfg::Configuration::load(std::string file_path) {
   } else {
     error(DiagnosticId::CONFIG_failedToLoadSectionNotFound, "battery");
   }
-
 }
-
 
 /**
  * @endverbatim
