@@ -253,6 +253,17 @@ module.exports = class LocationData {
     });
   }
 
+  invalidateLaunchPosition() {
+    this.launch_position.valid = false;
+    this.global_state.ggs_db.setKey(
+      "settings",
+      "ggs_settings",
+      "launch_position_set",
+      false, // set/valid flag to false
+      true // save immediately
+    );
+  }
+
   setLaunchPosition(position_data) {
     const required_fields = ["latitude", "longitude", "altitude"];
 

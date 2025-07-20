@@ -29,6 +29,8 @@ const MAIN_SERVICES = {
   gdl: "UNKNOWN",
   gfs: "UNKNOWN",
   aprs_is: "UNKNOWN",
+  telemetry_downlink: "UNKNOWN",
+  telemetry_uplink: "UNKNOWN",
   // fsa: "UNKNOWN",
 };
 
@@ -40,6 +42,14 @@ const SERVICE_METADATA = {
   gfs: {
     label: "GFS TCP",
     name: "Giraffe Flight Server TCP Connection",
+  },
+  telemetry_downlink: {
+    label: "GDL DLink",
+    name: "Telemetry Downlink Connection",
+  },
+  telemetry_uplink: {
+    label: "GDL ULink",
+    name: "Telemetry Uplink Connection",
   },
   aprs_is: {
     label: "APRS-IS",

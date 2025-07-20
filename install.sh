@@ -5,7 +5,7 @@ set -e
 
 # gcli install directory
 INSTALL_DIR="/usr/bin"
-GCLI_DATA_DIR="$HOME/.giraffe/agent/software"
+GCLI_DATA_DIR="$HOME/giraffe/agent/software"
 
 # Must be a valid CMake configuration and build preset
 CMAKE_PRESET="host"

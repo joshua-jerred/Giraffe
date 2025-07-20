@@ -308,6 +308,15 @@ export default function MissionMap() {
     1000
   );
 
+  // const location = useLocation();
+
+  // useEffect(() => {
+  //   if (location.hash === "#set-launch-position") {
+  //     setSelectingLaunchPosition(true);
+  //     setStatusText("Select the Launch Position");
+  //   }
+  // }, [location]);
+
   // Effect for selecting launch position
   useEffect(() => {
     if (selectingLaunchPosition) {

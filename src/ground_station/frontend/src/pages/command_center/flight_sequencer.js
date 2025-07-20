@@ -77,7 +77,7 @@ function SequenceItem({
       }}
     >
       <Tooltip text={tooltip}>
-        {link ? (
+        {link && active_step ? (
           <a
             href={link}
             style={{
@@ -117,6 +117,7 @@ function SequenceItem({
 }
 
 function FlightSequencer() {
+  const { ggsAddress } = useContext(GwsGlobal);
   const {
     data: sequencerMetadataResponse,
     isLoading: isSequencerMetadataLoading,
@@ -216,6 +217,7 @@ function FlightSequencer() {
                   status={stepData.status || "null"}
                   active_step={activeStep === step}
                   user_input={stepMetadata.user_input || null}
+                  link={stepMetadata.link ? stepMetadata.link : null}
                 />
               );
             })}
@@ -223,27 +225,45 @@ function FlightSequencer() {
         ))
       )}
 
-      <CollapsibleCardSection
-        title="Recovery Sequence"
-        full_width_when_collapsed={true}
+      <CardBreak />
+      <div
         style={{
-          opacity: flightPhase === "recovery" ? 1 : 0.5,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
-        <SequenceItem
-          name="Reset Flight Phase to Pre-Launch"
-          complete={false}
-          // action_item={{
-          //   visible:
-          //     flightPhase !== "ascent" &&
-          //     flightPhase !== "descent" &&
-          //     flightPhase !== "pre-flight",
-          //   enabled: true,
-          //   name: "Enter Pre-Launch Mode",
-          //   action: "epp",
-          // }}
-        />
-      </CollapsibleCardSection>
+        {flightPhase === "prelaunch" && (
+          <StyNeutralButton
+            style={
+              {
+                // opacity: active_step ? 1 : 0.5,
+                // cursor: active_step ? "pointer" : "not-allowed",
+              }
+            }
+            onClick={() => {
+              fetch(ggsAddress + "/api/flight_data/sequencer", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  action: "reset_sequencer",
+                }),
+              })
+                .then((response) => response.json())
+                .then((response) => {
+                  console.log("User input action performed:", response);
+                })
+                .catch((error) => {
+                  console.error("Error performing user input action:", error);
+                });
+            }}
+          >
+            Reset Sequencer
+          </StyNeutralButton>
+        )}
+      </div>
     </Card>
   );
 }

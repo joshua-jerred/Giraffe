@@ -22,6 +22,7 @@ const SEQUENCE_STEPS = {
       set_launch_position: {
         title: "Set Launch Position",
         description: "Set the launch position for the flight",
+        link: "/ggs/command-center#set-launch-position",
       },
       gdl_connection: {
         title: "GDL Connected",
@@ -152,6 +153,9 @@ module.exports = class Sequencer {
       return;
     }
 
+    // Invalidate the launch position
+    this.global_state.flight_data.location_data.invalidateLaunchPosition();
+
     // Generate a unique run ID for this sequence
     Database.models.SequencerStep.findOne({
       order: [["id", "DESC"]],
@@ -178,6 +182,38 @@ module.exports = class Sequencer {
       });
   }
 
+  #deinitializeSequencer() {
+    if (!this.sequencer_initialized) {
+      console.warn("Sequencer is not initialized, nothing to deinitialize.");
+      return;
+    }
+
+    this.sequencer_initialized = false;
+    this.current_phase = "unknown";
+
+    // Reset all steps to their initial state
+    for (const step in this.sequence) {
+      this.sequence[step] = {
+        ...STEP_INIT_STATUS,
+      };
+    }
+    this.current_step = "initialize_sequencer";
+    this.#setStepStatus(this.current_step, "waiting");
+
+    // Report the reset to the database
+    Database.models.SequencerStep.create({
+      sequencer_run_id: this.sequencer_run_id,
+      step_label: "reset_flight_phase_to_prelaunch",
+      status: "deinitialized",
+    })
+      .then(() => {
+        // no action
+      })
+      .catch((error) => {
+        console.error("Error saving deinitialization:", error);
+      });
+  }
+
   getSequenceMetadata() {
     return SEQUENCE_STEPS;
   }
@@ -191,21 +227,26 @@ module.exports = class Sequencer {
   }
 
   handlePostRequest(req, res) {
-    if (!req.body.hasOwnProperty("step_label")) {
-      genericResponse(res, 400, "step_label is required.");
-      return;
-    }
-
-    const stepLabel = req.body.step_label;
-    this.#doSequenceStep(
-      stepLabel,
-      () => {
-        genericResponse(res, 200, "Step executed successfully.");
-      },
-      (error) => {
-        genericResponse(res, 500, `Failed to execute step: ${error}`);
+    if (req.body.hasOwnProperty("step_label")) {
+      const stepLabel = req.body.step_label;
+      this.#doSequenceStep(
+        stepLabel,
+        () => {
+          genericResponse(res, 200, "Step executed successfully.");
+        },
+        (error) => {
+          genericResponse(res, 500, `Failed to execute step: ${error}`);
+        }
+      );
+    } else if (req.body.hasOwnProperty("action")) {
+      const action = req.body.action;
+      if (action === "reset_sequencer") {
+        this.#deinitializeSequencer();
+        genericResponse(res, 200, "Sequencer reset successfully.");
       }
-    );
+    } else {
+      genericResponse(res, 400, "invalid sequencer post request.");
+    }
   }
 
   #doSequenceStep(step, onSuccess, onFailure) {
@@ -261,7 +302,7 @@ module.exports = class Sequencer {
       return;
     }
     const stepKeys = Object.keys(steps);
-    console.log(`Current phase: ${phase}, steps:`, stepKeys);
+    // console.log(`Current phase: ${phase}, steps:`, stepKeys);
     const currentIndex = stepKeys.indexOf(step);
     if (currentIndex === -1 || currentIndex === stepKeys.length - 1) {
       console.warn(
@@ -315,11 +356,52 @@ module.exports = class Sequencer {
       return;
     }
 
+    // Wait for a GFS connection
     if (step === "prelaunch_connect_to_gfs") {
       const gfs_status = this.global_state.getStatus().gfs;
       if (gfs_status === "connected") {
         this.#completeStep(step, "complete");
       }
+    }
+
+    if (step === "set_launch_position") {
+      // Check if the launch position is set
+      const launchPosition =
+        this.global_state.flight_data.getData("location").launch_position;
+      if (launchPosition.valid) {
+        this.#completeStep(step, "complete");
+      }
+    }
+
+    if (step === "gdl_connection") {
+      const gdl_status = this.global_state.getStatus().gdl;
+      if (gdl_status === "disconnected") {
+        this.#setStepStatus(step, "gdl server down");
+        return;
+      }
+
+      if (gdl_status !== "connected") {
+        this.#setStepStatus(step, "waiting for gdl connection");
+        return;
+      }
+
+      const downlink_status = this.global_state
+        .getStatus()
+        .telemetry_downlink.toLowerCase();
+      if (downlink_status !== "connected") {
+        this.#setStepStatus(step, "waiting for downlink connection");
+        return;
+      }
+
+      const uplink_status = this.global_state
+        .getStatus()
+        .telemetry_uplink.toLowerCase();
+      if (uplink_status !== "connected") {
+        this.#setStepStatus(step, "waiting for uplink connection");
+        return;
+      }
+
+      this.#completeStep(step, "complete");
     }
   }
 

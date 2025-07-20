@@ -39,7 +39,7 @@ services:
     platform: linux/x86_64
     image: mysql:5.7
     volumes:
-      - ~/.giraffe/ggs_db/mysql:/var/lib/mysql
+      - ~/giraffe/ggs_db/mysql:/var/lib/mysql
     restart: always
     ports:
       - "3306:3306"
