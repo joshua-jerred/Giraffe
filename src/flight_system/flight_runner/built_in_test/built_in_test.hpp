@@ -121,7 +121,7 @@ public:
       result = test_case::runTestIMU_0900(shared_data_);
       break;
     case TestId::ADC_InstalledTest:
-      result = test_case::runTestADC_0a00(shared_data_);
+      result = test_case::runTestADC_0A00(shared_data_);
       break;
     default:
       result = {.test_id = test_id_,
