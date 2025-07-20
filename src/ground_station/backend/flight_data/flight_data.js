@@ -68,7 +68,7 @@ module.exports = class FlightData {
     } else if (category === "extensions") {
       return this.extension_data;
     } else {
-      console.log("Error: Invalid category in FlightData.getData()");
+      console.log("Error: Invalid category in FlightData.getData - ", category);
     }
   }
 

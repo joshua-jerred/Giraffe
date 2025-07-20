@@ -403,6 +403,33 @@ module.exports = class Sequencer {
 
       this.#completeStep(step, "complete");
     }
+
+    if (step === "start_mission_clock") {
+      const clock = this.global_state.flight_data.mission_clock;
+      const is_running = clock.getIsRunning();
+      // const elapsed_time = clock.getElapsedTime();
+      if (!is_running) {
+        this.#setStepStatus(step, "waiting clock start");
+        return;
+      }
+      this.#completeStep(step, "complete");
+    }
+
+    if (step === "pass_bit_test") {
+      // Check if the BIT test has passed
+      const bit_status =
+        this.global_state.flight_data.bit_test.getBitTestStatus();
+      // console.log("Bit test passed:", bit_test_passed);
+      if (bit_status === "PASS") {
+        this.#completeStep(step, "complete");
+      } else if (bit_status === "FAIL") {
+        this.#setStepStatus(step, "bit test failed");
+      } else if (bit_status === "N/R") {
+        this.#setStepStatus(step, "bit test not run");
+      } else {
+        this.#setStepStatus(step, "waiting for bit test");
+      }
+    }
   }
 
   cycle() {
