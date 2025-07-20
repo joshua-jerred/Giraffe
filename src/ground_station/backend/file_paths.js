@@ -2,7 +2,7 @@ const fs = require("fs");
 const os = require("os");
 
 const USER_DIR = os.homedir();
-const MAIN_DIR_NAME = ".giraffe";
+const MAIN_DIR_NAME = "giraffe";
 const MAIN_DIR_PATH = USER_DIR + "/" + MAIN_DIR_NAME;
 
 const GGS_CONFIG_JSON = MAIN_DIR_PATH + "/ggs_config.json";

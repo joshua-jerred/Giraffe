@@ -5,6 +5,7 @@ const sequelize = require("./sequelize_connection");
 require("./models/AprsPacket.model");
 require("./models/GroundStationLog.model");
 require("./models/LocationData.model");
+require("./models/SequencerStep.model");
 
 sequelize.sync().then(() => {
   Logger.debug("Database", "Database synced successfully");
@@ -28,6 +29,7 @@ module.exports = {
     AprsPacket: require("./models/AprsPacket.model"),
     GroundStationLog: require("./models/GroundStationLog.model")(sequelize),
     LocationData: require("./models/LocationData.model"),
+    SequencerStep: require("./models/SequencerStep.model"),
   },
   sequelize: sequelize,
 };
