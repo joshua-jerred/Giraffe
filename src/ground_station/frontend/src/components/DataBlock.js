@@ -127,18 +127,19 @@ function Item({ id, item_data, item_nested = false }) {
             marginLeft: "5%",
           }}
         >
-          {Object.entries(item_data.value).map(([key, value]) => (
-            <Item
-              key={key}
-              id={key}
-              item_data={{
-                name: `- ${key}`,
-                value: value,
-                description: "",
-              }}
-              item_nested={true}
-            />
-          ))}
+          {item_data.value &&
+            Object.entries(item_data.value).map(([key, value]) => (
+              <Item
+                key={key}
+                id={key}
+                item_data={{
+                  name: `- ${key}`,
+                  value: value,
+                  description: "",
+                }}
+                item_nested={true}
+              />
+            ))}
         </div>
       )}
     </>

@@ -87,6 +87,10 @@ module.exports = class LocationData {
     this.#loadFlightPathData();
   }
 
+  getFlightPosition() {
+    return this.flight_position;
+  }
+
   #loadLatestFlightLocationData() {
     return Database.models.LocationData.findOne({
       order: [["timestamp", "DESC"]],
@@ -159,7 +163,7 @@ module.exports = class LocationData {
         valid: true,
         archived: false,
       },
-      limit: 200,
+      limit: 400,
     })
       .then((location_data) => {
         this.flight_path_data = location_data.map((data) => ({
@@ -246,9 +250,15 @@ module.exports = class LocationData {
       latitude: location.latitude,
       longitude: location.longitude,
       altitude: location.altitude,
-      heading: location.heading || null,
-      horizontal_speed: location.horizontal_speed || null,
-      vertical_speed: location.vertical_speed || null,
+      heading: typeof location.heading == "number" ? location.heading : null,
+      horizontal_speed:
+        typeof location.horizontal_speed == "number"
+          ? location.horizontal_speed
+          : null,
+      vertical_speed:
+        typeof location.vertical_speed == "number"
+          ? location.vertical_speed
+          : null,
       additional_data: location.additional_data || null,
     });
   }
@@ -266,6 +276,10 @@ module.exports = class LocationData {
 
   setLaunchPosition(position_data) {
     const required_fields = ["latitude", "longitude", "altitude"];
+
+    console.warn(
+      "Setting launch position happens on both the ground station and the flight system. Fix this"
+    );
 
     for (const field of required_fields) {
       if (position_data[field] === undefined) {

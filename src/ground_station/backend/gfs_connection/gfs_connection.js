@@ -47,6 +47,7 @@ module.exports = class GfsConnection {
     this.setting_sync = new GfsSettingSync(global_state);
 
     this.recent_location_data = {};
+    this.last_valid_location_data_timestamp = "";
   }
 
   isConnected() {
@@ -129,6 +130,26 @@ module.exports = class GfsConnection {
       }
       this.recent_location_data =
         this.recent_location_data.last_valid_gps_frame;
+
+      const timestamp = this.recent_location_data.gps_utc_time;
+      if (this.last_valid_location_data_timestamp !== timestamp) {
+        this.last_valid_location_data_timestamp = timestamp;
+        const loc = this.recent_location_data;
+
+        this.global_state.flight_data.location_data.addNewLocationReport(
+          "gfs_tcp",
+          {
+            latitude: loc.latitude,
+            longitude: loc.longitude,
+            altitude: loc.altitude,
+            horizontal_speed: loc.horizontal_speed,
+            vertical_speed: loc.vertical_speed,
+            heading: loc.heading_of_motion,
+            additional_data: `gps utc time ${loc.gps_utc_time}`,
+          }
+        );
+      }
+      // console.log(this.recent_location_data);
     }
   }
 

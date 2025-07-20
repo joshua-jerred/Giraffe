@@ -27,6 +27,14 @@ module.exports = class FlightData {
       bit_test_status: "n/d",
       mission_clock_running: this.mission_clock.getIsRunning(),
       simulator_mode: false,
+      current_position: {
+        latitude: 0,
+        longitude: 0,
+        altitude: 0,
+        heading: 0,
+        horizontal_speed: 0,
+        vertical_speed: 0,
+      },
     };
 
     this.phase_prediction = {
@@ -79,6 +87,17 @@ module.exports = class FlightData {
     this.general.mission_clock_running = this.mission_clock.getIsRunning();
     this.location_data.cycle();
     this.sequencer.cycle();
+
+    const loc = this.location_data.getFlightPosition();
+    if (loc) {
+      this.general.current_position.valid = loc.valid;
+      this.general.current_position.latitude = loc.latitude;
+      this.general.current_position.longitude = loc.longitude;
+      this.general.current_position.altitude = loc.altitude;
+      this.general.current_position.heading = loc.heading;
+      this.general.current_position.horizontal_speed = loc.horizontal_speed;
+      this.general.current_position.vertical_speed = loc.vertical_speed;
+    }
   }
 
   // ################ GENERAL DATA ################
