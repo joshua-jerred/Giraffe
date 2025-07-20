@@ -15,7 +15,7 @@ const SEQUENCE_STEPS = {
           action: "initialize_sequencer",
         },
       },
-      prelaunch_connected_to_gfs: {
+      prelaunch_connect_to_gfs: {
         title: "Connect to GFS TCP",
         description: "Connect to the GFS TCP server",
       },
@@ -140,6 +140,7 @@ module.exports = class Sequencer {
         this.current_step = loaded_current_step;
         this.#setStepStatus(this.current_step, "waiting");
         this.sequencer_run_id = lastStep.sequencer_run_id;
+        this.sequencer_initialized = true;
       })
       .catch((error) => {
         console.error("Error loading last completed step:", error);

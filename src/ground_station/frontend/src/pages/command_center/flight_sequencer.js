@@ -190,9 +190,11 @@ function FlightSequencer() {
             key={phase}
             title={sequencerMetadata[phase].title}
             full_width_when_collapsed={true}
-            style={{
-              opacity: flightPhase === phase ? 1 : 0.5,
-            }}
+            style={
+              {
+                // opacity: flightPhase === phase ? 1 : 0.5,
+              }
+            }
           >
             {Object.keys(sequencerMetadata[phase].steps).map((step) => {
               const stepMetadata = sequencerMetadata[phase].steps[step];
