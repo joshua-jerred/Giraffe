@@ -105,6 +105,45 @@ module.exports = class Sequencer {
     this.current_step = null;
     this.sequencer_initialized = false;
     this.sequencer_run_id = null;
+
+    // Load the last completed step from the database
+    Database.models.SequencerStep.findOne({
+      order: [["id", "DESC"]],
+    })
+      .then((lastStep) => {
+        if (!lastStep) {
+          return;
+        }
+
+        if (lastStep.step_label === "reset_flight_phase_to_prelaunch") {
+          return; // Do not reset the sequencer if the last step was a reset
+        }
+
+        // Set the current step and mark all previous steps as completed
+        const allSteps = this.#getStepList();
+        let loaded_current_step = this.#getNextStep(lastStep.step_label);
+        if (loaded_current_step === null) {
+          console.warn(
+            `No next step found for last completed step: ${lastStep.step_label}.`
+          );
+          return;
+        }
+
+        for (const step of allSteps) {
+          if (step === loaded_current_step) {
+            break; // Stop at the current step
+          }
+          this.sequence[step].completed = true;
+          this.sequence[step].status = "completed";
+        }
+
+        this.current_step = loaded_current_step;
+        this.#setStepStatus(this.current_step, "waiting");
+        this.sequencer_run_id = lastStep.sequencer_run_id;
+      })
+      .catch((error) => {
+        console.error("Error loading last completed step:", error);
+      });
   }
 
   #initializeSequencer(onSuccess, onFailure) {
@@ -130,9 +169,12 @@ module.exports = class Sequencer {
           this.sequencer_run_id
         );
         this.#completeStep("initialize_sequencer", "completed");
+        onSuccess();
       })
       .catch((error) => {
         console.error("Error initializing sequencer:", error);
+        this.sequencer_initialized = false;
+        onFailure(error.message);
       });
   }
 
@@ -230,6 +272,31 @@ module.exports = class Sequencer {
     }
     this.current_step = stepKeys[currentIndex + 1];
     this.#setStepStatus(this.current_step, "waiting");
+  }
+
+  #getNextStep(step) {
+    // Search through all phases for the next step
+    let allSteps = [];
+    for (const phase in SEQUENCE_STEPS) {
+      SEQUENCE_STEPS[phase].steps &&
+        allSteps.push(...Object.keys(SEQUENCE_STEPS[phase].steps));
+    }
+
+    const stepIndex = allSteps.indexOf(step);
+    if (stepIndex === -1 || stepIndex === allSteps.length - 1) {
+      console.warn(`Step ${step} is the last step or does not exist.`);
+      return null; // No next step
+    }
+    return allSteps[stepIndex + 1];
+  }
+
+  #getStepList() {
+    let allSteps = [];
+    for (const phase in SEQUENCE_STEPS) {
+      SEQUENCE_STEPS[phase].steps &&
+        allSteps.push(...Object.keys(SEQUENCE_STEPS[phase].steps));
+    }
+    return allSteps;
   }
 
   #setStepStatus(step, status) {

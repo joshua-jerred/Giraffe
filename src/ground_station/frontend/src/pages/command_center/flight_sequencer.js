@@ -91,7 +91,7 @@ function SequenceItem({
         ) : (
           <span
             style={{
-              opacity: active_step ? 1 : 0.5,
+              opacity: completed ? 0.5 : 1,
             }}
           >
             {name}
@@ -191,7 +191,7 @@ function FlightSequencer() {
             title={sequencerMetadata[phase].title}
             full_width_when_collapsed={true}
             style={{
-              opacity: flightPhase === "pre-launch" ? 1 : 0.5,
+              opacity: flightPhase === phase ? 1 : 0.5,
             }}
           >
             {Object.keys(sequencerMetadata[phase].steps).map((step) => {
