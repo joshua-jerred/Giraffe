@@ -60,7 +60,7 @@ function SequenceItemUserInput({ user_input, active_step }) {
 
 function SequenceItem({
   name,
-  completed,
+  complete,
   status,
   tooltip,
   link = null,
@@ -91,7 +91,7 @@ function SequenceItem({
         ) : (
           <span
             style={{
-              opacity: completed ? 0.5 : 1,
+              opacity: complete ? 0.5 : 1,
             }}
           >
             {name}
@@ -106,7 +106,7 @@ function SequenceItem({
       ) : (
         <span
           style={{
-            color: completed ? "green" : "grey",
+            color: complete ? "green" : "grey",
           }}
         >
           {status}
@@ -203,7 +203,7 @@ function FlightSequencer() {
                 sequenceData.hasOwnProperty(step)
                   ? sequenceData[step]
                   : {
-                      completed: false,
+                      complete: false,
                       status: "err data",
                     };
 
@@ -212,7 +212,7 @@ function FlightSequencer() {
                   key={step}
                   name={stepMetadata.title}
                   tooltip={stepMetadata.description || ""}
-                  completed={stepData.completed}
+                  complete={stepData.complete}
                   status={stepData.status || "null"}
                   active_step={activeStep === step}
                   user_input={stepMetadata.user_input || null}
@@ -232,7 +232,7 @@ function FlightSequencer() {
       >
         <SequenceItem
           name="Reset Flight Phase to Pre-Launch"
-          completed={false}
+          complete={false}
           // action_item={{
           //   visible:
           //     flightPhase !== "ascent" &&

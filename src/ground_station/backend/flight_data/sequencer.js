@@ -82,7 +82,7 @@ const SEQUENCE_STEPS = {
 };
 
 const STEP_INIT_STATUS = {
-  completed: false,
+  complete: false,
   status: "not started",
 };
 
@@ -106,7 +106,7 @@ module.exports = class Sequencer {
     this.sequencer_initialized = false;
     this.sequencer_run_id = null;
 
-    // Load the last completed step from the database
+    // Load the last complete step from the database
     Database.models.SequencerStep.findOne({
       order: [["id", "DESC"]],
     })
@@ -119,22 +119,21 @@ module.exports = class Sequencer {
           return; // Do not reset the sequencer if the last step was a reset
         }
 
-        // Set the current step and mark all previous steps as completed
+        // Set the current step and mark all previous steps as complete
         const allSteps = this.#getStepList();
         let loaded_current_step = this.#getNextStep(lastStep.step_label);
         if (loaded_current_step === null) {
           console.warn(
-            `No next step found for last completed step: ${lastStep.step_label}.`
+            `No next step found for last complete step: ${lastStep.step_label}.`
           );
           return;
         }
-
         for (const step of allSteps) {
           if (step === loaded_current_step) {
             break; // Stop at the current step
           }
-          this.sequence[step].completed = true;
-          this.sequence[step].status = "completed";
+          this.sequence[step].complete = true;
+          this.sequence[step].status = "complete";
         }
 
         this.current_step = loaded_current_step;
@@ -143,7 +142,7 @@ module.exports = class Sequencer {
         this.sequencer_initialized = true;
       })
       .catch((error) => {
-        console.error("Error loading last completed step:", error);
+        console.error("Error loading last complete step:", error);
       });
   }
 
@@ -169,7 +168,7 @@ module.exports = class Sequencer {
           "Sequencer initialized with run ID:",
           this.sequencer_run_id
         );
-        this.#completeStep("initialize_sequencer", "completed");
+        this.#completeStep("initialize_sequencer", "complete");
         onSuccess();
       })
       .catch((error) => {
@@ -232,14 +231,14 @@ module.exports = class Sequencer {
     return success;
   }
 
-  #completeStep(step, status = "completed") {
+  #completeStep(step, status = "complete") {
     if (!this.sequence.hasOwnProperty(step)) {
       console.warn(`Step ${step} does not exist in the sequence.`);
       return;
     }
 
     this.sequence[step].status = status;
-    this.sequence[step].completed = true;
+    this.sequence[step].complete = true;
 
     // Report the step completion to the database
     Database.models.SequencerStep.create({
@@ -308,6 +307,22 @@ module.exports = class Sequencer {
     }
   }
 
+  /// @brief Some steps are automatic, some require user input. This will
+  /// attempt to execute the automatic bits.
+  #attemptStep(step) {
+    if (!this.sequence.hasOwnProperty(step)) {
+      console.warn(`Step ${step} does not exist in the sequence.`);
+      return;
+    }
+
+    if (step === "prelaunch_connect_to_gfs") {
+      const gfs_status = this.global_state.getStatus().gfs;
+      if (gfs_status === "connected") {
+        this.#completeStep(step, "complete");
+      }
+    }
+  }
+
   cycle() {
     const generalData = this.global_state.flight_data.getData("general");
     this.current_phase = generalData.flight_phase
@@ -317,10 +332,8 @@ module.exports = class Sequencer {
     if (!this.sequencer_initialized) {
       this.current_step = "initialize_sequencer";
       this.#setStepStatus(this.current_step, "waiting");
+    } else {
+      this.#attemptStep(this.current_step);
     }
-  }
-
-  #checkPreLaunchSequence() {
-    console.log("Checking Pre-Launch Sequence");
   }
 };

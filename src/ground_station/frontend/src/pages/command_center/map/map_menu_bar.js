@@ -45,7 +45,11 @@ function MapMenuButton({
   disabled = false,
 }) {
   return (
-    <Tooltip text={tooltip_text}>
+    <Tooltip
+      text={tooltip_text}
+      style={{ zIndex: 1000 }}
+      horizontal_position="10%"
+    >
       <MapMenuButtonStyle
         onClick={() => {
           if (disabled) {
