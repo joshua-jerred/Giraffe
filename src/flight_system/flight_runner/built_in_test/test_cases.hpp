@@ -33,6 +33,17 @@ namespace test_case {
 /// @return TestResult - The result of the test.
 TestResult runTestFCS_0001(data::SharedData &shared_data);
 
+static inline TestResult runTestFCS_0002(data::SharedData &shared_data) {
+  TestResult result{.test_id = TestId::FCS_FlightPhasePredictorTest,
+                    .group_id = TestGroupId::FCS,
+                    .status = TestStatus::SKIPPED,
+                    .failure_reason = ""};
+  (void)shared_data;
+  /// @todo Make sure the flight phase predictor is working correctly
+
+  return result;
+};
+
 /// @brief Checks if the launch position is set correctly.
 /// @param shared_data - The shared data object.
 /// @return TestResult - The result of the test.
@@ -63,10 +74,101 @@ static inline TestResult runTestFCS_0003(data::SharedData &shared_data) {
 /// @return TestResult - The result of the test.
 TestResult runTestFCS_0004(data::SharedData &shared_data);
 
+static inline TestResult runTestSYS_0100(data::SharedData &shared_data) {
+  TestResult result{.test_id = TestId::SYS_DriveSpaceTest,
+                    .group_id = TestGroupId::SYS,
+                    .status = TestStatus::SKIPPED,
+                    .failure_reason = ""};
+  // @todo Implement the drive space test
+  (void)shared_data;
+
+  return result;
+};
+
+/// @brief Checks if the location data is configured correctly.
+/// @param shared_data - The shared data object.
+/// @return TestResult - The result of the test.
+static inline TestResult runTestDLNK_0200(data::SharedData &shared_data) {
+  TestResult result{.test_id = TestId::DLNK_ConfigLocationDataTest,
+                    .group_id = TestGroupId::DLNK,
+                    .status = TestStatus::SKIPPED,
+                    .failure_reason = ""};
+  // @todo Implement the location data test
+  (void)shared_data;
+
+  return result;
+};
+
 /// @brief Checks if GPS hardware is configured and running.
 /// @param shared_data - The shared data object.
 /// @return TestResult - The result of the test.
 TestResult runTestGPS_0400(data::SharedData &shared_data);
+
+static inline TestResult runTestBATT_0500(data::SharedData &shared_data) {
+  TestResult result{.test_id = TestId::BATT_AdcTest,
+                    .group_id = TestGroupId::BATT,
+                    .status = TestStatus::SKIPPED,
+                    .failure_reason = ""};
+  // @todo Implement the ADC test for the battery
+  (void)shared_data;
+
+  return result;
+};
+
+static inline TestResult runTestEXTN_0600(data::SharedData &shared_data) {
+  TestResult result{.test_id = TestId::EXTN_ExtensionsRunningTest,
+                    .group_id = TestGroupId::EXTN,
+                    .status = TestStatus::SKIPPED,
+                    .failure_reason = ""};
+  // @todo Implement the extensions running test
+  (void)shared_data;
+
+  return result;
+};
+
+static inline TestResult runTestENV_0700(data::SharedData &shared_data) {
+  TestResult result{.test_id = TestId::ENV_TemperatureTest,
+                    .group_id = TestGroupId::ENV,
+                    .status = TestStatus::SKIPPED,
+                    .failure_reason = ""};
+  // @todo Implement the temperature test
+  (void)shared_data;
+
+  return result;
+};
+
+static inline TestResult runTestCAM_0800(data::SharedData &shared_data) {
+  TestResult result{.test_id = TestId::CAM_InstalledTest,
+                    .group_id = TestGroupId::CAM,
+                    .status = TestStatus::SKIPPED,
+                    .failure_reason = ""};
+  // @todo Implement the camera installed test
+  (void)shared_data;
+
+  return result;
+};
+
+static inline TestResult runTestIMU_0900(data::SharedData &shared_data) {
+  TestResult result{.test_id = TestId::IMU_InstalledTest,
+                    .group_id = TestGroupId::IMU,
+                    .status = TestStatus::SKIPPED,
+                    .failure_reason = ""};
+  // @todo Implement the IMU installed test
+  (void)shared_data;
+
+  return result;
+};
+
+static inline TestResult runTestADC_0A00(data::SharedData &shared_data) {
+  TestResult result{.test_id = TestId::ADC_InstalledTest,
+                    .group_id = TestGroupId::ADC,
+                    .status = TestStatus::SKIPPED,
+                    .failure_reason = ""};
+  // @todo Implement the ADC installed test
+  (void)shared_data;
+
+  return result;
+};
 
 } // namespace test_case
 

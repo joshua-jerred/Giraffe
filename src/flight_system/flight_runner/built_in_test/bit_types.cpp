@@ -15,7 +15,7 @@
  *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
- * @date       2025-07-19
+ * @date       2025-07-20
  * @copyright  2023 (license to be defined)
  * =*=======================*=
  *
@@ -99,7 +99,7 @@ namespace bit {
     {TestId::FCS_FlightPhasePredictorTest, "FCS_FlightPhasePredictorTest"},
     {TestId::FCS_LaunchPositionTest, "FCS_LaunchPositionTest"},
     {TestId::FCS_DataModuleProcessingTest, "FCS_DataModuleProcessingTest"},
-    {TestId::SYS_ErrorTest, "SYS_ErrorTest"},
+    {TestId::SYS_DriveSpaceTest, "SYS_DriveSpaceTest"},
     {TestId::DLNK_ConfigLocationDataTest, "DLNK_ConfigLocationDataTest"},
     {TestId::GPS_InstalledTest, "GPS_InstalledTest"},
     {TestId::BATT_AdcTest, "BATT_AdcTest"},
@@ -116,7 +116,7 @@ namespace bit {
     case TestId::FCS_FlightPhasePredictorTest: return "FCS_FlightPhasePredictorTest";
     case TestId::FCS_LaunchPositionTest: return "FCS_LaunchPositionTest";
     case TestId::FCS_DataModuleProcessingTest: return "FCS_DataModuleProcessingTest";
-    case TestId::SYS_ErrorTest: return "SYS_ErrorTest";
+    case TestId::SYS_DriveSpaceTest: return "SYS_DriveSpaceTest";
     case TestId::DLNK_ConfigLocationDataTest: return "DLNK_ConfigLocationDataTest";
     case TestId::GPS_InstalledTest: return "GPS_InstalledTest";
     case TestId::BATT_AdcTest: return "BATT_AdcTest";
@@ -135,7 +135,7 @@ namespace bit {
 
 /**
  *
- * Generated on: 2025-07-19
+ * Generated on: 2025-07-20
  *
  * @endverbatim
  *

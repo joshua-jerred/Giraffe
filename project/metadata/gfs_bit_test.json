@@ -59,8 +59,8 @@
       "tests": [
         {
           "id": "0x0100",
-          "title": "error",
-          "description": "No reported errors from the flight software"
+          "title": "drive space",
+          "description": "Verifies that the system has enough drive space to operate"
         }
       ]
     },

@@ -15,7 +15,7 @@
  *
  * =*=======================*=
  * @author     Joshua Jerred (https://joshuajer.red)
- * @date       2025-07-19
+ * @date       2025-07-20
  * @copyright  2023 (license to be defined)
  * =*=======================*=
  *
@@ -66,7 +66,7 @@ namespace bit {
     FCS_FlightPhasePredictorTest = 0x0002,
     FCS_LaunchPositionTest = 0x0003,
     FCS_DataModuleProcessingTest = 0x0004,
-    SYS_ErrorTest = 0x0100,
+    SYS_DriveSpaceTest = 0x0100,
     DLNK_ConfigLocationDataTest = 0x0200,
     GPS_InstalledTest = 0x0400,
     BATT_AdcTest = 0x0500,
@@ -83,7 +83,7 @@ namespace bit {
 
 /**
  *
- * Generated on: 2025-07-19
+ * Generated on: 2025-07-20
  *
  * @endverbatim
  *
