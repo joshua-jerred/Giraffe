@@ -51,7 +51,7 @@ const StatusCard = styled.div`
 const StatusGrid = styled.div`
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(2, minmax(150px, 1fr));
+  grid-template-columns: repeat(1, minmax(200px, 1fr));
   // grid-auto-rows: 15px;
 `;
 
@@ -62,7 +62,7 @@ const BarItemStyle = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 10rem;
+  max-width: 18rem;
 `;
 
 const BarItemStatusStyle = styled.span`
@@ -90,7 +90,14 @@ const BarItemStatusStyle = styled.span`
   }};
 `;
 
-function StatusItem({ title, tooltip, status, noColor = false, onClick }) {
+function StatusItem({
+  title,
+  tooltip,
+  status,
+  secondStatus,
+  noColor = false,
+  onClick,
+}) {
   return (
     <Tooltip text={tooltip} vertical_position={"0%"} horizontal_position="60%">
       <BarItemStyle onClick={onClick}>
@@ -136,15 +143,15 @@ function StatusBar() {
             }
           />
           <StatusItem
-            title="MIS"
+            title="Z/MIS"
             tooltip={"Mission Clock"}
-            status={formattedTime}
+            status={currentUtcTime + "Z " + formattedTime}
             noColor={true}
             onClick={() => {
               setShowVerboseClock(!showVerboseClock);
             }}
           />
-          <StatusItem
+          {/* <StatusItem
             title="UTC"
             tooltip={"The current UTC time"}
             status={currentUtcTime}
@@ -152,47 +159,36 @@ function StatusBar() {
             onClick={() => {
               setShowVerboseClock(!showVerboseClock);
             }}
-          />
+          /> */}
           <StatusItem
-            title="ALT"
+            title="ALT V/S"
             tooltip={"The current altitude"}
             status={
               flightData.current_position &&
-              typeof flightData.current_position.altitude === "number"
+              (typeof flightData.current_position.altitude === "number"
                 ? `${flightData.current_position.altitude} m`
-                : "n/d"
+                : "n/d") +
+                " " +
+                (flightData.current_position &&
+                typeof flightData.current_position.vertical_speed === "number"
+                  ? `${flightData.current_position.vertical_speed} m/s`
+                  : "n/d")
             }
             noColor={true}
           />
           <StatusItem
-            title="V/S"
+            title="HDG H/S"
             tooltip={"The current horizontal speed"}
             status={
-              flightData.current_position &&
-              typeof flightData.current_position.vertical_speed === "number"
-                ? `${flightData.current_position.vertical_speed} m/s`
-                : "n/d"
-            }
-            noColor={true}
-          />
-          <StatusItem
-            title="H/S"
-            tooltip={"The current horizontal speed"}
-            status={
-              flightData.current_position &&
-              flightData.current_position.horizontal_speed
-                ? `${flightData.current_position.horizontal_speed} m/s`
-                : "n/d"
-            }
-            noColor={true}
-          />
-          <StatusItem
-            title="Hdg"
-            tooltip={"The current heading"}
-            status={
-              flightData.current_position && flightData.current_position.heading
+              (flightData.current_position &&
+              typeof flightData.current_position.heading === "number"
                 ? `${flightData.current_position.heading}°`
-                : "n/d"
+                : "n/d") +
+              " " +
+              (flightData.current_position &&
+              typeof flightData.current_position.horizontal_speed === "number"
+                ? `${flightData.current_position.horizontal_speed} m/s`
+                : "n/d")
             }
             noColor={true}
           />

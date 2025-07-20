@@ -187,6 +187,7 @@ export const GwsGlobalContextProvider = ({ children }) => {
         .then((response) => response.json())
         .then((json_data) => {
           // console.log("Flight data", json_data);
+          console.log("Flight data", json_data.values);
           setFlightData(json_data.values);
 
           if (json_data.values.hasOwnProperty("flight_phase")) {
